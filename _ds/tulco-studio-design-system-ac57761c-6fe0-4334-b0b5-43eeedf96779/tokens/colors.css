@@ -1,0 +1,63 @@
+/* ─────────────────────────────────────────────────────────
+   Tulco Studio — Colors
+   Système « structure » : un seul bleu porteur, encre froide,
+   gris bleutés (papier millimétré). Pas de seconde couleur.
+   Bleu Tulco #003EC7 = l'élément porteur (la poutre/étai).
+   ───────────────────────────────────────────────────────── */
+:root {
+  /* — Bleu porteur (primaire) — */
+  --tulco-blue: #003EC7;        /* la poutre : logo, actions, accents */
+  --tulco-blue-700: #0030A0;    /* hover / pressed (assombrit) */
+  --tulco-blue-600: #003EC7;
+  --tulco-blue-100: #D7E0F6;    /* fond léger, sélection */
+  --tulco-blue-50:  #EDF1FB;    /* surface teintée très claire */
+
+  /* — Encre (froide, presque ardoise) — */
+  --noir: #14171C;              /* texte principal, structures */
+  --noir-soft: #353B45;         /* texte secondaire */
+
+  /* — Neutres froids / bleutés (plan, blueprint) — */
+  --white: #FFFFFF;
+  --gray-50:  #F8F9FB;
+  --gray-100: #F1F3F7;          /* arrière-plans, papier */
+  --gray-200: #E1E5EC;          /* bordures (trait fin) */
+  --gray-300: #CBD1DB;
+  --gray-400: #98A1B0;          /* désactivé, placeholder */
+  --gray-500: #69727F;          /* texte tertiaire, labels mono */
+  --gray-700: #3A414C;
+
+  /* — Sémantique (états / preuves) — sobres, même profondeur que le bleu Tulco —
+     vert tiré vers le sarcelle, rouge tiré vers le carmin froid : la même famille. */
+  --success: #0E7B63;           /* gain, livré — vert-sarcelle profond */
+  --success-bg: #E3F1ED;
+  --warning: #9C7314;           /* ambre profond, retenu */
+  --warning-bg: #F3ECD8;
+  --danger:  #B12E44;           /* douleur, erreur — carmin froid */
+  --danger-bg: #F6E4E8;
+
+  /* ── Aliases sémantiques ── */
+  --bg-page: var(--white);
+  --bg-subtle: var(--gray-100);
+  --bg-grid: var(--gray-200);   /* trait de la trame millimétrée */
+  --bg-raised: var(--white);
+  --surface-card: var(--white);
+  --surface-tint: var(--tulco-blue-50);
+  --surface-ink: var(--noir);
+
+  --text-primary: var(--noir);
+  --text-secondary: var(--noir-soft);
+  --text-tertiary: var(--gray-500);
+  --text-disabled: var(--gray-400);
+  --text-on-blue: var(--white);
+  --text-on-ink: var(--white);
+  --text-link: var(--tulco-blue);
+
+  --border-default: var(--gray-200);
+  --border-strong: var(--gray-300);
+  --border-ink: var(--noir);
+  --border-focus: var(--tulco-blue);
+
+  --accent: var(--tulco-blue);
+  --accent-hover: var(--tulco-blue-700);
+  --accent-soft: var(--tulco-blue-100);
+}

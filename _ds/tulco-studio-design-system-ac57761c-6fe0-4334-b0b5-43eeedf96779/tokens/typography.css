@@ -1,0 +1,41 @@
+/* ─────────────────────────────────────────────────────────
+   Tulco Studio — Typography
+   Une seule famille : Switzer, du logo aux documents.
+   Semibold (600) titres + mot-symbole · Regular (400) texte.
+   ───────────────────────────────────────────────────────── */
+:root {
+  --font-sans: "Switzer", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Mono : labels techniques, eyebrows, données chiffrées (ETP, €, j/mois).
+     C'est la voix « plan / blueprint » de la marque. */
+  --font-mono: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+
+  /* Poids */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Échelle typographique (rem, base 16px) */
+  --text-xs:   0.75rem;   /* 12 */
+  --text-sm:   0.875rem;  /* 14 */
+  --text-base: 1rem;      /* 16 */
+  --text-md:   1.125rem;  /* 18 */
+  --text-lg:   1.375rem;  /* 22 */
+  --text-xl:   1.75rem;   /* 28 */
+  --text-2xl:  2.25rem;   /* 36 */
+  --text-3xl:  3rem;      /* 48 */
+  --text-4xl:  4rem;      /* 64 */
+  --text-5xl:  5.5rem;    /* 88 — display */
+
+  /* Hauteurs de ligne */
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Interlettrage — Switzer titres serrés, comme le logo */
+  --tracking-display: -0.04em;
+  --tracking-heading: -0.025em;
+  --tracking-normal: -0.01em;
+  --tracking-wide: 0.04em;     /* eyebrow / overline en majuscules */
+}

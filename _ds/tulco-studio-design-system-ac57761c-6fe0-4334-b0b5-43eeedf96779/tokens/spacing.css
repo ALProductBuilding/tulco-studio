@@ -1,0 +1,61 @@
+/* ─────────────────────────────────────────────────────────
+   Tulco Studio — Spacing, radii, shadows, motion
+   Système « structure » : angles vifs (jamais d'arrondi sur les
+   cartes), trame 4px, ombres quasi absentes — le trait porte.
+   ───────────────────────────────────────────────────────── */
+:root {
+  /* Espacement (base 4px) */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Rayons — ANGLES VIFS. Rien n'est arrondi : structure, précision.
+     md (2px) = adoucissement minimal des contrôles ; cartes = 0. */
+  --radius-xs: 0;
+  --radius-sm: 0;
+  --radius-md: 2px;    /* boutons, inputs — quasi droit */
+  --radius-lg: 0;      /* cartes — angle vif net */
+  --radius-xl: 0;      /* sections, modales */
+  --radius-card: 0;
+  --radius-full: 999px;/* réservé : pastille de statut, coche ronde */
+  --radius-app: 22%;   /* icône d'application (cf. app-icon) */
+
+  /* Trait — la bordure fait le travail de la structure */
+  --border-width: 1px;
+  --border-width-strong: 1.5px;
+  --rule-accent: 3px;  /* « poutre » bleue posée en tête de carte */
+
+  /* Ombres — quasi nulles. Le trait porte, pas l'ombre. */
+  --shadow-xs: 0 1px 1px rgba(20, 23, 28, 0.04);
+  --shadow-sm: 0 1px 2px rgba(20, 23, 28, 0.06);
+  --shadow-md: 0 2px 6px rgba(20, 23, 28, 0.07);
+  --shadow-lg: 0 8px 24px rgba(20, 23, 28, 0.10);
+  --shadow-focus: 0 0 0 3px var(--tulco-blue-100);
+
+  /* Trame millimétrée — fond « plan » réutilisable */
+  --grid-size: 24px;
+  --grid-bg: linear-gradient(var(--bg-grid) 1px, transparent 1px),
+             linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+
+  /* Conteneur */
+  --container-max: 1200px;
+  --container-prose: 680px;
+
+  /* Mouvement — sobre, mécanique, sans rebond */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);          /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);   /* @kind other */
+  --duration-fast: 110ms;                           /* @kind other */
+  --duration-base: 190ms;                           /* @kind other */
+  --duration-slow: 340ms;                           /* @kind other */
+}
