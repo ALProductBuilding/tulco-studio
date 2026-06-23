@@ -454,6 +454,12 @@ class Component extends DCLogic {
   }
 
   componentDidMount() {
+    // Deep link: #book or ?book opens the booking modal on load.
+    const params = new URLSearchParams(window.location.search);
+    if (window.location.hash === "#book" || params.has("book")) {
+      this.setState({ booking: true, iframeLoaded: false });
+    }
+
     // Réalisations: cards are user-scrollable; just fill the metric bars.
     document.querySelectorAll("#realisations [data-bar]").forEach((b) => { b.style.width = (b.dataset.bar || "100") + "%"; });
 
