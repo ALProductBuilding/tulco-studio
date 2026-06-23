@@ -1,4 +1,4 @@
-# Tulco Studio — Landing Page
+# Tulco Studio · Landing Page
 
 Landing page d'Antoine Luizet / Tulco Studio : logiciels métier sur-mesure pour PME.
 
@@ -8,11 +8,11 @@ Publiée via GitHub Pages : <https://alproductbuilding.github.io/tulco-studio/>
 
 ## Structure
 
-- `index.html` — la page (composants React via `support.js`, design system local).
-- `support.js` — runtime DC (charge React 18 depuis unpkg, monte `<x-dc>`).
-- `_ds/` — design system Tulco Studio (tokens, fonts, bundle JS, styles).
-- `assets/` — images utilisées dans la page (photo + logos clients).
-- `uploads/` — sources et brief de rédaction (`landing-tulco-studio.md`).
+- `index.html` : la page (composants React via `support.js`, design system local).
+- `support.js` : runtime DC (charge React 18 depuis unpkg, monte `<x-dc>`).
+- `_ds/` : design system Tulco Studio (tokens, fonts, bundle JS, styles).
+- `assets/` : images utilisées dans la page (photo, logos clients).
+- `uploads/` : sources et brief de rédaction (`landing-tulco-studio.md`).
 
 ## Lancer en local
 

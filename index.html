@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Tulco Studio — Logiciel sur-mesure pour PME</title>
+<title>Tulco Studio · Logiciel sur-mesure pour PME</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -518,7 +518,7 @@ class Component extends DCLogic {
       q: f.q,
       a: f.a,
       open: open === i,
-      sign: open === i ? "–" : "+",
+      sign: open === i ? "−" : "+",
       onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
     }));
 
