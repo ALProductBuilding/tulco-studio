@@ -417,28 +417,15 @@
   <!-- BOOKING MODAL -->
   <sc-if value="{{ booking }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ closeBooking }}" style="position: fixed; inset: 0; z-index: 60; background: rgba(20,23,28,0.5); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; padding: 20px;">
-      <div onClick="{{ stop }}" style="width: 100%; max-width: 460px; background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); padding: var(--space-8);">
-        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-          <div style="text-align: center; padding: 16px 0;">
-            <h3 style="margin: 0 0 8px; font-weight: 600; font-size: var(--text-xl); letter-spacing: var(--tracking-heading);">Demande envoyée</h3>
-            <p style="margin: 0 0 24px; font-size: var(--text-sm); color: var(--text-secondary);">Je reviens vers vous sous 48 h pour caler l'appel.</p>
-            <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" onClick="{{ closeBooking }}" hint-size="120px,40px">Fermer</x-import>
+      <div onClick="{{ stop }}" style="width: 100%; max-width: 900px; background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px var(--space-8); border-bottom: 1px solid var(--border-default);">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="blue" height="22" hint-size="140px,22px"></x-import>
+            <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Appel · 30 min</span>
           </div>
-        </sc-if>
-        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-          <form onSubmit="{{ submitBooking }}" style="display: flex; flex-direction: column; gap: 16px;">
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-              <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="blue" height="22" hint-size="140px,22px"></x-import>
-              <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Appel · 30 min</div>
-            </div>
-            <h3 style="margin: 4px 0 0; font-weight: 600; font-size: var(--text-xl); letter-spacing: var(--tracking-heading);">Réserver un appel de 30 min</h3>
-            <p style="margin: 0; font-size: var(--text-sm); line-height: 1.5; color: var(--text-secondary);">Sans engagement. Montrez-moi vos fichiers, je vous dis ce qu'on peut automatiser.</p>
-            <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Input" type="email" placeholder="vous@entreprise.com" required="{{ true }}" hint-size="100%,42px"></x-import>
-            <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Textarea" rows="3" placeholder="Où part votre temps aujourd'hui ?" hint-size="100%,80px"></x-import>
-            <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" type="submit" fullWidth="{{ true }}" hint-size="100%,50px">Demander un créneau</x-import>
-            <p style="margin: 0; font-size: 12px; color: var(--text-tertiary); text-align: center;">Réponse sous 48 h · 30 minutes, sans engagement.</p>
-          </form>
-        </sc-if>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="sm" onClick="{{ closeBooking }}" hint-size="90px,34px">Fermer</x-import>
+        </div>
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00sqO383mC39rGFkr1xcoauJcv_ydxmEFJxiT6LtLb6DaaxxCPXDL4lp3RcZ2oA-_1JN_Snr_l?gv=true" title="Réserver un appel avec Antoine Luizet" style="border: 0; display: block; width: 100%; height: min(620px, 75vh);" loading="lazy"></iframe>
       </div>
     </div>
   </sc-if>
@@ -447,7 +434,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showTrustBand&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showFaq&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { booking: false, sent: false, openFaq: 0 };
+  state = { booking: false, openFaq: 0 };
 
   jump(id) {
     const el = document.getElementById(id);
@@ -539,14 +526,11 @@ class Component extends DCLogic {
     return {
       marquee,
       booking: this.state.booking,
-      sent: this.state.sent,
-      notSent: !this.state.sent,
       showTrustBand: this.props.showTrustBand ?? true,
       showFaq: this.props.showFaq ?? true,
       faqs,
-      openBooking: () => this.setState({ booking: true, sent: false }),
+      openBooking: () => this.setState({ booking: true }),
       closeBooking: () => this.setState({ booking: false }),
-      submitBooking: (e) => { e.preventDefault(); this.setState({ sent: true }); },
       stop: (e) => e.stopPropagation(),
       jumpProbleme: () => this.jump("probleme"),
       jumpSolution: () => this.jump("solution"),
