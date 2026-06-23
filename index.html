@@ -19,11 +19,14 @@
   button { font-family: inherit; }
   @keyframes tulco-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   @keyframes tulco-rise { from { transform: translateY(20px); } to { transform: none; } }
+  @keyframes tulco-spin { to { transform: rotate(360deg); } }
   .tulco-marquee:hover .tulco-marquee-track { animation-play-state: paused; }
   .tulco-in { animation: tulco-rise 560ms cubic-bezier(0.2,0,0,1) forwards; }
+  .tulco-spinner { width: 28px; height: 28px; border: 2px solid var(--border-default); border-top-color: var(--accent); border-radius: 50%; animation: tulco-spin 0.8s linear infinite; }
   @media (prefers-reduced-motion: reduce) {
     .tulco-marquee-track { animation: none !important; }
     .tulco-in { animation: none !important; }
+    .tulco-spinner { animation: none !important; }
   }
   #realScroller { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.45) transparent; }
   #realScroller::-webkit-scrollbar { height: 8px; }
@@ -425,7 +428,16 @@
           </div>
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="sm" onClick="{{ closeBooking }}" hint-size="90px,34px">Fermer</x-import>
         </div>
-        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00sqO383mC39rGFkr1xcoauJcv_ydxmEFJxiT6LtLb6DaaxxCPXDL4lp3RcZ2oA-_1JN_Snr_l?gv=true" title="Réserver un appel avec Antoine Luizet" style="border: 0; display: block; width: 100%; height: min(620px, 75vh);" loading="lazy"></iframe>
+        <div style="position: relative; height: min(620px, 75vh); background: var(--bg-subtle);">
+          <sc-if value="{{ iframeNotLoaded }}" hint-placeholder-val="{{ true }}">
+            <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center;">
+              <div class="tulco-spinner" aria-hidden="true"></div>
+              <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Chargement du calendrier</div>
+              <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00sqO383mC39rGFkr1xcoauJcv_ydxmEFJxiT6LtLb6DaaxxCPXDL4lp3RcZ2oA-_1JN_Snr_l?gv=true" target="_blank" rel="noopener noreferrer" style="font-size: 13px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; margin-top: 4px;">Ouvrir dans un nouvel onglet</a>
+            </div>
+          </sc-if>
+          <iframe onLoad="{{ onIframeLoad }}" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00sqO383mC39rGFkr1xcoauJcv_ydxmEFJxiT6LtLb6DaaxxCPXDL4lp3RcZ2oA-_1JN_Snr_l?gv=true" title="Réserver un appel avec Antoine Luizet" style="border: 0; display: block; position: relative; width: 100%; height: 100%;"></iframe>
+        </div>
       </div>
     </div>
   </sc-if>
@@ -434,7 +446,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showTrustBand&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showFaq&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { booking: false, openFaq: 0 };
+  state = { booking: false, iframeLoaded: false, openFaq: 0 };
 
   jump(id) {
     const el = document.getElementById(id);
@@ -526,11 +538,13 @@ class Component extends DCLogic {
     return {
       marquee,
       booking: this.state.booking,
+      iframeNotLoaded: !this.state.iframeLoaded,
       showTrustBand: this.props.showTrustBand ?? true,
       showFaq: this.props.showFaq ?? true,
       faqs,
-      openBooking: () => this.setState({ booking: true }),
+      openBooking: () => this.setState({ booking: true, iframeLoaded: false }),
       closeBooking: () => this.setState({ booking: false }),
+      onIframeLoad: () => this.setState({ iframeLoaded: true }),
       stop: (e) => e.stopPropagation(),
       jumpProbleme: () => this.jump("probleme"),
       jumpSolution: () => this.jump("solution"),
