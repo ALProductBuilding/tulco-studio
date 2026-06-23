@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: "Switzer";
+    src: url("_ds/tulco-studio-design-system-ac57761c-6fe0-4334-b0b5-43eeedf96779/assets/fonts/Switzer-Variable.ttf") format("truetype");
+    font-weight: 100 900;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: "Switzer", system-ui, sans-serif;
+    color: #14171C;
+    background: #F1F3F7;
+    background-image:
+      linear-gradient(rgba(20,23,28,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20,23,28,0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    position: relative;
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .watermark {
+    position: absolute;
+    right: -100px;
+    bottom: -160px;
+    width: 640px;
+    height: 640px;
+    opacity: 0.06;
+    pointer-events: none;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; gap: 24px; position: relative; z-index: 1; }
+  .logo { display: flex; align-items: center; gap: 14px; }
+  .logo-mark { width: 44px; height: 44px; flex: none; }
+  .logo-text { font-size: 30px; letter-spacing: -0.6px; line-height: 1; }
+  .logo-text .strong { font-weight: 600; }
+  .logo-text .regular { font-weight: 400; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #003EC7;
+    font-weight: 600;
+  }
+  .headline {
+    font-size: 68px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    max-width: 1000px;
+    position: relative;
+    z-index: 1;
+  }
+  .headline .accent { color: #003EC7; }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .subtitle {
+    font-size: 22px;
+    color: #4B5563;
+    font-weight: 400;
+  }
+  .meta {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6B7280;
+  }
+</style>
+</head>
+<body>
+  <svg class="watermark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="22" width="60" height="14" rx="5" fill="#003EC7"/>
+    <path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#003EC7"/>
+  </svg>
+
+  <div class="header">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="22" width="60" height="14" rx="5" fill="#003EC7"/>
+        <path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#003EC7"/>
+      </svg>
+      <div class="logo-text"><span class="strong">Tulco</span><span class="regular"> Studio</span></div>
+    </div>
+    <div class="eyebrow">Logiciel sur-mesure · PME</div>
+  </div>
+
+  <div class="headline">
+    Vos équipes perdent des heures dans Excel. Je construis l'outil <span class="accent">sur-mesure</span> qui les leur rend.
+  </div>
+
+  <div class="footer">
+    <div class="subtitle">Antoine Luizet · tulcostudio.fr</div>
+    <div class="meta">30 min · sans engagement</div>
+  </div>
+</body>
+</html>
