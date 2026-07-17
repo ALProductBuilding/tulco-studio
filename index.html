@@ -51,6 +51,38 @@
     .why-intro { grid-template-columns: 1fr; gap: 28px; }
     .why-grid { grid-template-columns: 1fr; }
   }
+  .hero-stats {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: clamp(40px, 5vw, 60px);
+  }
+  .hero-stat { padding: 0 clamp(20px, 2.5vw, 34px); }
+  .hero-stat:first-child { padding-left: 0; }
+  .hero-stat:last-child { padding-right: 0; }
+  .hero-stat + .hero-stat { border-left: 1px solid var(--border-default); }
+  .hero-stat-value {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: clamp(19px, 3vw, 36px);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-stat-label {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  @media (max-width: 680px) {
+    .hero-stats { flex-direction: column; align-items: stretch; margin-top: clamp(32px, 8vw, 44px); }
+    .hero-stat, .hero-stat:first-child, .hero-stat:last-child { padding: 22px 0 0; }
+    .hero-stat:first-child { padding-top: 0; }
+    .hero-stat + .hero-stat { border-left: 0; border-top: 1px solid var(--border-default); }
+    .hero-stat-value { font-size: clamp(26px, 7vw, 32px); }
+  }
 </style>
 </helmet>
 <div style="font-family: var(--font-sans); color: var(--text-primary); background: var(--bg-page); min-height: 100%;">
@@ -81,8 +113,19 @@
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpRealisations }}" hint-size="200px,50px">Voir des exemples concrets</x-import>
         </div>
       </div>
-      <div style="margin-top: clamp(24px,3vw,36px); display: flex; justify-content: flex-end;">
-        <p style="margin: 0; max-width: 460px; text-align: right; font-family: var(--font-mono); font-weight: 600; font-size: clamp(18px,2.2vw,28px); text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.45; color: var(--text-tertiary);">Déjà <span style="color: var(--accent);">+ de 5 PME</span> accompagnées avec succès</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">−50&nbsp;% de temps</div>
+          <div class="hero-stat-label">sur les tâches répétitives</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">2x plus</div>
+          <div class="hero-stat-label">de dossiers traités</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">&lt;&nbsp;6&nbsp;mois</div>
+          <div class="hero-stat-label">pour rentabiliser l'outil</div>
+        </div>
       </div>
     </div>
   </section>
