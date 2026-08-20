@@ -81,26 +81,110 @@
     .hero-stat:first-child { padding-top: 0; }
     .hero-stat-value { font-size: clamp(26px, 7vw, 32px); }
   }
+  /* --- HEADER responsive --- */
+  .header-bar {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 14px clamp(20px, 5vw, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .nav-desktop { display: flex; align-items: center; gap: 22px; }
+  .nav-link {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+  }
+  .nav-burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-right: -8px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--border-default);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .nav-mobile {
+    border-top: 1px solid var(--border-default);
+    padding: 8px clamp(20px, 5vw, 64px) 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-mobile .nav-link {
+    font-size: 12px;
+    padding: 14px 0;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-default);
+  }
+  .nav-mobile-cta { margin-top: 18px; }
+  .nav-mobile-cta button { width: 100% !important; }
+  @media (max-width: 940px) {
+    .nav-desktop { display: none; }
+    .nav-burger { display: inline-flex; }
+  }
+  /* --- HERO responsive --- */
+  .hero-mark {
+    position: absolute;
+    right: -4%;
+    top: 6%;
+    opacity: 0.07;
+    pointer-events: none;
+    transform-origin: top right;
+  }
+  .hero-cta { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+  @media (max-width: 760px) {
+    .hero-mark { transform: scale(0.6); opacity: 0.05; }
+  }
+  @media (max-width: 520px) {
+    .hero-mark { transform: scale(0.45); }
+    .hero-cta { gap: 10px; }
+    .hero-cta button { width: 100% !important; }
+  }
 </style>
 </helmet>
 <div style="font-family: var(--font-sans); color: var(--text-primary); background: var(--bg-page); min-height: 100%;">
   <!-- HEADER -->
   <header data-screen-label="Header" style="position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-default);">
-    <div style="max-width: var(--container-max); margin: 0 auto; padding: 14px clamp(20px, 5vw, 64px); display: flex; align-items: center; justify-content: space-between;">
-    <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="blue" height="24" hint-size="150px,24px"></x-import>
-    <nav style="display: flex; align-items: center; gap: 22px;">
-      <a onClick="{{ jumpProbleme }}" style="cursor: pointer; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Le constat</a>
-      <a onClick="{{ jumpSolution }}" style="cursor: pointer; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Pourquoi moi</a>
-      <a onClick="{{ jumpMethode }}" style="cursor: pointer; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Comment ça marche</a>
-      <a onClick="{{ jumpRealisations }}" style="cursor: pointer; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Réalisations</a>
-      <a onClick="{{ jumpFaq }}" style="cursor: pointer; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">FAQ</a>
-      <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="sm" onClick="{{ openBooking }}" hint-size="150px,34px">Réserver un appel</x-import>
-    </nav>
+    <div class="header-bar">
+      <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="blue" height="24" hint-size="150px,24px"></x-import>
+      <nav class="nav-desktop">
+        <a onClick="{{ jumpProbleme }}" class="nav-link">Le constat</a>
+        <a onClick="{{ jumpSolution }}" class="nav-link">Pourquoi moi</a>
+        <a onClick="{{ jumpMethode }}" class="nav-link">Comment ça marche</a>
+        <a onClick="{{ jumpRealisations }}" class="nav-link">Réalisations</a>
+        <a onClick="{{ jumpFaq }}" class="nav-link">FAQ</a>
+        <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="sm" onClick="{{ openBooking }}" hint-size="150px,34px">Réserver un appel</x-import>
+      </nav>
+      <button type="button" class="nav-burger" aria-label="Menu" onClick="{{ toggleMobileNav }}">{{ burgerIcon }}</button>
     </div>
+    <sc-if value="{{ mobileNav }}" hint-placeholder-val="{{ false }}">
+      <nav class="nav-mobile">
+        <a onClick="{{ jumpProbleme }}" class="nav-link">Le constat</a>
+        <a onClick="{{ jumpSolution }}" class="nav-link">Pourquoi moi</a>
+        <a onClick="{{ jumpMethode }}" class="nav-link">Comment ça marche</a>
+        <a onClick="{{ jumpRealisations }}" class="nav-link">Réalisations</a>
+        <a onClick="{{ jumpFaq }}" class="nav-link">FAQ</a>
+        <div class="nav-mobile-cta">
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="md" onClick="{{ openBooking }}" hint-size="150px,42px">Réserver un appel</x-import>
+        </div>
+      </nav>
+    </sc-if>
   </header>
   <!-- HERO -->
   <section data-screen-label="Hero" style="position: relative; overflow: hidden; border-bottom: 1px solid var(--border-default); background-image: var(--grid-bg); background-size: var(--grid-size) var(--grid-size);">
-    <div style="position: absolute; right: -4%; top: 6%; opacity: 0.07; pointer-events: none;">
+    <div class="hero-mark">
       <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="symbol" tone="ink" height="500" hint-size="500px,500px"></x-import>
     </div>
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(36px,5vw,56px);">
@@ -108,7 +192,7 @@
         <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Outil sur-mesure · PME</div>
         <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">Excel déborde. Le logiciel tout fait vous bloque. Je construis le vôtre.</h1>
         <p style="margin: 28px 0 0; max-width: 620px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Un outil taillé pour votre métier, livré vite, sans la facture d'une agence. Vous parlez directement à celui qui construit.</p>
-        <div style="display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap;">
+        <div class="hero-cta">
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="240px,50px">Réserver un appel de 30 min</x-import>
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpRealisations }}" hint-size="200px,50px">Voir des exemples concrets</x-import>
         </div>
@@ -472,8 +556,9 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showFaq&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { booking: false, iframeLoaded: false, openFaq: 0 };
+  state = { booking: false, iframeLoaded: false, openFaq: 0, mobileNav: false };
   jump(id) {
+    if (this.state.mobileNav) this.setState({ mobileNav: false });
     const el = document.getElementById(id);
     if (el) window.scrollTo({ top: el.offsetTop - 64, behavior: "smooth" });
   }
@@ -551,7 +636,10 @@ class Component extends DCLogic {
       iframeNotLoaded: !this.state.iframeLoaded,
       showFaq: this.props.showFaq ?? true,
       faqs,
-      openBooking: () => this.setState({ booking: true, iframeLoaded: false }),
+      mobileNav: this.state.mobileNav,
+      burgerIcon: this.state.mobileNav ? "\u2715" : "\u2630",
+      toggleMobileNav: () => this.setState((s) => ({ mobileNav: !s.mobileNav })),
+      openBooking: () => this.setState({ booking: true, iframeLoaded: false, mobileNav: false }),
       closeBooking: () => this.setState({ booking: false }),
       onIframeLoad: () => this.setState({ iframeLoaded: true }),
       stop: (e) => e.stopPropagation(),
