@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Tulco Studio · Outil sur-mesure pour PME</title>
-<meta name="description" content="Excel déborde, le logiciel tout fait vous bloque. Je construis l'outil sur-mesure taillé pour votre métier, livré vite, sans la facture d'une agence. 30 min sans engagement.">
+<title>Tulco Studio · Outil métier sur-mesure pour TPE & PME</title>
+<meta name="description" content="J'élimine les tâches qui gâchent votre expertise. Je conçois et développe l'outil métier sur-mesure qui fait disparaître la gestion manuelle — et vous rend le temps et l'argent qu'elle vous coûte. 30 min sans engagement.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.tulcostudio.fr/">
 <meta property="og:site_name" content="Tulco Studio">
-<meta property="og:title" content="Tulco Studio · Outil sur-mesure pour PME">
-<meta property="og:description" content="Excel déborde. Le logiciel tout fait vous bloque. Je construis le vôtre.">
+<meta property="og:title" content="Tulco Studio · J'élimine les tâches qui gâchent votre expertise">
+<meta property="og:description" content="Un outil métier sur-mesure qui fait disparaître la gestion manuelle — et vous rend le temps et l'argent qu'elle vous coûte.">
 <meta property="og:image" content="https://www.tulcostudio.fr/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tulco Studio : outil sur-mesure pour PME">
+<meta property="og:image:alt" content="Tulco Studio : outil métier sur-mesure pour TPE & PME">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tulco Studio · Outil sur-mesure pour PME">
-<meta name="twitter:description" content="Excel déborde. Le logiciel tout fait vous bloque. Je construis le vôtre.">
+<meta name="twitter:title" content="Tulco Studio · J'élimine les tâches qui gâchent votre expertise">
+<meta name="twitter:description" content="Un outil métier sur-mesure qui fait disparaître la gestion manuelle — et vous rend le temps et l'argent qu'elle vous coûte.">
 <meta name="twitter:image" content="https://www.tulcostudio.fr/og.png">
 <script src="./support.js"></script>
 </head>
@@ -51,6 +51,11 @@
     .why-intro { grid-template-columns: 1fr; gap: 28px; }
     .why-grid { grid-template-columns: 1fr; }
   }
+  .chain-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); background: var(--border-default); gap: 1px; }
+  .chain-cell { background: var(--white); padding: clamp(18px,2vw,24px) clamp(14px,1.6vw,20px); display: flex; flex-direction: column; gap: 8px; }
+  .chain-cell.is-code { background: var(--bg-subtle); }
+  @media (max-width: 760px) { .chain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 440px) { .chain-grid { grid-template-columns: 1fr; } }
   .hero-stats {
     display: flex;
     justify-content: flex-end;
@@ -189,9 +194,10 @@
     </div>
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(36px,5vw,56px);">
       <div style="max-width: 900px;">
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Outil sur-mesure · PME</div>
-        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">Excel déborde. Le logiciel tout fait vous bloque. Je construis le vôtre.</h1>
-        <p style="margin: 28px 0 0; max-width: 620px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Un outil taillé pour votre métier, livré vite, sans la facture d'une agence. Vous parlez directement à celui qui construit.</p>
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Outil métier sur-mesure · TPE &amp; PME</div>
+        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">J'élimine les tâches qui gâchent votre expertise.</h1>
+        <p style="margin: 24px 0 0; max-width: 660px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-primary); font-weight: 500;">Le temps et l'argent qu'elles vous coûtent, vous les remettez sur ce que vous faites de mieux.</p>
+        <p style="margin: 18px 0 0; max-width: 620px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Je conçois et développe un outil métier sur-mesure qui fait disparaître la gestion manuelle — saisie en double, relances, facturation, reporting. Livré vite, sans la facture d'une agence. Vous parlez directement à celui qui construit.</p>
         <div class="hero-cta">
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="240px,50px">Réserver un appel de 30 min</x-import>
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpRealisations }}" hint-size="200px,50px">Voir des exemples concrets</x-import>
@@ -200,7 +206,7 @@
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-value">−50&nbsp;% de temps</div>
-          <div class="hero-stat-label">sur les tâches répétitives</div>
+          <div class="hero-stat-label">sur la gestion manuelle</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-value">2x plus</div>
@@ -219,8 +225,9 @@
       <div>
         <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Le constat</div>
         <h2 style="margin: 0 0 20px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 520px;">Fichiers qui débordent, logiciel qui vous bloque.</h2>
-        <p style="margin: 0 0 16px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary); max-width: 460px;">Au début, Excel suffisait. Vous avez ajouté un logiciel du marché. Aujourd'hui, ni l'un ni l'autre n'épouse vraiment votre métier.</p>
-        <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px;">Ce n'est pas un problème de motivation, c'est un problème d'outil. Le logiciel tout fait est trop rigide ou hors de prix. Et une agence vous facture six mois et trois intermédiaires pour quelque chose que vous ne maîtriserez jamais.</p>
+        <p style="margin: 0 0 16px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary); max-width: 460px;">Au début, Excel suffisait. Vous avez ajouté un logiciel du marché. Aujourd'hui, ni l'un ni l'autre n'épouse vraiment votre métier — et chaque tâche gérée à la main vous coûte du temps et de l'argent.</p>
+        <p style="margin: 0 0 16px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px;">Ce n'est pas un problème de motivation, c'est un problème d'outil. Le logiciel tout fait est trop rigide ou hors de prix. Et une agence vous facture six mois et trois intermédiaires pour quelque chose que vous ne maîtriserez jamais.</p>
+        <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px; font-weight: 500;">Excel n'est plus l'outil : c'est le symptôme. Quand tout tourne sur des tableurs et de la mémoire, l'argent fuit sans que vous le voyiez.</p>
       </div>
       <div style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger);">
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
@@ -258,7 +265,7 @@
   <section id="solution" data-screen-label="Solution" style="border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
       <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Pourquoi moi</div>
-      <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Un seul interlocuteur, qui conçoit et qui code votre outil.</h2>
+      <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Une équipe produit entière. En une seule personne.</h2>
       <div class="why-intro" style="margin-bottom: clamp(36px,5vw,56px);">
         <div data-reveal="" style="display: flex; flex-direction: column; gap: 16px;">
           <img src="assets/antoine.png" alt="Antoine Luizet, fondateur de Tulco Studio" style="width: 200px; height: 200px; max-width: 100%; border-radius: 50%; display: block; border: 2px solid var(--accent);">
@@ -268,8 +275,45 @@
           </div>
         </div>
         <div style="display: flex; flex-direction: column; gap: 18px; max-width: 640px;">
-          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Je m'appelle Antoine Luizet. Je construis des outils sur-mesure pour les PME, pour remplacer Excel et les logiciels tout faits qui vous bloquent.</p>
-          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Concrètement : des interfaces de gestion claires, des automatisations qui tournent toutes seules (emails, SMS, documents, facturation) et un pilotage de votre activité en temps réel. Le tout calé sur votre façon de travailler, pas l'inverse.</p>
+          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Je m'appelle Antoine Luizet. Je construis des outils métier sur-mesure pour les TPE et PME, pour remplacer Excel et les logiciels tout faits qui vous bloquent.</p>
+          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Concrètement : des interfaces de gestion claires, des tâches qui se font toutes seules (emails, SMS, documents, facturation) et un pilotage de votre activité en temps réel — calés sur votre façon de travailler, pas l'inverse.</p>
+          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Vous n'avez pas à assembler un designer, un dev, un intégrateur et une agence : un seul cerveau garde l'outil cohérent et fidèle à votre métier, du problème jusqu'à l'usage.</p>
+        </div>
+      </div>
+      <div data-reveal="" style="margin-bottom: clamp(36px,5vw,56px); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent);">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 16px clamp(20px,3vw,28px); background: var(--white); border-bottom: 1px solid var(--border-default);">
+          <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">La chaîne produit, de bout en bout</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary);">Le code = 1 étape sur 5</span>
+        </div>
+        <div class="chain-grid">
+          <div class="chain-cell">
+            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">01</span>
+            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Comprendre</span>
+            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Cadrer le bon problème, dans votre métier.</span>
+          </div>
+          <div class="chain-cell">
+            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">02</span>
+            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Concevoir</span>
+            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Le traduire en outil clair et simple à utiliser.</span>
+          </div>
+          <div class="chain-cell is-code">
+            <div style="display: flex; align-items: center; gap: 8px;"><span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">03</span><span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 7px; background: var(--accent); color: #fff;">Le code</span></div>
+            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Construire</span>
+            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Écrire l'application. La partie visible — et la plus courte.</span>
+          </div>
+          <div class="chain-cell">
+            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">04</span>
+            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Fiabiliser</span>
+            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Le rendre solide et le mettre en ligne pour de vrai.</span>
+          </div>
+          <div class="chain-cell">
+            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">05</span>
+            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Faire adopter</span>
+            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Sans quoi l'outil n'existe pour personne.</span>
+          </div>
+        </div>
+        <div style="padding: 16px clamp(20px,3vw,28px); background: var(--white); border-top: 1px solid var(--border-default);">
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Écrire le code, tout le monde en parle. Le vrai travail — cadrer le bon problème, concevoir, fiabiliser, faire adopter — ce sont les 70 % que la plupart sautent. Je fais les cinq.</p>
         </div>
       </div>
       <div id="solutionLedger" data-reveal="" data-stagger="" class="why-grid" style="border-top: 2px solid var(--text-primary);">
@@ -314,7 +358,7 @@
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="6" y="3" width="12" height="18"></rect><line x1="6" y1="7" x2="18" y2="7"></line><line x1="6" y1="17" x2="18" y2="17"></line><line x1="10.5" y1="19.5" x2="13.5" y2="19.5"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 1</div>
           <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Appel découverte, 30 min</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Vous me montrez vos fichiers et votre quotidien. Je vous donne un premier avis honnête sur ce qui peut être automatisé, même si la réponse est « vous n'avez pas besoin de moi ».</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Vous me montrez vos fichiers et votre quotidien. Je vous donne un premier avis honnête sur ce qui peut vous rendre du temps et de l'argent, même si la réponse est « vous n'avez pas besoin de moi ».</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="4" width="11" height="11"></rect><line x1="7" y1="8" x2="12" y2="8"></line><line x1="7" y1="11" x2="10" y2="11"></line><line x1="14.5" y1="14.5" x2="21" y2="21"></line></svg></div>
@@ -451,7 +495,7 @@
           <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--success); margin-bottom: 20px;">C'est pour vous si</div>
           <div style="display: flex; flex-direction: column; gap: 14px;">
             <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--success);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Votre PME tourne sur des fichiers Excel ou un logiciel tout fait qui ne suit pas votre métier.</p></div>
-            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--success);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vos équipes passent trop de temps sur de la saisie et des tâches répétitives.</p></div>
+            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--success);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vos équipes passent trop de temps sur de la saisie et de la gestion manuelle.</p></div>
             <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--success);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vous voulez un outil qui colle à votre métier, pas un logiciel générique de plus.</p></div>
             <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--success);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vous préférez parler à un seul interlocuteur qui comprend et qui construit.</p></div>
           </div>
@@ -492,8 +536,8 @@
   <section data-screen-label="CTA" style="background: var(--accent); color: #fff;">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(52px,8vw,104px) clamp(20px,5vw,64px);">
       <div style="max-width: 720px;">
-        <h2 style="margin: 0; font-weight: 600; font-size: clamp(28px,4.4vw,52px); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading);">Montrez-moi vos fichiers. Je vous dis ce qu'on peut automatiser.</h2>
-        <p style="margin: 20px 0 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.82); max-width: 600px;">Trente minutes, sans engagement. On regarde votre quotidien, je vous donne un avis honnête sur ce qui peut vous faire gagner du temps, et sur ce qui n'en vaut pas la peine.</p>
+        <h2 style="margin: 0; font-weight: 600; font-size: clamp(28px,4.4vw,52px); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading);">Montrez-moi vos fichiers. Je vous dis où part votre temps — et votre argent.</h2>
+        <p style="margin: 20px 0 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.82); max-width: 600px;">Trente minutes, sans engagement. On regarde votre quotidien, je vous donne un avis honnête sur ce qui peut vous rendre du temps et de l'argent, et sur ce qui n'en vaut pas la peine.</p>
         <div style="display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; align-items: center;">
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ openBooking }}" hint-size="240px,50px">Réserver un appel de 30 min</x-import>
           <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.6);">Antoine Luizet · Tulco Studio · Biarritz, France</span>
@@ -506,7 +550,7 @@
     <div style="max-width: var(--container-max); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between;">
       <div style="max-width: 360px; display: flex; flex-direction: column; gap: 16px;">
         <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="white" height="24" hint-size="150px,24px"></x-import>
-        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">Je construis des outils sur-mesure pour les PME, pour remplacer Excel et les logiciels tout faits qui vous bloquent.</p>
+        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">Je construis des outils métier sur-mesure pour les TPE et PME, pour remplacer Excel et les logiciels tout faits qui vous bloquent.</p>
       </div>
       <div style="display: flex; gap: 64px; flex-wrap: wrap;">
         <div style="display: flex; flex-direction: column; gap: 10px;">
