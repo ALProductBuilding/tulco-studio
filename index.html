@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Tulco Studio · Outil sur-mesure pour automatiser vos tâches | PME</title>
-<meta name="description" content="J'élimine les tâches qui gâchent votre expertise. Un outil métier sur-mesure qui automatise la gestion manuelle et les tâches répétitives — saisie, relances, facturation — et vous rend le temps et l'argent qu'elles coûtent. TPE et PME · 30 min sans engagement.">
+<meta name="description" content="J'élimine les tâches qui gâchent votre expertise. Un outil métier sur-mesure qui automatise la gestion manuelle et les tâches répétitives (saisie, relances, facturation) et vous rend le temps et l'argent qu'elles coûtent. TPE et PME · 30 min sans engagement.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.tulcostudio.fr/">
 <meta property="og:site_name" content="Tulco Studio">
 <meta property="og:title" content="Tulco Studio · J'élimine les tâches qui gâchent votre expertise">
-<meta property="og:description" content="Un outil métier sur-mesure qui fait disparaître la gestion manuelle — et vous rend le temps et l'argent qu'elle vous coûte.">
+<meta property="og:description" content="Un outil métier sur-mesure qui fait disparaître la gestion manuelle, et vous rend le temps et l'argent qu'elle vous coûte.">
 <meta property="og:image" content="https://www.tulcostudio.fr/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tulco Studio · J'élimine les tâches qui gâchent votre expertise">
-<meta name="twitter:description" content="Un outil métier sur-mesure qui fait disparaître la gestion manuelle — et vous rend le temps et l'argent qu'elle vous coûte.">
+<meta name="twitter:description" content="Un outil métier sur-mesure qui fait disparaître la gestion manuelle, et vous rend le temps et l'argent qu'elle vous coûte.">
 <meta name="twitter:image" content="https://www.tulcostudio.fr/og.png">
 <script src="./support.js"></script>
 </head>
@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="_ds/tulco-studio-design-system-ac57761c-6fe0-4334-b0b5-43eeedf96779/styles.css">
 <script src="_ds/tulco-studio-design-system-ac57761c-6fe0-4334-b0b5-43eeedf96779/_ds_bundle.js"></script>
 <style>
+  :root { --bg-grid: rgba(20, 23, 28, 0.045); } /* grille de fond adoucie */
   html, body { margin: 0; }
   * { box-sizing: border-box; }
   a { text-decoration: none; }
@@ -52,8 +53,11 @@
     .why-grid { grid-template-columns: 1fr; }
   }
   .chain-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); background: var(--border-default); gap: 1px; }
-  .chain-cell { background: var(--white); padding: clamp(18px,2vw,24px) clamp(14px,1.6vw,20px); display: flex; flex-direction: column; gap: 8px; }
-  .chain-cell.is-code { background: var(--bg-subtle); }
+  .chain-cell { position: relative; background: var(--white); padding: clamp(18px,2vw,24px) clamp(14px,1.6vw,20px); display: flex; flex-direction: column; gap: 8px; border: none; text-align: left; font-family: inherit; cursor: pointer; width: 100%; transition: background 160ms cubic-bezier(0.2,0,0,1); }
+  .chain-cell:hover { background: var(--bg-subtle); }
+  .chain-cell:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .chain-active-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--accent); }
+  .chain-detail { padding: clamp(22px,3vw,30px) clamp(20px,3vw,28px); background: var(--white); border-top: 1px solid var(--border-default); }
   @media (max-width: 760px) { .chain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 440px) { .chain-grid { grid-template-columns: 1fr; } }
   .hero-stats {
@@ -197,7 +201,7 @@
         <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Outil métier sur-mesure · TPE &amp; PME</div>
         <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">J'élimine les tâches qui gâchent votre expertise.</h1>
         <p style="margin: 24px 0 0; max-width: 660px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-primary); font-weight: 500;">Le temps et l'argent qu'elles vous coûtent, vous les remettez sur ce que vous faites de mieux.</p>
-        <p style="margin: 18px 0 0; max-width: 620px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Je conçois et développe un outil métier sur-mesure qui fait disparaître la gestion manuelle — saisie en double, relances, facturation, reporting. Livré vite, sans la facture d'une agence. Vous parlez directement à celui qui construit.</p>
+        <p style="margin: 18px 0 0; max-width: 620px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Je conçois et développe un outil métier sur-mesure qui fait disparaître la gestion manuelle : saisie en double, relances, facturation, reporting. Livré vite, sans la facture d'une agence. Vous parlez directement à celui qui construit.</p>
         <div class="hero-cta">
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="240px,50px">Réserver un appel de 30 min</x-import>
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpRealisations }}" hint-size="200px,50px">Voir des exemples concrets</x-import>
@@ -225,7 +229,7 @@
       <div>
         <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Le constat</div>
         <h2 style="margin: 0 0 20px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 520px;">Fichiers qui débordent, logiciel qui vous bloque.</h2>
-        <p style="margin: 0 0 16px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary); max-width: 460px;">Au début, Excel suffisait. Vous avez ajouté un logiciel du marché. Aujourd'hui, ni l'un ni l'autre n'épouse vraiment votre métier — et chaque tâche gérée à la main vous coûte du temps et de l'argent.</p>
+        <p style="margin: 0 0 16px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary); max-width: 460px;">Au début, Excel suffisait. Vous avez ajouté un logiciel du marché. Aujourd'hui, ni l'un ni l'autre n'épouse vraiment votre métier. Et chaque tâche gérée à la main vous coûte du temps et de l'argent.</p>
         <p style="margin: 0 0 16px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px;">Ce n'est pas un problème de motivation, c'est un problème d'outil. Le logiciel tout fait est trop rigide ou hors de prix. Et une agence vous facture six mois et trois intermédiaires pour quelque chose que vous ne maîtriserez jamais.</p>
         <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px; font-weight: 500;">Excel n'est plus l'outil : c'est le symptôme. Quand tout tourne sur des tableurs et de la mémoire, l'argent fuit sans que vous le voyiez.</p>
       </div>
@@ -276,44 +280,28 @@
         </div>
         <div style="display: flex; flex-direction: column; gap: 18px; max-width: 640px;">
           <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Je m'appelle Antoine Luizet. Je construis des outils métier sur-mesure pour les TPE et PME, pour remplacer Excel et les logiciels tout faits qui vous bloquent.</p>
-          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Concrètement : des interfaces de gestion claires, des automatisations qui tournent toutes seules (emails, SMS, documents, facturation) et un pilotage de votre activité en temps réel — calés sur votre façon de travailler, pas l'inverse.</p>
+          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Concrètement : des interfaces de gestion claires, des automatisations qui tournent toutes seules (emails, SMS, documents, facturation) et un pilotage de votre activité en temps réel, calés sur votre façon de travailler, pas l'inverse.</p>
           <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Vous n'avez pas à assembler un designer, un dev, un intégrateur et une agence : un seul cerveau garde l'outil cohérent et fidèle à votre métier, du problème jusqu'à l'usage.</p>
         </div>
       </div>
       <div data-reveal="" style="margin-bottom: clamp(36px,5vw,56px); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent);">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 16px clamp(20px,3vw,28px); background: var(--white); border-bottom: 1px solid var(--border-default);">
           <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">La chaîne produit, de bout en bout</span>
-          <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary);">Le code = 1 étape sur 5</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary);">Cliquez une étape pour le détail</span>
         </div>
         <div class="chain-grid">
-          <div class="chain-cell">
-            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">01</span>
-            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Comprendre</span>
-            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Cadrer le bon problème, dans votre métier.</span>
-          </div>
-          <div class="chain-cell">
-            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">02</span>
-            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Concevoir</span>
-            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Le traduire en outil clair et simple à utiliser.</span>
-          </div>
-          <div class="chain-cell is-code">
-            <div style="display: flex; align-items: center; gap: 8px;"><span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">03</span><span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 7px; background: var(--accent); color: #fff;">Le code</span></div>
-            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Construire</span>
-            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Écrire l'application. La partie visible — et la plus courte.</span>
-          </div>
-          <div class="chain-cell">
-            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">04</span>
-            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Fiabiliser</span>
-            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Le rendre solide et le mettre en ligne pour de vrai.</span>
-          </div>
-          <div class="chain-cell">
-            <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">05</span>
-            <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">Faire adopter</span>
-            <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">Sans quoi l'outil n'existe pour personne.</span>
-          </div>
+          <sc-for list="{{ chainSteps }}" as="c" hint-placeholder-count="5">
+            <button type="button" onClick="{{ c.onSelect }}" class="chain-cell" aria-label="{{ c.aria }}">
+              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">{{ c.num }}</span>
+              <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">{{ c.name }}</span>
+              <span style="font-size: 13px; line-height: 1.5; color: var(--text-secondary);">{{ c.sub }}</span>
+              <sc-if value="{{ c.active }}" hint-placeholder-val="{{ false }}"><span class="chain-active-bar"></span></sc-if>
+            </button>
+          </sc-for>
         </div>
-        <div style="padding: 16px clamp(20px,3vw,28px); background: var(--white); border-top: 1px solid var(--border-default);">
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Écrire le code, tout le monde en parle. Le vrai travail — cadrer le bon problème, concevoir, fiabiliser, faire adopter — ce sont les 70 % que la plupart sautent. Je fais les cinq.</p>
+        <div class="chain-detail">
+          <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 10px;">Étape {{ chainDetail.num }} · {{ chainDetail.name }}</div>
+          <p style="margin: 0; max-width: 720px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">{{ chainDetail.body }}</p>
         </div>
       </div>
       <div id="solutionLedger" data-reveal="" data-stagger="" class="why-grid" style="border-top: 2px solid var(--text-primary);">
@@ -382,7 +370,7 @@
     </div>
   </section>
   <!-- REALISATIONS -->
-  <section id="realisations" data-screen-label="Realisations" style="position: relative; overflow: hidden; background: var(--surface-ink); color: var(--text-on-ink); background-image: var(--grid-bg); background-size: var(--grid-size) var(--grid-size); background-blend-mode: soft-light;">
+  <section id="realisations" data-screen-label="Realisations" style="position: relative; overflow: hidden; background: var(--surface-ink); color: var(--text-on-ink); background-image: var(--grid-bg); background-size: var(--grid-size) var(--grid-size); background-blend-mode: soft-light; --bg-grid: rgba(255, 255, 255, 0.05);">
     <div style="position: absolute; left: -5%; bottom: -8%; opacity: 0.06; pointer-events: none;">
       <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="symbol" tone="white" height="420" hint-size="420px,420px"></x-import>
     </div>
@@ -536,7 +524,7 @@
   <section data-screen-label="CTA" style="background: var(--accent); color: #fff;">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(52px,8vw,104px) clamp(20px,5vw,64px);">
       <div style="max-width: 720px;">
-        <h2 style="margin: 0; font-weight: 600; font-size: clamp(28px,4.4vw,52px); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading);">Montrez-moi vos fichiers. Je vous dis où part votre temps — et votre argent.</h2>
+        <h2 style="margin: 0; font-weight: 600; font-size: clamp(28px,4.4vw,52px); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading);">Montrez-moi vos fichiers. Je vous dis où partent votre temps et votre argent.</h2>
         <p style="margin: 20px 0 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.82); max-width: 600px;">Trente minutes, sans engagement. On regarde votre quotidien, je vous donne un avis honnête sur les tâches à automatiser qui peuvent vous rendre du temps et de l'argent, et sur ce qui n'en vaut pas la peine.</p>
         <div style="display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; align-items: center;">
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ openBooking }}" hint-size="240px,50px">Réserver un appel de 30 min</x-import>
@@ -600,7 +588,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showFaq&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { booking: false, iframeLoaded: false, openFaq: 0, mobileNav: false };
+  state = { booking: false, iframeLoaded: false, openFaq: 0, mobileNav: false, activeChain: 0 };
   jump(id) {
     if (this.state.mobileNav) this.setState({ mobileNav: false });
     const el = document.getElementById(id);
@@ -675,11 +663,31 @@ class Component extends DCLogic {
       sign: open === i ? "−" : "+",
       onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
     }));
+    const chainData = [
+      { num: "01", name: "Comprendre", sub: "Cadrer le vrai problème.", body: "Avant d'écrire la moindre ligne, je passe du temps dans votre quotidien. J'observe comment vous travaillez, je cartographie vos process et je repère où partent le temps et l'argent. J'en ressors avec le vrai problème à régler, souvent différent de celui qu'on m'annonce au départ." },
+      { num: "02", name: "Concevoir", sub: "Traduire en solution simple.", body: "Je transforme ce problème en une solution claire : les écrans, les parcours, la logique de l'outil. Vous validez sur des maquettes concrètes, pas sur des promesses. On ajuste tôt, quand corriger ne coûte encore rien." },
+      { num: "03", name: "Construire", sub: "Développer l'outil.", body: "Je développe le tout : une interface sur-mesure et un socle technique solide, assistés par IA pour aller vite sans rogner sur la qualité. Vous voyez l'outil avancer brique par brique, vous l'utilisez tôt et vous l'affinez au fil de l'eau." },
+      { num: "04", name: "Fiabiliser", sub: "Le rendre solide, le mettre en ligne.", body: "Un outil qui marche sur ma machine ne suffit pas. Je le teste, je le sécurise et je le mets en ligne sur un hébergement dédié. Je gère la bascule depuis vos anciens fichiers sans perte de données, pour que ça tienne quand toute l'équipe s'en sert." },
+      { num: "05", name: "Faire adopter", sub: "L'ancrer dans vos usages.", body: "Le meilleur outil ne sert à rien si personne ne l'utilise. Je forme vos équipes, je les accompagne au démarrage et j'ajuste ce qui coince les premières semaines. L'objectif : que l'outil devienne un réflexe, pas une contrainte de plus." },
+    ];
+    const activeChain = this.state.activeChain ?? 0;
+    const chainSteps = chainData.map((c, i) => ({
+      num: c.num,
+      name: c.name,
+      sub: c.sub,
+      active: activeChain === i,
+      aria: "Étape " + c.num + " : " + c.name,
+      onSelect: () => this.setState({ activeChain: i }),
+    }));
+    const activeStep = chainData[activeChain] || chainData[0];
+    const chainDetail = { num: activeStep.num, name: activeStep.name, body: activeStep.body };
     return {
       booking: this.state.booking,
       iframeNotLoaded: !this.state.iframeLoaded,
       showFaq: this.props.showFaq ?? true,
       faqs,
+      chainSteps,
+      chainDetail,
       mobileNav: this.state.mobileNav,
       burgerIcon: this.state.mobileNav ? "\u2715" : "\u2630",
       toggleMobileNav: () => this.setState((s) => ({ mobileNav: !s.mobileNav })),
