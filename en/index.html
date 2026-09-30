@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Tulco Studio · J'automatise le back-office des marques</title>
-<meta name="description" content="Fiches produit, commandes revendeurs, reporting : j'automatise le back-office des marques pour que vos équipes arrêtent de ressaisir. Ex chef de produit retail.">
-<link rel="canonical" href="https://www.tulcostudio.fr/">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<title>Tulco Studio · Back-office automation for brands</title>
+<meta name="description" content="Product listings, wholesale orders, reporting: I automate the back office behind brands so your team stops re-keying data. Former retail product manager.">
+<link rel="canonical" href="https://www.tulcostudio.fr/en/">
 <link rel="alternate" hreflang="fr" href="https://www.tulcostudio.fr/">
 <link rel="alternate" hreflang="en" href="https://www.tulcostudio.fr/en/">
 <link rel="alternate" hreflang="x-default" href="https://www.tulcostudio.fr/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.tulcostudio.fr/">
+<meta property="og:url" content="https://www.tulcostudio.fr/en/">
 <meta property="og:site_name" content="Tulco Studio">
-<meta property="og:title" content="Tulco Studio · J'automatise le back-office des marques">
-<meta property="og:description" content="Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.">
-<meta property="og:image" content="https://www.tulcostudio.fr/og.png">
+<meta property="og:title" content="Tulco Studio · Back-office automation for brands">
+<meta property="og:description" content="Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.">
+<meta property="og:image" content="https://www.tulcostudio.fr/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tulco Studio : automatisation du back-office des marques">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:image:alt" content="Tulco Studio: back-office automation for brands">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tulco Studio · J'automatise le back-office des marques">
-<meta name="twitter:description" content="Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.">
-<meta name="twitter:image" content="https://www.tulcostudio.fr/og.png">
-<script src="./support.js"></script>
+<meta name="twitter:title" content="Tulco Studio · Back-office automation for brands">
+<meta name="twitter:description" content="Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.">
+<meta name="twitter:image" content="https://www.tulcostudio.fr/og-en.png">
+<script src="../support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="_ds/tulco-studio-design-system-ac57761c-6fe0-4334-b0b5-43eeedf96779/styles.css">
-<script src="_ds/tulco-studio-design-system-ac57761c-6fe0-4334-b0b5-43eeedf96779/_ds_bundle.js"></script>
+<link rel="stylesheet" href="../_ds/tulco-studio-design-system-ac57761c-6fe0-4334-b0b5-43eeedf96779/styles.css">
+<script src="../_ds/tulco-studio-design-system-ac57761c-6fe0-4334-b0b5-43eeedf96779/_ds_bundle.js"></script>
 <style>
   :root { --bg-grid: rgba(20, 23, 28, 0.045); } /* grille de fond adoucie */
   html, body { margin: 0; }
@@ -169,28 +169,28 @@
     <div class="header-bar">
       <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="blue" height="24" hint-size="150px,24px"></x-import>
       <nav class="nav-desktop">
-        <a onClick="{{ jumpProbleme }}" class="nav-link">Le constat</a>
-        <a onClick="{{ jumpFlux }}" class="nav-link">Les flux</a>
-        <a onClick="{{ jumpPourquoi }}" class="nav-link">Pourquoi moi</a>
-        <a onClick="{{ jumpMethode }}" class="nav-link">Méthode</a>
-        <a onClick="{{ jumpRealisations }}" class="nav-link">Réalisations</a>
+        <a onClick="{{ jumpProbleme }}" class="nav-link">The problem</a>
+        <a onClick="{{ jumpFlux }}" class="nav-link">The flows</a>
+        <a onClick="{{ jumpPourquoi }}" class="nav-link">Why me</a>
+        <a onClick="{{ jumpMethode }}" class="nav-link">Method</a>
+        <a onClick="{{ jumpRealisations }}" class="nav-link">Case studies</a>
         <a onClick="{{ jumpFaq }}" class="nav-link">FAQ</a>
-        <a href="en/" hreflang="en" lang="en" class="nav-link nav-lang">EN</a>
-        <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="sm" onClick="{{ openBooking }}" hint-size="150px,34px">Réserver 30 min</x-import>
+        <a href="../" hreflang="fr" lang="fr" class="nav-link nav-lang">FR</a>
+        <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="sm" onClick="{{ openBooking }}" hint-size="150px,34px">Book 30 min</x-import>
       </nav>
       <button type="button" class="nav-burger" aria-label="Menu" onClick="{{ toggleMobileNav }}">{{ burgerIcon }}</button>
     </div>
     <sc-if value="{{ mobileNav }}" hint-placeholder-val="{{ false }}">
       <nav class="nav-mobile">
-        <a onClick="{{ jumpProbleme }}" class="nav-link">Le constat</a>
-        <a onClick="{{ jumpFlux }}" class="nav-link">Les flux</a>
-        <a onClick="{{ jumpPourquoi }}" class="nav-link">Pourquoi moi</a>
-        <a onClick="{{ jumpMethode }}" class="nav-link">Méthode</a>
-        <a onClick="{{ jumpRealisations }}" class="nav-link">Réalisations</a>
+        <a onClick="{{ jumpProbleme }}" class="nav-link">The problem</a>
+        <a onClick="{{ jumpFlux }}" class="nav-link">The flows</a>
+        <a onClick="{{ jumpPourquoi }}" class="nav-link">Why me</a>
+        <a onClick="{{ jumpMethode }}" class="nav-link">Method</a>
+        <a onClick="{{ jumpRealisations }}" class="nav-link">Case studies</a>
         <a onClick="{{ jumpFaq }}" class="nav-link">FAQ</a>
-        <a href="en/" hreflang="en" lang="en" class="nav-link">English version</a>
+        <a href="../" hreflang="fr" lang="fr" class="nav-link">Version française</a>
         <div class="nav-mobile-cta">
-          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="md" onClick="{{ openBooking }}" hint-size="150px,42px">Réserver 30 min</x-import>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="md" onClick="{{ openBooking }}" hint-size="150px,42px">Book 30 min</x-import>
         </div>
       </nav>
     </sc-if>
@@ -202,12 +202,12 @@
     </div>
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(44px,6vw,72px);">
       <div style="max-width: 900px;">
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Back-office des marques · PME</div>
-        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">J'automatise le back-office des marques.</h1>
-        <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.</p>
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Back-office automation · Growing brands</div>
+        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">I automate the back office behind your brand.</h1>
+        <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.</p>
         <div class="hero-cta">
-          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="340px,50px">Voir ce qu'on automatiserait en premier</x-import>
-          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpFlux }}" hint-size="240px,50px">Découvrir les trois flux</x-import>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="340px,50px">See what we'd automate first</x-import>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpFlux }}" hint-size="240px,50px">Explore the three flows</x-import>
         </div>
         <div class="hero-flux">
           <sc-for list="{{ heroFlux }}" as="h" hint-placeholder-count="3">
@@ -221,26 +221,26 @@
   <section id="probleme" data-screen-label="Probleme" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
       <div>
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Le constat</div>
-        <h2 style="margin: 0 0 20px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 520px;">Tout passe encore par des fichiers.</h2>
-        <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px; font-weight: 500;">Chaque copie crée une erreur. Et une erreur de stock ou de commande, c'est un revendeur qui se lasse.</p>
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">The problem</div>
+        <h2 style="margin: 0 0 20px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 520px;">Everything still runs on spreadsheets.</h2>
+        <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px; font-weight: 500;">Every copy creates an error. And a stock or order error is a retailer losing patience.</p>
       </div>
       <div style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger);">
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le fichier de collection est recopié à la main pour le site.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">The line sheet is copied by hand onto the website.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Les commandes revendeurs passent de l'Excel du commercial à l'ERP, à la main.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Wholesale orders go from the sales rep's spreadsheet into the ERP, by hand.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le stock ne suit pas entre le site, la boutique et l'entrepôt.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Stock doesn't match between the website, the store and the warehouse.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le lundi, on compile cinq fichiers pour savoir ce qui s'est vendu.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Every Monday, five files get merged to see what sold.</p>
         </div>
       </div>
     </div>
@@ -248,8 +248,8 @@
   <!-- LES TROIS FLUX -->
   <section id="flux" data-screen-label="Flux" style="border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Ce que j'automatise</div>
-      <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Trois flux. Une info saisie une fois, juste partout.</h2>
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">What I automate</div>
+      <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Three flows. Enter it once, it's right everywhere.</h2>
       <div data-reveal="" style="border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent);">
         <div class="flux-grid">
           <sc-for list="{{ fluxTabs }}" as="c" hint-placeholder-count="3">
@@ -264,27 +264,27 @@
         <div class="chain-detail">
           <div class="flux-rows">
             <div class="flux-row">
-              <span class="flux-tag" style="color: var(--danger);">Avant</span>
+              <span class="flux-tag" style="color: var(--danger);">Before</span>
               <p style="margin: 0; font-size: var(--text-md); line-height: 1.55; color: var(--text-secondary);">{{ fluxDetail.avant }}</p>
             </div>
             <div class="flux-row">
-              <span class="flux-tag" style="color: var(--accent);">Après</span>
+              <span class="flux-tag" style="color: var(--accent);">After</span>
               <p style="margin: 0; font-size: var(--text-md); line-height: 1.55; color: var(--text-primary); font-weight: 500;">{{ fluxDetail.apres }}</p>
             </div>
             <div class="flux-row">
-              <span class="flux-tag" style="color: var(--text-tertiary);">Outils</span>
+              <span class="flux-tag" style="color: var(--text-tertiary);">Tools</span>
               <p style="margin: 0; font-size: var(--text-sm); line-height: 1.55; color: var(--text-secondary);">{{ fluxDetail.outils }}</p>
             </div>
           </div>
         </div>
       </div>
       <div data-reveal="" style="margin-top: clamp(28px,4vw,40px); background: var(--bg-subtle); border: 1px solid var(--border-default); padding: clamp(24px,3vw,34px);">
-        <h3 style="margin: 0 0 10px; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Et l'IA ? D'abord des données propres.</h3>
-        <p style="margin: 0 0 22px; max-width: 640px; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Branchée sur cinq fichiers qui se contredisent, l'IA produit des erreurs plus vite. Sur des flux propres, elle devient un vrai levier :</p>
+        <h3 style="margin: 0 0 10px; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">What about AI? Clean data first.</h3>
+        <p style="margin: 0 0 22px; max-width: 640px; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Plugged into five spreadsheets that contradict each other, AI just makes mistakes faster. On clean flows, it becomes real leverage:</p>
         <div class="ia-grid">
-          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Fiches produit rédigées à partir de vos données.</p></div>
-          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Commandes reçues par mail, lues et saisies.</p></div>
-          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Reporting commenté chaque lundi.</p></div>
+          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Product descriptions written from your data.</p></div>
+          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Orders received by email, read and entered.</p></div>
+          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">A written sales summary every Monday.</p></div>
         </div>
       </div>
     </div>
@@ -292,82 +292,82 @@
   <!-- POURQUOI MOI -->
   <section id="pourquoi" data-screen-label="PourquoiMoi" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Pourquoi moi</div>
-      <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Le terrain du retail. Les réflexes d'un product builder.</h2>
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Why me</div>
+      <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Retail field experience. Product builder reflexes.</h2>
       <div class="why-intro" style="margin-bottom: clamp(36px,5vw,56px);">
         <div data-reveal="" style="display: flex; flex-direction: column; gap: 16px;">
-          <img src="assets/antoine.png" alt="Antoine Luizet, fondateur de Tulco Studio" style="width: 200px; height: 200px; max-width: 100%; border-radius: 50%; display: block; border: 2px solid var(--accent);">
+          <img src="../assets/antoine.png" alt="Antoine Luizet, founder of Tulco Studio" style="width: 200px; height: 200px; max-width: 100%; border-radius: 50%; display: block; border: 2px solid var(--accent);">
           <div>
             <div style="font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Antoine Luizet</div>
-            <div style="font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-top: 5px;">Fondateur · Tulco Studio</div>
+            <div style="font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-top: 5px;">Founder · Tulco Studio</div>
           </div>
         </div>
-        <p style="margin: 0; max-width: 600px; font-size: var(--text-lg); line-height: 1.45; color: var(--text-primary); font-weight: 500;">J'ai passé 8 ans du côté des marques avant de construire des outils. Je parle collection, revendeurs et stocks, et je sais les traduire en flux qui tournent.</p>
+        <p style="margin: 0; max-width: 600px; font-size: var(--text-lg); line-height: 1.45; color: var(--text-primary); font-weight: 500;">I spent 8 years on the brand side before building tools. I speak collections, retailers and stock, and I know how to turn them into flows that run.</p>
       </div>
       <div data-reveal="" data-stagger="" class="why-grid" style="border-top: 2px solid var(--text-primary);">
         <div style="display: flex; flex-direction: column; gap: 18px; padding: clamp(24px,3vw,34px); background: var(--white);">
           <div style="display: flex; align-items: center; gap: 14px;">
             <div style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border-default); background: var(--bg-subtle);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 9 L5 4 H19 L21 9"></path><rect x="4" y="9" width="16" height="11"></rect><rect x="10" y="14" width="4" height="6"></rect></svg></div>
             <div>
-              <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Le terrain</h3>
-              <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-top: 3px;">Retail et merchandising</div>
+              <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">The field</h3>
+              <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-top: 3px;">Retail &amp; merchandising</div>
             </div>
           </div>
           <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div class="why-item"><span></span><p>130 magasins suivis comme chef de secteur (AB InBev).</p></div>
-            <div class="why-item"><span></span><p>Chef de produit EMEA chez Volcom et Spyder.</p></div>
-            <div class="why-item"><span></span><p>Prévisions wholesale, retail et e-commerce.</p></div>
-            <div class="why-item"><span></span><p>PLM déployé en Europe : 90 % d'adoption.</p></div>
+            <div class="why-item"><span></span><p>Territory manager for 130 stores (AB InBev).</p></div>
+            <div class="why-item"><span></span><p>EMEA product manager at Volcom and Spyder.</p></div>
+            <div class="why-item"><span></span><p>Wholesale, retail and e-commerce forecasting.</p></div>
+            <div class="why-item"><span></span><p>PLM rolled out across Europe: 90% adoption.</p></div>
           </div>
         </div>
         <div style="display: flex; flex-direction: column; gap: 18px; padding: clamp(24px,3vw,34px); background: var(--white);">
           <div style="display: flex; align-items: center; gap: 14px;">
             <div style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border-default); background: var(--bg-subtle);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3.5" width="5" height="5"></rect><rect x="16" y="3.5" width="5" height="5"></rect><rect x="9.5" y="15" width="5" height="5"></rect><line x1="6" y1="8.5" x2="12" y2="15"></line><line x1="18" y1="8.5" x2="12" y2="15"></line></svg></div>
             <div>
-              <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Le build</h3>
+              <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">The build</h3>
               <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-top: 3px;">Product builder</div>
             </div>
           </div>
           <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div class="why-item"><span></span><p>Comprendre le flux avant de toucher un outil.</p></div>
-            <div class="why-item"><span></span><p>Automatiser, connecter, coder avec l'IA si besoin.</p></div>
-            <div class="why-item"><span></span><p>Documenter : tout vous appartient.</p></div>
-            <div class="why-item"><span></span><p>Former vos équipes jusqu'à l'usage réel.</p></div>
+            <div class="why-item"><span></span><p>Understand the flow before touching a tool.</p></div>
+            <div class="why-item"><span></span><p>Automate, connect, code with AI when needed.</p></div>
+            <div class="why-item"><span></span><p>Document everything: you own it all.</p></div>
+            <div class="why-item"><span></span><p>Train your team until they actually use it.</p></div>
           </div>
         </div>
       </div>
-      <p style="margin: clamp(24px,3vw,32px) 0 0; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">Pas d'agence, pas d'intermédiaire : vous travaillez en direct avec moi.</p>
+      <p style="margin: clamp(24px,3vw,32px) 0 0; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">No agency, no middleman: you work directly with me.</p>
     </div>
   </section>
   <!-- COMMENT CA MARCHE -->
   <section id="methode" data-screen-label="Methode" style="border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Méthode</div>
-      <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Un flux à la fois. Le plus douloureux d'abord.</h2>
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Method</div>
+      <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">One flow at a time. The most painful first.</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; border-top: 1px solid var(--border-default);">
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="6" y="3" width="12" height="18"></rect><line x1="6" y1="7" x2="18" y2="7"></line><line x1="6" y1="17" x2="18" y2="17"></line><line x1="10.5" y1="19.5" x2="13.5" y2="19.5"></line></svg></div>
-          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 1</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">30 minutes, offertes</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Vous me décrivez vos flux. Je vous dis par où je commencerais, et pourquoi.</p>
+          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 1</div>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">30 minutes, free</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">You walk me through your flows. I tell you where I'd start, and why.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="4" width="11" height="11"></rect><line x1="7" y1="8" x2="12" y2="8"></line><line x1="7" y1="11" x2="10" y2="11"></line><line x1="14.5" y1="14.5" x2="21" y2="21"></line></svg></div>
-          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 2</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Diagnostic chiffré</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Je cartographie vos flux et mesure le temps perdu en ressaisie. Vous repartez avec un plan priorisé.</p>
+          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 2</div>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Quantified audit</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">I map your flows and measure the time lost to re-keying. You leave with a prioritized plan.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3.5" width="5" height="5"></rect><rect x="16" y="3.5" width="5" height="5"></rect><rect x="9.5" y="15" width="5" height="5"></rect><line x1="6" y1="8.5" x2="12" y2="15"></line><line x1="18" y1="8.5" x2="12" y2="15"></line></svg></div>
-          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 3</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Premier flux</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Connecté à vos outils existants, automatisé, adopté par l'équipe.</p>
+          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 3</div>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">First flow</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Connected to your existing tools, automated, adopted by your team.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><line x1="3" y1="20" x2="21" y2="20"></line><polyline points="5 16 10 11 13 14 19 7"></polyline><polyline points="15 7 19 7 19 11"></polyline></svg></div>
-          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 4</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">La suite</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Les autres flux, puis l'IA. Et un suivi, car vos outils évoluent et les connexions aussi.</p>
+          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 4</div>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">What's next</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">The other flows, then AI. Plus ongoing support, because your tools evolve and so do the connections.</p>
         </div>
       </div>
     </div>
@@ -378,29 +378,29 @@
       <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="symbol" tone="white" height="420" hint-size="420px,420px"></x-import>
     </div>
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-soft); margin-bottom: 16px;">Réalisations · retail</div>
-      <h2 style="margin: 0 0 48px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Le retail, vu de l'intérieur.</h2>
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-soft); margin-bottom: 16px;">Case studies · retail</div>
+      <h2 style="margin: 0 0 48px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Retail, from the inside.</h2>
       <div class="proof-grid">
         <div data-reveal="" class="proof-card">
           <span class="proof-name">Volcom · PLM Europe</span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Déploiement du PLM entre design, merchandising et sourcing.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">PLM rollout across design, merchandising and sourcing.</p>
           <div class="proof-metrics">
-            <div class="proof-metric"><span class="proof-value">−15&nbsp;%</span><span class="proof-label">de délais de développement</span></div>
-            <div class="proof-metric"><span class="proof-value">90&nbsp;%</span><span class="proof-label">d'adoption par les équipes</span></div>
+            <div class="proof-metric"><span class="proof-value">−15&nbsp;%</span><span class="proof-label">development lead time</span></div>
+            <div class="proof-metric"><span class="proof-value">90&nbsp;%</span><span class="proof-label">team adoption</span></div>
           </div>
         </div>
         <div data-reveal="" class="proof-card">
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
-            <span class="proof-name">Nichebloom · marque en lancement</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">En cours</span>
+            <span class="proof-name">Nichebloom · launching brand</span>
+            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">In progress</span>
           </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Je pilote la mise en place du site Shopify, de l'ERP Odoo, de l'emailing Klaviyo et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">I'm leading the setup of the Shopify store, the Odoo ERP, Klaviyo emailing and wholesale sales processes, with AI on recurring tasks.</p>
         </div>
         <div data-reveal="" class="proof-card">
-          <span class="proof-name">Studio Muxi · premier projet Tulco</span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Commandes, stocks et pilotage financier réunis au même endroit. Marge visible en temps réel.</p>
+          <span class="proof-name">Studio Muxi · first Tulco project</span>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Orders, stock and financial reporting in one place. Margin visible in real time.</p>
           <div class="proof-metrics">
-            <div class="proof-metric"><span class="proof-value">≈&nbsp;4&nbsp;j</span><span class="proof-label">par mois récupérés</span></div>
+            <div class="proof-metric"><span class="proof-value">≈&nbsp;4&nbsp;days</span><span class="proof-label">saved per month</span></div>
           </div>
         </div>
       </div>
@@ -409,29 +409,29 @@
   <!-- EN AGENCE -->
   <section id="agence" data-screen-label="Agence" style="border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Avant Tulco</div>
-      <h2 style="margin: 0 0 12px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Product builder en agence : 4 outils, 4 secteurs.</h2>
-      <p style="margin: 0 0 44px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary); max-width: 600px;">Hors retail, même méthode : comprendre le métier, construire, faire adopter.</p>
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Before Tulco</div>
+      <h2 style="margin: 0 0 12px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Product builder at an agency: 4 tools, 4 industries.</h2>
+      <p style="margin: 0 0 44px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary); max-width: 600px;">Outside retail, same method: understand the business, build, drive adoption.</p>
       <div data-reveal="" data-stagger="" class="agency-grid">
         <div class="agency-card">
-          <span class="agency-name">États des lieux immobiliers</span>
-          <p>Onboarding, planification, documents et facturation automatisés.</p>
-          <div class="agency-metric"><span class="agency-value">×2</span><span class="proof-label">de CA sur l'année</span></div>
+          <span class="agency-name">Property inspections</span>
+          <p>Onboarding, scheduling, documents and invoicing automated.</p>
+          <div class="agency-metric"><span class="agency-value">×2</span><span class="proof-label">annual revenue</span></div>
         </div>
         <div class="agency-card">
-          <span class="agency-name">Contrats et budgets SaaS</span>
-          <p>Contrats structurés, budget annuel généré en 3 clics.</p>
-          <div class="agency-metric"><span class="agency-value">≈&nbsp;6&nbsp;j</span><span class="proof-label">par mois rendus</span></div>
+          <span class="agency-name">SaaS contracts &amp; budgets</span>
+          <p>Structured contracts, annual budget generated in 3 clicks.</p>
+          <div class="agency-metric"><span class="agency-value">≈&nbsp;6&nbsp;days</span><span class="proof-label">saved per month</span></div>
         </div>
         <div class="agency-card">
-          <span class="agency-name">Pilotage, facturation et RH</span>
-          <p>Codes projets, facturation et paie automatisés.</p>
-          <div class="agency-metric"><span class="agency-value">≈&nbsp;1</span><span class="proof-label">ETP économisé</span></div>
+          <span class="agency-name">Projects, billing &amp; HR</span>
+          <p>Project codes, invoicing and payroll automated.</p>
+          <div class="agency-metric"><span class="agency-value">≈&nbsp;1</span><span class="proof-label">FTE saved</span></div>
         </div>
         <div class="agency-card">
-          <span class="agency-name">Gestion de projets SaaS</span>
-          <p>Espace projet centralisé, permissions, suivi.</p>
-          <div class="agency-metric"><span class="agency-value">≈&nbsp;2&nbsp;h</span><span class="proof-label">par semaine et par personne</span></div>
+          <span class="agency-name">SaaS project management</span>
+          <p>Centralized project space, permissions, tracking.</p>
+          <div class="agency-metric"><span class="agency-value">≈&nbsp;2&nbsp;h</span><span class="proof-label">per person per week</span></div>
         </div>
       </div>
     </div>
@@ -439,35 +439,35 @@
   <!-- POUR QUI -->
   <section data-screen-label="PourQui" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Pour qui</div>
-      <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Pour qui, et pour qui ce n'est pas.</h2>
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Who it's for</div>
+      <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Who it's for, and who it isn't.</h2>
       <div class="who-grid">
         <div data-reveal="" class="who-card" style="border-top-color: var(--success);">
-          <div class="who-label" style="color: var(--success);">C'est pour vous si</div>
-          <p style="margin: 0 0 14px; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">Vous êtes une marque PME qui conçoit et distribue ses produits : site, boutiques, revendeurs.</p>
+          <div class="who-label" style="color: var(--success);">A good fit if</div>
+          <p style="margin: 0 0 14px; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">You're a growing brand that designs and distributes its own products: website, stores, retailers.</p>
           <div class="who-list">
-            <div class="who-item"><span style="background: var(--success);"></span><p>Vous lancez une marque, ou elle grandit plus vite que votre back-office.</p></div>
-            <div class="who-item"><span style="background: var(--success);"></span><p>Plus vous avez de canaux, plus vous ressaisissez.</p></div>
+            <div class="who-item"><span style="background: var(--success);"></span><p>You're launching a brand, or it's growing faster than your back office.</p></div>
+            <div class="who-item"><span style="background: var(--success);"></span><p>The more channels you have, the more you re-key.</p></div>
           </div>
-          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary); font-style: italic;">Boutique multi-marques ? Mêmes flux, côté fournisseurs : catalogues à intégrer, réassort, stock par marque.</p>
+          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary); font-style: italic;">Multi-brand store? Same flows, supplier side: catalogs to import, restocking, stock by brand.</p>
         </div>
         <div data-reveal="" class="who-card" style="border-top-color: var(--accent);">
-          <div class="who-label" style="color: var(--accent);">Le bon moment</div>
+          <div class="who-label" style="color: var(--accent);">The right time</div>
           <div class="who-list">
-            <div class="who-item"><span style="background: var(--accent);"></span><p>Une nouvelle collection à mettre en ligne.</p></div>
-            <div class="who-item"><span style="background: var(--accent);"></span><p>L'ouverture du wholesale.</p></div>
-            <div class="who-item"><span style="background: var(--accent);"></span><p>L'arrivée d'un nouvel ERP.</p></div>
-            <div class="who-item"><span style="background: var(--accent);"></span><p>Une croissance qui oblige à recruter pour de l'administratif.</p></div>
-            <div class="who-item"><span style="background: var(--accent);"></span><p>Des erreurs de stock ou de commande qui touchent vos revendeurs.</p></div>
+            <div class="who-item"><span style="background: var(--accent);"></span><p>A new collection to put online.</p></div>
+            <div class="who-item"><span style="background: var(--accent);"></span><p>Opening wholesale.</p></div>
+            <div class="who-item"><span style="background: var(--accent);"></span><p>A new ERP coming in.</p></div>
+            <div class="who-item"><span style="background: var(--accent);"></span><p>Growth that forces you to hire for admin work.</p></div>
+            <div class="who-item"><span style="background: var(--accent);"></span><p>Stock or order errors that hit your retailers.</p></div>
           </div>
-          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary);"><strong style="color: var(--text-primary); font-weight: 600;">Vos outils :</strong> Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'Excel entre les deux.</p>
+          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary);"><strong style="color: var(--text-primary); font-weight: 600;">Your tools:</strong> Shopify, Odoo or another ERP, Klaviyo, sometimes a PLM or PIM. And lots of spreadsheets in between.</p>
         </div>
         <div data-reveal="" class="who-card who-wide" style="border-top-color: var(--danger);">
-          <div class="who-label" style="color: var(--danger);">Ce n'est pas pour vous si</div>
+          <div class="who-label" style="color: var(--danger);">Not a fit if</div>
           <div class="who-list">
-            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous voulez juste relier deux outils : un connecteur à quelques dizaines d'euros par mois suffit, je vous le dirai.</p></div>
-            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous avez déjà une DSI et un intégrateur en place.</p></div>
-            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous cherchez à réduire vos effectifs : je supprime la ressaisie, pas des postes.</p></div>
+            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>You just need to connect two tools: an off-the-shelf connector will do, and I'll tell you so.</p></div>
+            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>You already have an IT department and an integrator.</p></div>
+            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>You want to cut headcount: I remove re-keying, not jobs.</p></div>
           </div>
         </div>
       </div>
@@ -477,8 +477,8 @@
   <sc-if value="{{ showFaq }}" hint-placeholder-val="{{ true }}">
   <section id="faq" data-screen-label="FAQ" style="border-bottom: 1px solid var(--border-default);">
     <div style="max-width: 820px; margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Questions fréquentes</div>
-      <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading);">Ce qu'on me demande souvent.</h2>
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Questions</div>
+      <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading);">What people usually ask.</h2>
       <div style="border-top: 1px solid var(--border-default);">
         <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
           <div style="border-bottom: 1px solid var(--border-default);">
@@ -499,10 +499,10 @@
   <section data-screen-label="CTA" style="background: var(--accent); color: #fff;">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(52px,8vw,104px) clamp(20px,5vw,64px);">
       <div style="max-width: 720px;">
-        <h2 style="margin: 0; font-weight: 600; font-size: clamp(28px,4.4vw,52px); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading);">Vos équipes passent trop de temps à ressaisir ?</h2>
-        <p style="margin: 20px 0 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.82); max-width: 600px;">En 30 minutes, on regarde ce qu'on automatiserait en premier. Offert, sans engagement.</p>
+        <h2 style="margin: 0; font-weight: 600; font-size: clamp(28px,4.4vw,52px); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading);">Is your team spending too much time re-keying data?</h2>
+        <p style="margin: 20px 0 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.82); max-width: 600px;">In 30 minutes, we look at what we'd automate first. Free, no commitment.</p>
         <div style="display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; align-items: center;">
-          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ openBooking }}" hint-size="220px,50px">Réserver 30 minutes</x-import>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ openBooking }}" hint-size="220px,50px">Book 30 minutes</x-import>
           <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.6);">Antoine Luizet · Tulco Studio · Biarritz, France</span>
         </div>
       </div>
@@ -513,25 +513,25 @@
     <div style="max-width: var(--container-max); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between;">
       <div style="max-width: 360px; display: flex; flex-direction: column; gap: 16px;">
         <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="white" height="24" hint-size="150px,24px"></x-import>
-        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">J'automatise le back-office des marques : produit, ventes, pilotage.</p>
+        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">I automate the back office behind brands: product, sales, reporting.</p>
       </div>
       <div style="display: flex; gap: 64px; flex-wrap: wrap;">
         <div style="display: flex; flex-direction: column; gap: 10px;">
-          <div style="font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: rgba(255,255,255,0.45);">Le studio</div>
-          <a onClick="{{ jumpFlux }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">Les flux</a>
-          <a onClick="{{ jumpRealisations }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">Réalisations</a>
+          <div style="font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: rgba(255,255,255,0.45);">The studio</div>
+          <a onClick="{{ jumpFlux }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">The flows</a>
+          <a onClick="{{ jumpRealisations }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">Case studies</a>
           <a onClick="{{ jumpFaq }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">FAQ</a>
         </div>
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <div style="font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: rgba(255,255,255,0.45);">Contact</div>
           <a href="https://www.linkedin.com/in/antoine-luizet/" target="_blank" rel="noopener noreferrer" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer; text-decoration: none;">LinkedIn</a>
-          <a onClick="{{ openBooking }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">Réserver 30 min</a>
+          <a onClick="{{ openBooking }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">Book 30 min</a>
         </div>
       </div>
     </div>
     <div style="max-width: var(--container-max); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(255,255,255,0.4);">
       <span>© 2026 Tulco Studio · Biarritz</span>
-      <span>« tulco » : étai, soutien</span>
+      <span>“tulco”: prop, support</span>
     </div>
   </footer>
   <!-- BOOKING MODAL -->
@@ -541,19 +541,19 @@
         <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px var(--space-8); border-bottom: 1px solid var(--border-default);">
           <div style="display: flex; align-items: center; gap: 16px;">
             <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="blue" height="22" hint-size="140px,22px"></x-import>
-            <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Appel · 30 min</span>
+            <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Call · 30 min</span>
           </div>
-          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="sm" onClick="{{ closeBooking }}" hint-size="90px,34px">Fermer</x-import>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="sm" onClick="{{ closeBooking }}" hint-size="90px,34px">Close</x-import>
         </div>
         <div style="position: relative; height: min(620px, 75vh); background: var(--bg-subtle);">
           <sc-if value="{{ iframeNotLoaded }}" hint-placeholder-val="{{ true }}">
             <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center;">
               <div class="tulco-spinner" aria-hidden="true"></div>
-              <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Chargement du calendrier</div>
-              <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00sqO383mC39rGFkr1xcoauJcv_ydxmEFJxiT6LtLb6DaaxxCPXDL4lp3RcZ2oA-_1JN_Snr_l?gv=true" target="_blank" rel="noopener noreferrer" style="font-size: 13px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; margin-top: 4px;">Ouvrir dans un nouvel onglet</a>
+              <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Loading calendar</div>
+              <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00sqO383mC39rGFkr1xcoauJcv_ydxmEFJxiT6LtLb6DaaxxCPXDL4lp3RcZ2oA-_1JN_Snr_l?gv=true" target="_blank" rel="noopener noreferrer" style="font-size: 13px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; margin-top: 4px;">Open in a new tab</a>
             </div>
           </sc-if>
-          <iframe onLoad="{{ onIframeLoad }}" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00sqO383mC39rGFkr1xcoauJcv_ydxmEFJxiT6LtLb6DaaxxCPXDL4lp3RcZ2oA-_1JN_Snr_l?gv=true" title="Réserver un appel avec Antoine Luizet" style="border: 0; display: block; position: relative; width: 100%; height: 100%;"></iframe>
+          <iframe onLoad="{{ onIframeLoad }}" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00sqO383mC39rGFkr1xcoauJcv_ydxmEFJxiT6LtLb6DaaxxCPXDL4lp3RcZ2oA-_1JN_Snr_l?gv=true" title="Book a call with Antoine Luizet" style="border: 0; display: block; position: relative; width: 100%; height: 100%;"></iframe>
         </div>
       </div>
     </div>
@@ -621,13 +621,13 @@ class Component extends DCLogic {
   }
   renderVals() {
     const items = [
-      { q: "Ça va coûter cher ?", a: "On commence par un seul flux, celui qui coûte le plus en ressaisie. Le diagnostic chiffre le gain avant que vous vous engagiez." },
-      { q: "Faut-il changer d'outils ?", a: "Non. Vos outils existants d'abord, du sur mesure seulement là où il manque quelque chose." },
-      { q: "Il existe déjà un connecteur Shopify-Odoo.", a: "Oui, pour synchroniser deux outils. Le vrai sujet, c'est le flux entier et vos règles métier." },
-      { q: "Combien de temps ça prend ?", a: "Un flux à la fois, livré par petits lots. Vos équipes s'en servent vite, sans tunnel de plusieurs mois." },
-      { q: "Et si vous disparaissez ?", a: "Tout est documenté et vous appartient. On part de vos outils, pas d'un logiciel maison." },
-      { q: "Mes équipes vont-elles suivre ?", a: "Je les forme et je les accompagne jusqu'à l'usage réel. Chez Volcom : 90 % d'adoption." },
-      { q: "Et nos données, avec l'IA ?", a: "L'IA arrive en dernier, sur des cas précis, avec des règles d'usage claires." },
+      { q: "Is it expensive?", a: "We start with one flow, the one that costs you most in re-keying. The audit quantifies the gain before you commit." },
+      { q: "Do we need to change tools?", a: "No. Your existing tools first, custom work only where something is missing." },
+      { q: "There's already a Shopify-Odoo connector.", a: "Yes, to sync two tools. The real issue is the whole flow and your business rules." },
+      { q: "How long does it take?", a: "One flow at a time, delivered in small batches. Your team uses it quickly, no months-long tunnel." },
+      { q: "What if you disappear?", a: "Everything is documented and yours. We build on your tools, not on in-house software." },
+      { q: "Will my team follow?", a: "I train and support them until they actually use it. At Volcom: 90% adoption." },
+      { q: "What about our data and AI?", a: "AI comes last, on specific use cases, with clear usage rules." },
     ];
     const open = this.state.openFaq;
     const faqs = items.map((f, i) => ({
@@ -638,9 +638,9 @@ class Component extends DCLogic {
       onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
     }));
     const fluxData = [
-      { num: "01", name: "Produit", sub: "Du fichier de collection au site et au catalogue revendeurs.", avant: "Le marketing recopie le fichier de collection pour créer les fiches.", apres: "Les fiches se remplissent depuis la donnée de collection, partout à la fois.", outils: "PLM, PIM, Shopify." },
-      { num: "02", name: "Ventes", sub: "Des commandes revendeurs aux relances clients.", avant: "Quelqu'un ressaisit chaque commande dans l'ERP, puis relance à la main.", apres: "La commande arrive dans l'ERP sans ressaisie, les relances partent seules.", outils: "ERP (Odoo), CRM, Klaviyo." },
-      { num: "03", name: "Pilotage", sub: "Ventes, stocks, marges : à jour, sans compiler.", avant: "Cinq fichiers compilés chaque lundi, des chiffres qui se contredisent.", apres: "Un tableau de bord qui se met à jour seul, par canal.", outils: "Tableaux de bord branchés sur vos outils." },
+      { num: "01", name: "Product", sub: "From line sheet to website and wholesale catalog.", avant: "Marketing re-types the line sheet to build product pages.", apres: "Product pages fill themselves from collection data, everywhere at once.", outils: "PLM, PIM, Shopify." },
+      { num: "02", name: "Sales", sub: "From wholesale orders to customer follow-ups.", avant: "Someone re-keys every order into the ERP, then chases by hand.", apres: "Orders land in the ERP with no re-keying, follow-ups go out on their own.", outils: "ERP (Odoo), CRM, Klaviyo." },
+      { num: "03", name: "Reporting", sub: "Sales, stock, margins: up to date, no compiling.", avant: "Five files merged every Monday, numbers that disagree.", apres: "A dashboard that updates itself, by channel.", outils: "Dashboards connected to your tools." },
     ];
     const activeFlux = this.state.activeFlux ?? 0;
     const fluxTabs = fluxData.map((c, i) => ({
@@ -648,7 +648,7 @@ class Component extends DCLogic {
       name: c.name,
       sub: c.sub,
       active: activeFlux === i,
-      aria: "Flux " + c.num + " : " + c.name,
+      aria: "Flow " + c.num + " : " + c.name,
       onSelect: () => this.setState({ activeFlux: i }),
     }));
     const fluxDetail = fluxData[activeFlux] || fluxData[0];

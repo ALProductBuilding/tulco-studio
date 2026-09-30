@@ -8,7 +8,9 @@ Publiée via GitHub Pages : <https://alproductbuilding.github.io/tulco-studio/>
 
 ## Structure
 
-- `index.html` : la page (composants React via `support.js`, design system local).
+- `index.html` : la page en français. `en/index.html` : la version anglaise (chemins relatifs en `../`, à garder alignée à chaque modification de la page FR).
+- `og-card.html` / `og-card-en.html` : sources des images de partage `og.png` / `og-en.png`.
+- `index.html` (détail) : la page (composants React via `support.js`, design system local).
 - `support.js` : runtime DC (charge React 18 depuis unpkg, monte `<x-dc>`).
 - `_ds/` : design system Tulco Studio (tokens, fonts, bundle JS, styles).
 - `assets/` : images utilisées dans la page (photo, logos clients).
