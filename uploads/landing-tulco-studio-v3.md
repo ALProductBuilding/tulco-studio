@@ -259,7 +259,7 @@ Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'
 
 **Footer, signature :** J'automatise le back-office des marques : produit, ventes, pilotage.
 
-**Footer, liens :** Le constat · Les flux · Réalisations · FAQ · Contact · LinkedIn
+**Footer, liens :** Les flux · Réalisations · FAQ · LinkedIn · Réserver 30 min (pas d'adresse mail)
 
 **Footer, bas :** © 2026 Tulco Studio · Biarritz · « tulco » : étai, soutien
 
