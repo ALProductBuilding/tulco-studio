@@ -1,6 +1,6 @@
 # Landing page Tulco Studio : copie V3 (positionnement retail)
 
-*Statut : à valider avant intégration dans `index.html`. Remplace `landing-tulco-studio.md` (V2, outil métier sur-mesure).*
+*Statut : intégrée dans `index.html`. Remplace `landing-tulco-studio.md` (V2, outil métier sur-mesure).*
 *Sources : Profil LinkedIn v2 (28/09), Offre V3 (29/09), Profil entrepreneur v4 (29/09).*
 
 ## Règles d'écriture de la page
@@ -50,7 +50,7 @@ J'automatise le back-office des marques.
 **Sous-titre :**
 Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
 
-**CTA principal :** Voir ce que j'automatiserais en premier
+**CTA principal :** Voir ce qu'on automatiserait en premier
 **CTA secondaire :** Découvrir les trois flux
 
 **Sous les CTA (à la place des 3 KPI) :** trois étiquettes cliquables qui mènent aux onglets de la section 3.
@@ -173,9 +173,8 @@ Déploiement du PLM entre design, merchandising et sourcing.
 Je pilote la mise en place du site Shopify, de l'ERP Odoo, de l'emailing Klaviyo et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.
 
 **Carte 3 · Studio Muxi · premier projet Tulco**
-Commandes, stocks et pilotage financier réunis au même endroit.
+Commandes, stocks et pilotage financier réunis au même endroit. Marge visible en temps réel.
 - **≈ 4 jours / mois** récupérés
-- Marge visible en temps réel
 
 ---
 
@@ -217,10 +216,10 @@ Vous êtes une marque PME qui conçoit et distribue ses produits : site, boutiqu
 - Une croissance qui oblige à recruter pour de l'administratif.
 - Des erreurs de stock ou de commande qui touchent vos revendeurs.
 
-**Bloc 3 · Vos outils**
+**Bloc 3 · Vos outils** (note en bas du bloc 2)
 Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'Excel entre les deux.
 
-**Bloc 4 · Ce n'est pas pour vous si**
+**Bloc 4 · Ce n'est pas pour vous si** (pleine largeur)
 - Vous voulez juste relier deux outils : un connecteur à quelques dizaines d'euros par mois suffit, je vous le dirai.
 - Vous avez déjà une DSI et un intégrateur en place.
 - Vous cherchez à réduire vos effectifs : je supprime la ressaisie, pas des postes.
@@ -254,7 +253,7 @@ Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'
 
 **Titre :** Vos équipes passent trop de temps à ressaisir ?
 
-**Texte :** En 30 minutes, je vous dis ce que j'automatiserais en premier. Offert, sans engagement.
+**Texte :** En 30 minutes, on regarde ce qu'on automatiserait en premier. Offert, sans engagement.
 
 **Bouton :** Réserver 30 minutes
 

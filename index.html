@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Tulco Studio · Outil sur-mesure pour automatiser vos tâches | PME</title>
-<meta name="description" content="J'élimine les tâches qui gâchent votre expertise. Un outil métier sur-mesure qui automatise la gestion manuelle et les tâches répétitives (saisie, relances, facturation) et vous rend le temps et l'argent qu'elles coûtent. TPE et PME · 30 min sans engagement.">
+<title>Tulco Studio · J'automatise le back-office des marques</title>
+<meta name="description" content="Fiches produit, commandes revendeurs, reporting : j'automatise le back-office des marques pour que vos équipes arrêtent de ressaisir. Ex chef de produit retail.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.tulcostudio.fr/">
 <meta property="og:site_name" content="Tulco Studio">
-<meta property="og:title" content="Tulco Studio · J'élimine les tâches qui gâchent votre expertise">
-<meta property="og:description" content="Un outil métier sur-mesure qui fait disparaître la gestion manuelle, et vous rend le temps et l'argent qu'elle vous coûte.">
+<meta property="og:title" content="Tulco Studio · J'automatise le back-office des marques">
+<meta property="og:description" content="Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.">
 <meta property="og:image" content="https://www.tulcostudio.fr/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tulco Studio : outil métier sur-mesure pour TPE & PME">
+<meta property="og:image:alt" content="Tulco Studio : automatisation du back-office des marques">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tulco Studio · J'élimine les tâches qui gâchent votre expertise">
-<meta name="twitter:description" content="Un outil métier sur-mesure qui fait disparaître la gestion manuelle, et vous rend le temps et l'argent qu'elle vous coûte.">
+<meta name="twitter:title" content="Tulco Studio · J'automatise le back-office des marques">
+<meta name="twitter:description" content="Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.">
 <meta name="twitter:image" content="https://www.tulcostudio.fr/og.png">
 <script src="./support.js"></script>
 </head>
@@ -41,55 +41,50 @@
     .tulco-in { animation: none !important; }
     .tulco-spinner { animation: none !important; }
   }
-  #realScroller { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.45) transparent; }
-  #realScroller::-webkit-scrollbar { height: 8px; }
-  #realScroller::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); }
-  #realScroller::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); }
-  #realScroller::-webkit-scrollbar-thumb:hover { background: var(--accent); }
   .why-intro { display: grid; grid-template-columns: 220px 1fr; gap: clamp(28px,4vw,64px); align-items: center; }
   .why-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: var(--border-default); gap: 1px; border: 1px solid var(--border-default); }
   @media (max-width: 760px) {
     .why-intro { grid-template-columns: 1fr; gap: 28px; }
     .why-grid { grid-template-columns: 1fr; }
   }
-  .chain-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); background: var(--border-default); gap: 1px; }
   .chain-cell { position: relative; background: var(--white); padding: clamp(18px,2vw,24px) clamp(14px,1.6vw,20px); display: flex; flex-direction: column; gap: 8px; border: none; text-align: left; font-family: inherit; cursor: pointer; width: 100%; transition: background 160ms cubic-bezier(0.2,0,0,1); }
   .chain-cell:hover { background: var(--bg-subtle); }
   .chain-cell:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .chain-active-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--accent); }
   .chain-detail { padding: clamp(22px,3vw,30px) clamp(20px,3vw,28px); background: var(--white); border-top: 1px solid var(--border-default); }
-  @media (max-width: 760px) { .chain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 440px) { .chain-grid { grid-template-columns: 1fr; } }
-  .hero-stats {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: clamp(40px, 5vw, 60px);
-  }
-  .hero-stat { padding: 0 clamp(20px, 2.5vw, 34px); }
-  .hero-stat:first-child { padding-left: 0; }
-  .hero-stat:last-child { padding-right: 0; }
-  .hero-stat-value {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: clamp(19px, 3vw, 36px);
-    letter-spacing: -0.02em;
-    line-height: 1;
-    white-space: nowrap;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-  }
-  .hero-stat-label {
-    margin-top: 12px;
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--text-secondary);
-  }
-  @media (max-width: 680px) {
-    .hero-stats { flex-direction: column; margin-top: clamp(32px, 8vw, 44px); }
-    .hero-stat, .hero-stat:first-child, .hero-stat:last-child { padding: 26px 0 0; }
-    .hero-stat:first-child { padding-top: 0; }
-    .hero-stat-value { font-size: clamp(26px, 7vw, 32px); }
-  }
+  .flux-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: var(--border-default); gap: 1px; }
+  @media (max-width: 560px) { .flux-grid { grid-template-columns: 1fr; } }
+  .flux-rows { display: flex; flex-direction: column; gap: 14px; max-width: 760px; }
+  .flux-row { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: baseline; }
+  .flux-tag { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  @media (max-width: 440px) { .flux-row { grid-template-columns: 1fr; gap: 4px; } }
+  .ia-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 24px; }
+  .ia-item, .why-item, .who-item { display: flex; gap: 12px; align-items: flex-start; }
+  .why-item span { flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent); }
+  .why-item p, .who-item p { margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary); }
+  .who-item span { flex: none; width: 8px; height: 8px; margin-top: 7px; }
+  .who-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .who-card { background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); padding: var(--space-8); }
+  .who-label { font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 18px; }
+  .who-wide { grid-column: 1 / -1; }
+  .who-list { display: flex; flex-direction: column; gap: 12px; }
+  @media (max-width: 760px) { .who-grid { grid-template-columns: 1fr; } }
+  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .proof-card { background: var(--white); color: var(--text-primary); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); padding: var(--space-6); display: flex; flex-direction: column; gap: 16px; }
+  .proof-name, .agency-name { font-family: var(--font-mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.3; }
+  .proof-metrics { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-default); display: flex; gap: 24px; flex-wrap: wrap; }
+  .proof-metric { display: flex; flex-direction: column; gap: 6px; }
+  .proof-value, .agency-value { font-family: var(--font-mono); font-weight: 600; font-size: clamp(30px,3.4vw,42px); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1; }
+  .proof-label { font-size: 13px; line-height: 1.4; color: var(--text-secondary); }
+  .agency-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); background: var(--border-default); gap: 1px; border: 1px solid var(--border-default); }
+  .agency-card { background: var(--white); padding: clamp(20px,2.4vw,28px); display: flex; flex-direction: column; gap: 12px; }
+  .agency-card p { margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); }
+  .agency-metric { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-default); display: flex; flex-direction: column; gap: 6px; }
+  .agency-value { font-size: clamp(26px,2.6vw,32px); }
+  .hero-flux { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
+  .hero-flux-chip { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); background: var(--white); border: 1px solid var(--border-default); padding: 8px 12px; cursor: pointer; transition: color 160ms, border-color 160ms; }
+  .hero-flux-chip:hover { color: var(--accent); border-color: var(--accent); }
+  .hero-flux-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   /* --- HEADER responsive --- */
   .header-bar {
     max-width: var(--container-max);
@@ -139,7 +134,7 @@
   }
   .nav-mobile-cta { margin-top: 18px; }
   .nav-mobile-cta button { width: 100% !important; }
-  @media (max-width: 940px) {
+  @media (max-width: 1060px) {
     .nav-desktop { display: none; }
     .nav-burger { display: inline-flex; }
   }
@@ -170,23 +165,25 @@
       <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="blue" height="24" hint-size="150px,24px"></x-import>
       <nav class="nav-desktop">
         <a onClick="{{ jumpProbleme }}" class="nav-link">Le constat</a>
-        <a onClick="{{ jumpSolution }}" class="nav-link">Pourquoi moi</a>
-        <a onClick="{{ jumpMethode }}" class="nav-link">Comment ça marche</a>
+        <a onClick="{{ jumpFlux }}" class="nav-link">Les flux</a>
+        <a onClick="{{ jumpPourquoi }}" class="nav-link">Pourquoi moi</a>
+        <a onClick="{{ jumpMethode }}" class="nav-link">Méthode</a>
         <a onClick="{{ jumpRealisations }}" class="nav-link">Réalisations</a>
         <a onClick="{{ jumpFaq }}" class="nav-link">FAQ</a>
-        <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="sm" onClick="{{ openBooking }}" hint-size="150px,34px">Réserver un appel</x-import>
+        <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="sm" onClick="{{ openBooking }}" hint-size="150px,34px">Réserver 30 min</x-import>
       </nav>
       <button type="button" class="nav-burger" aria-label="Menu" onClick="{{ toggleMobileNav }}">{{ burgerIcon }}</button>
     </div>
     <sc-if value="{{ mobileNav }}" hint-placeholder-val="{{ false }}">
       <nav class="nav-mobile">
         <a onClick="{{ jumpProbleme }}" class="nav-link">Le constat</a>
-        <a onClick="{{ jumpSolution }}" class="nav-link">Pourquoi moi</a>
-        <a onClick="{{ jumpMethode }}" class="nav-link">Comment ça marche</a>
+        <a onClick="{{ jumpFlux }}" class="nav-link">Les flux</a>
+        <a onClick="{{ jumpPourquoi }}" class="nav-link">Pourquoi moi</a>
+        <a onClick="{{ jumpMethode }}" class="nav-link">Méthode</a>
         <a onClick="{{ jumpRealisations }}" class="nav-link">Réalisations</a>
         <a onClick="{{ jumpFaq }}" class="nav-link">FAQ</a>
         <div class="nav-mobile-cta">
-          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="md" onClick="{{ openBooking }}" hint-size="150px,42px">Réserver un appel</x-import>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="md" onClick="{{ openBooking }}" hint-size="150px,42px">Réserver 30 min</x-import>
         </div>
       </nav>
     </sc-if>
@@ -196,29 +193,19 @@
     <div class="hero-mark">
       <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="symbol" tone="ink" height="500" hint-size="500px,500px"></x-import>
     </div>
-    <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(36px,5vw,56px);">
+    <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(44px,6vw,72px);">
       <div style="max-width: 900px;">
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Outil métier sur-mesure · TPE &amp; PME</div>
-        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">J'élimine les tâches qui gâchent votre expertise.</h1>
-        <p style="margin: 24px 0 0; max-width: 660px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-primary); font-weight: 500;">Le temps et l'argent qu'elles vous coûtent, vous les remettez sur ce que vous faites de mieux.</p>
-        <p style="margin: 18px 0 0; max-width: 620px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Je conçois et développe un outil métier sur-mesure qui fait disparaître la gestion manuelle : saisie en double, relances, facturation, reporting. Livré vite, sans la facture d'une agence. Vous parlez directement à celui qui construit.</p>
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Back-office des marques · PME</div>
+        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">J'automatise le back-office des marques.</h1>
+        <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.</p>
         <div class="hero-cta">
-          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="240px,50px">Réserver un appel de 30 min</x-import>
-          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpRealisations }}" hint-size="200px,50px">Voir des exemples concrets</x-import>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="340px,50px">Voir ce qu'on automatiserait en premier</x-import>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpFlux }}" hint-size="240px,50px">Découvrir les trois flux</x-import>
         </div>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-value">−50&nbsp;% de temps</div>
-          <div class="hero-stat-label">sur les tâches répétitives</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value">2x plus</div>
-          <div class="hero-stat-label">de dossiers traités</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value">&lt;&nbsp;6&nbsp;mois</div>
-          <div class="hero-stat-label">pour rentabiliser l'outil</div>
+        <div class="hero-flux">
+          <sc-for list="{{ heroFlux }}" as="h" hint-placeholder-count="3">
+            <button type="button" class="hero-flux-chip" onClick="{{ h.onSelect }}">{{ h.label }}</button>
+          </sc-for>
         </div>
       </div>
     </div>
@@ -228,69 +215,37 @@
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 64px); align-items: start;">
       <div>
         <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Le constat</div>
-        <h2 style="margin: 0 0 20px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 520px;">Fichiers qui débordent, logiciel qui vous bloque.</h2>
-        <p style="margin: 0 0 16px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary); max-width: 460px;">Au début, Excel suffisait. Vous avez ajouté un logiciel du marché. Aujourd'hui, ni l'un ni l'autre n'épouse vraiment votre métier. Et chaque tâche gérée à la main vous coûte du temps et de l'argent.</p>
-        <p style="margin: 0 0 16px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px;">Ce n'est pas un problème de motivation, c'est un problème d'outil. Le logiciel tout fait est trop rigide ou hors de prix. Et une agence vous facture six mois et trois intermédiaires pour quelque chose que vous ne maîtriserez jamais.</p>
-        <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px; font-weight: 500;">Excel n'est plus l'outil : c'est le symptôme. Quand tout tourne sur des tableurs et de la mémoire, l'argent fuit sans que vous le voyiez.</p>
+        <h2 style="margin: 0 0 20px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 520px;">Tout passe encore par des fichiers.</h2>
+        <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px; font-weight: 500;">Chaque copie crée une erreur. Et une erreur de stock ou de commande, c'est un revendeur qui se lasse.</p>
       </div>
       <div style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger);">
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">La même donnée est ressaisie trois fois, dans trois fichiers différents.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le fichier de collection est recopié à la main pour le site.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Les emails, devis, factures et relances partent à la main, un par un.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Les commandes revendeurs passent de l'Excel du commercial à l'ERP, à la main.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Personne n'a de vue claire : chacun a sa version du fichier.</p>
-        </div>
-        <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
-          <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Les erreurs de saisie créent des avoirs, des doublons, des litiges.</p>
-        </div>
-        <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
-          <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vous payez un logiciel plusieurs milliers d'euros par an, vos équipes l'utilisent à 10 %.</p>
-        </div>
-        <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
-          <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Les fonctions qui vous manquent vraiment ne sont jamais dans la roadmap.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le stock ne suit pas entre le site, la boutique et l'entrepôt.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vos meilleurs profils passent leurs journées à recopier au lieu de produire.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le lundi, on compile cinq fichiers pour savoir ce qui s'est vendu.</p>
         </div>
       </div>
     </div>
   </section>
-  <!-- LA SOLUTION -->
-  <section id="solution" data-screen-label="Solution" style="border-bottom: 1px solid var(--border-default);">
+  <!-- LES TROIS FLUX -->
+  <section id="flux" data-screen-label="Flux" style="border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Pourquoi moi</div>
-      <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Une équipe produit entière. En une seule personne.</h2>
-      <div class="why-intro" style="margin-bottom: clamp(36px,5vw,56px);">
-        <div data-reveal="" style="display: flex; flex-direction: column; gap: 16px;">
-          <img src="assets/antoine.png" alt="Antoine Luizet, fondateur de Tulco Studio" style="width: 200px; height: 200px; max-width: 100%; border-radius: 50%; display: block; border: 2px solid var(--accent);">
-          <div>
-            <div style="font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Antoine Luizet</div>
-            <div style="font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-top: 5px;">Fondateur · Tulco Studio</div>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 18px; max-width: 640px;">
-          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Je m'appelle Antoine Luizet. Je construis des outils métier sur-mesure pour les TPE et PME, pour remplacer Excel et les logiciels tout faits qui vous bloquent.</p>
-          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Concrètement : des interfaces de gestion claires, des automatisations qui tournent toutes seules (emails, SMS, documents, facturation) et un pilotage de votre activité en temps réel, calés sur votre façon de travailler, pas l'inverse.</p>
-          <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Vous n'avez pas à assembler un designer, un dev, un intégrateur et une agence : un seul cerveau garde l'outil cohérent et fidèle à votre métier, du problème jusqu'à l'usage.</p>
-        </div>
-      </div>
-      <div data-reveal="" style="margin-bottom: clamp(36px,5vw,56px); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent);">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 16px clamp(20px,3vw,28px); background: var(--white); border-bottom: 1px solid var(--border-default);">
-          <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">La chaîne produit, de bout en bout</span>
-          <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary);">Cliquez une étape pour le détail</span>
-        </div>
-        <div class="chain-grid">
-          <sc-for list="{{ chainSteps }}" as="c" hint-placeholder-count="5">
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Ce que j'automatise</div>
+      <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Trois flux. Une info saisie une fois, juste partout.</h2>
+      <div data-reveal="" style="border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent);">
+        <div class="flux-grid">
+          <sc-for list="{{ fluxTabs }}" as="c" hint-placeholder-count="3">
             <button type="button" onClick="{{ c.onSelect }}" class="chain-cell" aria-label="{{ c.aria }}">
               <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;">{{ c.num }}</span>
               <span style="font-weight: 600; font-size: var(--text-md); letter-spacing: var(--tracking-normal); color: var(--text-primary);">{{ c.name }}</span>
@@ -300,175 +255,176 @@
           </sc-for>
         </div>
         <div class="chain-detail">
-          <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 10px;">Étape {{ chainDetail.num }} · {{ chainDetail.name }}</div>
-          <p style="margin: 0; max-width: 720px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">{{ chainDetail.body }}</p>
+          <div class="flux-rows">
+            <div class="flux-row">
+              <span class="flux-tag" style="color: var(--danger);">Avant</span>
+              <p style="margin: 0; font-size: var(--text-md); line-height: 1.55; color: var(--text-secondary);">{{ fluxDetail.avant }}</p>
+            </div>
+            <div class="flux-row">
+              <span class="flux-tag" style="color: var(--accent);">Après</span>
+              <p style="margin: 0; font-size: var(--text-md); line-height: 1.55; color: var(--text-primary); font-weight: 500;">{{ fluxDetail.apres }}</p>
+            </div>
+            <div class="flux-row">
+              <span class="flux-tag" style="color: var(--text-tertiary);">Outils</span>
+              <p style="margin: 0; font-size: var(--text-sm); line-height: 1.55; color: var(--text-secondary);">{{ fluxDetail.outils }}</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="solutionLedger" data-reveal="" data-stagger="" class="why-grid" style="border-top: 2px solid var(--text-primary);">
-        <div style="display: flex; flex-direction: column; gap: 12px; padding: clamp(24px,3vw,34px); background: var(--white); transition: background 160ms cubic-bezier(0.2,0,0,1);" style-hover="background: var(--bg-subtle);">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border-default); background: var(--bg-subtle);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="7" y="4" width="6" height="6"></rect><path d="M3 21 L6 15 H14 L17 21"></path><polyline points="16 7 18 9 22 5"></polyline></svg></div>
-            <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Aucun intermédiaire</h3>
-          </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Vous parlez directement à celui qui code. Pas de chef de projet qui traduit, rien ne se perd en route.</p>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 12px; padding: clamp(24px,3vw,34px); background: var(--white); transition: background 160ms cubic-bezier(0.2,0,0,1);" style-hover="background: var(--bg-subtle);">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border-default); background: var(--bg-subtle);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 20 L12 5 L21 20 Z"></path><line x1="12" y1="5" x2="12" y2="20"></line><line x1="3" y1="20" x2="12" y2="12.5"></line><line x1="21" y1="20" x2="12" y2="12.5"></line></svg></div>
-            <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">La qualité d'une agence</h3>
-          </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">J'ai construit pour des clients exigeants. Vous gardez ce niveau d'exécution, sans les frais de structure.</p>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 12px; padding: clamp(24px,3vw,34px); background: var(--white); transition: background 160ms cubic-bezier(0.2,0,0,1);" style-hover="background: var(--bg-subtle);">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border-default); background: var(--bg-subtle);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="none"><g fill="var(--accent)" stroke="none"><rect x="4" y="5" width="15" height="3"></rect><rect x="6" y="11" width="13" height="3"></rect><rect x="8" y="17" width="11" height="3"></rect></g></svg></div>
-            <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Prix transparent</h3>
-          </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Périmètre clair, prix clair. Vous savez ce que vous payez et ce que ça vous rapporte.</p>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 12px; padding: clamp(24px,3vw,34px); background: var(--white); transition: background 160ms cubic-bezier(0.2,0,0,1);" style-hover="background: var(--bg-subtle);">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border-default); background: var(--bg-subtle);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><polygon points="14 2 6 13 11 13 10 22 18 11 13 11 14 2"></polygon></svg></div>
-            <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Rapide</h3>
-          </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Une première version livrée en 2 à 4 mois. Vous utilisez l'outil vite, pas dans deux ans.</p>
+      <div data-reveal="" style="margin-top: clamp(28px,4vw,40px); background: var(--bg-subtle); border: 1px solid var(--border-default); padding: clamp(24px,3vw,34px);">
+        <h3 style="margin: 0 0 10px; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Et l'IA ? D'abord des données propres.</h3>
+        <p style="margin: 0 0 22px; max-width: 640px; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Branchée sur cinq fichiers qui se contredisent, l'IA produit des erreurs plus vite. Sur des flux propres, elle devient un vrai levier :</p>
+        <div class="ia-grid">
+          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Fiches produit rédigées à partir de vos données.</p></div>
+          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Commandes reçues par mail, lues et saisies.</p></div>
+          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Reporting commenté chaque lundi.</p></div>
         </div>
       </div>
     </div>
   </section>
-  <!-- COMMENT CA MARCHE -->
-  <section id="methode" data-screen-label="Methode" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
+  <!-- POURQUOI MOI -->
+  <section id="pourquoi" data-screen-label="PourquoiMoi" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Comment ça marche</div>
-      <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Quatre étapes, zéro jargon.</h2>
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Pourquoi moi</div>
+      <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Le terrain du retail. Les réflexes d'un product builder.</h2>
+      <div class="why-intro" style="margin-bottom: clamp(36px,5vw,56px);">
+        <div data-reveal="" style="display: flex; flex-direction: column; gap: 16px;">
+          <img src="assets/antoine.png" alt="Antoine Luizet, fondateur de Tulco Studio" style="width: 200px; height: 200px; max-width: 100%; border-radius: 50%; display: block; border: 2px solid var(--accent);">
+          <div>
+            <div style="font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Antoine Luizet</div>
+            <div style="font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-top: 5px;">Fondateur · Tulco Studio</div>
+          </div>
+        </div>
+        <p style="margin: 0; max-width: 600px; font-size: var(--text-lg); line-height: 1.45; color: var(--text-primary); font-weight: 500;">J'ai passé 8 ans du côté des marques avant de construire des outils. Je parle collection, revendeurs et stocks, et je sais les traduire en flux qui tournent.</p>
+      </div>
+      <div data-reveal="" data-stagger="" class="why-grid" style="border-top: 2px solid var(--text-primary);">
+        <div style="display: flex; flex-direction: column; gap: 18px; padding: clamp(24px,3vw,34px); background: var(--white);">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border-default); background: var(--bg-subtle);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 9 L5 4 H19 L21 9"></path><rect x="4" y="9" width="16" height="11"></rect><rect x="10" y="14" width="4" height="6"></rect></svg></div>
+            <div>
+              <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Le terrain</h3>
+              <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-top: 3px;">Retail et merchandising</div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="why-item"><span></span><p>130 magasins suivis comme chef de secteur (AB InBev).</p></div>
+            <div class="why-item"><span></span><p>Chef de produit EMEA chez Volcom et Spyder.</p></div>
+            <div class="why-item"><span></span><p>Prévisions wholesale, retail et e-commerce.</p></div>
+            <div class="why-item"><span></span><p>PLM déployé en Europe : 90 % d'adoption.</p></div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 18px; padding: clamp(24px,3vw,34px); background: var(--white);">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--border-default); background: var(--bg-subtle);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3.5" width="5" height="5"></rect><rect x="16" y="3.5" width="5" height="5"></rect><rect x="9.5" y="15" width="5" height="5"></rect><line x1="6" y1="8.5" x2="12" y2="15"></line><line x1="18" y1="8.5" x2="12" y2="15"></line></svg></div>
+            <div>
+              <h3 style="margin: 0; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">Le build</h3>
+              <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-tertiary); margin-top: 3px;">Product builder</div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="why-item"><span></span><p>Comprendre le flux avant de toucher un outil.</p></div>
+            <div class="why-item"><span></span><p>Automatiser, connecter, coder avec l'IA si besoin.</p></div>
+            <div class="why-item"><span></span><p>Documenter : tout vous appartient.</p></div>
+            <div class="why-item"><span></span><p>Former vos équipes jusqu'à l'usage réel.</p></div>
+          </div>
+        </div>
+      </div>
+      <p style="margin: clamp(24px,3vw,32px) 0 0; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">Pas d'agence, pas d'intermédiaire : vous travaillez en direct avec moi.</p>
+    </div>
+  </section>
+  <!-- COMMENT CA MARCHE -->
+  <section id="methode" data-screen-label="Methode" style="border-bottom: 1px solid var(--border-default);">
+    <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Méthode</div>
+      <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Un flux à la fois. Le plus douloureux d'abord.</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; border-top: 1px solid var(--border-default);">
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="6" y="3" width="12" height="18"></rect><line x1="6" y1="7" x2="18" y2="7"></line><line x1="6" y1="17" x2="18" y2="17"></line><line x1="10.5" y1="19.5" x2="13.5" y2="19.5"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 1</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Appel découverte, 30 min</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Vous me montrez vos fichiers et votre quotidien. Je vous donne un premier avis honnête sur ce qui peut être automatisé pour vous rendre du temps et de l'argent, même si la réponse est « vous n'avez pas besoin de moi ».</p>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">30 minutes, offertes</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Vous me décrivez vos flux. Je vous dis par où je commencerais, et pourquoi.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="4" width="11" height="11"></rect><line x1="7" y1="8" x2="12" y2="8"></line><line x1="7" y1="11" x2="10" y2="11"></line><line x1="14.5" y1="14.5" x2="21" y2="21"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 2</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Cadrage et exploration</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">On creuse le besoin pour de vrai : je cartographie vos process, je priorise ce qui rapporte le plus, et je chiffre le gain avant d'écrire la moindre ligne.</p>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Diagnostic chiffré</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Je cartographie vos flux et mesure le temps perdu en ressaisie. Vous repartez avec un plan priorisé.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3.5" width="5" height="5"></rect><rect x="16" y="3.5" width="5" height="5"></rect><rect x="9.5" y="15" width="5" height="5"></rect><line x1="6" y1="8.5" x2="12" y2="15"></line><line x1="18" y1="8.5" x2="12" y2="15"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 3</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Je construis</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Je conçois et développe l'outil par briques utiles, en contact direct avec vous. Vous voyez le produit avancer, vous l'utilisez tôt, vous l'ajustez.</p>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Premier flux</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Connecté à vos outils existants, automatisé, adopté par l'équipe.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><line x1="3" y1="20" x2="21" y2="20"></line><polyline points="5 16 10 11 13 14 19 7"></polyline><polyline points="15 7 19 7 19 11"></polyline></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 4</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Vous gagnez du temps, et je reste là</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">L'outil tourne. Selon vos besoins, je le maintiens et le fais évoluer en régie mensuelle, ou je vous laisse autonome. Vous décidez.</p>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">La suite</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Les autres flux, puis l'IA. Et un suivi, car vos outils évoluent et les connexions aussi.</p>
         </div>
       </div>
     </div>
   </section>
-  <!-- REALISATIONS -->
+  <!-- REALISATIONS RETAIL -->
   <section id="realisations" data-screen-label="Realisations" style="position: relative; overflow: hidden; background: var(--surface-ink); color: var(--text-on-ink); background-image: var(--grid-bg); background-size: var(--grid-size) var(--grid-size); background-blend-mode: soft-light; --bg-grid: rgba(255, 255, 255, 0.05);">
     <div style="position: absolute; left: -5%; bottom: -8%; opacity: 0.06; pointer-events: none;">
       <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="symbol" tone="white" height="420" hint-size="420px,420px"></x-import>
     </div>
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
-      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-soft); margin-bottom: 16px;">Réalisations · résultats chiffrés</div>
-      <h2 style="margin: 0 0 12px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Ce que mes outils ont changé.</h2>
-      <p style="margin: 0 0 48px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.6); max-width: 600px;">Chiffres estimés à partir de projets réels. Je préfère un ordre de grandeur honnête à une promesse ronde.</p>
-      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.55);"><span style="width: 24px; height: 1px; background: rgba(255,255,255,0.4);"></span>Glissez pour explorer les 5 projets →</div>
-      <div id="realScroller" style="display: flex; gap: 16px; align-items: stretch; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x proximity; padding: 4px 4px 18px; margin: 0 -4px;">
-        <div style="flex: none; width: 380px; scroll-snap-align: start; background: var(--white); color: var(--text-primary); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); padding: var(--space-6); display: flex; flex-direction: column; gap: 16px;">
-          <div style="display: flex; align-items: center; min-height: 56px;">
-            <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.3;">États des lieux<br>immobiliers</span>
-          </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">États des lieux, onboarding, planification, avenants, facturation : tout était manuel. J'ai construit les interfaces de gestion, le dashboard financier, les notifications email et SMS et la génération de documents.</p>
-          <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-default);">
-            <div style="display: flex; align-items: baseline; gap: 12px;">
-              <span style="font-family: var(--font-mono); font-weight: 600; font-size: clamp(38px,4.4vw,54px); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1;">×2</span>
-              <span style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); line-height: 1.3;">CA sur l'année<br><span style="font-weight: 400; color: var(--text-tertiary);">contribution mesurée</span></span>
-            </div>
-            <div style="margin-top: 14px; height: 4px; background: var(--bg-subtle); overflow: hidden;"><div data-bar="100" style="height: 100%; width: 0; background: var(--accent); transition: width 760ms cubic-bezier(0.2,0,0,1);"></div></div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--danger);">Avant : tout à la main</span>
-            <span style="color: var(--text-tertiary); font-size: 13px;">→</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">Après : ops automatisées</span>
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-soft); margin-bottom: 16px;">Réalisations · retail</div>
+      <h2 style="margin: 0 0 48px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Le retail, vu de l'intérieur.</h2>
+      <div class="proof-grid">
+        <div data-reveal="" class="proof-card">
+          <span class="proof-name">Volcom · PLM Europe</span>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Déploiement du PLM entre design, merchandising et sourcing.</p>
+          <div class="proof-metrics">
+            <div class="proof-metric"><span class="proof-value">−15&nbsp;%</span><span class="proof-label">de délais de développement</span></div>
+            <div class="proof-metric"><span class="proof-value">90&nbsp;%</span><span class="proof-label">d'adoption par les équipes</span></div>
           </div>
         </div>
-        <div style="flex: none; width: 380px; scroll-snap-align: start; background: var(--white); color: var(--text-primary); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); padding: var(--space-6); display: flex; flex-direction: column; gap: 16px;">
-          <div style="display: flex; align-items: center; min-height: 56px;">
-            <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.3;">Contrats &amp;<br>budgets SaaS</span>
+        <div data-reveal="" class="proof-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+            <span class="proof-name">Nichebloom · marque en lancement</span>
+            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">En cours</span>
           </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Contrats et budgets gérés à la main dans Airtable, données désorganisées. J'ai créé les interfaces de saisie des contrats et product lines, l'amortissement automatisé et la génération du budget annuel en 3 clics.</p>
-          <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-default);">
-            <div style="display: flex; align-items: baseline; gap: 12px;">
-              <span style="font-family: var(--font-mono); font-weight: 600; font-size: clamp(38px,4.4vw,54px); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1;">≈ 6</span>
-              <span style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); line-height: 1.3;">jours / mois rendus<br><span style="font-weight: 400; color: var(--text-tertiary);">+ dizaines de k€ économisés</span></span>
-            </div>
-            <div style="margin-top: 14px; height: 4px; background: var(--bg-subtle); overflow: hidden;"><div data-bar="100" style="height: 100%; width: 0; background: var(--accent); transition: width 760ms cubic-bezier(0.2,0,0,1);"></div></div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--danger);">Avant : saisie manuelle</span>
-            <span style="color: var(--text-tertiary); font-size: 13px;">→</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">Après : budget en 3 clics</span>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Je pilote la mise en place du site Shopify, de l'ERP Odoo, de l'emailing Klaviyo et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.</p>
+        </div>
+        <div data-reveal="" class="proof-card">
+          <span class="proof-name">Studio Muxi · premier projet Tulco</span>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Commandes, stocks et pilotage financier réunis au même endroit. Marge visible en temps réel.</p>
+          <div class="proof-metrics">
+            <div class="proof-metric"><span class="proof-value">≈&nbsp;4&nbsp;j</span><span class="proof-label">par mois récupérés</span></div>
           </div>
         </div>
-        <div style="flex: none; width: 380px; scroll-snap-align: start; background: var(--white); color: var(--text-primary); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); padding: var(--space-6); display: flex; flex-direction: column; gap: 16px;">
-          <div style="display: flex; align-items: center; min-height: 56px;">
-            <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.3;">Pilotage, facturation<br>&amp; RH</span>
-          </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Suivi des projets dans un Excel partagé, codes projets créés à la main, erreurs en cascade, aucun SIRH. J'ai automatisé la création des codes projets, la facturation, et ajouté la gestion RH (absences, entretiens, fiches de paie).</p>
-          <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-default);">
-            <div style="display: flex; align-items: baseline; gap: 12px;">
-              <span style="font-family: var(--font-mono); font-weight: 600; font-size: clamp(38px,4.4vw,54px); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1;">≈ 1</span>
-              <span style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); line-height: 1.3;">ETP économisé<br><span style="font-weight: 400; color: var(--text-tertiary);">sur les tâches automatisées</span></span>
-            </div>
-            <div style="margin-top: 14px; height: 4px; background: var(--bg-subtle); overflow: hidden;"><div data-bar="100" style="height: 100%; width: 0; background: var(--accent); transition: width 760ms cubic-bezier(0.2,0,0,1);"></div></div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--danger);">Avant : Excel partagé</span>
-            <span style="color: var(--text-tertiary); font-size: 13px;">→</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">Après : codes &amp; paie auto</span>
-          </div>
+      </div>
+    </div>
+  </section>
+  <!-- EN AGENCE -->
+  <section id="agence" data-screen-label="Agence" style="border-bottom: 1px solid var(--border-default);">
+    <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Avant Tulco</div>
+      <h2 style="margin: 0 0 12px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Product builder en agence : 4 outils, 4 secteurs.</h2>
+      <p style="margin: 0 0 44px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary); max-width: 600px;">Hors retail, même méthode : comprendre le métier, construire, faire adopter.</p>
+      <div data-reveal="" data-stagger="" class="agency-grid">
+        <div class="agency-card">
+          <span class="agency-name">États des lieux immobiliers</span>
+          <p>Onboarding, planification, documents et facturation automatisés.</p>
+          <div class="agency-metric"><span class="agency-value">×2</span><span class="proof-label">de CA sur l'année</span></div>
         </div>
-        <div style="flex: none; width: 380px; scroll-snap-align: start; background: var(--white); color: var(--text-primary); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); padding: var(--space-6); display: flex; flex-direction: column; gap: 16px;">
-          <div style="display: flex; align-items: center; min-height: 56px;">
-            <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.3;">Gestion de<br>projets SaaS</span>
-          </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Espace d'équipe sans pilotage, documents éparpillés, aucun suivi du temps. J'ai construit un espace projet avec permissions avancées, centralisation documentaire et gestion product management adaptée au SaaS.</p>
-          <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-default);">
-            <div style="display: flex; align-items: baseline; gap: 12px;">
-              <span style="font-family: var(--font-mono); font-weight: 600; font-size: clamp(38px,4.4vw,54px); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1;">≈ 2 h</span>
-              <span style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); line-height: 1.3;">/ semaine / personne<br><span style="font-weight: 400; color: var(--text-tertiary);">sur 8 utilisateurs</span></span>
-            </div>
-            <div style="margin-top: 14px; height: 4px; background: var(--bg-subtle); overflow: hidden;"><div data-bar="100" style="height: 100%; width: 0; background: var(--accent); transition: width 760ms cubic-bezier(0.2,0,0,1);"></div></div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--danger);">Avant : docs éparpillés</span>
-            <span style="color: var(--text-tertiary); font-size: 13px;">→</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">Après : espace centralisé</span>
-          </div>
+        <div class="agency-card">
+          <span class="agency-name">Contrats et budgets SaaS</span>
+          <p>Contrats structurés, budget annuel généré en 3 clics.</p>
+          <div class="agency-metric"><span class="agency-value">≈&nbsp;6&nbsp;j</span><span class="proof-label">par mois rendus</span></div>
         </div>
-        <div style="flex: none; width: 380px; scroll-snap-align: start; background: var(--white); color: var(--text-primary); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); padding: var(--space-6); display: flex; flex-direction: column; gap: 16px;">
-          <div style="display: flex; align-items: center; min-height: 56px;">
-            <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-primary); line-height: 1.3;">Commandes, stocks<br>&amp; finances</span>
-          </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Commandes notées sur des carnets, stocks suivis de mémoire, aucune visibilité sur la marge. J'ai construit la gestion des commandes, le suivi des stocks en temps réel et un pilotage financier (chiffre d'affaires, marge, trésorerie) pour un atelier d'artiste.</p>
-          <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-default);">
-            <div style="display: flex; align-items: baseline; gap: 12px;">
-              <span style="font-family: var(--font-mono); font-weight: 600; font-size: clamp(38px,4.4vw,54px); letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1;">≈ 4</span>
-              <span style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); line-height: 1.3;">jours / mois rendus<br><span style="font-weight: 400; color: var(--text-tertiary);">marge visible en temps réel</span></span>
-            </div>
-            <div style="margin-top: 14px; height: 4px; background: var(--bg-subtle); overflow: hidden;"><div data-bar="100" style="height: 100%; width: 0; background: var(--accent); transition: width 760ms cubic-bezier(0.2,0,0,1);"></div></div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--danger);">Avant : carnets &amp; mémoire</span>
-            <span style="color: var(--text-tertiary); font-size: 13px;">→</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">Après : stocks &amp; marge en direct</span>
-          </div>
+        <div class="agency-card">
+          <span class="agency-name">Pilotage, facturation et RH</span>
+          <p>Codes projets, facturation et paie automatisés.</p>
+          <div class="agency-metric"><span class="agency-value">≈&nbsp;1</span><span class="proof-label">ETP économisé</span></div>
+        </div>
+        <div class="agency-card">
+          <span class="agency-name">Gestion de projets SaaS</span>
+          <p>Espace projet centralisé, permissions, suivi.</p>
+          <div class="agency-metric"><span class="agency-value">≈&nbsp;2&nbsp;h</span><span class="proof-label">par semaine et par personne</span></div>
         </div>
       </div>
     </div>
@@ -478,21 +434,33 @@
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
       <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Pour qui</div>
       <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Pour qui, et pour qui ce n'est pas.</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
-        <div data-reveal="" style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--success); padding: var(--space-8);">
-          <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--success); margin-bottom: 20px;">C'est pour vous si</div>
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--success);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Votre PME tourne sur des fichiers Excel ou un logiciel tout fait qui ne suit pas votre métier.</p></div>
-            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--success);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vos équipes passent trop de temps sur de la saisie et des tâches répétitives.</p></div>
-            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--success);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vous voulez un outil qui colle à votre métier, pas un logiciel générique de plus.</p></div>
-            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--success);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vous préférez parler à un seul interlocuteur qui comprend et qui construit.</p></div>
+      <div class="who-grid">
+        <div data-reveal="" class="who-card" style="border-top-color: var(--success);">
+          <div class="who-label" style="color: var(--success);">C'est pour vous si</div>
+          <p style="margin: 0 0 14px; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">Vous êtes une marque PME qui conçoit et distribue ses produits : site, boutiques, revendeurs.</p>
+          <div class="who-list">
+            <div class="who-item"><span style="background: var(--success);"></span><p>Vous lancez une marque, ou elle grandit plus vite que votre back-office.</p></div>
+            <div class="who-item"><span style="background: var(--success);"></span><p>Plus vous avez de canaux, plus vous ressaisissez.</p></div>
           </div>
+          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary); font-style: italic;">Boutique multi-marques ? Mêmes flux, côté fournisseurs : catalogues à intégrer, réassort, stock par marque.</p>
         </div>
-        <div data-reveal="" style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger); padding: var(--space-8);">
-          <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--danger); margin-bottom: 20px;">Ce n'est pas pour vous si</div>
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 1px; margin-top: 11px; background: var(--danger);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vous cherchez la solution la moins chère sans regarder le retour sur investissement.</p></div>
-            <div style="display: flex; gap: 12px; align-items: flex-start;"><span style="flex: none; width: 8px; height: 1px; margin-top: 11px; background: var(--danger);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Vous voulez un logiciel standard sur étagère : il en existe, je vous le dirai.</p></div>
+        <div data-reveal="" class="who-card" style="border-top-color: var(--accent);">
+          <div class="who-label" style="color: var(--accent);">Le bon moment</div>
+          <div class="who-list">
+            <div class="who-item"><span style="background: var(--accent);"></span><p>Une nouvelle collection à mettre en ligne.</p></div>
+            <div class="who-item"><span style="background: var(--accent);"></span><p>L'ouverture du wholesale.</p></div>
+            <div class="who-item"><span style="background: var(--accent);"></span><p>L'arrivée d'un nouvel ERP.</p></div>
+            <div class="who-item"><span style="background: var(--accent);"></span><p>Une croissance qui oblige à recruter pour de l'administratif.</p></div>
+            <div class="who-item"><span style="background: var(--accent);"></span><p>Des erreurs de stock ou de commande qui touchent vos revendeurs.</p></div>
+          </div>
+          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary);"><strong style="color: var(--text-primary); font-weight: 600;">Vos outils :</strong> Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'Excel entre les deux.</p>
+        </div>
+        <div data-reveal="" class="who-card who-wide" style="border-top-color: var(--danger);">
+          <div class="who-label" style="color: var(--danger);">Ce n'est pas pour vous si</div>
+          <div class="who-list">
+            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous voulez juste relier deux outils : un connecteur à quelques dizaines d'euros par mois suffit, je vous le dirai.</p></div>
+            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous avez déjà une DSI et un intégrateur en place.</p></div>
+            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous cherchez à réduire vos effectifs : je supprime la ressaisie, pas des postes.</p></div>
           </div>
         </div>
       </div>
@@ -524,10 +492,10 @@
   <section data-screen-label="CTA" style="background: var(--accent); color: #fff;">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(52px,8vw,104px) clamp(20px,5vw,64px);">
       <div style="max-width: 720px;">
-        <h2 style="margin: 0; font-weight: 600; font-size: clamp(28px,4.4vw,52px); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading);">Montrez-moi vos fichiers. Je vous dis où partent votre temps et votre argent.</h2>
-        <p style="margin: 20px 0 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.82); max-width: 600px;">Trente minutes, sans engagement. On regarde votre quotidien, je vous donne un avis honnête sur les tâches à automatiser qui peuvent vous rendre du temps et de l'argent, et sur ce qui n'en vaut pas la peine.</p>
+        <h2 style="margin: 0; font-weight: 600; font-size: clamp(28px,4.4vw,52px); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading);">Vos équipes passent trop de temps à ressaisir ?</h2>
+        <p style="margin: 20px 0 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: rgba(255,255,255,0.82); max-width: 600px;">En 30 minutes, on regarde ce qu'on automatiserait en premier. Offert, sans engagement.</p>
         <div style="display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; align-items: center;">
-          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ openBooking }}" hint-size="240px,50px">Réserver un appel de 30 min</x-import>
+          <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ openBooking }}" hint-size="220px,50px">Réserver 30 minutes</x-import>
           <span style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.6);">Antoine Luizet · Tulco Studio · Biarritz, France</span>
         </div>
       </div>
@@ -538,12 +506,12 @@
     <div style="max-width: var(--container-max); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between;">
       <div style="max-width: 360px; display: flex; flex-direction: column; gap: 16px;">
         <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="white" height="24" hint-size="150px,24px"></x-import>
-        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">Je construis des outils métier sur-mesure pour les TPE et PME, pour remplacer Excel et les logiciels tout faits qui vous bloquent.</p>
+        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">J'automatise le back-office des marques : produit, ventes, pilotage.</p>
       </div>
       <div style="display: flex; gap: 64px; flex-wrap: wrap;">
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <div style="font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: rgba(255,255,255,0.45);">Le studio</div>
-          <a onClick="{{ jumpSolution }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">La solution</a>
+          <a onClick="{{ jumpFlux }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">Les flux</a>
           <a onClick="{{ jumpRealisations }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">Réalisations</a>
           <a onClick="{{ jumpFaq }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">FAQ</a>
         </div>
@@ -551,13 +519,13 @@
           <div style="font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: rgba(255,255,255,0.45);">Contact</div>
           <a style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">contact@tulco.studio</a>
           <a href="https://www.linkedin.com/in/antoine-luizet/" target="_blank" rel="noopener noreferrer" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer; text-decoration: none;">LinkedIn</a>
-          <a onClick="{{ openBooking }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">Réserver un appel</a>
+          <a onClick="{{ openBooking }}" style="font-size: var(--text-sm); color: rgba(255,255,255,0.7); cursor: pointer;">Réserver 30 min</a>
         </div>
       </div>
     </div>
     <div style="max-width: var(--container-max); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(255,255,255,0.4);">
       <span>© 2026 Tulco Studio · Biarritz</span>
-      <span>« tulco » : étai, soutien · sur-mesure</span>
+      <span>« tulco » : étai, soutien</span>
     </div>
   </footer>
   <!-- BOOKING MODAL -->
@@ -588,7 +556,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showFaq&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { booking: false, iframeLoaded: false, openFaq: 0, mobileNav: false, activeChain: 0 };
+  state = { booking: false, iframeLoaded: false, openFaq: 0, mobileNav: false, activeFlux: 0 };
   jump(id) {
     if (this.state.mobileNav) this.setState({ mobileNav: false });
     const el = document.getElementById(id);
@@ -600,8 +568,6 @@ class Component extends DCLogic {
     if (window.location.hash === "#book" || params.has("book")) {
       this.setState({ booking: true, iframeLoaded: false });
     }
-    // Réalisations: cards are user-scrollable; just fill the metric bars.
-    document.querySelectorAll("#realisations [data-bar]").forEach((b) => { b.style.width = (b.dataset.bar || "100") + "%"; });
     // Content is visible by default; JS only adds entrance polish. Reduced-motion: reveal bars, no animation.
     const els = Array.from(document.querySelectorAll("[data-reveal]"));
     const fillBars = (el) => el.querySelectorAll("[data-bar]").forEach((b) => { b.style.width = (b.dataset.bar || "100") + "%"; });
@@ -649,11 +615,13 @@ class Component extends DCLogic {
   }
   renderVals() {
     const items = [
-      { q: "Combien ça coûte ?", a: "Ça dépend du périmètre, et je suis transparent là-dessus dès le premier appel. La vraie question n'est pas le prix, c'est le retour : mes clients récupèrent des jours par mois, parfois un poste entier. On chiffre les deux ensemble, vous décidez en connaissance de cause." },
-      { q: "Combien de temps pour avoir mon outil ?", a: "Entre 2 et 4 mois selon l'ampleur. Vous utilisez les premières briques bien avant la fin, pas de tunnel d'un an." },
-      { q: "Sur-mesure, ça veut dire que je suis prisonnier de mon prestataire ?", a: "Non. Je construis un outil que vous gardez en main, conçu pour rester clair et reprenable. Vous pouvez me garder pour le faire évoluer, ou voler de vos propres ailes. C'est votre choix, pas une dépendance." },
-      { q: "Vous codez vous-même ou vous sous-traitez ?", a: "Je construis moi-même. C'est tout l'intérêt : un seul interlocuteur, qui conçoit et qui exécute. Pas d'intermédiaire qui dilue votre besoin." },
-      { q: "On est une petite équipe, est-ce que ça vaut le coup ?", a: "Souvent encore plus. Sur une petite équipe, 2 h gagnées par semaine et par personne, ça se voit tout de suite sur les résultats." },
+      { q: "Ça va coûter cher ?", a: "On commence par un seul flux, celui qui coûte le plus en ressaisie. Le diagnostic chiffre le gain avant que vous vous engagiez." },
+      { q: "Faut-il changer d'outils ?", a: "Non. Vos outils existants d'abord, du sur mesure seulement là où il manque quelque chose." },
+      { q: "Il existe déjà un connecteur Shopify-Odoo.", a: "Oui, pour synchroniser deux outils. Le vrai sujet, c'est le flux entier et vos règles métier." },
+      { q: "Combien de temps ça prend ?", a: "Un flux à la fois, livré par petits lots. Vos équipes s'en servent vite, sans tunnel de plusieurs mois." },
+      { q: "Et si vous disparaissez ?", a: "Tout est documenté et vous appartient. On part de vos outils, pas d'un logiciel maison." },
+      { q: "Mes équipes vont-elles suivre ?", a: "Je les forme et je les accompagne jusqu'à l'usage réel. Chez Volcom : 90 % d'adoption." },
+      { q: "Et nos données, avec l'IA ?", a: "L'IA arrive en dernier, sur des cas précis, avec des règles d'usage claires." },
     ];
     const open = this.state.openFaq;
     const faqs = items.map((f, i) => ({
@@ -663,31 +631,33 @@ class Component extends DCLogic {
       sign: open === i ? "−" : "+",
       onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
     }));
-    const chainData = [
-      { num: "01", name: "Comprendre", sub: "Cadrer le vrai problème.", body: "Avant d'écrire la moindre ligne, je passe du temps dans votre quotidien. J'observe comment vous travaillez, je cartographie vos process et je repère où partent le temps et l'argent. J'en ressors avec le vrai problème à régler, souvent différent de celui qu'on m'annonce au départ." },
-      { num: "02", name: "Concevoir", sub: "Traduire en solution simple.", body: "Je transforme ce problème en une solution claire : les écrans, les parcours, la logique de l'outil. Vous validez sur des maquettes concrètes, pas sur des promesses. On ajuste tôt, quand corriger ne coûte encore rien." },
-      { num: "03", name: "Construire", sub: "Développer l'outil.", body: "Je développe le tout : une interface sur-mesure et un socle technique solide, assistés par IA pour aller vite sans rogner sur la qualité. Vous voyez l'outil avancer brique par brique, vous l'utilisez tôt et vous l'affinez au fil de l'eau." },
-      { num: "04", name: "Fiabiliser", sub: "Le rendre solide, le mettre en ligne.", body: "Un outil qui marche sur ma machine ne suffit pas. Je le teste, je le sécurise et je le mets en ligne sur un hébergement dédié. Je gère la bascule depuis vos anciens fichiers sans perte de données, pour que ça tienne quand toute l'équipe s'en sert." },
-      { num: "05", name: "Faire adopter", sub: "L'ancrer dans vos usages.", body: "Le meilleur outil ne sert à rien si personne ne l'utilise. Je forme vos équipes, je les accompagne au démarrage et j'ajuste ce qui coince les premières semaines. L'objectif : que l'outil devienne un réflexe, pas une contrainte de plus." },
+    const fluxData = [
+      { num: "01", name: "Produit", sub: "Du fichier de collection au site et au catalogue revendeurs.", avant: "Le marketing recopie le fichier de collection pour créer les fiches.", apres: "Les fiches se remplissent depuis la donnée de collection, partout à la fois.", outils: "PLM, PIM, Shopify." },
+      { num: "02", name: "Ventes", sub: "Des commandes revendeurs aux relances clients.", avant: "Quelqu'un ressaisit chaque commande dans l'ERP, puis relance à la main.", apres: "La commande arrive dans l'ERP sans ressaisie, les relances partent seules.", outils: "ERP (Odoo), CRM, Klaviyo." },
+      { num: "03", name: "Pilotage", sub: "Ventes, stocks, marges : à jour, sans compiler.", avant: "Cinq fichiers compilés chaque lundi, des chiffres qui se contredisent.", apres: "Un tableau de bord qui se met à jour seul, par canal.", outils: "Tableaux de bord branchés sur vos outils." },
     ];
-    const activeChain = this.state.activeChain ?? 0;
-    const chainSteps = chainData.map((c, i) => ({
+    const activeFlux = this.state.activeFlux ?? 0;
+    const fluxTabs = fluxData.map((c, i) => ({
       num: c.num,
       name: c.name,
       sub: c.sub,
-      active: activeChain === i,
-      aria: "Étape " + c.num + " : " + c.name,
-      onSelect: () => this.setState({ activeChain: i }),
+      active: activeFlux === i,
+      aria: "Flux " + c.num + " : " + c.name,
+      onSelect: () => this.setState({ activeFlux: i }),
     }));
-    const activeStep = chainData[activeChain] || chainData[0];
-    const chainDetail = { num: activeStep.num, name: activeStep.name, body: activeStep.body };
+    const fluxDetail = fluxData[activeFlux] || fluxData[0];
+    const heroFlux = fluxData.map((c, i) => ({
+      label: c.name,
+      onSelect: () => { this.setState({ activeFlux: i }); this.jump("flux"); },
+    }));
     return {
       booking: this.state.booking,
       iframeNotLoaded: !this.state.iframeLoaded,
       showFaq: this.props.showFaq ?? true,
       faqs,
-      chainSteps,
-      chainDetail,
+      fluxTabs,
+      fluxDetail,
+      heroFlux,
       mobileNav: this.state.mobileNav,
       burgerIcon: this.state.mobileNav ? "\u2715" : "\u2630",
       toggleMobileNav: () => this.setState((s) => ({ mobileNav: !s.mobileNav })),
@@ -696,7 +666,8 @@ class Component extends DCLogic {
       onIframeLoad: () => this.setState({ iframeLoaded: true }),
       stop: (e) => e.stopPropagation(),
       jumpProbleme: () => this.jump("probleme"),
-      jumpSolution: () => this.jump("solution"),
+      jumpFlux: () => this.jump("flux"),
+      jumpPourquoi: () => this.jump("pourquoi"),
       jumpMethode: () => this.jump("methode"),
       jumpRealisations: () => this.jump("realisations"),
       jumpFaq: () => this.jump("faq"),
