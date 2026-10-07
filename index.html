@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Tulco Studio · J'automatise le back-office des marques</title>
-<meta name="description" content="Fiches produit, commandes revendeurs, reporting : j'automatise le back-office des marques pour que vos équipes arrêtent de ressaisir. Ex chef de produit retail.">
+<title>Tulco Studio · J'automatise le back-office des marques sur Shopify</title>
+<meta name="description" content="Commandes Shopify ressaisies dans l'ERP, fiches produit mises à jour à la main, reporting sur Excel : j'automatise le back-office des marques sur Shopify. Ex chef de produit retail.">
 <link rel="canonical" href="https://www.tulcostudio.fr/">
 <link rel="alternate" hreflang="fr" href="https://www.tulcostudio.fr/">
 <link rel="alternate" hreflang="en" href="https://www.tulcostudio.fr/en/">
@@ -13,16 +13,16 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.tulcostudio.fr/">
 <meta property="og:site_name" content="Tulco Studio">
-<meta property="og:title" content="Tulco Studio · J'automatise le back-office des marques">
-<meta property="og:description" content="Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.">
+<meta property="og:title" content="Tulco Studio · J'automatise le back-office des marques sur Shopify">
+<meta property="og:description" content="Votre Shopify et vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.">
 <meta property="og:image" content="https://www.tulcostudio.fr/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tulco Studio : automatisation du back-office des marques">
+<meta property="og:image:alt" content="Tulco Studio : automatisation du back-office des marques sur Shopify">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tulco Studio · J'automatise le back-office des marques">
-<meta name="twitter:description" content="Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.">
+<meta name="twitter:title" content="Tulco Studio · J'automatise le back-office des marques sur Shopify">
+<meta name="twitter:description" content="Votre Shopify et vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.">
 <meta name="twitter:image" content="https://www.tulcostudio.fr/og.png">
 <script src="./support.js"></script>
 </head>
@@ -85,6 +85,16 @@
   .agency-card p { margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); }
   .agency-metric { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-default); display: flex; flex-direction: column; gap: 6px; }
   .agency-value { font-size: clamp(26px,2.6vw,32px); }
+  .eco-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px,4vw,64px); align-items: end; margin-bottom: clamp(36px,5vw,56px); }
+  @media (max-width: 860px) { .eco-intro { grid-template-columns: 1fr; gap: 20px; } }
+  .eco-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); margin-bottom: 14px; }
+  .eco-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--border-default); gap: 1px; border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); }
+  @media (max-width: 860px) { .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 440px) { .eco-grid { grid-template-columns: 1fr; } }
+  .eco-cell { background: var(--white); padding: clamp(18px,2.2vw,26px); display: flex; flex-direction: column; gap: 6px; }
+  .eco-from { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); }
+  .eco-tool { font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal); color: var(--text-primary); }
+  .eco-role { font-size: 13px; line-height: 1.5; color: var(--text-secondary); }
   .hero-flux { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
   .hero-flux-chip { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); background: var(--white); border: 1px solid var(--border-default); padding: 8px 12px; cursor: pointer; transition: color 160ms, border-color 160ms; }
   .hero-flux-chip:hover { color: var(--accent); border-color: var(--accent); }
@@ -202,9 +212,9 @@
     </div>
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(44px,6vw,72px);">
       <div style="max-width: 900px;">
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Back-office des marques · PME</div>
-        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">J'automatise le back-office des marques.</h1>
-        <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.</p>
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Marques PME · Site, boutiques, revendeurs</div>
+        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">J'automatise le back-office des marques sur Shopify.</h1>
+        <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Votre Shopify et vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.</p>
         <div class="hero-cta">
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="340px,50px">Voir ce qu'on automatiserait en premier</x-import>
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpFlux }}" hint-size="240px,50px">Découvrir les trois flux</x-import>
@@ -228,15 +238,15 @@
       <div style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger);">
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le fichier de collection est recopié à la main pour le site.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le fichier de collection est recopié à la main dans Shopify.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Les commandes revendeurs passent de l'Excel du commercial à l'ERP, à la main.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Les commandes Shopify et revendeurs sont ressaisies dans l'ERP, à la main.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le stock ne suit pas entre le site, la boutique et l'entrepôt.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Le stock ne suit pas entre Shopify, la boutique et l'entrepôt.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
@@ -289,8 +299,25 @@
       </div>
     </div>
   </section>
+  <!-- ECOSYSTEME AUTOUR DE SHOPIFY -->
+  <section id="ecosysteme" data-screen-label="Ecosysteme" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
+    <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Au-delà du site</div>
+      <div class="eco-intro">
+        <h2 style="margin: 0; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 560px;">Les agences Shopify font le site. Je travaille là où elles s'arrêtent.</h2>
+        <p style="margin: 0; max-width: 520px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">Mon terrain, c'est l'écosystème autour de Shopify : l'ERP comme Odoo, le PIM, le CRM, les expéditions, l'emailing. Apps Shopify ou logiciels indépendants, je les fais travailler ensemble.</p>
+      </div>
+      <div class="eco-label">Déjà connectés à Shopify</div>
+      <div data-reveal="" data-stagger="" class="eco-grid">
+        <div class="eco-cell"><span class="eco-from">ERP</span><span class="eco-tool">Odoo</span><span class="eco-role">Commandes, stocks, facturation.</span></div>
+        <div class="eco-cell"><span class="eco-from">Produit</span><span class="eco-tool">PIM</span><span class="eco-role">Fiches produit et catalogue revendeurs.</span></div>
+        <div class="eco-cell"><span class="eco-from">Expéditions</span><span class="eco-tool">ShippyPro</span><span class="eco-role">Étiquettes et suivi des colis.</span></div>
+        <div class="eco-cell"><span class="eco-from">Emailing</span><span class="eco-tool">Klaviyo</span><span class="eco-role">Campagnes et relances clients.</span></div>
+      </div>
+    </div>
+  </section>
   <!-- POURQUOI MOI -->
-  <section id="pourquoi" data-screen-label="PourquoiMoi" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
+  <section id="pourquoi" data-screen-label="PourquoiMoi" style="border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
       <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Pourquoi moi</div>
       <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Le terrain du retail. Les réflexes d'un product builder.</h2>
@@ -340,7 +367,7 @@
     </div>
   </section>
   <!-- COMMENT CA MARCHE -->
-  <section id="methode" data-screen-label="Methode" style="border-bottom: 1px solid var(--border-default);">
+  <section id="methode" data-screen-label="Methode" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
       <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Méthode</div>
       <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Un flux à la fois. Le plus douloureux d'abord.</h2>
@@ -353,21 +380,21 @@
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="4" width="11" height="11"></rect><line x1="7" y1="8" x2="12" y2="8"></line><line x1="7" y1="11" x2="10" y2="11"></line><line x1="14.5" y1="14.5" x2="21" y2="21"></line></svg></div>
-          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 2</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Diagnostic chiffré</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Je cartographie vos flux et mesure le temps perdu en ressaisie. Vous repartez avec un plan priorisé.</p>
+          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 2 · Premières marques</div>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Brique pilote</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Un flux branché sur Shopify, en production en 3 semaines, au forfait. En échange : on mesure avant et après, et vous acceptez d'être cité.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3.5" width="5" height="5"></rect><rect x="16" y="3.5" width="5" height="5"></rect><rect x="9.5" y="15" width="5" height="5"></rect><line x1="6" y1="8.5" x2="12" y2="15"></line><line x1="18" y1="8.5" x2="12" y2="15"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 3</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Premier flux</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Connecté à vos outils existants, automatisé, adopté par l'équipe.</p>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Les autres flux</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Connectés à vos outils existants, automatisés, adoptés par l'équipe. Le pilote est déduit.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><line x1="3" y1="20" x2="21" y2="20"></line><polyline points="5 16 10 11 13 14 19 7"></polyline><polyline points="15 7 19 7 19 11"></polyline></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Étape 4</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">La suite</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Les autres flux, puis l'IA. Et un suivi, car vos outils évoluent et les connexions aussi.</p>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">L'IA, puis le suivi</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">L'IA sur des flux propres. Et un suivi, car vos outils évoluent et les connexions aussi.</p>
         </div>
       </div>
     </div>
@@ -444,12 +471,12 @@
       <div class="who-grid">
         <div data-reveal="" class="who-card" style="border-top-color: var(--success);">
           <div class="who-label" style="color: var(--success);">C'est pour vous si</div>
-          <p style="margin: 0 0 14px; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">Vous êtes une marque PME qui conçoit et distribue ses produits : site, boutiques, revendeurs.</p>
+          <p style="margin: 0 0 14px; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">Vous êtes une marque PME qui vend sur Shopify, et souvent aussi en boutique ou chez des revendeurs.</p>
           <div class="who-list">
             <div class="who-item"><span style="background: var(--success);"></span><p>Vous lancez une marque, ou elle grandit plus vite que votre back-office.</p></div>
             <div class="who-item"><span style="background: var(--success);"></span><p>Plus vous avez de canaux, plus vous ressaisissez.</p></div>
           </div>
-          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary); font-style: italic;">Boutique multi-marques ? Mêmes flux, côté fournisseurs : catalogues à intégrer, réassort, stock par marque.</p>
+          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary); font-style: italic;">Boutique multi-marques ? Mêmes flux, côté fournisseurs : catalogues à intégrer, réassort, stock par marque. Pas sur Shopify ? Mêmes flux, autre point de départ.</p>
         </div>
         <div data-reveal="" class="who-card" style="border-top-color: var(--accent);">
           <div class="who-label" style="color: var(--accent);">Le bon moment</div>
@@ -460,12 +487,13 @@
             <div class="who-item"><span style="background: var(--accent);"></span><p>Une croissance qui oblige à recruter pour de l'administratif.</p></div>
             <div class="who-item"><span style="background: var(--accent);"></span><p>Des erreurs de stock ou de commande qui touchent vos revendeurs.</p></div>
           </div>
-          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary);"><strong style="color: var(--text-primary); font-weight: 600;">Vos outils :</strong> Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'Excel entre les deux.</p>
+          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary);"><strong style="color: var(--text-primary); font-weight: 600;">Vos outils :</strong> Shopify, Odoo ou un autre ERP, Klaviyo, ShippyPro, parfois un PIM ou un PLM. Et beaucoup d'Excel entre les deux.</p>
         </div>
         <div data-reveal="" class="who-card who-wide" style="border-top-color: var(--danger);">
           <div class="who-label" style="color: var(--danger);">Ce n'est pas pour vous si</div>
           <div class="who-list">
             <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous voulez juste relier deux outils : un connecteur à quelques dizaines d'euros par mois suffit, je vous le dirai.</p></div>
+            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous cherchez un nouveau thème ou plus de conversion : c'est le métier des agences Shopify.</p></div>
             <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous avez déjà une DSI et un intégrateur en place.</p></div>
             <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>Vous cherchez à réduire vos effectifs : je supprime la ressaisie, pas des postes.</p></div>
           </div>
@@ -513,7 +541,7 @@
     <div style="max-width: var(--container-max); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between;">
       <div style="max-width: 360px; display: flex; flex-direction: column; gap: 16px;">
         <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="white" height="24" hint-size="150px,24px"></x-import>
-        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">J'automatise le back-office des marques : produit, ventes, pilotage.</p>
+        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">J'automatise le back-office des marques sur Shopify : produit, ventes, pilotage.</p>
       </div>
       <div style="display: flex; gap: 64px; flex-wrap: wrap;">
         <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -621,10 +649,12 @@ class Component extends DCLogic {
   }
   renderVals() {
     const items = [
-      { q: "Ça va coûter cher ?", a: "On commence par un seul flux, celui qui coûte le plus en ressaisie. Le diagnostic chiffre le gain avant que vous vous engagiez." },
+      { q: "Ça va coûter cher ?", a: "On commence par un seul flux, celui qui coûte le plus en ressaisie. Pour mes premières marques, c'est une brique pilote au forfait, en production en 3 semaines." },
+      { q: "Vous êtes une agence Shopify ?", a: "Non. Les agences Shopify font le site et la conversion. Moi, je branche Shopify au reste du back-office : ERP, PIM, CRM, expéditions, pilotage." },
       { q: "Faut-il changer d'outils ?", a: "Non. Vos outils existants d'abord, du sur mesure seulement là où il manque quelque chose." },
-      { q: "Il existe déjà un connecteur Shopify-Odoo.", a: "Oui, pour synchroniser deux outils. Le vrai sujet, c'est le flux entier et vos règles métier." },
-      { q: "Combien de temps ça prend ?", a: "Un flux à la fois, livré par petits lots. Vos équipes s'en servent vite, sans tunnel de plusieurs mois." },
+      { q: "Il existe déjà un connecteur Shopify-Odoo.", a: "Oui, pour synchroniser deux outils. Le vrai sujet, c'est le flux entier (collection, commande, reporting) et vos règles métier." },
+      { q: "Combien de temps ça prend ?", a: "Un flux à la fois : le premier tourne en production en 3 semaines. Pas de tunnel de plusieurs mois." },
+      { q: "Et si nous ne sommes pas sur Shopify ?", a: "Les flux sont les mêmes, seul le point de départ change. On en parle en 30 minutes." },
       { q: "Et si vous disparaissez ?", a: "Tout est documenté et vous appartient. On part de vos outils, pas d'un logiciel maison." },
       { q: "Mes équipes vont-elles suivre ?", a: "Je les forme et je les accompagne jusqu'à l'usage réel. Chez Volcom : 90 % d'adoption." },
       { q: "Et nos données, avec l'IA ?", a: "L'IA arrive en dernier, sur des cas précis, avec des règles d'usage claires." },
@@ -638,9 +668,9 @@ class Component extends DCLogic {
       onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
     }));
     const fluxData = [
-      { num: "01", name: "Produit", sub: "Du fichier de collection au site et au catalogue revendeurs.", avant: "Le marketing recopie le fichier de collection pour créer les fiches.", apres: "Les fiches se remplissent depuis la donnée de collection, partout à la fois.", outils: "PLM, PIM, Shopify." },
-      { num: "02", name: "Ventes", sub: "Des commandes revendeurs aux relances clients.", avant: "Quelqu'un ressaisit chaque commande dans l'ERP, puis relance à la main.", apres: "La commande arrive dans l'ERP sans ressaisie, les relances partent seules.", outils: "ERP (Odoo), CRM, Klaviyo." },
-      { num: "03", name: "Pilotage", sub: "Ventes, stocks, marges : à jour, sans compiler.", avant: "Cinq fichiers compilés chaque lundi, des chiffres qui se contredisent.", apres: "Un tableau de bord qui se met à jour seul, par canal.", outils: "Tableaux de bord branchés sur vos outils." },
+      { num: "01", name: "Produit", sub: "Shopify connecté au PIM : du fichier de collection aux fiches et au catalogue revendeurs.", avant: "Le marketing recopie le fichier de collection pour créer les fiches Shopify.", apres: "Le fichier de collection alimente le PIM, qui met à jour les fiches Shopify et le catalogue revendeurs.", outils: "Shopify, PIM, PLM." },
+      { num: "02", name: "Ventes", sub: "Shopify connecté à l'ERP et au CRM : des commandes à l'expédition.", avant: "Chaque commande est ressaisie dans l'ERP, l'expédition et les relances se gèrent à la main.", apres: "La commande Shopify arrive seule dans l'ERP, part en expédition, et le client est suivi dans le CRM.", outils: "Shopify, ERP (Odoo), CRM, Klaviyo, ShippyPro." },
+      { num: "03", name: "Pilotage", sub: "Ventes, stocks, marges, expéditions : à jour, sans compiler.", avant: "Cinq fichiers compilés chaque lundi, des chiffres qui se contredisent.", apres: "Un tableau de bord qui se met à jour seul, par canal. Les retards de livraison visibles sans chercher.", outils: "Tableaux de bord branchés sur Shopify et vos outils." },
     ];
     const activeFlux = this.state.activeFlux ?? 0;
     const fluxTabs = fluxData.map((c, i) => ({

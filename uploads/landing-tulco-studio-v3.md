@@ -1,6 +1,6 @@
 # Landing page Tulco Studio : copie V3 (positionnement retail)
 
-*Statut : intégrée dans `index.html`. Remplace `landing-tulco-studio.md` (V2, outil métier sur-mesure).*
+*Statut : base de la V4 (`landing-tulco-studio-v4.md`), qui en modifie certaines sections. Remplace `landing-tulco-studio.md` (V2, outil métier sur-mesure).*
 *Sources : Profil LinkedIn v2 (28/09), Offre V3 (29/09), Profil entrepreneur v4 (29/09).*
 
 ## Règles d'écriture de la page

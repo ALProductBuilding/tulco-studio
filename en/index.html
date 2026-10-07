@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Tulco Studio · Back-office automation for brands</title>
-<meta name="description" content="Product listings, wholesale orders, reporting: I automate the back office behind brands so your team stops re-keying data. Former retail product manager.">
+<title>Tulco Studio · Back-office automation for brands on Shopify</title>
+<meta name="description" content="Shopify orders re-keyed into the ERP, product pages updated by hand, reporting in spreadsheets: I automate the back office of brands selling on Shopify. Former retail product manager.">
 <link rel="canonical" href="https://www.tulcostudio.fr/en/">
 <link rel="alternate" hreflang="fr" href="https://www.tulcostudio.fr/">
 <link rel="alternate" hreflang="en" href="https://www.tulcostudio.fr/en/">
@@ -13,16 +13,16 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.tulcostudio.fr/en/">
 <meta property="og:site_name" content="Tulco Studio">
-<meta property="og:title" content="Tulco Studio · Back-office automation for brands">
-<meta property="og:description" content="Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.">
+<meta property="og:title" content="Tulco Studio · Back-office automation for brands on Shopify">
+<meta property="og:description" content="Your Shopify and your other tools finally talk to each other. Your team stops re-keying data and focuses on the brand.">
 <meta property="og:image" content="https://www.tulcostudio.fr/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tulco Studio: back-office automation for brands">
+<meta property="og:image:alt" content="Tulco Studio: back-office automation for brands on Shopify">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tulco Studio · Back-office automation for brands">
-<meta name="twitter:description" content="Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.">
+<meta name="twitter:title" content="Tulco Studio · Back-office automation for brands on Shopify">
+<meta name="twitter:description" content="Your Shopify and your other tools finally talk to each other. Your team stops re-keying data and focuses on the brand.">
 <meta name="twitter:image" content="https://www.tulcostudio.fr/og-en.png">
 <script src="../support.js"></script>
 </head>
@@ -85,6 +85,16 @@
   .agency-card p { margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); }
   .agency-metric { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-default); display: flex; flex-direction: column; gap: 6px; }
   .agency-value { font-size: clamp(26px,2.6vw,32px); }
+  .eco-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px,4vw,64px); align-items: end; margin-bottom: clamp(36px,5vw,56px); }
+  @media (max-width: 860px) { .eco-intro { grid-template-columns: 1fr; gap: 20px; } }
+  .eco-label { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); margin-bottom: 14px; }
+  .eco-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--border-default); gap: 1px; border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--accent); }
+  @media (max-width: 860px) { .eco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 440px) { .eco-grid { grid-template-columns: 1fr; } }
+  .eco-cell { background: var(--white); padding: clamp(18px,2.2vw,26px); display: flex; flex-direction: column; gap: 6px; }
+  .eco-from { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); }
+  .eco-tool { font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal); color: var(--text-primary); }
+  .eco-role { font-size: 13px; line-height: 1.5; color: var(--text-secondary); }
   .hero-flux { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
   .hero-flux-chip { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); background: var(--white); border: 1px solid var(--border-default); padding: 8px 12px; cursor: pointer; transition: color 160ms, border-color 160ms; }
   .hero-flux-chip:hover { color: var(--accent); border-color: var(--accent); }
@@ -202,9 +212,9 @@
     </div>
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(44px,6vw,72px);">
       <div style="max-width: 900px;">
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Back-office automation · Growing brands</div>
-        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">I automate the back office behind your brand.</h1>
-        <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.</p>
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Growing brands · Online, stores, wholesale</div>
+        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">I automate the back office of brands on Shopify.</h1>
+        <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Your Shopify and your other tools finally talk to each other. Your team stops re-keying data and focuses on the brand.</p>
         <div class="hero-cta">
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="340px,50px">See what we'd automate first</x-import>
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpFlux }}" hint-size="240px,50px">Explore the three flows</x-import>
@@ -228,15 +238,15 @@
       <div style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger);">
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">The line sheet is copied by hand onto the website.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">The line sheet is copied by hand into Shopify.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Wholesale orders go from the sales rep's spreadsheet into the ERP, by hand.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Shopify and wholesale orders are re-keyed into the ERP, by hand.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Stock doesn't match between the website, the store and the warehouse.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Stock doesn't match between Shopify, the store and the warehouse.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
@@ -289,8 +299,25 @@
       </div>
     </div>
   </section>
+  <!-- ECOSYSTEME AUTOUR DE SHOPIFY -->
+  <section id="ecosysteme" data-screen-label="Ecosysteme" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
+    <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
+      <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Beyond the storefront</div>
+      <div class="eco-intro">
+        <h2 style="margin: 0; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 560px;">Shopify agencies build the store. I work where they stop.</h2>
+        <p style="margin: 0; max-width: 520px; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-secondary);">My field is the ecosystem around Shopify: an ERP like Odoo, the PIM, the CRM, shipping, emailing. Shopify apps or standalone software, I make them work together.</p>
+      </div>
+      <div class="eco-label">Already connected to Shopify</div>
+      <div data-reveal="" data-stagger="" class="eco-grid">
+        <div class="eco-cell"><span class="eco-from">ERP</span><span class="eco-tool">Odoo</span><span class="eco-role">Orders, stock, invoicing.</span></div>
+        <div class="eco-cell"><span class="eco-from">Product</span><span class="eco-tool">PIM</span><span class="eco-role">Product pages and wholesale catalog.</span></div>
+        <div class="eco-cell"><span class="eco-from">Shipping</span><span class="eco-tool">ShippyPro</span><span class="eco-role">Labels and parcel tracking.</span></div>
+        <div class="eco-cell"><span class="eco-from">Emailing</span><span class="eco-tool">Klaviyo</span><span class="eco-role">Campaigns and customer follow-ups.</span></div>
+      </div>
+    </div>
+  </section>
   <!-- POURQUOI MOI -->
-  <section id="pourquoi" data-screen-label="PourquoiMoi" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
+  <section id="pourquoi" data-screen-label="PourquoiMoi" style="border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
       <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Why me</div>
       <h2 style="margin: 0 0 clamp(36px,5vw,56px); font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 720px;">Retail field experience. Product builder reflexes.</h2>
@@ -340,7 +367,7 @@
     </div>
   </section>
   <!-- COMMENT CA MARCHE -->
-  <section id="methode" data-screen-label="Methode" style="border-bottom: 1px solid var(--border-default);">
+  <section id="methode" data-screen-label="Methode" style="background: var(--bg-subtle); border-bottom: 1px solid var(--border-default);">
     <div style="max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
       <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Method</div>
       <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">One flow at a time. The most painful first.</h2>
@@ -353,21 +380,21 @@
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="4" width="11" height="11"></rect><line x1="7" y1="8" x2="12" y2="8"></line><line x1="7" y1="11" x2="10" y2="11"></line><line x1="14.5" y1="14.5" x2="21" y2="21"></line></svg></div>
-          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 2</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Quantified audit</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">I map your flows and measure the time lost to re-keying. You leave with a prioritized plan.</p>
+          <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 2 · First brands</div>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Pilot</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">One flow connected to Shopify, live in 3 weeks, fixed price. In return: we measure before and after, and you agree to be named.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3.5" width="5" height="5"></rect><rect x="16" y="3.5" width="5" height="5"></rect><rect x="9.5" y="15" width="5" height="5"></rect><line x1="6" y1="8.5" x2="12" y2="15"></line><line x1="18" y1="8.5" x2="12" y2="15"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 3</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">First flow</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Connected to your existing tools, automated, adopted by your team.</p>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">The other flows</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Connected to your existing tools, automated, adopted by your team. The pilot is deducted.</p>
         </div>
         <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><line x1="3" y1="20" x2="21" y2="20"></line><polyline points="5 16 10 11 13 14 19 7"></polyline><polyline points="15 7 19 7 19 11"></polyline></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 4</div>
-          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">What's next</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">The other flows, then AI. Plus ongoing support, because your tools evolve and so do the connections.</p>
+          <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">AI, then support</h3>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">AI on clean flows. Plus ongoing support, because your tools evolve and so do the connections.</p>
         </div>
       </div>
     </div>
@@ -444,12 +471,12 @@
       <div class="who-grid">
         <div data-reveal="" class="who-card" style="border-top-color: var(--success);">
           <div class="who-label" style="color: var(--success);">A good fit if</div>
-          <p style="margin: 0 0 14px; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">You're a growing brand that designs and distributes its own products: website, stores, retailers.</p>
+          <p style="margin: 0 0 14px; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">You're a growing brand selling on Shopify, often also in stores or through retailers.</p>
           <div class="who-list">
             <div class="who-item"><span style="background: var(--success);"></span><p>You're launching a brand, or it's growing faster than your back office.</p></div>
             <div class="who-item"><span style="background: var(--success);"></span><p>The more channels you have, the more you re-key.</p></div>
           </div>
-          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary); font-style: italic;">Multi-brand store? Same flows, supplier side: catalogs to import, restocking, stock by brand.</p>
+          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary); font-style: italic;">Multi-brand store? Same flows, supplier side: catalogs to import, restocking, stock by brand. Not on Shopify? Same flows, different starting point.</p>
         </div>
         <div data-reveal="" class="who-card" style="border-top-color: var(--accent);">
           <div class="who-label" style="color: var(--accent);">The right time</div>
@@ -460,12 +487,13 @@
             <div class="who-item"><span style="background: var(--accent);"></span><p>Growth that forces you to hire for admin work.</p></div>
             <div class="who-item"><span style="background: var(--accent);"></span><p>Stock or order errors that hit your retailers.</p></div>
           </div>
-          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary);"><strong style="color: var(--text-primary); font-weight: 600;">Your tools:</strong> Shopify, Odoo or another ERP, Klaviyo, sometimes a PLM or PIM. And lots of spreadsheets in between.</p>
+          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary);"><strong style="color: var(--text-primary); font-weight: 600;">Your tools:</strong> Shopify, Odoo or another ERP, Klaviyo, ShippyPro, sometimes a PIM or PLM. And lots of spreadsheets in between.</p>
         </div>
         <div data-reveal="" class="who-card who-wide" style="border-top-color: var(--danger);">
           <div class="who-label" style="color: var(--danger);">Not a fit if</div>
           <div class="who-list">
             <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>You just need to connect two tools: an off-the-shelf connector will do, and I'll tell you so.</p></div>
+            <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>You want a new theme or a better conversion rate: that's what Shopify agencies do.</p></div>
             <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>You already have an IT department and an integrator.</p></div>
             <div class="who-item"><span style="background: var(--danger); height: 1px; margin-top: 11px;"></span><p>You want to cut headcount: I remove re-keying, not jobs.</p></div>
           </div>
@@ -513,7 +541,7 @@
     <div style="max-width: var(--container-max); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between;">
       <div style="max-width: 360px; display: flex; flex-direction: column; gap: 16px;">
         <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="white" height="24" hint-size="150px,24px"></x-import>
-        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">I automate the back office behind brands: product, sales, reporting.</p>
+        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">I automate the back office of brands on Shopify: product, sales, reporting.</p>
       </div>
       <div style="display: flex; gap: 64px; flex-wrap: wrap;">
         <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -621,10 +649,12 @@ class Component extends DCLogic {
   }
   renderVals() {
     const items = [
-      { q: "Is it expensive?", a: "We start with one flow, the one that costs you most in re-keying. The audit quantifies the gain before you commit." },
+      { q: "Is it expensive?", a: "We start with one flow, the one that costs you most in re-keying. For my first brands, it's a fixed-price pilot, live in 3 weeks." },
+      { q: "Are you a Shopify agency?", a: "No. Shopify agencies build the store and work on conversion. I connect Shopify to the rest of the back office: ERP, PIM, CRM, shipping, reporting." },
       { q: "Do we need to change tools?", a: "No. Your existing tools first, custom work only where something is missing." },
-      { q: "There's already a Shopify-Odoo connector.", a: "Yes, to sync two tools. The real issue is the whole flow and your business rules." },
-      { q: "How long does it take?", a: "One flow at a time, delivered in small batches. Your team uses it quickly, no months-long tunnel." },
+      { q: "There's already a Shopify-Odoo connector.", a: "Yes, to sync two tools. The real issue is the whole flow (collection, order, reporting) and your business rules." },
+      { q: "How long does it take?", a: "One flow at a time: the first one is live in 3 weeks. No months-long tunnel." },
+      { q: "What if we're not on Shopify?", a: "The flows are the same, only the starting point changes. Let's talk it through in 30 minutes." },
       { q: "What if you disappear?", a: "Everything is documented and yours. We build on your tools, not on in-house software." },
       { q: "Will my team follow?", a: "I train and support them until they actually use it. At Volcom: 90% adoption." },
       { q: "What about our data and AI?", a: "AI comes last, on specific use cases, with clear usage rules." },
@@ -638,9 +668,9 @@ class Component extends DCLogic {
       onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
     }));
     const fluxData = [
-      { num: "01", name: "Product", sub: "From line sheet to website and wholesale catalog.", avant: "Marketing re-types the line sheet to build product pages.", apres: "Product pages fill themselves from collection data, everywhere at once.", outils: "PLM, PIM, Shopify." },
-      { num: "02", name: "Sales", sub: "From wholesale orders to customer follow-ups.", avant: "Someone re-keys every order into the ERP, then chases by hand.", apres: "Orders land in the ERP with no re-keying, follow-ups go out on their own.", outils: "ERP (Odoo), CRM, Klaviyo." },
-      { num: "03", name: "Reporting", sub: "Sales, stock, margins: up to date, no compiling.", avant: "Five files merged every Monday, numbers that disagree.", apres: "A dashboard that updates itself, by channel.", outils: "Dashboards connected to your tools." },
+      { num: "01", name: "Product", sub: "Shopify connected to the PIM: from line sheet to product pages and wholesale catalog.", avant: "Marketing re-types the line sheet to build Shopify product pages.", apres: "The line sheet feeds the PIM, which updates Shopify product pages and the wholesale catalog.", outils: "Shopify, PIM, PLM." },
+      { num: "02", name: "Sales", sub: "Shopify connected to the ERP and CRM: from order to shipping.", avant: "Every order is re-keyed into the ERP, shipping and follow-ups are handled by hand.", apres: "Shopify orders land in the ERP on their own, ship out, and the customer is tracked in the CRM.", outils: "Shopify, ERP (Odoo), CRM, Klaviyo, ShippyPro." },
+      { num: "03", name: "Reporting", sub: "Sales, stock, margins, shipping: up to date, no compiling.", avant: "Five files merged every Monday, numbers that disagree.", apres: "A dashboard that updates itself, by channel. Late deliveries visible without digging.", outils: "Dashboards connected to Shopify and your tools." },
     ];
     const activeFlux = this.state.activeFlux ?? 0;
     const fluxTabs = fluxData.map((c, i) => ({
