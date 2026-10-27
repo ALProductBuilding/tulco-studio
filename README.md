@@ -1,6 +1,6 @@
 # Tulco Studio · Landing Page
 
-Landing page d'Antoine Luizet / Tulco Studio : automatisation du back-office des marques (produit, ventes, pilotage).
+Landing page d'Antoine Luizet / Tulco Studio : automatisation du back-office des marques sur Shopify (produit, ventes, pilotage).
 
 ## Live
 

@@ -1,7 +1,27 @@
-# Landing page Tulco Studio : copie V3 (positionnement retail)
+# Landing page Tulco Studio : copie V3 (positionnement retail), recalée sur l'Offre V4 (Shopify)
 
 *Statut : intégrée dans `index.html`. Remplace `landing-tulco-studio.md` (V2, outil métier sur-mesure).*
-*Sources : Profil LinkedIn v2 (28/09), Offre V3 (29/09), Profil entrepreneur v4 (29/09).*
+*Sources : Profil LinkedIn v2 (28/09), Offre V3 (29/09), Profil entrepreneur v4 (29/09). Recalage Shopify : Offre V4 (05/10), décision du 27/10.*
+
+> **Recalage du 27/10 (Offre V4) :**
+> - Shopify entre dans le titre, la meta, l'image de partage, le constat, les trois flux, Pour qui, la FAQ et le footer.
+> - Seul Shopify est cité comme marque d'outil. Les autres briques sont nommées par catégorie (ERP, PIM, PLM, CRM, emailing, expéditions). Plus d'Odoo ni de Klaviyo sur la page.
+> - Nouvelle question FAQ issue de l'Offre V4 : « Vous êtes une agence Shopify ? ».
+> - Logo Shopify (décision du 27/10) : dans le titre du hero et dans d'autres sections, fichier officiel non modifié. Emplacements fixés avec le redesign.
+
+> **Redesign du 27/10 (validé) :**
+> - Logo Shopify : version **monochrome officielle** (`assets/shopify-logo-mono.svg`), jamais recolorée ni déformée. Le bleu Tulco reste la seule couleur porteuse. La version couleur (`assets/shopify-logo.svg`) reste dans le repo, inutilisée.
+> - Trois emplacements : titre du hero (`<img alt="Shopify">`, calé sur la ligne de base), ligne « Outils » des trois flux, pied de la carte Nichebloom. Les cartes Réalisations sont blanches : pas besoin de version blanche du logo.
+> - Sur-titre du hero : « Antoine Luizet · Ex-chef de produit retail » (remplace « Back-office des marques · PME », doublon du titre).
+> - Un langage de mouvement unique, « la structure se monte », joué une fois par section et coupé avec `prefers-reduced-motion` :
+>   - Flux : une lumière parcourt deux fois la poutre de l'onglet actif, à l'apparition et à chaque changement d'onglet (CSS seul, inspiré du type `line` de border-beam ; le package npm est écarté : ESM seul, palettes hors charte).
+>   - Constat : les quatre douleurs apparaissent en cascade.
+>   - Méthode : les poutres bleues des quatre étapes se tracent l'une après l'autre.
+>   - Réalisations et Agence : les chiffres défilent jusqu'à leur valeur.
+>   - FAQ : la réponse s'ouvre en fondu.
+> - Images de partage : pas de logo Shopify dans `og.png` / `og-en.png`, le titre dit déjà « sur Shopify ».
+
+> **Recalage IA du 27/10 :** le positionnement ne change pas (back-office des marques sur Shopify). L'IA monte d'un cran sur deux cas concrets : rédaction des descriptions produit à partir des caractéristiques techniques et de l'univers de la marque, et génération des titres et méta-descriptions SEO. Pas de référence client sur l'IA (Nichebloom, Alfred) tant que les cas d'usage Shopify en cours ne sont pas terminés.
 
 ## Règles d'écriture de la page
 
@@ -31,24 +51,25 @@ Navigation : Le constat · Les flux · Pourquoi moi · Méthode · Réalisations
 
 ## 0. Meta et partage
 
-- **Title :** Tulco Studio · J'automatise le back-office des marques
-- **Meta description :** Fiches produit, commandes revendeurs, reporting : j'automatise le back-office des marques pour que vos équipes arrêtent de ressaisir. Ex chef de produit retail.
-- **OG / Twitter title :** Tulco Studio · J'automatise le back-office des marques
-- **OG / Twitter description :** Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
-- **OG image alt :** Tulco Studio : automatisation du back-office des marques
+- **Title :** Tulco Studio · J'automatise le back-office des marques sur Shopify
+- **Meta description :** Fiches produit rédigées par l'IA, commandes revendeurs, reporting : j'automatise le back-office des marques sur Shopify pour que vos équipes arrêtent de ressaisir. Ex chef de produit retail.
+- **OG / Twitter title :** Tulco Studio · J'automatise le back-office des marques sur Shopify
+- **OG / Twitter description :** Vos outils se parlent enfin, vos fiches produit s'écrivent seules. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
+- **OG image alt :** Tulco Studio : automatisation du back-office des marques sur Shopify
 - **`og.png` :** à régénérer depuis `og-card.html` avec le nouveau titre.
 
 ---
 
 ## 1. Hero
 
-**Eyebrow :** Back-office des marques · PME
+**Eyebrow :** Antoine Luizet · Ex-chef de produit retail
 
 **Titre :**
-J'automatise le back-office des marques.
+J'automatise le back-office des marques sur [logo Shopify]
+*(logo monochrome dans le titre, `alt="Shopify"` ; pas de point final après le logo)*
 
 **Sous-titre :**
-Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
+Vos outils se parlent enfin, vos fiches produit s'écrivent seules. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
 
 **CTA principal :** Voir ce qu'on automatiserait en premier
 **CTA secondaire :** Découvrir les trois flux
@@ -65,9 +86,9 @@ Produit · Ventes · Pilotage
 **Titre :** Tout passe encore par des fichiers.
 
 **Puces :**
-- Le fichier de collection est recopié à la main pour le site.
+- Le fichier de collection est recopié à la main sur Shopify.
 - Les commandes revendeurs passent de l'Excel du commercial à l'ERP, à la main.
-- Le stock ne suit pas entre le site, la boutique et l'entrepôt.
+- Le stock ne suit pas entre Shopify, la boutique et l'entrepôt.
 - Le lundi, on compile cinq fichiers pour savoir ce qui s'est vendu.
 
 **Encadré :**
@@ -84,29 +105,30 @@ Chaque copie crée une erreur. Et une erreur de stock ou de commande, c'est un r
 **Onglets (composant existant de la « chaîne produit », réutilisé) :**
 
 ### Produit
-Du fichier de collection au site et au catalogue revendeurs.
+Du fichier de collection aux fiches Shopify et au catalogue revendeurs.
 - **Avant :** le marketing recopie le fichier de collection pour créer les fiches.
-- **Après :** les fiches se remplissent depuis la donnée de collection, partout à la fois.
-- **Outils :** PLM, PIM, Shopify.
+- **Après :** les fiches Shopify se remplissent depuis la donnée de collection. L'IA rédige la description et la méta-description, dans le ton de la marque.
+- **Outils :** [logo Shopify] + PIM, PLM, IA.
 
 ### Ventes
-Des commandes revendeurs aux relances clients.
+Des commandes Shopify et revendeurs aux relances clients.
 - **Avant :** quelqu'un ressaisit chaque commande dans l'ERP, puis relance à la main.
-- **Après :** la commande arrive dans l'ERP sans ressaisie, les relances partent seules.
-- **Outils :** ERP (Odoo), CRM, Klaviyo.
+- **Après :** chaque commande, Shopify ou revendeur, arrive dans l'ERP sans ressaisie. Les relances partent seules.
+- **Outils :** [logo Shopify] + ERP, CRM, emailing, expéditions.
 
 ### Pilotage
 Ventes, stocks, marges : à jour, sans compiler.
 - **Avant :** cinq fichiers compilés chaque lundi, des chiffres qui se contredisent.
 - **Après :** un tableau de bord qui se met à jour seul, par canal.
-- **Outils :** tableaux de bord branchés sur vos outils.
+- **Outils :** [logo Shopify] + vos outils, réunis en tableaux de bord.
 
 **Bloc IA (bandeau sous les onglets) :**
 
-**Titre :** Et l'IA ? D'abord des données propres.
+**Titre :** L'IA, branchée sur des données propres.
 
 Branchée sur cinq fichiers qui se contredisent, l'IA produit des erreurs plus vite. Sur des flux propres, elle devient un vrai levier :
-- Fiches produit rédigées à partir de vos données.
+- Descriptions produit rédigées à partir des caractéristiques techniques et de l'univers de la marque.
+- Titres et méta-descriptions SEO générés pour chaque fiche.
 - Commandes reçues par mail, lues et saisies.
 - Reporting commenté chaque lundi.
 
@@ -154,7 +176,7 @@ Je cartographie vos flux et mesure le temps perdu en ressaisie. Vous repartez av
 Connecté à vos outils existants, automatisé, adopté par l'équipe.
 
 **Étape 4 · La suite**
-Les autres flux, puis l'IA. Et un suivi, car vos outils évoluent et les connexions aussi.
+Les autres flux, et l'IA là où elle fait gagner du temps. Et un suivi, car vos outils évoluent et les connexions aussi.
 
 ---
 
@@ -170,7 +192,8 @@ Déploiement du PLM entre design, merchandising et sourcing.
 - **90 %** d'adoption par les équipes
 
 **Carte 2 · Nichebloom · marque en lancement** *(badge « En cours », aucun chiffre)*
-Je pilote la mise en place du site Shopify, de l'ERP Odoo, de l'emailing Klaviyo et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.
+Je pilote la mise en place du site Shopify, de l'ERP, de l'emailing et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.
+- Pied de carte : [logo Shopify] + ERP, emailing, vente revendeurs
 
 **Carte 3 · Studio Muxi · premier projet Tulco**
 Commandes, stocks et pilotage financier réunis au même endroit. Marge visible en temps réel.
@@ -203,7 +226,7 @@ Hors retail, même méthode : comprendre le métier, construire, faire adopter.
 **Titre :** Pour qui, et pour qui ce n'est pas.
 
 **Bloc 1 · C'est pour vous si**
-Vous êtes une marque PME qui conçoit et distribue ses produits : site, boutiques, revendeurs.
+Vous êtes une marque PME qui conçoit et distribue ses produits : site Shopify, boutiques, revendeurs.
 - Vous lancez une marque ou elle grandit plus vite que votre back-office.
 - Plus vous avez de canaux, plus vous ressaisissez.
 
@@ -217,7 +240,7 @@ Vous êtes une marque PME qui conçoit et distribue ses produits : site, boutiqu
 - Des erreurs de stock ou de commande qui touchent vos revendeurs.
 
 **Bloc 3 · Vos outils** (note en bas du bloc 2)
-Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'Excel entre les deux.
+Shopify, un ERP, parfois un PIM, un PLM ou un CRM. Et beaucoup d'Excel entre les deux.
 
 **Bloc 4 · Ce n'est pas pour vous si** (pleine largeur)
 - Vous voulez juste relier deux outils : un connecteur à quelques dizaines d'euros par mois suffit, je vous le dirai.
@@ -234,10 +257,14 @@ Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'
 
 - **Ça va coûter cher ?**
   On commence par un seul flux, celui qui coûte le plus en ressaisie. Le diagnostic chiffre le gain avant que vous vous engagiez.
+- **Vous êtes une agence Shopify ?**
+  Non. Les agences Shopify font le site et la conversion. Moi, je branche Shopify au reste du back-office : ERP, PIM, CRM, expéditions, pilotage.
 - **Faut-il changer d'outils ?**
   Non. Vos outils existants d'abord, du sur mesure seulement là où il manque quelque chose.
-- **Il existe déjà un connecteur Shopify-Odoo.**
+- **Il existe déjà une app pour relier Shopify à mon ERP.**
   Oui, pour synchroniser deux outils. Le vrai sujet, c'est le flux entier et vos règles métier.
+- **Shopify rédige déjà des descriptions, non ?**
+  Shopify propose un assistant de rédaction. Ici, chaque fiche arrive déjà rédigée depuis vos données de collection, SEO compris, dans le ton de la marque.
 - **Combien de temps ça prend ?**
   Un flux à la fois, livré par petits lots. Vos équipes s'en servent vite, sans tunnel de plusieurs mois.
 - **Et si vous disparaissez ?**
@@ -245,7 +272,7 @@ Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'
 - **Mes équipes vont-elles suivre ?**
   Je les forme et je les accompagne jusqu'à l'usage réel. Chez Volcom : 90 % d'adoption.
 - **Et nos données, avec l'IA ?**
-  L'IA arrive en dernier, sur des cas précis, avec des règles d'usage claires.
+  L'IA travaille sur vos données produit, avec les règles de ton de votre marque.
 
 ---
 
@@ -257,7 +284,7 @@ Shopify, Odoo ou un autre ERP, Klaviyo, parfois un PLM ou un PIM. Et beaucoup d'
 
 **Bouton :** Réserver 30 minutes
 
-**Footer, signature :** J'automatise le back-office des marques : produit, ventes, pilotage.
+**Footer, signature :** J'automatise le back-office des marques sur Shopify : produit, ventes, pilotage.
 
 **Footer, liens :** Les flux · Réalisations · FAQ · LinkedIn · Réserver 30 min (pas d'adresse mail)
 

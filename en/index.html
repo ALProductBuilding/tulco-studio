@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<title>Tulco Studio · Back-office automation for brands</title>
-<meta name="description" content="Product listings, wholesale orders, reporting: I automate the back office behind brands so your team stops re-keying data. Former retail product manager.">
+<title>Tulco Studio · Back-office automation for Shopify brands</title>
+<meta name="description" content="AI-written product listings, wholesale orders, reporting: I automate the back office behind Shopify brands so your team stops re-keying data. Former retail product manager.">
 <link rel="canonical" href="https://www.tulcostudio.fr/en/">
 <link rel="alternate" hreflang="fr" href="https://www.tulcostudio.fr/">
 <link rel="alternate" hreflang="en" href="https://www.tulcostudio.fr/en/">
@@ -13,16 +13,16 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.tulcostudio.fr/en/">
 <meta property="og:site_name" content="Tulco Studio">
-<meta property="og:title" content="Tulco Studio · Back-office automation for brands">
-<meta property="og:description" content="Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.">
+<meta property="og:title" content="Tulco Studio · Back-office automation for Shopify brands">
+<meta property="og:description" content="Your tools finally talk to each other, your product pages write themselves. Your team stops re-keying data and focuses on the brand.">
 <meta property="og:image" content="https://www.tulcostudio.fr/og-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tulco Studio: back-office automation for brands">
+<meta property="og:image:alt" content="Tulco Studio: back-office automation for Shopify brands">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tulco Studio · Back-office automation for brands">
-<meta name="twitter:description" content="Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.">
+<meta name="twitter:title" content="Tulco Studio · Back-office automation for Shopify brands">
+<meta name="twitter:description" content="Your tools finally talk to each other, your product pages write themselves. Your team stops re-keying data and focuses on the brand.">
 <meta name="twitter:image" content="https://www.tulcostudio.fr/og-en.png">
 <script src="../support.js"></script>
 </head>
@@ -85,6 +85,29 @@
   .agency-card p { margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); }
   .agency-metric { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-default); display: flex; flex-direction: column; gap: 6px; }
   .agency-value { font-size: clamp(26px,2.6vw,32px); }
+  /* --- Logo Shopify : version monochrome officielle, jamais recoloree ni deformee --- */
+  .nowrap { white-space: nowrap; }
+  .h1-shopify { display: inline-block; height: 1.163em; width: auto; vertical-align: -0.221em; }
+  .tool-logo { display: inline-block; height: 18px; width: auto; vertical-align: -4px; }
+  .proof-stack { align-items: center; gap: 10px; }
+  .proof-stack .tool-logo { height: 22px; vertical-align: middle; }
+  /* --- Poutre active des flux : une lumiere la parcourt deux fois a l'apparition et a chaque changement d'onglet --- */
+  .chain-active-bar { overflow: hidden; }
+  .tulco-in .chain-active-bar::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 30%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.85), rgba(255,255,255,0)); transform: translateX(-100%); animation: tulco-beam 1.6s cubic-bezier(0.4,0,0.2,1) 2; }
+  @keyframes tulco-beam { to { transform: translateX(340%); } }
+  @media (prefers-reduced-motion: reduce) { .chain-active-bar::after { display: none; } }
+  /* --- Langage de mouvement : la structure se monte. Actif seulement avec JS et sans prefers-reduced-motion (classe tulco-motion) --- */
+  .tulco-motion .pain-card > div { opacity: 0; transform: translateX(-10px); }
+  .tulco-motion .pain-card.tulco-in > div { opacity: 1; transform: none; transition: opacity 420ms cubic-bezier(0.2,0,0,1), transform 420ms cubic-bezier(0.2,0,0,1); }
+  .tulco-motion .pain-card.tulco-in > div:nth-child(2) { transition-delay: 140ms; }
+  .tulco-motion .pain-card.tulco-in > div:nth-child(3) { transition-delay: 280ms; }
+  .tulco-motion .pain-card.tulco-in > div:nth-child(4) { transition-delay: 420ms; }
+  .method-step { position: relative; }
+  .tulco-motion .method-step { border-top-color: transparent !important; }
+  .tulco-motion .method-step::before { content: ""; position: absolute; left: 0; right: 0; top: calc(-1 * var(--rule-accent)); height: var(--rule-accent); background: var(--accent); transform: scaleX(0); transform-origin: left; }
+  .tulco-motion .method-step.tulco-in::before { transform: scaleX(1); transition: transform 520ms cubic-bezier(0.2,0,0,1) calc(var(--i, 0) * 200ms); }
+  @keyframes tulco-faq { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+  .tulco-motion .faq-a { animation: tulco-faq 260ms cubic-bezier(0.2,0,0,1); }
   .hero-flux { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
   .hero-flux-chip { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); background: var(--white); border: 1px solid var(--border-default); padding: 8px 12px; cursor: pointer; transition: color 160ms, border-color 160ms; }
   .hero-flux-chip:hover { color: var(--accent); border-color: var(--accent); }
@@ -202,9 +225,9 @@
     </div>
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(44px,6vw,72px);">
       <div style="max-width: 900px;">
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Back-office automation · Growing brands</div>
-        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">I automate the back office behind your brand.</h1>
-        <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.</p>
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Antoine Luizet · Ex-retail product lead</div>
+        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">I automate the back office of brands <span class="nowrap">on <img src="../assets/shopify-logo-mono.svg" alt="Shopify" class="h1-shopify" width="446" height="128"></span></h1>
+        <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Your tools finally talk to each other, your product pages write themselves. Your team stops re-keying data and focuses on the brand.</p>
         <div class="hero-cta">
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="340px,50px">See what we'd automate first</x-import>
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="secondary" size="lg" onClick="{{ jumpFlux }}" hint-size="240px,50px">Explore the three flows</x-import>
@@ -225,10 +248,10 @@
         <h2 style="margin: 0 0 20px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 520px;">Everything still runs on spreadsheets.</h2>
         <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px; font-weight: 500;">Every copy creates an error. And a stock or order error is a retailer losing patience.</p>
       </div>
-      <div style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger);">
+      <div data-reveal="" class="pain-card" style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger);">
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">The line sheet is copied by hand onto the website.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">The line sheet is copied by hand into Shopify.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
@@ -236,7 +259,7 @@
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Stock doesn't match between the website, the store and the warehouse.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Stock doesn't match between Shopify, the store and the warehouse.</p>
         </div>
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
@@ -273,16 +296,17 @@
             </div>
             <div class="flux-row">
               <span class="flux-tag" style="color: var(--text-tertiary);">Tools</span>
-              <p style="margin: 0; font-size: var(--text-sm); line-height: 1.55; color: var(--text-secondary);">{{ fluxDetail.outils }}</p>
+              <p style="margin: 0; font-size: var(--text-sm); line-height: 1.55; color: var(--text-secondary);"><img src="../assets/shopify-logo-mono.svg" alt="Shopify" class="tool-logo" width="446" height="128"> + {{ fluxDetail.outils }}</p>
             </div>
           </div>
         </div>
       </div>
       <div data-reveal="" style="margin-top: clamp(28px,4vw,40px); background: var(--bg-subtle); border: 1px solid var(--border-default); padding: clamp(24px,3vw,34px);">
-        <h3 style="margin: 0 0 10px; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">What about AI? Clean data first.</h3>
+        <h3 style="margin: 0 0 10px; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-normal);">AI, plugged into clean data.</h3>
         <p style="margin: 0 0 22px; max-width: 640px; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Plugged into five spreadsheets that contradict each other, AI just makes mistakes faster. On clean flows, it becomes real leverage:</p>
         <div class="ia-grid">
-          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Product descriptions written from your data.</p></div>
+          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Product descriptions written from technical specs and the brand's world.</p></div>
+          <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">SEO titles and meta descriptions generated for every product.</p></div>
           <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">Orders received by email, read and entered.</p></div>
           <div class="ia-item"><span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--accent);"></span><p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">A written sales summary every Monday.</p></div>
         </div>
@@ -345,29 +369,29 @@
       <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Method</div>
       <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">One flow at a time. The most painful first.</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; border-top: 1px solid var(--border-default);">
-        <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
+        <div data-reveal="" class="method-step" style="--i: 0; padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="6" y="3" width="12" height="18"></rect><line x1="6" y1="7" x2="18" y2="7"></line><line x1="6" y1="17" x2="18" y2="17"></line><line x1="10.5" y1="19.5" x2="13.5" y2="19.5"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 1</div>
           <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">30 minutes, free</h3>
           <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">You walk me through your flows. I tell you where I'd start, and why.</p>
         </div>
-        <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
+        <div data-reveal="" class="method-step" style="--i: 1; padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="4" width="11" height="11"></rect><line x1="7" y1="8" x2="12" y2="8"></line><line x1="7" y1="11" x2="10" y2="11"></line><line x1="14.5" y1="14.5" x2="21" y2="21"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 2</div>
           <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Quantified audit</h3>
           <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">I map your flows and measure the time lost to re-keying. You leave with a prioritized plan.</p>
         </div>
-        <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
+        <div data-reveal="" class="method-step" style="--i: 2; padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3.5" width="5" height="5"></rect><rect x="16" y="3.5" width="5" height="5"></rect><rect x="9.5" y="15" width="5" height="5"></rect><line x1="6" y1="8.5" x2="12" y2="15"></line><line x1="18" y1="8.5" x2="12" y2="15"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 3</div>
           <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">First flow</h3>
           <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Connected to your existing tools, automated, adopted by your team.</p>
         </div>
-        <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
+        <div data-reveal="" class="method-step" style="--i: 3; padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><line x1="3" y1="20" x2="21" y2="20"></line><polyline points="5 16 10 11 13 14 19 7"></polyline><polyline points="15 7 19 7 19 11"></polyline></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 4</div>
           <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">What's next</h3>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">The other flows, then AI. Plus ongoing support, because your tools evolve and so do the connections.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">The other flows, and AI wherever it saves time. Plus ongoing support, because your tools evolve and so do the connections.</p>
         </div>
       </div>
     </div>
@@ -394,7 +418,8 @@
             <span class="proof-name">Nichebloom · launching brand</span>
             <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">In progress</span>
           </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">I'm leading the setup of the Shopify store, the Odoo ERP, Klaviyo emailing and wholesale sales processes, with AI on recurring tasks.</p>
+          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">I'm leading the setup of the Shopify store, the ERP, emailing and wholesale sales processes, with AI on recurring tasks.</p>
+          <div class="proof-metrics proof-stack"><img src="../assets/shopify-logo-mono.svg" alt="Shopify" class="tool-logo" width="446" height="128"><span class="proof-label">+ ERP, emailing, wholesale</span></div>
         </div>
         <div data-reveal="" class="proof-card">
           <span class="proof-name">Studio Muxi · first Tulco project</span>
@@ -444,7 +469,7 @@
       <div class="who-grid">
         <div data-reveal="" class="who-card" style="border-top-color: var(--success);">
           <div class="who-label" style="color: var(--success);">A good fit if</div>
-          <p style="margin: 0 0 14px; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">You're a growing brand that designs and distributes its own products: website, stores, retailers.</p>
+          <p style="margin: 0 0 14px; font-size: var(--text-md); line-height: 1.5; color: var(--text-primary); font-weight: 500;">You're a growing brand that designs and distributes its own products: Shopify website, stores, retailers.</p>
           <div class="who-list">
             <div class="who-item"><span style="background: var(--success);"></span><p>You're launching a brand, or it's growing faster than your back office.</p></div>
             <div class="who-item"><span style="background: var(--success);"></span><p>The more channels you have, the more you re-key.</p></div>
@@ -460,7 +485,7 @@
             <div class="who-item"><span style="background: var(--accent);"></span><p>Growth that forces you to hire for admin work.</p></div>
             <div class="who-item"><span style="background: var(--accent);"></span><p>Stock or order errors that hit your retailers.</p></div>
           </div>
-          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary);"><strong style="color: var(--text-primary); font-weight: 600;">Your tools:</strong> Shopify, Odoo or another ERP, Klaviyo, sometimes a PLM or PIM. And lots of spreadsheets in between.</p>
+          <p style="margin: 18px 0 0; padding-top: 14px; border-top: 1px solid var(--border-default); font-size: 13px; line-height: 1.55; color: var(--text-secondary);"><strong style="color: var(--text-primary); font-weight: 600;">Your tools:</strong> Shopify, an ERP, sometimes a PIM, a PLM or a CRM. And lots of spreadsheets in between.</p>
         </div>
         <div data-reveal="" class="who-card who-wide" style="border-top-color: var(--danger);">
           <div class="who-label" style="color: var(--danger);">Not a fit if</div>
@@ -487,7 +512,7 @@
               <span style="flex: none; font-family: var(--font-mono); font-size: 20px; font-weight: 400; color: var(--accent); line-height: 1;">{{ f.sign }}</span>
             </button>
             <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
-              <p style="margin: 0; padding: 0 0 var(--space-5); max-width: 660px; font-size: var(--text-sm); line-height: 1.7; color: var(--text-secondary);">{{ f.a }}</p>
+              <p class="faq-a" style="margin: 0; padding: 0 0 var(--space-5); max-width: 660px; font-size: var(--text-sm); line-height: 1.7; color: var(--text-secondary);">{{ f.a }}</p>
             </sc-if>
           </div>
         </sc-for>
@@ -513,7 +538,7 @@
     <div style="max-width: var(--container-max); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between;">
       <div style="max-width: 360px; display: flex; flex-direction: column; gap: 16px;">
         <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="horizontal" tone="white" height="24" hint-size="150px,24px"></x-import>
-        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">I automate the back office behind brands: product, sales, reporting.</p>
+        <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: rgba(255,255,255,0.6);">I automate the back office of brands on Shopify: product, sales, reporting.</p>
       </div>
       <div style="display: flex; gap: 64px; flex-wrap: wrap;">
         <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -582,6 +607,21 @@ class Component extends DCLogic {
       els.forEach(fillBars);
       return;
     }
+    document.documentElement.classList.add("tulco-motion");
+    // Les chiffres des preuves defilent jusqu'a leur valeur ; le texte final reste celui du HTML.
+    const countUp = (el) => el.querySelectorAll(".proof-value, .agency-value").forEach((n) => {
+      const text = n.textContent;
+      const m = text.match(/\d+/);
+      if (!m) return;
+      const target = Number(m[0]);
+      const t0 = performance.now();
+      const step = (t) => {
+        const p = Math.min(1, (t - t0) / 900);
+        n.textContent = text.replace(/\d+/, String(Math.round(target * (1 - Math.pow(1 - p, 3)))));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
     const reveal = () => {
       const h = window.innerHeight || document.documentElement.clientHeight;
       let remaining = 0;
@@ -596,6 +636,7 @@ class Component extends DCLogic {
           }
           el.dataset.revealShown = "1";
           fillBars(el);
+          countUp(el);
         } else {
           remaining++;
         }
@@ -622,12 +663,14 @@ class Component extends DCLogic {
   renderVals() {
     const items = [
       { q: "Is it expensive?", a: "We start with one flow, the one that costs you most in re-keying. The audit quantifies the gain before you commit." },
+      { q: "Are you a Shopify agency?", a: "No. Shopify agencies build the store and drive conversion. I connect Shopify to the rest of your back office: ERP, PIM, CRM, shipping, reporting." },
       { q: "Do we need to change tools?", a: "No. Your existing tools first, custom work only where something is missing." },
-      { q: "There's already a Shopify-Odoo connector.", a: "Yes, to sync two tools. The real issue is the whole flow and your business rules." },
+      { q: "There's already an app to connect Shopify to my ERP.", a: "Yes, to sync two tools. The real issue is the whole flow and your business rules." },
+      { q: "Doesn't Shopify already write descriptions?", a: "Shopify offers a writing assistant. Here, every product page arrives already written from your collection data, SEO included, in the brand's voice." },
       { q: "How long does it take?", a: "One flow at a time, delivered in small batches. Your team uses it quickly, no months-long tunnel." },
       { q: "What if you disappear?", a: "Everything is documented and yours. We build on your tools, not on in-house software." },
       { q: "Will my team follow?", a: "I train and support them until they actually use it. At Volcom: 90% adoption." },
-      { q: "What about our data and AI?", a: "AI comes last, on specific use cases, with clear usage rules." },
+      { q: "What about our data and AI?", a: "AI works on your product data, with your brand's tone rules." },
     ];
     const open = this.state.openFaq;
     const faqs = items.map((f, i) => ({
@@ -638,9 +681,9 @@ class Component extends DCLogic {
       onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
     }));
     const fluxData = [
-      { num: "01", name: "Product", sub: "From line sheet to website and wholesale catalog.", avant: "Marketing re-types the line sheet to build product pages.", apres: "Product pages fill themselves from collection data, everywhere at once.", outils: "PLM, PIM, Shopify." },
-      { num: "02", name: "Sales", sub: "From wholesale orders to customer follow-ups.", avant: "Someone re-keys every order into the ERP, then chases by hand.", apres: "Orders land in the ERP with no re-keying, follow-ups go out on their own.", outils: "ERP (Odoo), CRM, Klaviyo." },
-      { num: "03", name: "Reporting", sub: "Sales, stock, margins: up to date, no compiling.", avant: "Five files merged every Monday, numbers that disagree.", apres: "A dashboard that updates itself, by channel.", outils: "Dashboards connected to your tools." },
+      { num: "01", name: "Product", sub: "From line sheet to Shopify product pages and wholesale catalog.", avant: "Marketing re-types the line sheet to build product pages.", apres: "Shopify product pages fill themselves from collection data. AI writes the description and meta description, in the brand's voice.", outils: "PIM, PLM, AI." },
+      { num: "02", name: "Sales", sub: "From Shopify and wholesale orders to customer follow-ups.", avant: "Someone re-keys every order into the ERP, then chases by hand.", apres: "Every order, Shopify or wholesale, lands in the ERP with no re-keying. Follow-ups go out on their own.", outils: "ERP, CRM, emailing, shipping." },
+      { num: "03", name: "Reporting", sub: "Sales, stock, margins: up to date, no compiling.", avant: "Five files merged every Monday, numbers that disagree.", apres: "A dashboard that updates itself, by channel.", outils: "your tools, brought together in dashboards." },
     ];
     const activeFlux = this.state.activeFlux ?? 0;
     const fluxTabs = fluxData.map((c, i) => ({
