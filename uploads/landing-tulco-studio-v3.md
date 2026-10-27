@@ -7,7 +7,7 @@
 > - Shopify entre dans le titre, la meta, l'image de partage, le constat, les trois flux, Pour qui, la FAQ et le footer.
 > - Seul Shopify est cité comme marque d'outil. Les autres briques sont nommées par catégorie (ERP, PIM, PLM, CRM, emailing, expéditions). Plus d'Odoo ni de Klaviyo sur la page.
 > - Nouvelle question FAQ issue de l'Offre V4 : « Vous êtes une agence Shopify ? ».
-> - Logo Shopify : pas dans le titre. Seul usage prévu par le kit partenaires : un bloc « Tulco Studio × Shopify ». Emplacement à valider avec le redesign.
+> - Logo Shopify (décision du 27/10) : dans le titre du hero et dans d'autres sections, fichier officiel non modifié. Emplacements fixés avec le redesign.
 
 ## Règles d'écriture de la page
 
