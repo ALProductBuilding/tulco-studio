@@ -9,6 +9,13 @@
 > - Nouvelle question FAQ issue de l'Offre V4 : « Vous êtes une agence Shopify ? ».
 > - Logo Shopify (décision du 27/10) : dans le titre du hero et dans d'autres sections, fichier officiel non modifié. Emplacements fixés avec le redesign.
 
+> **Redesign du 27/10 (validé) :**
+> - Logo Shopify : version **monochrome officielle** (`assets/shopify-logo-mono.svg`), jamais recolorée ni déformée. Le bleu Tulco reste la seule couleur porteuse. La version couleur (`assets/shopify-logo.svg`) reste dans le repo, inutilisée.
+> - Trois emplacements : titre du hero (`<img alt="Shopify">`, calé sur la ligne de base), ligne « Outils » des trois flux, pied de la carte Nichebloom. Les cartes Réalisations sont blanches : pas besoin de version blanche du logo.
+> - Sur-titre du hero : « Antoine Luizet · Ex-chef de produit retail » (remplace « Back-office des marques · PME », doublon du titre).
+> - Un seul effet sur la page : une lumière parcourt deux fois la poutre de l'onglet actif des trois flux, à l'apparition et à chaque changement d'onglet. CSS seul, inspiré du type `line` de border-beam (le package npm est écarté : ESM seul, palettes hors charte). Aucune animation avec `prefers-reduced-motion`.
+> - Images de partage : pas de logo Shopify dans `og.png` / `og-en.png`, le titre dit déjà « sur Shopify ».
+
 ## Règles d'écriture de la page
 
 - Textes courts : un paragraphe = 2 phrases maximum, une puce = une ligne. Pas de tirets longs.
@@ -48,10 +55,11 @@ Navigation : Le constat · Les flux · Pourquoi moi · Méthode · Réalisations
 
 ## 1. Hero
 
-**Eyebrow :** Back-office des marques · PME
+**Eyebrow :** Antoine Luizet · Ex-chef de produit retail
 
 **Titre :**
-J'automatise le back-office des marques sur Shopify.
+J'automatise le back-office des marques sur [logo Shopify]
+*(logo monochrome dans le titre, `alt="Shopify"` ; pas de point final après le logo)*
 
 **Sous-titre :**
 Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
@@ -93,19 +101,19 @@ Chaque copie crée une erreur. Et une erreur de stock ou de commande, c'est un r
 Du fichier de collection aux fiches Shopify et au catalogue revendeurs.
 - **Avant :** le marketing recopie le fichier de collection pour créer les fiches.
 - **Après :** les fiches Shopify se remplissent depuis la donnée de collection, partout à la fois.
-- **Outils :** Shopify, PIM, PLM.
+- **Outils :** [logo Shopify] + PIM, PLM.
 
 ### Ventes
 Des commandes Shopify et revendeurs aux relances clients.
 - **Avant :** quelqu'un ressaisit chaque commande dans l'ERP, puis relance à la main.
 - **Après :** chaque commande, Shopify ou revendeur, arrive dans l'ERP sans ressaisie. Les relances partent seules.
-- **Outils :** Shopify, ERP, CRM, emailing, expéditions.
+- **Outils :** [logo Shopify] + ERP, CRM, emailing, expéditions.
 
 ### Pilotage
 Ventes, stocks, marges : à jour, sans compiler.
 - **Avant :** cinq fichiers compilés chaque lundi, des chiffres qui se contredisent.
 - **Après :** un tableau de bord qui se met à jour seul, par canal.
-- **Outils :** tableaux de bord branchés sur Shopify et vos outils.
+- **Outils :** [logo Shopify] + vos outils, réunis en tableaux de bord.
 
 **Bloc IA (bandeau sous les onglets) :**
 
@@ -177,6 +185,7 @@ Déploiement du PLM entre design, merchandising et sourcing.
 
 **Carte 2 · Nichebloom · marque en lancement** *(badge « En cours », aucun chiffre)*
 Je pilote la mise en place du site Shopify, de l'ERP, de l'emailing et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.
+- Pied de carte : [logo Shopify] + ERP, emailing, vente revendeurs
 
 **Carte 3 · Studio Muxi · premier projet Tulco**
 Commandes, stocks et pilotage financier réunis au même endroit. Marge visible en temps réel.

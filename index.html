@@ -85,6 +85,17 @@
   .agency-card p { margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); }
   .agency-metric { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-default); display: flex; flex-direction: column; gap: 6px; }
   .agency-value { font-size: clamp(26px,2.6vw,32px); }
+  /* --- Logo Shopify : version monochrome officielle, jamais recoloree ni deformee --- */
+  .nowrap { white-space: nowrap; }
+  .h1-shopify { display: inline-block; height: 1.163em; width: auto; vertical-align: -0.221em; }
+  .tool-logo { display: inline-block; height: 18px; width: auto; vertical-align: -4px; }
+  .proof-stack { align-items: center; gap: 10px; }
+  .proof-stack .tool-logo { height: 22px; vertical-align: middle; }
+  /* --- Poutre active des flux : une lumiere la parcourt deux fois a l'apparition et a chaque changement d'onglet --- */
+  .chain-active-bar { overflow: hidden; }
+  .tulco-in .chain-active-bar::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 30%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.85), rgba(255,255,255,0)); transform: translateX(-100%); animation: tulco-beam 1.6s cubic-bezier(0.4,0,0.2,1) 2; }
+  @keyframes tulco-beam { to { transform: translateX(340%); } }
+  @media (prefers-reduced-motion: reduce) { .chain-active-bar::after { display: none; } }
   .hero-flux { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
   .hero-flux-chip { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); background: var(--white); border: 1px solid var(--border-default); padding: 8px 12px; cursor: pointer; transition: color 160ms, border-color 160ms; }
   .hero-flux-chip:hover { color: var(--accent); border-color: var(--accent); }
@@ -202,8 +213,8 @@
     </div>
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(44px,6vw,72px);">
       <div style="max-width: 900px;">
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Back-office des marques · PME</div>
-        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">J'automatise le back-office des marques sur Shopify.</h1>
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Antoine Luizet · Ex-chef de produit retail</div>
+        <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">J'automatise le back-office des marques <span class="nowrap">sur <img src="assets/shopify-logo-mono.svg" alt="Shopify" class="h1-shopify" width="446" height="128"></span></h1>
         <p style="margin: 24px 0 0; max-width: 620px; font-size: var(--text-lg); line-height: 1.35; color: var(--text-secondary); font-weight: 500;">Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.</p>
         <div class="hero-cta">
           <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Button" variant="primary" size="lg" onClick="{{ openBooking }}" hint-size="340px,50px">Voir ce qu'on automatiserait en premier</x-import>
@@ -273,7 +284,7 @@
             </div>
             <div class="flux-row">
               <span class="flux-tag" style="color: var(--text-tertiary);">Outils</span>
-              <p style="margin: 0; font-size: var(--text-sm); line-height: 1.55; color: var(--text-secondary);">{{ fluxDetail.outils }}</p>
+              <p style="margin: 0; font-size: var(--text-sm); line-height: 1.55; color: var(--text-secondary);"><img src="assets/shopify-logo-mono.svg" alt="Shopify" class="tool-logo" width="446" height="128"> + {{ fluxDetail.outils }}</p>
             </div>
           </div>
         </div>
@@ -395,6 +406,7 @@
             <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">En cours</span>
           </div>
           <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Je pilote la mise en place du site Shopify, de l'ERP, de l'emailing et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.</p>
+          <div class="proof-metrics proof-stack"><img src="assets/shopify-logo-mono.svg" alt="Shopify" class="tool-logo" width="446" height="128"><span class="proof-label">+ ERP, emailing, vente revendeurs</span></div>
         </div>
         <div data-reveal="" class="proof-card">
           <span class="proof-name">Studio Muxi · premier projet Tulco</span>
@@ -639,9 +651,9 @@ class Component extends DCLogic {
       onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? null : i })),
     }));
     const fluxData = [
-      { num: "01", name: "Produit", sub: "Du fichier de collection aux fiches Shopify et au catalogue revendeurs.", avant: "Le marketing recopie le fichier de collection pour créer les fiches.", apres: "Les fiches Shopify se remplissent depuis la donnée de collection, partout à la fois.", outils: "Shopify, PIM, PLM." },
-      { num: "02", name: "Ventes", sub: "Des commandes Shopify et revendeurs aux relances clients.", avant: "Quelqu'un ressaisit chaque commande dans l'ERP, puis relance à la main.", apres: "Chaque commande, Shopify ou revendeur, arrive dans l'ERP sans ressaisie. Les relances partent seules.", outils: "Shopify, ERP, CRM, emailing, expéditions." },
-      { num: "03", name: "Pilotage", sub: "Ventes, stocks, marges : à jour, sans compiler.", avant: "Cinq fichiers compilés chaque lundi, des chiffres qui se contredisent.", apres: "Un tableau de bord qui se met à jour seul, par canal.", outils: "Tableaux de bord branchés sur Shopify et vos outils." },
+      { num: "01", name: "Produit", sub: "Du fichier de collection aux fiches Shopify et au catalogue revendeurs.", avant: "Le marketing recopie le fichier de collection pour créer les fiches.", apres: "Les fiches Shopify se remplissent depuis la donnée de collection, partout à la fois.", outils: "PIM, PLM." },
+      { num: "02", name: "Ventes", sub: "Des commandes Shopify et revendeurs aux relances clients.", avant: "Quelqu'un ressaisit chaque commande dans l'ERP, puis relance à la main.", apres: "Chaque commande, Shopify ou revendeur, arrive dans l'ERP sans ressaisie. Les relances partent seules.", outils: "ERP, CRM, emailing, expéditions." },
+      { num: "03", name: "Pilotage", sub: "Ventes, stocks, marges : à jour, sans compiler.", avant: "Cinq fichiers compilés chaque lundi, des chiffres qui se contredisent.", apres: "Un tableau de bord qui se met à jour seul, par canal.", outils: "vos outils, réunis en tableaux de bord." },
     ];
     const activeFlux = this.state.activeFlux ?? 0;
     const fluxTabs = fluxData.map((c, i) => ({
