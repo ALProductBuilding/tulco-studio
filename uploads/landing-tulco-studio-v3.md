@@ -13,7 +13,12 @@
 > - Logo Shopify : version **monochrome officielle** (`assets/shopify-logo-mono.svg`), jamais recolorée ni déformée. Le bleu Tulco reste la seule couleur porteuse. La version couleur (`assets/shopify-logo.svg`) reste dans le repo, inutilisée.
 > - Trois emplacements : titre du hero (`<img alt="Shopify">`, calé sur la ligne de base), ligne « Outils » des trois flux, pied de la carte Nichebloom. Les cartes Réalisations sont blanches : pas besoin de version blanche du logo.
 > - Sur-titre du hero : « Antoine Luizet · Ex-chef de produit retail » (remplace « Back-office des marques · PME », doublon du titre).
-> - Un seul effet sur la page : une lumière parcourt deux fois la poutre de l'onglet actif des trois flux, à l'apparition et à chaque changement d'onglet. CSS seul, inspiré du type `line` de border-beam (le package npm est écarté : ESM seul, palettes hors charte). Aucune animation avec `prefers-reduced-motion`.
+> - Un langage de mouvement unique, « la structure se monte », joué une fois par section et coupé avec `prefers-reduced-motion` :
+>   - Flux : une lumière parcourt deux fois la poutre de l'onglet actif, à l'apparition et à chaque changement d'onglet (CSS seul, inspiré du type `line` de border-beam ; le package npm est écarté : ESM seul, palettes hors charte).
+>   - Constat : les quatre douleurs apparaissent en cascade.
+>   - Méthode : les poutres bleues des quatre étapes se tracent l'une après l'autre.
+>   - Réalisations et Agence : les chiffres défilent jusqu'à leur valeur.
+>   - FAQ : la réponse s'ouvre en fondu.
 > - Images de partage : pas de logo Shopify dans `og.png` / `og-en.png`, le titre dit déjà « sur Shopify ».
 
 ## Règles d'écriture de la page

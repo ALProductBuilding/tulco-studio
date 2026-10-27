@@ -96,6 +96,18 @@
   .tulco-in .chain-active-bar::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 30%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.85), rgba(255,255,255,0)); transform: translateX(-100%); animation: tulco-beam 1.6s cubic-bezier(0.4,0,0.2,1) 2; }
   @keyframes tulco-beam { to { transform: translateX(340%); } }
   @media (prefers-reduced-motion: reduce) { .chain-active-bar::after { display: none; } }
+  /* --- Langage de mouvement : la structure se monte. Actif seulement avec JS et sans prefers-reduced-motion (classe tulco-motion) --- */
+  .tulco-motion .pain-card > div { opacity: 0; transform: translateX(-10px); }
+  .tulco-motion .pain-card.tulco-in > div { opacity: 1; transform: none; transition: opacity 420ms cubic-bezier(0.2,0,0,1), transform 420ms cubic-bezier(0.2,0,0,1); }
+  .tulco-motion .pain-card.tulco-in > div:nth-child(2) { transition-delay: 140ms; }
+  .tulco-motion .pain-card.tulco-in > div:nth-child(3) { transition-delay: 280ms; }
+  .tulco-motion .pain-card.tulco-in > div:nth-child(4) { transition-delay: 420ms; }
+  .method-step { position: relative; }
+  .tulco-motion .method-step { border-top-color: transparent !important; }
+  .tulco-motion .method-step::before { content: ""; position: absolute; left: 0; right: 0; top: calc(-1 * var(--rule-accent)); height: var(--rule-accent); background: var(--accent); transform: scaleX(0); transform-origin: left; }
+  .tulco-motion .method-step.tulco-in::before { transform: scaleX(1); transition: transform 520ms cubic-bezier(0.2,0,0,1) calc(var(--i, 0) * 200ms); }
+  @keyframes tulco-faq { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+  .tulco-motion .faq-a { animation: tulco-faq 260ms cubic-bezier(0.2,0,0,1); }
   .hero-flux { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
   .hero-flux-chip { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); background: var(--white); border: 1px solid var(--border-default); padding: 8px 12px; cursor: pointer; transition: color 160ms, border-color 160ms; }
   .hero-flux-chip:hover { color: var(--accent); border-color: var(--accent); }
@@ -236,7 +248,7 @@
         <h2 style="margin: 0 0 20px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 520px;">Everything still runs on spreadsheets.</h2>
         <p style="margin: 0; font-size: var(--text-md); line-height: var(--leading-relaxed); color: var(--text-primary); max-width: 460px; font-weight: 500;">Every copy creates an error. And a stock or order error is a retailer losing patience.</p>
       </div>
-      <div style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger);">
+      <div data-reveal="" class="pain-card" style="background: var(--white); border: 1px solid var(--border-default); border-top: var(--rule-accent) solid var(--danger);">
         <div style="display: flex; gap: 14px; align-items: flex-start; padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--border-default);">
           <span style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: var(--danger);"></span>
           <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-primary);">The line sheet is copied by hand into Shopify.</p>
@@ -356,25 +368,25 @@
       <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Method</div>
       <h2 style="margin: 0 0 44px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">One flow at a time. The most painful first.</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; border-top: 1px solid var(--border-default);">
-        <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
+        <div data-reveal="" class="method-step" style="--i: 0; padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="6" y="3" width="12" height="18"></rect><line x1="6" y1="7" x2="18" y2="7"></line><line x1="6" y1="17" x2="18" y2="17"></line><line x1="10.5" y1="19.5" x2="13.5" y2="19.5"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 1</div>
           <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">30 minutes, free</h3>
           <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">You walk me through your flows. I tell you where I'd start, and why.</p>
         </div>
-        <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
+        <div data-reveal="" class="method-step" style="--i: 1; padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="4" y="4" width="11" height="11"></rect><line x1="7" y1="8" x2="12" y2="8"></line><line x1="7" y1="11" x2="10" y2="11"></line><line x1="14.5" y1="14.5" x2="21" y2="21"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 2</div>
           <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">Quantified audit</h3>
           <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">I map your flows and measure the time lost to re-keying. You leave with a prioritized plan.</p>
         </div>
-        <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
+        <div data-reveal="" class="method-step" style="--i: 2; padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3.5" width="5" height="5"></rect><rect x="16" y="3.5" width="5" height="5"></rect><rect x="9.5" y="15" width="5" height="5"></rect><line x1="6" y1="8.5" x2="12" y2="15"></line><line x1="18" y1="8.5" x2="12" y2="15"></line></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 3</div>
           <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">First flow</h3>
           <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Connected to your existing tools, automated, adopted by your team.</p>
         </div>
-        <div data-reveal="" style="padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
+        <div data-reveal="" class="method-step" style="--i: 3; padding: var(--space-6) 0 0; border-top: var(--rule-accent) solid var(--accent); margin-top: -1px;">
           <div style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid var(--border-default); background: var(--white);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><line x1="3" y1="20" x2="21" y2="20"></line><polyline points="5 16 10 11 13 14 19 7"></polyline><polyline points="15 7 19 7 19 11"></polyline></svg></div>
           <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);">Step 4</div>
           <h3 style="margin: 10px 0 8px; font-weight: 600; font-size: var(--text-lg);">What's next</h3>
@@ -499,7 +511,7 @@
               <span style="flex: none; font-family: var(--font-mono); font-size: 20px; font-weight: 400; color: var(--accent); line-height: 1;">{{ f.sign }}</span>
             </button>
             <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
-              <p style="margin: 0; padding: 0 0 var(--space-5); max-width: 660px; font-size: var(--text-sm); line-height: 1.7; color: var(--text-secondary);">{{ f.a }}</p>
+              <p class="faq-a" style="margin: 0; padding: 0 0 var(--space-5); max-width: 660px; font-size: var(--text-sm); line-height: 1.7; color: var(--text-secondary);">{{ f.a }}</p>
             </sc-if>
           </div>
         </sc-for>
@@ -594,6 +606,21 @@ class Component extends DCLogic {
       els.forEach(fillBars);
       return;
     }
+    document.documentElement.classList.add("tulco-motion");
+    // Les chiffres des preuves defilent jusqu'a leur valeur ; le texte final reste celui du HTML.
+    const countUp = (el) => el.querySelectorAll(".proof-value, .agency-value").forEach((n) => {
+      const text = n.textContent;
+      const m = text.match(/\d+/);
+      if (!m) return;
+      const target = Number(m[0]);
+      const t0 = performance.now();
+      const step = (t) => {
+        const p = Math.min(1, (t - t0) / 900);
+        n.textContent = text.replace(/\d+/, String(Math.round(target * (1 - Math.pow(1 - p, 3)))));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
     const reveal = () => {
       const h = window.innerHeight || document.documentElement.clientHeight;
       let remaining = 0;
@@ -608,6 +635,7 @@ class Component extends DCLogic {
           }
           el.dataset.revealShown = "1";
           fillBars(el);
+          countUp(el);
         } else {
           remaining++;
         }
