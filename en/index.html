@@ -25,6 +25,8 @@
 <meta name="twitter:description" content="Your tools finally talk to each other. Your team stops re-keying data and focuses on the brand.">
 <meta name="twitter:image" content="https://www.tulcostudio.fr/og-en.png">
 <script src="../support.js"></script>
+<script type="importmap">{"imports":{"react":"../lab/react-shim.js","react/jsx-runtime":"../lab/jsx-runtime-shim.js"}}</script>
+<script type="module" src="../lab/bot-loader.js"></script>
 </head>
 <body>
 <x-dc>
@@ -108,6 +110,13 @@
   .tulco-motion .method-step.tulco-in::before { transform: scaleX(1); transition: transform 520ms cubic-bezier(0.2,0,0,1) calc(var(--i, 0) * 200ms); }
   @keyframes tulco-faq { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
   .tulco-motion .faq-a { animation: tulco-faq 260ms cubic-bezier(0.2,0,0,1); }
+  /* --- Test : avatar anime Tulco Studio --- */
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: clamp(24px, 4vw, 56px); }
+  .hero-bot { padding-top: 48px; }
+  @media (max-width: 760px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 0; }
+    .hero-bot { order: -1; padding-top: 24px; margin-bottom: 12px; }
+  }
   .hero-flux { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
   .hero-flux-chip { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); background: var(--white); border: 1px solid var(--border-default); padding: 8px 12px; cursor: pointer; transition: color 160ms, border-color 160ms; }
   .hero-flux-chip:hover { color: var(--accent); border-color: var(--accent); }
@@ -220,10 +229,7 @@
   </header>
   <!-- HERO -->
   <section data-screen-label="Hero" style="position: relative; overflow: hidden; border-bottom: 1px solid var(--border-default); background-image: var(--grid-bg); background-size: var(--grid-size) var(--grid-size);">
-    <div class="hero-mark">
-      <x-import component-from-global-scope="TulcoStudioDesignSystem_ac5776.Logo" variant="symbol" tone="ink" height="500" hint-size="500px,500px"></x-import>
-    </div>
-    <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(44px,6vw,72px);">
+    <div class="hero-grid" style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,7vw,84px) clamp(20px,5vw,64px) clamp(44px,6vw,72px);">
       <div style="max-width: 900px;">
         <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px;">Antoine Luizet · Ex-retail product lead</div>
         <h1 style="margin: 0; font-weight: 600; font-size: clamp(36px,6vw,78px); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); color: var(--text-primary);">I automate the back office of brands <span class="nowrap">on <img src="../assets/shopify-logo-mono.svg" alt="Shopify" class="h1-shopify" width="446" height="128"></span></h1>
@@ -237,6 +243,9 @@
             <button type="button" class="hero-flux-chip" onClick="{{ h.onSelect }}">{{ h.label }}</button>
           </sc-for>
         </div>
+      </div>
+      <div class="hero-bot">
+        <x-import component-from-global-scope="TulcoBot.Avatar" type="square" size="clamp(96px, 17vw, 230px)" label="Tulco Studio" hint-size="230px,230px"></x-import>
       </div>
     </div>
   </section>
@@ -572,7 +581,7 @@
         <div style="position: relative; height: min(620px, 75vh); background: var(--bg-subtle);">
           <sc-if value="{{ iframeNotLoaded }}" hint-placeholder-val="{{ true }}">
             <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center;">
-              <div class="tulco-spinner" aria-hidden="true"></div>
+              <x-import component-from-global-scope="TulcoBot.Avatar" type="square" state="working" size="72" label="Tulco Studio, loading the calendar" hint-size="72px,72px"></x-import>
               <div style="font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary);">Loading calendar</div>
               <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00sqO383mC39rGFkr1xcoauJcv_ydxmEFJxiT6LtLb6DaaxxCPXDL4lp3RcZ2oA-_1JN_Snr_l?gv=true" target="_blank" rel="noopener noreferrer" style="font-size: 13px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; margin-top: 4px;">Open in a new tab</a>
             </div>
