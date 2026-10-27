@@ -21,6 +21,8 @@
 >   - FAQ : la réponse s'ouvre en fondu.
 > - Images de partage : pas de logo Shopify dans `og.png` / `og-en.png`, le titre dit déjà « sur Shopify ».
 
+> **Recalage IA du 27/10 :** le positionnement ne change pas (back-office des marques sur Shopify). L'IA monte d'un cran sur deux cas concrets : rédaction des descriptions produit à partir des caractéristiques techniques et de l'univers de la marque, et génération des titres et méta-descriptions SEO. Pas de référence client sur l'IA (Nichebloom, Alfred) tant que les cas d'usage Shopify en cours ne sont pas terminés.
+
 ## Règles d'écriture de la page
 
 - Textes courts : un paragraphe = 2 phrases maximum, une puce = une ligne. Pas de tirets longs.
@@ -50,9 +52,9 @@ Navigation : Le constat · Les flux · Pourquoi moi · Méthode · Réalisations
 ## 0. Meta et partage
 
 - **Title :** Tulco Studio · J'automatise le back-office des marques sur Shopify
-- **Meta description :** Fiches produit, commandes revendeurs, reporting : j'automatise le back-office des marques sur Shopify pour que vos équipes arrêtent de ressaisir. Ex chef de produit retail.
+- **Meta description :** Fiches produit rédigées par l'IA, commandes revendeurs, reporting : j'automatise le back-office des marques sur Shopify pour que vos équipes arrêtent de ressaisir. Ex chef de produit retail.
 - **OG / Twitter title :** Tulco Studio · J'automatise le back-office des marques sur Shopify
-- **OG / Twitter description :** Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
+- **OG / Twitter description :** Vos outils se parlent enfin, vos fiches produit s'écrivent seules. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
 - **OG image alt :** Tulco Studio : automatisation du back-office des marques sur Shopify
 - **`og.png` :** à régénérer depuis `og-card.html` avec le nouveau titre.
 
@@ -67,7 +69,7 @@ J'automatise le back-office des marques sur [logo Shopify]
 *(logo monochrome dans le titre, `alt="Shopify"` ; pas de point final après le logo)*
 
 **Sous-titre :**
-Vos outils se parlent enfin. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
+Vos outils se parlent enfin, vos fiches produit s'écrivent seules. Vos équipes arrêtent de ressaisir et se concentrent sur la marque.
 
 **CTA principal :** Voir ce qu'on automatiserait en premier
 **CTA secondaire :** Découvrir les trois flux
@@ -105,8 +107,8 @@ Chaque copie crée une erreur. Et une erreur de stock ou de commande, c'est un r
 ### Produit
 Du fichier de collection aux fiches Shopify et au catalogue revendeurs.
 - **Avant :** le marketing recopie le fichier de collection pour créer les fiches.
-- **Après :** les fiches Shopify se remplissent depuis la donnée de collection, partout à la fois.
-- **Outils :** [logo Shopify] + PIM, PLM.
+- **Après :** les fiches Shopify se remplissent depuis la donnée de collection. L'IA rédige la description et la méta-description, dans le ton de la marque.
+- **Outils :** [logo Shopify] + PIM, PLM, IA.
 
 ### Ventes
 Des commandes Shopify et revendeurs aux relances clients.
@@ -122,10 +124,11 @@ Ventes, stocks, marges : à jour, sans compiler.
 
 **Bloc IA (bandeau sous les onglets) :**
 
-**Titre :** Et l'IA ? D'abord des données propres.
+**Titre :** L'IA, branchée sur des données propres.
 
 Branchée sur cinq fichiers qui se contredisent, l'IA produit des erreurs plus vite. Sur des flux propres, elle devient un vrai levier :
-- Fiches produit rédigées à partir de vos données.
+- Descriptions produit rédigées à partir des caractéristiques techniques et de l'univers de la marque.
+- Titres et méta-descriptions SEO générés pour chaque fiche.
 - Commandes reçues par mail, lues et saisies.
 - Reporting commenté chaque lundi.
 
@@ -173,7 +176,7 @@ Je cartographie vos flux et mesure le temps perdu en ressaisie. Vous repartez av
 Connecté à vos outils existants, automatisé, adopté par l'équipe.
 
 **Étape 4 · La suite**
-Les autres flux, puis l'IA. Et un suivi, car vos outils évoluent et les connexions aussi.
+Les autres flux, et l'IA là où elle fait gagner du temps. Et un suivi, car vos outils évoluent et les connexions aussi.
 
 ---
 
@@ -260,6 +263,8 @@ Shopify, un ERP, parfois un PIM, un PLM ou un CRM. Et beaucoup d'Excel entre les
   Non. Vos outils existants d'abord, du sur mesure seulement là où il manque quelque chose.
 - **Il existe déjà une app pour relier Shopify à mon ERP.**
   Oui, pour synchroniser deux outils. Le vrai sujet, c'est le flux entier et vos règles métier.
+- **Shopify rédige déjà des descriptions, non ?**
+  Shopify propose un assistant de rédaction. Ici, chaque fiche arrive déjà rédigée depuis vos données de collection, SEO compris, dans le ton de la marque.
 - **Combien de temps ça prend ?**
   Un flux à la fois, livré par petits lots. Vos équipes s'en servent vite, sans tunnel de plusieurs mois.
 - **Et si vous disparaissez ?**
@@ -267,7 +272,7 @@ Shopify, un ERP, parfois un PIM, un PLM ou un CRM. Et beaucoup d'Excel entre les
 - **Mes équipes vont-elles suivre ?**
   Je les forme et je les accompagne jusqu'à l'usage réel. Chez Volcom : 90 % d'adoption.
 - **Et nos données, avec l'IA ?**
-  L'IA arrive en dernier, sur des cas précis, avec des règles d'usage claires.
+  L'IA travaille sur vos données produit, avec les règles de ton de votre marque.
 
 ---
 
