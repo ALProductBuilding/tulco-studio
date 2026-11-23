@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1600, height=1000" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      /* Charte Tulco Studio : un seul bleu porteur, encre froide, gris bleutés. */
+      @font-face {
+        font-family: "Switzer";
+        src: url("assets/fonts/Switzer-Variable.ttf") format("truetype");
+        font-weight: 100 900;
+      }
+      :root {
+        --blue: #003ec7;
+        --blue-100: #d7e0f6;
+        --blue-50: #edf1fb;
+        --ink: #14171c;
+        --ink-soft: #353b45;
+        --g50: #f8f9fb;
+        --g100: #f1f3f7;
+        --g200: #e1e5ec;
+        --g300: #cbd1db;
+        --g400: #98a1b0;
+        --g500: #69727f;
+        --success: #0e7b63;
+        --success-bg: #e3f1ed;
+        --danger: #b12e44;
+        --danger-bg: #f6e4e8;
+        --sans: "Switzer", "Inter", sans-serif;
+        --mono: "JetBrains Mono", monospace;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1600px; height: 1000px; overflow: hidden; background: var(--g100); }
+      #root { position: relative; width: 100%; height: 100%; font-family: var(--sans); color: var(--ink); overflow: hidden; }
+      #paper {
+        position: absolute; inset: 0;
+        background-color: var(--g100);
+        background-image:
+          linear-gradient(to right, rgba(20,23,28,0.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(20,23,28,0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+      .scene { position: absolute; inset: 0; }
+
+      /* ---------- Fenêtres génériques ---------- */
+      .win { position: absolute; background: #fff; border: 2px solid var(--g300); box-shadow: 0 18px 40px rgba(20,23,28,0.10); overflow: hidden; }
+      .win-bar { height: 44px; display: flex; align-items: center; gap: 12px; padding: 0 16px; background: var(--g50); border-bottom: 2px solid var(--g200); }
+      .file { font-family: var(--mono); font-size: 20px; font-weight: 600; color: var(--ink-soft); }
+      .file-ico { width: 18px; height: 22px; border: 2px solid var(--g500); position: relative; }
+      .file-ico::after { content: ""; position: absolute; left: 3px; right: 3px; top: 5px; height: 2px; background: var(--g500); box-shadow: 0 5px 0 var(--g500); }
+
+      /* ---------- Tableur ---------- */
+      .sheet { display: grid; }
+      .cell { border-right: 1px solid var(--g200); border-bottom: 1px solid var(--g200); height: 40px; display: flex; align-items: center; justify-content: flex-end; padding: 0 10px; font-family: var(--mono); font-size: 20px; color: var(--ink); position: relative; }
+      .cell.h { background: var(--g50); color: var(--g500); justify-content: center; font-size: 16px; }
+      .cell .bar { height: 8px; background: var(--g200); width: 70%; }
+      .cell.hot { background: var(--blue-50); }
+
+      .chip { position: absolute; left: 0; top: 0; font-family: var(--mono); font-size: 24px; font-weight: 600; color: #fff; background: var(--blue); padding: 6px 12px; white-space: nowrap; box-shadow: 0 10px 24px rgba(0,62,199,0.28); }
+      .cursor { position: absolute; left: 0; top: 0; width: 34px; height: 40px; z-index: 80; }
+
+      /* ---------- Vitrine Webflow ---------- */
+      #web .hero-blk { position: absolute; left: 24px; top: 68px; width: 200px; height: 140px; background: var(--g100); }
+      #web .ln { position: absolute; height: 10px; background: var(--g200); }
+      #web .btn-contact { position: absolute; left: 248px; top: 176px; font-size: 16px; font-weight: 600; border: 2px solid var(--ink); padding: 6px 12px; }
+
+      /* ---------- Boutique Shopify ---------- */
+      #shop { left: 200px; top: 100px; width: 1200px; height: 750px; }
+      #shop .win-bar { height: 60px; justify-content: space-between; padding: 0 24px; }
+      #shop .win-bar img { height: 30px; }
+      .url { font-family: var(--mono); font-size: 18px; color: var(--g500); background: #fff; border: 2px solid var(--g200); padding: 4px 14px; }
+      #viewport { position: absolute; left: 0; top: 60px; width: 1200px; height: 690px; overflow: hidden; }
+      #track { position: absolute; left: 0; top: 0; width: 4800px; height: 690px; display: flex; }
+      .screen { position: relative; width: 1200px; height: 690px; flex: none; }
+      .h-title { font-size: 44px; font-weight: 600; letter-spacing: -0.02em; }
+      .price { font-family: var(--mono); font-size: 40px; font-weight: 600; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 600; color: #fff; background: var(--ink); height: 72px; padding: 0 40px; }
+      .btn.blue { background: var(--blue); }
+      .gbar { height: 16px; background: var(--g200); }
+      .field { height: 64px; border: 2px solid var(--g300); display: flex; align-items: center; padding: 0 20px; font-family: var(--mono); font-size: 24px; color: var(--ink-soft); }
+      .tag { font-family: var(--mono); font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+      #rail { position: absolute; left: 200px; top: 888px; width: 1200px; height: 60px; }
+      #rail .track-line { position: absolute; left: 12px; right: 12px; top: 11px; height: 3px; background: var(--g300); }
+      #rail .fill-line { position: absolute; left: 12px; right: 12px; top: 11px; height: 3px; background: var(--blue); transform-origin: left center; }
+      .step { position: absolute; top: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; transform: translateX(-50%); }
+      .step i { width: 24px; height: 24px; border: 3px solid var(--g300); background: var(--g100); display: block; }
+      .step span { font-family: var(--mono); font-size: 22px; font-weight: 600; color: #5c6572; text-transform: uppercase; letter-spacing: 0.05em; }
+
+      /* ---------- Tableau de bord ---------- */
+      #dash { left: 100px; top: 80px; width: 1400px; height: 840px; }
+      #dash .win-bar { height: 72px; justify-content: space-between; padding: 0 32px; }
+      .dash-title { font-size: 30px; font-weight: 600; letter-spacing: -0.01em; }
+      .who { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 500; color: var(--ink-soft); }
+      .avatar { width: 44px; height: 44px; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 22px; }
+      .panel-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+      .panel-t { font-size: 28px; font-weight: 600; }
+      .pill { font-family: var(--mono); font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 10px; }
+      .pill.blue { color: var(--blue); background: var(--blue-50); border: 2px solid var(--blue-100); }
+      .pill.ok { color: var(--success); background: var(--success-bg); }
+      #orders { position: absolute; left: 40px; top: 112px; width: 600px; }
+      .rows { position: relative; height: 560px; }
+      .row { position: absolute; left: 0; width: 600px; height: 80px; display: grid; grid-template-columns: 140px 1fr 170px; align-items: center; padding: 0 20px; border-bottom: 2px solid var(--g200); font-family: var(--mono); font-size: 24px; }
+      .row .id { font-weight: 600; }
+      .row .amt { text-align: right; font-weight: 600; }
+      .row .st { justify-self: start; }
+      .card { position: absolute; border: 2px solid var(--g200); background: #fff; padding: 28px 32px; }
+      #margin-card { left: 680px; top: 112px; width: 680px; height: 300px; }
+      #bank-card { left: 680px; top: 440px; width: 680px; height: 340px; }
+      .calc { display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; align-items: end; margin-top: 12px; }
+      .calc .lab { font-family: var(--mono); font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--g500); margin-bottom: 10px; }
+      .calc .val { font-family: var(--mono); font-size: 40px; font-weight: 600; font-variant-numeric: tabular-nums; }
+      .calc .op { font-family: var(--mono); font-size: 36px; color: var(--g400); text-align: center; padding-bottom: 4px; }
+      .caret { display: inline-block; width: 3px; height: 38px; background: var(--blue); vertical-align: -4px; margin-left: 2px; }
+      .bline { position: absolute; left: 32px; right: 32px; height: 76px; border: 2px solid var(--g200); display: flex; align-items: center; justify-content: space-between; padding: 0 22px; font-family: var(--mono); font-size: 24px; background: var(--g50); }
+      .bline b { font-weight: 600; }
+      #link-line { position: absolute; left: 70px; top: 182px; width: 3px; height: 54px; background: var(--blue); transform-origin: top center; }
+
+      /* ---------- Résultat ---------- */
+      #big { position: absolute; left: 120px; top: 300px; font-family: var(--mono); font-weight: 700; font-size: 230px; letter-spacing: -0.04em; color: var(--blue); line-height: 1; font-variant-numeric: tabular-nums; }
+      #big-label { position: absolute; left: 128px; top: 560px; font-size: 56px; font-weight: 600; letter-spacing: -0.02em; }
+      #big-src { position: absolute; left: 128px; top: 652px; font-family: var(--mono); font-size: 22px; font-weight: 600; color: var(--g500); text-transform: uppercase; letter-spacing: 0.05em; }
+      #big-rule { position: absolute; left: 128px; top: 274px; width: 120px; height: 6px; background: var(--blue); transform-origin: left center; }
+      #chart { left: 820px; top: 220px; width: 660px; height: 560px; padding: 36px 40px; }
+      #chart svg { position: absolute; left: 40px; top: 130px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22" data-width="1600" data-height="1000">
+      <div id="paper"></div>
+
+      <!-- ===================== A · AVANT : jongler entre les fichiers ===================== -->
+      <div id="sA" class="scene clip" data-start="0" data-duration="5.6" data-track-index="1" data-layout-allow-overlap data-layout-allow-occlusion>
+        <div id="w1" class="win" style="left: 100px; top: 110px; width: 600px; height: 330px; z-index: 1">
+          <div class="win-bar"><i class="file-ico"></i><span class="file">commandes.xlsx</span></div>
+          <div class="sheet" data-cols="4" data-rows="6"></div>
+        </div>
+        <div id="w2" class="win" style="left: 860px; top: 80px; width: 560px; height: 330px; z-index: 2">
+          <div class="win-bar"><i class="file-ico"></i><span class="file">couts.xlsx</span></div>
+          <div class="sheet" data-cols="4" data-rows="6"></div>
+        </div>
+        <div id="w3" class="win" style="left: 220px; top: 500px; width: 580px; height: 330px; z-index: 3">
+          <div class="win-bar"><i class="file-ico"></i><span class="file">marges.xlsx</span></div>
+          <div class="sheet" data-cols="4" data-rows="6"></div>
+        </div>
+        <div id="w4" class="win" style="left: 900px; top: 470px; width: 580px; height: 330px; z-index: 4">
+          <div class="win-bar"><i class="file-ico"></i><span class="file">rapprochement.xlsx</span></div>
+          <div class="sheet" data-cols="4" data-rows="6"></div>
+        </div>
+        <div id="web" class="win" style="left: 580px; top: 330px; width: 440px; height: 275px; z-index: 60">
+          <div class="win-bar"><span class="file">webflow · site vitrine</span></div>
+          <div class="hero-blk"></div>
+          <div class="ln" style="left: 248px; top: 76px; width: 160px; height: 18px; background: var(--g300)"></div>
+          <div class="ln" style="left: 248px; top: 110px; width: 150px"></div>
+          <div class="ln" style="left: 248px; top: 132px; width: 120px"></div>
+          <div class="btn-contact">Nous contacter</div>
+        </div>
+        <div id="chip1" class="chip" style="z-index: 70">89,00</div>
+        <div id="chip2" class="chip" style="z-index: 70">31,20</div>
+        <div id="chip3" class="chip" style="z-index: 70">57,80</div>
+        <svg id="curA" class="cursor" viewBox="0 0 34 40"><path d="M2 2 L2 32 L10 25 L16 38 L22 35 L16 22 L27 22 Z" fill="#14171C" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- ===================== B · CÔTÉ CLIENT : le parcours Shopify ===================== -->
+      <div id="sB" class="scene clip" data-start="4.6" data-duration="5.9" data-track-index="2" data-layout-allow-overlap data-layout-allow-occlusion>
+        <div id="shop" class="win">
+          <div class="win-bar"><img src="assets/shopify-logo-mono.svg" alt="Shopify" /><span class="url">studio muxi · boutique</span></div>
+          <div id="viewport">
+            <div id="track">
+              <!-- 1. Produit -->
+              <div class="screen">
+                <div style="position: absolute; left: 60px; top: 50px; width: 520px; height: 590px; background: var(--blue-50)">
+                  <div style="position: absolute; left: 160px; top: 150px; width: 200px; height: 290px; background: var(--blue-100)"></div>
+                  <div style="position: absolute; left: 200px; top: 110px; width: 120px; height: 40px; background: var(--blue-100)"></div>
+                </div>
+                <div style="position: absolute; left: 650px; top: 90px; width: 480px">
+                  <div class="tag" style="color: var(--blue); margin-bottom: 22px">Nouveauté</div>
+                  <div class="gbar" style="width: 400px; height: 34px; background: var(--g300); margin-bottom: 18px"></div>
+                  <div class="gbar" style="width: 300px; height: 34px; background: var(--g300); margin-bottom: 40px"></div>
+                  <div class="price" style="margin-bottom: 40px">89,00 €</div>
+                  <div class="gbar" style="width: 440px; margin-bottom: 14px"></div>
+                  <div class="gbar" style="width: 400px; margin-bottom: 14px"></div>
+                  <div class="gbar" style="width: 320px; margin-bottom: 50px"></div>
+                  <div id="b-add" class="btn" style="width: 440px">Ajouter au panier</div>
+                </div>
+              </div>
+              <!-- 2. Panier -->
+              <div class="screen">
+                <div class="h-title" style="position: absolute; left: 80px; top: 60px">Panier</div>
+                <div style="position: absolute; left: 80px; top: 170px; width: 1040px; height: 170px; border-top: 2px solid var(--g200); border-bottom: 2px solid var(--g200); display: flex; align-items: center; gap: 32px">
+                  <div style="width: 120px; height: 120px; background: var(--blue-50); position: relative"><div style="position: absolute; left: 40px; top: 28px; width: 40px; height: 64px; background: var(--blue-100)"></div></div>
+                  <div style="flex: 1"><div class="gbar" style="width: 320px; height: 26px; background: var(--g300); margin-bottom: 14px"></div><div class="gbar" style="width: 180px"></div></div>
+                  <div class="price" style="font-size: 34px">89,00 €</div>
+                </div>
+                <div style="position: absolute; left: 80px; top: 380px; width: 1040px; display: flex; justify-content: space-between; align-items: baseline">
+                  <span style="font-size: 32px; font-weight: 600">Total</span><span class="price">89,00 €</span>
+                </div>
+                <div id="b-order" class="btn" style="position: absolute; right: 80px; top: 500px; width: 440px">Commander</div>
+              </div>
+              <!-- 3. Paiement -->
+              <div class="screen">
+                <div class="h-title" style="position: absolute; left: 80px; top: 60px">Paiement</div>
+                <div style="position: absolute; left: 80px; top: 160px; width: 620px; display: flex; flex-direction: column; gap: 22px">
+                  <div class="field">client@email.fr</div>
+                  <div class="field"><span id="cardnum">•••• •••• •••• 4242</span></div>
+                  <div style="display: flex; gap: 22px"><div class="field" style="flex: 1">12 / 28</div><div class="field" style="flex: 1">•••</div></div>
+                </div>
+                <div style="position: absolute; left: 780px; top: 160px; width: 340px; padding: 28px; background: var(--g50); border: 2px solid var(--g200)">
+                  <div class="tag" style="color: var(--g500); margin-bottom: 16px">Récap</div>
+                  <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 24px; margin-bottom: 12px"><span>1 article</span><span>89,00 €</span></div>
+                  <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 24px; color: var(--g500)"><span>Livraison</span><span>offerte</span></div>
+                </div>
+                <div id="b-pay" class="btn blue" style="position: absolute; left: 80px; top: 500px; width: 620px">Payer 89,00 €</div>
+              </div>
+              <!-- 4. Confirmation -->
+              <div class="screen">
+                <div style="position: absolute; left: 0; right: 0; top: 150px; display: flex; flex-direction: column; align-items: center; gap: 30px">
+                  <svg width="140" height="140" viewBox="0 0 140 140"><rect x="4" y="4" width="132" height="132" fill="#E3F1ED" stroke="#0E7B63" stroke-width="6"/><path id="okpath" d="M38 72 L60 94 L104 48" fill="none" stroke="#0E7B63" stroke-width="10" stroke-linecap="square"/></svg>
+                  <div class="h-title" style="font-size: 52px">Commande confirmée</div>
+                  <div id="confirm-id" style="font-family: var(--mono); font-size: 30px; font-weight: 600; color: var(--g500)">#1042 · 89,00 €</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="rail">
+          <div class="track-line"></div>
+          <div class="fill-line" id="rail-fill"></div>
+          <div class="step" style="left: 12px"><i></i><span>Produit</span></div>
+          <div class="step" style="left: 404px"><i></i><span>Panier</span></div>
+          <div class="step" style="left: 796px"><i></i><span>Paiement</span></div>
+          <div class="step" style="left: 1188px"><i></i><span>Confirmé</span></div>
+        </div>
+        <svg id="curB" class="cursor" viewBox="0 0 34 40"><path d="M2 2 L2 32 L10 25 L16 38 L22 35 L16 22 L27 22 Z" fill="#14171C" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/></svg>
+      </div>
+
+      <!-- ===================== C · CÔTÉ FANNY : le tableau de bord ===================== -->
+      <div id="sC" class="scene clip" data-start="9.8" data-duration="6.6" data-track-index="3" data-layout-allow-overlap data-layout-allow-occlusion>
+        <div id="dash" class="win">
+          <div class="win-bar"><span class="dash-title">Tableau de bord</span><span class="who"><span class="avatar">F</span>Fanny</span></div>
+          <div id="orders">
+            <div class="panel-h"><span class="panel-t">Commandes</span><span class="pill blue">Shopify · synchro auto</span></div>
+            <div class="rows">
+              <div class="row" id="r0" style="top: 0"><span class="id">#1042</span><span class="st"><span class="pill ok">Payée</span></span><span class="amt">89,00 €</span></div>
+              <div class="row" id="r1" style="top: 0"><span class="id">#1041</span><span class="st"><span class="pill ok">Payée</span></span><span class="amt">64,00 €</span></div>
+              <div class="row" id="r2" style="top: 0"><span class="id">#1040</span><span class="st"><span class="pill ok">Payée</span></span><span class="amt">128,00 €</span></div>
+              <div class="row" id="r3" style="top: 0"><span class="id">#1039</span><span class="st"><span class="pill ok">Payée</span></span><span class="amt">42,50 €</span></div>
+              <div class="row" id="r4" style="top: 0"><span class="id">#1038</span><span class="st"><span class="pill ok">Payée</span></span><span class="amt">89,00 €</span></div>
+              <div class="row" id="r5" style="top: 0"><span class="id">#1037</span><span class="st"><span class="pill ok">Payée</span></span><span class="amt">156,00 €</span></div>
+            </div>
+          </div>
+          <div id="margin-card" class="card">
+            <div class="panel-h"><span class="panel-t">Marge · #1042</span><span class="pill ok" id="m-ok">Calculée</span></div>
+            <div class="calc">
+              <div><div class="lab">Prix</div><div class="val">89,00</div></div>
+              <div class="op">−</div>
+              <div><div class="lab">Coûts</div><div class="val"><span id="cost"></span><i class="caret" id="caret"></i></div></div>
+              <div class="op">=</div>
+              <div><div class="lab" style="color: var(--success)">Marge</div><div class="val" id="marge" style="color: var(--success)">0,00</div></div>
+            </div>
+          </div>
+          <div id="bank-card" class="card">
+            <div class="panel-h"><span class="panel-t">Rapprochement bancaire</span><span class="pill ok" id="b-ok">Rapproché ✓</span></div>
+            <div class="bline" id="bl1" style="top: 96px"><span>Banque · Shopify Payments</span><b>+89,00 €</b></div>
+            <div id="link-line"></div>
+            <div class="bline" id="bl2" style="top: 236px"><span>Commande #1042</span><b>89,00 €</b></div>
+          </div>
+        </div>
+        <div id="chipC" class="chip" style="z-index: 30">#1042 · 89,00 €</div>
+      </div>
+
+      <!-- ===================== D · RÉSULTAT ===================== -->
+      <div id="sD" class="scene clip" data-start="15.8" data-duration="6.2" data-track-index="4" data-layout-allow-overlap>
+        <div id="big-rule"></div>
+        <div id="big">≈ 0 j</div>
+        <div id="big-label">par mois récupérés</div>
+        <div id="big-src">commandes · marges · rapprochement</div>
+        <div id="chart" class="card">
+          <div class="panel-h"><span class="panel-t">Ventes</span><span class="pill ok">En hausse</span></div>
+          <svg width="580" height="380" viewBox="0 0 580 380">
+            <line x1="0" y1="370" x2="580" y2="370" stroke="#CBD1DB" stroke-width="2" />
+            <line x1="0" y1="250" x2="580" y2="250" stroke="#E1E5EC" stroke-width="2" stroke-dasharray="6 8" />
+            <line x1="0" y1="130" x2="580" y2="130" stroke="#E1E5EC" stroke-width="2" stroke-dasharray="6 8" />
+            <path id="area" d="M0 330 L70 318 L140 324 L210 290 L280 272 L350 236 L420 214 L490 160 L560 96 L560 370 L0 370 Z" fill="#EDF1FB" />
+            <path id="curve" d="M0 330 L70 318 L140 324 L210 290 L280 272 L350 236 L420 214 L490 160 L560 96" fill="none" stroke="#003EC7" stroke-width="6" stroke-linejoin="round" />
+            <rect id="dot" x="548" y="84" width="24" height="24" fill="#003EC7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ---------- Construction synchrone des tableurs (déterministe) ----------
+      document.querySelectorAll(".sheet").forEach((sheet) => {
+        const cols = +sheet.dataset.cols, rows = +sheet.dataset.rows;
+        const win = sheet.parentElement;
+        const w = win.offsetWidth - 4 - 48;
+        sheet.style.gridTemplateColumns = `48px repeat(${cols}, ${w / cols}px)`;
+        const letters = "ABCDEFG";
+        sheet.insertAdjacentHTML("beforeend", `<div class="cell h"></div>` + Array.from({ length: cols }, (_, c) => `<div class="cell h">${letters[c]}</div>`).join(""));
+        for (let r = 1; r <= rows; r++) {
+          let html = `<div class="cell h">${r}</div>`;
+          for (let c = 1; c <= cols; c++) {
+            const pct = 35 + ((r * 7 + c * 13 + win.id.length * 5) % 50);
+            html += `<div class="cell" data-rc="${r}-${c}"><span class="bar" style="width:${pct}%"></span></div>`;
+          }
+          sheet.insertAdjacentHTML("beforeend", html);
+        }
+      });
+      const cell = (win, r, c) => Array.from(document.getElementById(win).querySelectorAll(".cell")).find((el) => el.dataset.rc === r + "-" + c);
+      const posIn = (el, stop) => { let x = 0, y = 0; while (el && el !== stop) { x += el.offsetLeft + (el.clientLeft || 0); y += el.offsetTop + (el.clientTop || 0); el = el.offsetParent; } return { x, y }; };
+      const root = document.getElementById("root");
+      const center = (el) => { const p = posIn(el, root); return { x: p.x + el.offsetWidth / 2, y: p.y + el.offsetHeight / 2 }; };
+
+      const tl = gsap.timeline({ paused: true });
+      // Changement de texte réversible (le scrub arrière restaure l'état d'avant).
+      const swapText = (el, after, t, html) => {
+        const before = el.innerHTML; const o = { v: 0 };
+        tl.fromTo(o, { v: 0 }, { v: 1, duration: 0.001, immediateRender: false,
+          onUpdate: () => { if (html) el.innerHTML = o.v >= 0.5 ? after : before; else el.textContent = o.v >= 0.5 ? after : before; },
+          onReverseComplete: () => { el.innerHTML = before; } }, t);
+      };
+      const E_IN = "expo.out", E_MOVE = "power3.inOut";
+
+      // =========================== A · AVANT ===========================
+      const wins = ["#w1", "#w2", "#w3", "#w4", "#web"];
+      wins.forEach((w, i) => tl.fromTo(w, { opacity: 0, y: 30, scale: 0.94, filter: "blur(8px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.7, ease: E_IN }, 0.1 + i * 0.12));
+
+      // Ressaisies : une valeur copiée d'un fichier, recollée dans un autre.
+      const copies = [
+        { chip: "#chip1", from: ["w1", 3, 4], to: ["w3", 2, 2], t: 1.1 },
+        { chip: "#chip2", from: ["w2", 4, 3], to: ["w3", 2, 3], t: 2.05 },
+        { chip: "#chip3", from: ["w3", 2, 4], to: ["w4", 3, 2], t: 3.0 },
+      ];
+      const zFront = { w1: 1, w2: 2, w3: 3, w4: 4 };
+      let z = 10;
+      tl.set("#curA", { x: 820, y: 700 }, 0);
+      tl.fromTo("#curA", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.7);
+      copies.forEach(({ chip, from, to, t }) => {
+        const src = cell(...from), dst = cell(...to);
+        const a = center(src), b = center(dst);
+        // le curseur va chercher la valeur
+        tl.to("#curA", { x: a.x - 4, y: a.y - 4, duration: 0.32, ease: E_MOVE }, t - 0.34);
+        tl.set(document.getElementById(from[0]), { zIndex: ++z }, t - 0.05);
+        tl.set(src, { backgroundColor: "#EDF1FB" }, t - 0.02);
+        tl.fromTo(chip, { x: a.x - 40, y: a.y - 22, scale: 0.6, opacity: 0 }, { x: a.x - 40, y: a.y - 22, scale: 1, opacity: 1, duration: 0.14, ease: "power2.out" }, t);
+        // et la recolle ailleurs
+        tl.set(document.getElementById(to[0]), { zIndex: ++z }, t + 0.1);
+        tl.to(chip, { x: b.x - 40, duration: 0.5, ease: E_MOVE }, t + 0.16);
+        tl.to(chip, { y: b.y - 22, duration: 0.5, ease: "power2.in" }, t + 0.16);
+        tl.to("#curA", { x: b.x + 26, y: b.y + 10, duration: 0.5, ease: E_MOVE }, t + 0.16);
+        tl.to(chip, { scale: 0.5, opacity: 0, duration: 0.14, ease: "power3.in" }, t + 0.66);
+        tl.set(src, { backgroundColor: "#FFFFFF" }, t + 0.66);
+        tl.set(dst, { backgroundColor: "#EDF1FB" }, t + 0.7);
+        swapText(dst, document.querySelector(chip).textContent, t + 0.7, true);
+        tl.to(dst, { backgroundColor: "#FFFFFF", duration: 0.4 }, t + 1.0);
+      });
+      // L'erreur de recopie : #REF!
+      const refCell = cell("w4", 5, 3);
+      tl.set("#w4", { zIndex: ++z }, 3.85);
+      swapText(refCell, "#REF!", 3.9, true);
+      tl.set(refCell, { color: "#B12E44", backgroundColor: "#F6E4E8", fontWeight: 600 }, 3.9);
+      tl.fromTo(refCell, { scale: 1.25 }, { scale: 1, duration: 0.35, ease: E_IN }, 3.9);
+      tl.to("#curA", { opacity: 0, duration: 0.15 }, 4.3);
+
+      // Transition A → B : les fichiers s'écartent, la vitrine devient la boutique.
+      const scatter = { "#w1": [-260, -160], "#w2": [260, -180], "#w3": [-260, 200], "#w4": [260, 200] };
+      Object.entries(scatter).forEach(([w, [dx, dy]], i) =>
+        tl.to(w, { x: dx, y: dy, opacity: 0, filter: "blur(10px)", duration: 0.5, ease: "power3.in" }, 4.4 + i * 0.04));
+            // vitrine 440×275 centrée (800, 467.5) → boutique 1200×750 centrée (800, 475)
+      tl.to("#web", { scale: 1200 / 440, y: 7.5, duration: 0.65, ease: "power3.inOut" }, 4.5);
+      tl.to("#web", { opacity: 0, duration: 0.2, ease: "power1.out" }, 4.95);
+
+      // =========================== B · CÔTÉ CLIENT ===========================
+      tl.fromTo("#shop", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power1.out" }, 4.9);
+      tl.fromTo("#rail", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: E_IN }, 5.2);
+      tl.fromTo("#rail-fill", { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 5.2);
+      const steps = document.querySelectorAll("#rail .step");
+      const lightStep = (i, t) => {
+        tl.to(steps[i].querySelector("i"), { backgroundColor: "#003EC7", borderColor: "#003EC7", duration: 0.2 }, t);
+        tl.to(steps[i].querySelector("span"), { color: "#14171C", duration: 0.2 }, t);
+      };
+      lightStep(0, 5.35);
+
+      const trackX = (n) => -1200 * n;
+      // positions écran (le track n'est pas encore déplacé au moment de la mesure)
+      const pAdd = center(document.getElementById("b-add"));
+      const pOrder = center(document.getElementById("b-order")); pOrder.x -= 1200;
+      const pPay = center(document.getElementById("b-pay")); pPay.x -= 2400;
+
+      const click = (btn, t) => tl.fromTo(btn, { scale: 1 }, { scale: 0.95, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const slide = (n, t) => tl.fromTo("#track", { x: trackX(n - 1), filter: "blur(0px)" }, { x: trackX(n), duration: 0.5, ease: "power3.inOut" }, t);
+      const railTo = (frac, t) => tl.to("#rail-fill", { scaleX: frac, duration: 0.5, ease: "power3.inOut" }, t);
+
+      tl.set("#curB", { x: 1000, y: 760 }, 4.6);
+      tl.fromTo("#curB", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 5.4);
+      tl.to("#curB", { x: pAdd.x + 60, y: pAdd.y + 6, duration: 0.55, ease: E_MOVE }, 5.6);
+      click("#b-add", 6.2);
+      slide(1, 6.35); railTo(1 / 3, 6.35); lightStep(1, 6.8);
+      tl.to("#curB", { x: pOrder.x + 40, y: pOrder.y + 6, duration: 0.55, ease: E_MOVE }, 6.75);
+      click("#b-order", 7.35);
+      slide(2, 7.5); railTo(2 / 3, 7.5); lightStep(2, 7.95);
+      tl.to("#curB", { x: pPay.x + 120, y: pPay.y + 6, duration: 0.6, ease: E_MOVE }, 7.9);
+      click("#b-pay", 8.55);
+      slide(3, 8.7); railTo(1, 8.7); lightStep(3, 9.15);
+      tl.to("#curB", { opacity: 0, duration: 0.15 }, 8.75);
+      const ok = document.getElementById("okpath"); const okLen = ok.getTotalLength();
+      tl.fromTo(ok, { strokeDasharray: okLen, strokeDashoffset: okLen }, { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" }, 9.1);
+
+      // Transition B → C : la commande confirmée part dans le tableau de bord de Fanny.
+      tl.to(["#shop", "#rail"], { opacity: 0, scale: 0.96, filter: "blur(10px)", duration: 0.4, ease: "power3.in" }, 10.0);
+
+      // =========================== C · CÔTÉ FANNY ===========================
+      const pConfirm = center(document.getElementById("confirm-id")); pConfirm.x -= 3600;
+      const rowTop = (i) => i * 84;
+      ["#r1", "#r2", "#r3", "#r4", "#r5"].forEach((r, i) => tl.fromTo(r, { y: rowTop(i) }, { y: rowTop(i), duration: 0.01 }, 9.8));
+      tl.fromTo("#r0", { y: 0, opacity: 0 }, { y: 0, opacity: 0, duration: 0.01 }, 9.8);
+      tl.fromTo("#dash", { opacity: 0, scale: 0.97, filter: "blur(8px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: E_IN }, 10.15);
+
+      // la puce part de la confirmation et se pose en tête de liste
+      const firstRow = document.getElementById("r0");
+      const pRow = posIn(firstRow, root);
+      tl.fromTo("#chipC", { x: pConfirm.x - 130, y: pConfirm.y - 24, opacity: 0, scale: 1 }, { x: pConfirm.x - 130, y: pConfirm.y - 24, opacity: 1, duration: 0.15 }, 9.95);
+      tl.to("#chipC", { x: pRow.x + 14, y: pRow.y + 18, duration: 0.75, ease: "power3.inOut" }, 10.25);
+      ["#r1", "#r2", "#r3", "#r4", "#r5"].forEach((r, i) => tl.to(r, { y: rowTop(i + 1), duration: 0.45, ease: E_IN }, 10.75 + i * 0.03));
+      tl.to("#r0", { opacity: 1, backgroundColor: "#EDF1FB", duration: 0.2 }, 11.0);
+      tl.to("#chipC", { opacity: 0, duration: 0.15 }, 11.0);
+      tl.to("#r0", { backgroundColor: "rgba(237,241,251,0)", duration: 0.8, ease: "power1.out" }, 12.0);
+
+      // marge : les coûts saisis une fois, la marge se calcule
+      tl.fromTo("#margin-card", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: E_IN }, 11.2);
+      const costEl = document.getElementById("cost"), margeEl = document.getElementById("marge");
+      const typed = ["", "3", "31", "31,", "31,2", "31,20"];
+      typed.slice(1).forEach((s, i) => swapText(costEl, s, 11.59 + i * 0.09));
+      tl.fromTo("#caret", { opacity: 1 }, { opacity: 0, duration: 0.01 }, 12.05);
+      const mObj = { v: 0 };
+      tl.fromTo(mObj, { v: 0 }, { v: 57.8, duration: 0.7, ease: "power2.out", onUpdate: () => { margeEl.textContent = mObj.v.toFixed(2).replace(".", ","); } }, 12.1);
+      tl.fromTo("#m-ok", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.3, ease: E_IN }, 12.75);
+
+      // rapprochement bancaire : le virement retrouve sa commande
+      tl.fromTo("#bank-card", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: E_IN }, 12.9);
+      tl.fromTo("#bl1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: E_IN }, 13.2);
+      tl.fromTo("#bl2", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: E_IN }, 13.35);
+      tl.fromTo("#link-line", { scaleY: 0 }, { scaleY: 1, duration: 0.4, ease: "power2.inOut" }, 13.8);
+      tl.to(["#bl1", "#bl2"], { borderColor: "#0E7B63", backgroundColor: "#E3F1ED", duration: 0.3 }, 14.15);
+      tl.fromTo("#b-ok", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.3, ease: E_IN }, 14.2);
+
+      // Transition C → D
+      tl.to("#dash", { opacity: 0, scale: 0.95, filter: "blur(10px)", duration: 0.45, ease: "power3.in" }, 15.6);
+
+      // =========================== D · RÉSULTAT ===========================
+      tl.fromTo("#big-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 16.05);
+      const big = document.getElementById("big"); const bObj = { v: 0 };
+      tl.fromTo("#big", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power2.out" }, 16.1);
+      tl.fromTo(bObj, { v: 0 }, { v: 4, duration: 0.9, ease: "power2.out", onUpdate: () => { big.textContent = "≈ " + Math.round(bObj.v) + " j"; } }, 16.1);
+      tl.fromTo("#big-label", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, 16.6);
+      tl.fromTo("#big-src", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, 17.0);
+      tl.fromTo("#chart", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: E_IN }, 16.7);
+      const curve = document.getElementById("curve"); const cLen = curve.getTotalLength();
+      tl.fromTo(curve, { strokeDasharray: cLen, strokeDashoffset: cLen }, { strokeDashoffset: 0, duration: 1.6, ease: "power2.inOut" }, 17.1);
+      tl.fromTo("#area", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 1.6, ease: "power2.inOut" }, 17.1);
+      tl.fromTo("#dot", { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: E_IN }, 18.65);
+      // fin : tout est posé, on tient jusqu'à 22 s
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
