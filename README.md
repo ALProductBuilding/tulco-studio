@@ -12,6 +12,7 @@ Publiée via GitHub Pages : <https://alproductbuilding.github.io/tulco-studio/>
 - `en/index.html` : la version anglaise (chemins relatifs en `../`), à garder alignée à chaque modification de la page FR.
 - `og-card.html` / `og-card-en.html` : sources des images de partage `og.png` / `og-en.png`.
 - `cookie-consent.js` : bandeau cookies (FR/EN, conforme CNIL) ; charge Google Tag Manager (GTM-55KFWB5S) uniquement après « Tout accepter ». Lien « Gestion des cookies » en pied de page pour revenir sur son choix.
+- `confidentialite.html` / `en/privacy.html` : politique de confidentialité (à mettre à jour si un outil de suivi est ajouté dans GTM).
 - `support.js` : runtime DC (charge React 18 depuis unpkg, monte `<x-dc>`).
 - `_ds/` : design system Tulco Studio (tokens, fonts, bundle JS, styles).
 - `assets/` : images utilisées dans la page (photo, logos clients).
