@@ -466,9 +466,9 @@
             </div>
             <ol class="case-steps" id="muxiSteps">
               <li><button type="button" data-t="0"><span class="case-step-k">01 · Avant</span><span class="case-step-t">Commandes, coûts, marges et banque ressaisis à la main dans Excel.</span><i class="case-step-bar"><b></b></i></button></li>
-              <li><button type="button" data-t="11.1"><span class="case-step-k">02 · Côté client</span><span class="case-step-t">Le site vitrine Webflow devient une boutique Shopify, de l'accueil au paiement.</span><i class="case-step-bar"><b></b></i></button></li>
-              <li><button type="button" data-t="20.2"><span class="case-step-k">03 · Côté Fanny</span><span class="case-step-t">Un tableau de bord : commandes, marges et banque à jour seuls.</span><i class="case-step-bar"><b></b></i></button></li>
-              <li><button type="button" data-t="26.5"><span class="case-step-k">04 · Résultat</span><span class="case-step-t">Environ 4 jours récupérés chaque mois, et des ventes en hausse.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="12"><span class="case-step-k">02 · Côté client</span><span class="case-step-t">Le site vitrine Webflow devient une boutique Shopify, de l'accueil au paiement.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="21.1"><span class="case-step-k">03 · Côté Fanny</span><span class="case-step-t">Une interface de pilotage connectée à Shopify : commandes synchronisées, marges contrôlées, factures électroniques automatiques.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="32.1"><span class="case-step-k">04 · Résultat</span><span class="case-step-t">Environ 4 jours récupérés chaque mois, et des ventes en hausse.</span><i class="case-step-bar"><b></b></i></button></li>
             </ol>
           </div>
         </article>
@@ -759,7 +759,7 @@ class Component extends DCLogic {
     video.playsInline = true;
     const starts = steps.map((li) => Number(li.querySelector("button").dataset.t));
     const paint = () => {
-      const t = video.currentTime, d = video.duration || 32.5;
+      const t = video.currentTime, d = video.duration || 38.5;
       steps.forEach((li, i) => {
         const a = starts[i], b = i + 1 < starts.length ? starts[i + 1] : d;
         const on = t >= a && t < b;

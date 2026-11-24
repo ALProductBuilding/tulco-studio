@@ -26,10 +26,11 @@
 
       /* ---------- Intro ---------- */
       #intro-bg { background: #f3f4f7; background-image: linear-gradient(to right, rgba(20,23,28,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.045) 1px, transparent 1px); background-size: 48px 48px; }
-      .intro-tag { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font-family: var(--mono); font-size: 24px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
-      .intro-row { position: absolute; left: 0; right: 0; top: 400px; height: 180px; display: flex; align-items: center; justify-content: center; gap: 70px; }
+      .intro-tag { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-family: var(--mono); font-size: 44px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+      .intro-row { position: absolute; left: 0; right: 0; top: 250px; height: 200px; display: flex; align-items: center; justify-content: center; gap: 70px; }
       .intro-x { font-size: 64px; font-weight: 300; color: var(--g400); }
-      .intro-sub { position: absolute; left: 0; right: 0; top: 660px; text-align: center; font-size: 44px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink-soft); }
+      .intro-sub { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-size: 104px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; color: var(--ink); }
+      .intro-sub .shop { display: inline-block; height: 1.163em; width: auto; vertical-align: -0.221em; }
       .intro-sub .w { display: inline-block; margin: 0 0.12em; }
 
       /* ---------- Excel ---------- */
@@ -67,16 +68,17 @@
       .tag { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
       .caption { position: absolute; left: 70px; bottom: 60px; z-index: 50; padding: 24px 32px 26px; border-radius: 20px; background: rgba(255,255,255,0.9); box-shadow: 0 20px 50px rgba(10,30,90,0.18), 0 0 0 1px rgba(20,23,28,0.06); }
       .caption .t { margin-top: 10px; font-size: 46px; font-weight: 600; letter-spacing: -0.03em; }
-      .counter { position: absolute; left: 60px; top: 56px; z-index: 60; display: flex; align-items: center; gap: 16px; background: var(--bad); color: #fff; border-radius: 999px; padding: 18px 30px 18px 24px; box-shadow: 0 18px 40px rgba(177,46,68,0.35); font-family: var(--sans); font-size: 34px; font-weight: 600; letter-spacing: -0.02em; }
-      .counter .num { font-family: var(--mono); font-variant-numeric: tabular-nums; background: #fff; color: var(--bad); border-radius: 999px; padding: 2px 16px; font-size: 32px; }
+      .counter-wrap { position: absolute; left: 0; right: 0; bottom: 64px; display: flex; justify-content: center; z-index: 60; }
+      .counter { display: flex; align-items: center; gap: 22px; background: var(--bad); color: #fff; border-radius: 999px; padding: 24px 44px 24px 34px; box-shadow: 0 24px 60px rgba(177,46,68,0.4); font-family: var(--sans); font-size: 58px; font-weight: 600; letter-spacing: -0.03em; }
+      .counter .num { font-family: var(--mono); font-variant-numeric: tabular-nums; background: #fff; color: var(--bad); border-radius: 999px; padding: 2px 26px; font-size: 58px; font-weight: 700; }
 
       /* ---------- Avant / après ---------- */
       #flip { position: absolute; left: 410px; top: 110px; width: 1100px; height: 676px; perspective: 2400px; }
       .face { position: absolute; inset: 0; border-radius: 18px; overflow: hidden; box-shadow: 0 40px 90px rgba(10,30,90,0.22), 0 0 0 1px rgba(20,23,28,0.08); backface-visibility: hidden; }
       .face img.scr { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-      .face-chip { position: absolute; left: 24px; top: 24px; display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-radius: 999px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.18); font-family: var(--sans); font-size: 26px; font-weight: 600; }
-      .face-chip img { height: 28px; }
-      .face-chip span { font-family: var(--mono); font-size: 18px; color: var(--g500); text-transform: uppercase; letter-spacing: 0.08em; }
+      .face-chip { position: absolute; left: 28px; top: 28px; display: flex; align-items: center; gap: 18px; padding: 20px 34px 20px 28px; border-radius: 999px; background: #fff; box-shadow: 0 14px 40px rgba(0,0,0,0.22); font-family: var(--sans); font-size: 56px; font-weight: 600; letter-spacing: -0.03em; }
+      .face-chip img { height: 58px; }
+      .face-chip span { font-family: var(--mono); font-size: 30px; color: var(--g500); text-transform: uppercase; letter-spacing: 0.08em; }
 
       /* ---------- Boutique Studio Muxi (Shopify) ---------- */
       .store { position: absolute; left: 210px; top: 80px; width: 1500px; height: 921px; background: var(--muxi-cream); border-radius: 18px; overflow: hidden; box-shadow: 0 40px 100px rgba(10,30,90,0.25), 0 0 0 1px rgba(20,23,28,0.06); font-family: var(--muxi-font); color: var(--muxi); }
@@ -112,70 +114,70 @@
       .thumb .badge { background: #666; right: -9px; top: -9px; }
       .sum-row { display: flex; justify-content: space-between; font-size: 17px; margin-top: 16px; color: #333; }
 
-      /* ---------- Tableau de bord ---------- */
-      .dash { position: absolute; left: 100px; top: 60px; width: 1720px; height: 960px; background: #f6f7fa; border-radius: 22px; overflow: hidden; box-shadow: 0 40px 100px rgba(10,30,90,0.22), 0 0 0 1px rgba(20,23,28,0.06); font-family: var(--sans); }
-      .side { position: absolute; left: 0; top: 0; bottom: 0; width: 250px; background: #14171c; color: #c7ccd6; padding: 28px 18px; }
-      .ws { display: flex; align-items: center; gap: 12px; color: #fff; font-weight: 600; font-size: 19px; margin-bottom: 36px; }
-      .ws i { width: 38px; height: 38px; border-radius: 10px; background: var(--muxi); display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 15px; }
-      .nav { display: flex; align-items: center; gap: 12px; height: 46px; padding: 0 12px; border-radius: 10px; font-size: 17px; margin-bottom: 4px; }
-      .nav i { width: 18px; height: 18px; border-radius: 5px; border: 2px solid #6b7280; }
-      .nav.on { background: rgba(255,255,255,0.09); color: #fff; }
-      .nav.on i { border-color: var(--blue-300); background: rgba(142,168,238,0.25); }
-      .main { position: absolute; left: 250px; top: 0; right: 0; bottom: 0; padding: 34px 40px; }
-      .hello { font-size: 36px; font-weight: 600; letter-spacing: -0.03em; }
-      .sub { font-size: 17px; color: var(--g500); margin-top: 6px; display: flex; align-items: center; gap: 10px; }
-      .live { width: 10px; height: 10px; border-radius: 50%; background: #22b07d; box-shadow: 0 0 0 5px rgba(34,176,125,0.18); }
-      .kpis { position: absolute; left: 40px; right: 40px; top: 130px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-      .kpi { background: #fff; border-radius: 16px; padding: 22px 24px; height: 150px; box-shadow: 0 1px 2px rgba(20,23,28,0.05), 0 0 0 1px rgba(20,23,28,0.05); position: relative; overflow: hidden; }
-      .kpi .l { font-size: 16px; color: var(--g500); font-weight: 500; }
-      .kpi .v { font-size: 40px; font-weight: 600; letter-spacing: -0.03em; margin-top: 8px; font-variant-numeric: tabular-nums; }
-      .kpi .d { position: absolute; right: 22px; top: 20px; font-family: var(--mono); font-size: 14px; font-weight: 600; padding: 4px 8px; border-radius: 999px; }
-      .up { color: var(--ok); background: var(--ok-bg); }
-      .kpi svg { position: absolute; right: 18px; bottom: 16px; }
-      .cardd { position: absolute; background: #fff; border-radius: 18px; box-shadow: 0 1px 2px rgba(20,23,28,0.05), 0 0 0 1px rgba(20,23,28,0.05); padding: 26px 28px; }
-      .ch { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-      .ct { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
-      .chip-s { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 7px 12px; border-radius: 999px; }
-      .chip-s img { height: 16px; }
-      .chip-s.sync { color: var(--blue); background: var(--blue-50); }
-      .chip-s.ok { color: var(--ok); background: var(--ok-bg); }
-      .orders { position: relative; height: 470px; overflow: hidden; }
-      .orow { position: absolute; left: 0; right: 0; height: 76px; display: grid; grid-template-columns: 48px 120px 1fr 140px 150px; align-items: center; gap: 14px; border-bottom: 1px solid #eef0f4; font-size: 18px; padding: 0 6px; border-radius: 12px; }
+      /* ---------- Interface de pilotage Tulco (hors Shopify, connectée) : charte Tulco, angles droits, poutre bleue ---------- */
+      .pl { position: absolute; left: 80px; top: 90px; width: 1760px; height: 900px; background: #f8f9fb; border: 1px solid var(--g200); box-shadow: 0 40px 100px rgba(0,62,199,0.16); overflow: hidden; font-family: var(--sans);
+        background-image: linear-gradient(to right, rgba(20,23,28,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.04) 1px, transparent 1px); background-size: 40px 40px; }
+      .pl-head { position: absolute; left: 0; right: 0; top: 0; height: 84px; background: #fff; border-bottom: 1px solid var(--g200); display: flex; align-items: center; gap: 16px; padding: 0 32px; }
+      .pl-title { font-size: 30px; font-weight: 600; letter-spacing: -0.03em; }
+      .pl-sep { font-size: 30px; color: var(--g300); }
+      .pl-client { font-size: 30px; font-weight: 400; color: var(--ink-soft); letter-spacing: -0.02em; }
+      .pl-conn { margin-left: auto; display: flex; align-items: center; gap: 12px; padding: 10px 18px; border: 1px solid var(--g200); font-family: var(--mono); font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); background: #fff; }
+      .pl-conn img { height: 26px; }
+      .pl-dot { width: 12px; height: 12px; background: #22b07d; box-shadow: 0 0 0 5px rgba(34,176,125,0.18); }
+      .pl-user { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 500; color: var(--ink-soft); margin-left: 18px; }
+      .pl-av { width: 40px; height: 40px; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 19px; }
+      .pl-card { position: absolute; top: 116px; height: 752px; background: #fff; border: 1px solid var(--g200); border-top: 4px solid var(--blue); padding: 26px 28px; }
+      .pl-k { font-family: var(--mono); font-size: 18px; font-weight: 600; color: var(--blue); letter-spacing: 0.08em; }
+      .pl-t { font-size: 34px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; margin-top: 8px; }
+      .pl-sub { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-family: var(--mono); font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--g500); }
+      .pl-sub img { height: 22px; }
+      .orders { position: relative; height: 540px; overflow: hidden; margin-top: 22px; }
+      .orow { position: absolute; left: 0; right: 0; height: 84px; display: grid; grid-template-columns: 40px 104px 1fr 130px; align-items: center; gap: 12px; border-bottom: 1px solid var(--g200); font-size: 20px; padding: 0 4px; }
       .orow img { height: 30px; }
       .orow .id { font-family: var(--mono); font-weight: 600; }
-      .who { display: flex; align-items: center; gap: 12px; color: var(--ink-soft); }
-      .av { width: 34px; height: 34px; border-radius: 50%; background: var(--g100); color: var(--g500); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+      .orow .who { color: var(--ink-soft); }
       .orow .amt { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
-      .st { justify-self: end; font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 999px; color: var(--ok); background: var(--ok-bg); white-space: nowrap; }
-      .calc { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: end; gap: 10px; margin-top: 18px; }
-      .calc .lb { font-size: 15px; color: var(--g500); margin-bottom: 6px; }
-      .calc .vl { font-size: 38px; font-weight: 600; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
-      .calc .op { font-size: 30px; color: var(--g400); padding-bottom: 4px; }
-      .bar-track { height: 12px; border-radius: 6px; background: var(--g100); margin-top: 22px; overflow: hidden; }
-      .bar-fill { height: 100%; width: 62%; border-radius: 6px; background: linear-gradient(90deg, var(--blue), #4d7cf0); transform-origin: left center; }
-      .caret { display: inline-block; width: 3px; height: 34px; background: var(--blue); vertical-align: -3px; margin-left: 2px; }
-      .bk { position: absolute; left: 28px; right: 28px; height: 70px; border-radius: 12px; background: var(--g50); border: 1.5px solid var(--g200); display: flex; align-items: center; gap: 14px; padding: 0 18px; font-size: 18px; }
-      .bk .ic { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
-      .bk b { margin-left: auto; font-variant-numeric: tabular-nums; }
+      .seg { display: flex; margin-top: 22px; border: 1px solid var(--g300); }
+      .seg span { flex: 1; text-align: center; padding: 12px 0; font-family: var(--mono); font-size: 17px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--g500); background: #fff; }
+      .mlist { margin-top: 26px; display: flex; flex-direction: column; gap: 26px; }
+      .mrow .top { display: flex; justify-content: space-between; align-items: baseline; }
+      .mrow .lab { font-size: 24px; font-weight: 500; letter-spacing: -0.01em; }
+      .mrow .val { font-family: var(--mono); font-size: 34px; font-weight: 700; color: var(--blue); font-variant-numeric: tabular-nums; }
+      .mtrack { position: relative; height: 14px; background: var(--g100); margin-top: 10px; }
+      .mfill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: var(--blue); transform-origin: left center; }
+      .mtrack::after { content: ""; position: absolute; left: 50%; top: -6px; bottom: -6px; width: 2px; background: var(--ink); opacity: 0.35; }
+      .pl-note { position: absolute; left: 28px; bottom: 26px; font-family: var(--mono); font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--g500); }
+      .inv { position: relative; margin-top: 24px; border: 1px solid var(--g200); padding: 24px 24px 20px; background: #fff; }
+      .inv-h { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--ink); padding-bottom: 12px; }
+      .inv-h b { font-family: var(--mono); font-size: 20px; letter-spacing: 0.08em; }
+      .inv-h span { font-family: var(--mono); font-size: 18px; color: var(--g500); }
+      .inv-l { display: flex; justify-content: space-between; font-size: 19px; padding: 12px 0; border-bottom: 1px solid var(--g200); }
+      .inv-l.tot { font-weight: 700; font-size: 22px; border-bottom: none; }
+      #invStamp { display: inline-block; margin-top: 14px; padding: 10px 16px; border: 3px solid var(--ok); color: var(--ok); font-family: var(--mono); font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(227,241,237,0.92); }
+      .inv-foot { margin-top: 22px; display: flex; flex-direction: column; gap: 14px; }
+      .inv-f { display: flex; align-items: center; gap: 12px; font-size: 20px; color: var(--ink-soft); }
+      .inv-f i { width: 26px; height: 26px; background: var(--ok); color: #fff; font-style: normal; font-size: 16px; display: flex; align-items: center; justify-content: center; flex: none; }
+      .inv-count { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--g200); display: flex; justify-content: space-between; align-items: baseline; font-size: 20px; color: var(--g500); }
+      .inv-count b { font-family: var(--mono); font-size: 40px; color: var(--ink); font-variant-numeric: tabular-nums; }
 
       /* ---------- Résultat ---------- */
-      #big { position: absolute; left: 140px; top: 300px; font-size: 250px; font-weight: 700; letter-spacing: -0.06em; line-height: 1; color: #fff; white-space: nowrap; }
+      #big { position: absolute; left: 140px; top: 290px; font-size: 250px; font-weight: 700; letter-spacing: -0.06em; line-height: 1; color: #fff; white-space: nowrap; }
       #big .ch1 { display: inline-block; }
-      #big-l { position: absolute; left: 150px; top: 570px; font-size: 62px; font-weight: 600; letter-spacing: -0.03em; color: #fff; }
-      .srcs { position: absolute; left: 150px; top: 690px; display: flex; gap: 14px; }
-      .src { display: flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.14); color: #fff; font-size: 22px; font-weight: 500; }
-      #sales { position: absolute; left: 1080px; top: 250px; width: 700px; height: 560px; border-radius: 24px; background: rgba(255,255,255,0.10); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22); padding: 34px 38px; color: #fff; }
+      #big-l { position: absolute; left: 150px; top: 560px; font-size: 62px; font-weight: 600; letter-spacing: -0.03em; color: #fff; }
+      .srcs { position: absolute; left: 150px; top: 690px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+      .src { display: flex; align-items: center; gap: 12px; padding: 14px 22px; border: 1px solid rgba(255,255,255,0.45); color: #fff; font-size: 26px; font-weight: 500; }
+      #sales { position: absolute; left: 1100px; top: 250px; width: 680px; height: 560px; border: 1px solid rgba(255,255,255,0.45); border-top: 4px solid #fff; padding: 34px 38px; color: #fff; }
       #sales .ct { display: flex; align-items: center; gap: 12px; font-size: 26px; }
       #sales svg.chart { position: absolute; left: 38px; top: 140px; }
-      #endLogos { position: absolute; left: 150px; top: 860px; display: flex; align-items: center; gap: 26px; color: rgba(255,255,255,0.75); font-size: 26px; font-weight: 500; }
+      #endLogos { position: absolute; left: 1100px; top: 850px; display: flex; align-items: center; gap: 26px; color: rgba(255,255,255,0.75); font-size: 26px; font-weight: 500; }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="32.5" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="38.5" data-width="1920" data-height="1080">
       <div id="bg" class="fill" style="background: #f3f4f7"></div>
 
       <!-- =============== 1-2 · AVANT : Excel partout, ressaisie =============== -->
-      <div id="sA" class="scene clip" data-start="0" data-duration="32.5" data-track-index="1" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sA" class="scene clip" data-start="0" data-duration="38.5" data-track-index="1" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div id="worldA" class="world">
           <div id="xa1" class="xl" data-file="commandes.xlsx" data-sheet="Commandes" style="left: 80px; top: 70px; width: 900px; height: 520px; z-index: 1"></div>
           <div id="xa2" class="xl" data-file="couts-fabrication.xlsx" data-sheet="Coûts" style="left: 1010px; top: 40px; width: 840px; height: 460px; z-index: 2"></div>
@@ -191,15 +193,15 @@
           <span class="w">tout</span><span class="w">passait</span><span class="w">par</span>
           <span class="w"><img class="ilogo" src="assets/excel.svg" alt="" />Excel.</span>
         </div>
-        <div id="counter" class="counter"><svg width="34" height="34" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#fff" stroke-width="2.2" /><path d="M10 5 V10 L13.5 12" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" /></svg>Ressaisies à la main<span class="num" id="cnt">1</span></div>
+        <div class="counter-wrap"><div id="counter" class="counter"><svg width="56" height="56" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#fff" stroke-width="2.2" /><path d="M10 5 V10 L13.5 12" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" /></svg>Ressaisies à la main<span class="num" id="cnt">1</span></div></div>
       </div>
 
       <!-- =============== 3 · AVANT / APRÈS : Webflow devient Shopify =============== -->
-      <div id="sT" class="scene clip" data-start="0" data-duration="32.5" data-track-index="2" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sT" class="scene clip" data-start="0" data-duration="38.5" data-track-index="2" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div class="aurora" id="auroraT">
-          <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #c9d6fa"></div>
-          <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #a9bdf5"></div>
-          <div class="blob" style="left: 30%; top: 60%; width: 700px; height: 500px; background: #eef1fb"></div>
+          <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #d7e0f6"></div>
+          <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #d7e0f6"></div>
+          <div class="blob" style="left: 30%; top: 60%; width: 700px; height: 500px; background: #edf1fb"></div>
         </div>
         <div id="flip">
           <div class="face" id="faceA"><img class="scr" src="assets/screens/muxi-webflow.jpg" alt="Ancien site vitrine Webflow" /><div class="face-chip"><span>Avant</span><img src="assets/webflow.svg" alt="" />Webflow</div></div>
@@ -212,11 +214,11 @@
       </div>
 
       <!-- =============== 4 · CÔTÉ CLIENT : boutique Shopify =============== -->
-      <div id="sB" class="scene clip" data-start="0" data-duration="32.5" data-track-index="3" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sB" class="scene clip" data-start="0" data-duration="38.5" data-track-index="3" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div class="aurora">
-          <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #c9d6fa"></div>
-          <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #a9bdf5"></div>
-          <div class="blob" style="left: 30%; top: 60%; width: 700px; height: 500px; background: #eef1fb"></div>
+          <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #d7e0f6"></div>
+          <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #d7e0f6"></div>
+          <div class="blob" style="left: 30%; top: 60%; width: 700px; height: 500px; background: #edf1fb"></div>
         </div>
         <div id="worldB" class="world">
           <div id="store" class="store">
@@ -284,84 +286,72 @@
       </div>
 
       <!-- =============== 5 · CÔTÉ FANNY : le tableau de bord =============== -->
-      <div id="sC" class="scene clip" data-start="0" data-duration="32.5" data-track-index="4" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sC" class="scene clip" data-start="0" data-duration="38.5" data-track-index="4" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div class="aurora">
           <div class="blob" style="left: 0%; top: 50%; width: 900px; height: 700px; background: #d7e0f6"></div>
-          <div class="blob" style="left: 60%; top: 0%; width: 900px; height: 700px; background: #c3d1f7"></div>
+          <div class="blob" style="left: 60%; top: 0%; width: 900px; height: 700px; background: #d7e0f6"></div>
         </div>
         <div id="worldC" class="world">
-          <div id="dash" class="dash">
-            <div class="side">
-              <div class="ws"><i>SM</i>Studio Muxi</div>
-              <div class="nav on"><i></i>Tableau de bord</div>
-              <div class="nav"><i></i>Commandes</div>
-              <div class="nav"><i></i>Stocks</div>
-              <div class="nav"><i></i>Marges</div>
-              <div class="nav"><i></i>Banque</div>
-              <div class="nav" style="position: absolute; left: 18px; right: 18px; bottom: 28px"><span class="av" style="background: var(--muxi); color: #fff">F</span>Fanny</div>
+          <div id="dash" class="pl">
+            <div class="pl-head"><svg width="44" height="44" viewBox="0 0 100 100" aria-label="Tulco Studio"><rect x="20" y="22" width="60" height="14" rx="5" fill="#003EC7" /><path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#003EC7" /></svg><span class="pl-title">Pilotage</span><span class="pl-sep">/</span><span class="pl-client">Studio Muxi</span>
+              <span class="pl-conn" id="plConn"><i class="pl-dot"></i>Connecté à <img src="assets/shopify-bag.svg" alt="" />Shopify</span>
+              <span class="pl-user"><span class="pl-av">F</span>Fanny</span>
             </div>
-            <div class="main">
-              <div class="hello">Bonjour Fanny</div>
-              <div class="sub"><span class="live"></span>Novembre · à jour à l'instant</div>
-              <div class="kpis">
-                <div class="kpi"><div class="l">Chiffre d'affaires</div><div class="v" id="kCa">12 391 €</div><span class="d up">+18 %</span>
-                  <svg width="150" height="50" viewBox="0 0 150 50"><path d="M0 42 L25 38 L50 40 L75 28 L100 24 L125 14 L150 6" fill="none" stroke="#003EC7" stroke-width="3" /></svg></div>
-                <div class="kpi"><div class="l">Commandes</div><div class="v" id="kCmd">58</div><span class="d up">+12 %</span>
-                  <svg width="150" height="50" viewBox="0 0 150 50"><path d="M0 40 L25 41 L50 33 L75 35 L100 22 L125 20 L150 10" fill="none" stroke="#003EC7" stroke-width="3" /></svg></div>
-                <div class="kpi"><div class="l">Marge moyenne</div><div class="v">62 %</div>
-                  <div class="bar-track" style="margin-top: 26px"><div class="bar-fill"></div></div></div>
-                <div class="kpi"><div class="l">À rapprocher</div><div class="v" id="kRap">1</div><span class="d up" id="kRapOk">À jour</span></div>
+            <div class="pl-card" id="cOrders" style="left: 32px; width: 560px">
+              <div class="pl-k">01</div><div class="pl-t">Commandes synchronisées</div>
+              <div class="pl-sub"><img src="assets/shopify-bag.svg" alt="" />Depuis Shopify, en continu</div>
+              <div class="orders">
+                <div class="orow" id="o0"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1042</span><span class="who">Camille D.</span><span class="amt">189,00 €</span></div>
+                <div class="orow" id="o1"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1041</span><span class="who">Léa B.</span><span class="amt">240,00 €</span></div>
+                <div class="orow" id="o2"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1040</span><span class="who">Antoine R.</span><span class="amt">320,00 €</span></div>
+                <div class="orow" id="o3"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1039</span><span class="who">Sarah P.</span><span class="amt">145,00 €</span></div>
+                <div class="orow" id="o4"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1038</span><span class="who">Marc D.</span><span class="amt">189,00 €</span></div>
+                <div class="orow" id="o5"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1037</span><span class="who">Julie M.</span><span class="amt">410,00 €</span></div>
+                <div class="orow" id="o6"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1036</span><span class="who">Emma F.</span><span class="amt">240,00 €</span></div>
               </div>
-              <div id="cOrders" class="cardd" style="left: 40px; top: 310px; width: 820px; height: 610px">
-                <div class="ch"><span class="ct">Dernières commandes</span><span class="chip-s sync"><img src="assets/shopify-bag.svg" alt="" />Synchro Shopify</span></div>
-                <div class="orders">
-                  <div class="orow" id="o0"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1042</span><span class="who"><span class="av">CD</span>Camille D.</span><span class="amt">189,00 €</span><span class="st">Payée</span></div>
-                  <div class="orow" id="o1"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1041</span><span class="who"><span class="av">LB</span>Léa B.</span><span class="amt">240,00 €</span><span class="st">Payée</span></div>
-                  <div class="orow" id="o2"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1040</span><span class="who"><span class="av">AR</span>Antoine R.</span><span class="amt">320,00 €</span><span class="st">En fabrication</span></div>
-                  <div class="orow" id="o3"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1039</span><span class="who"><span class="av">SP</span>Sarah P.</span><span class="amt">145,00 €</span><span class="st">Expédiée</span></div>
-                  <div class="orow" id="o4"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1038</span><span class="who"><span class="av">MD</span>Marc D.</span><span class="amt">189,00 €</span><span class="st">Livrée</span></div>
-                  <div class="orow" id="o5"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1037</span><span class="who"><span class="av">JM</span>Julie M.</span><span class="amt">410,00 €</span><span class="st">Livrée</span></div>
-                  <div class="orow" id="o6"><img src="assets/shopify-bag.svg" alt="" /><span class="id">#1036</span><span class="who"><span class="av">EF</span>Emma F.</span><span class="amt">240,00 €</span><span class="st">Livrée</span></div>
-                </div>
+            </div>
+            <div class="pl-card" id="cMarge" style="left: 616px; width: 560px">
+              <div class="pl-k">02</div><div class="pl-t">Marges contrôlées</div>
+              <div class="seg"><span id="sg0">Produit</span><span id="sg1">Catégorie</span><span id="sg2">Collection</span></div>
+              <div class="mlist">
+                <div class="mrow"><div class="top"><span class="lab" id="ml0"></span><span class="val" id="mv0"></span></div><div class="mtrack"><div class="mfill" id="mb0"></div></div></div>
+                <div class="mrow"><div class="top"><span class="lab" id="ml1"></span><span class="val" id="mv1"></span></div><div class="mtrack"><div class="mfill" id="mb1"></div></div></div>
+                <div class="mrow"><div class="top"><span class="lab" id="ml2"></span><span class="val" id="mv2"></span></div><div class="mtrack"><div class="mfill" id="mb2"></div></div></div>
+                <div class="mrow"><div class="top"><span class="lab" id="ml3"></span><span class="val" id="mv3"></span></div><div class="mtrack"><div class="mfill" id="mb3"></div></div></div>
               </div>
-              <div id="cMarge" class="cardd" style="left: 880px; top: 310px; width: 550px; height: 280px">
-                <div class="ch"><span class="ct">Marge · #1042</span><span class="chip-s ok" id="mOk">Calculée</span></div>
-                <div class="calc">
-                  <div><div class="lb">Prix</div><div class="vl">189,00</div></div><div class="op">−</div>
-                  <div><div class="lb">Coût</div><div class="vl"><span id="cost"></span><i class="caret" id="caret"></i></div></div><div class="op">=</div>
-                  <div><div class="lb" style="color: var(--ok)">Marge</div><div class="vl" id="marge" style="color: var(--ok)">0,00</div></div>
-                </div>
-                <div class="bar-track"><div class="bar-fill" id="mBar"></div></div>
+              <div class="pl-note">Repère : 50 % de marge</div>
+            </div>
+            <div class="pl-card" id="cInv" style="left: 1200px; width: 528px">
+              <div class="pl-k">03</div><div class="pl-t">Facturation électronique automatisée</div>
+              <div class="inv" id="inv">
+                <div class="inv-h"><b>FACTURE</b><span>F-2026-1042</span></div>
+                <div class="inv-l il"><span>Client</span><span>Camille Durand</span></div>
+                <div class="inv-l il"><span>Tapis Muxi 60 × 90</span><span>157,50 €</span></div>
+                <div class="inv-l il"><span>TVA 20 %</span><span>31,50 €</span></div>
+                <div class="inv-l tot il"><span>Total TTC</span><span>189,00 €</span></div>
+                <div id="invStamp">Factur-X · émise ✓</div>
               </div>
-              <div id="cBank" class="cardd" style="left: 880px; top: 610px; width: 550px; height: 310px">
-                <div class="ch"><span class="ct">Rapprochement bancaire</span><span class="chip-s ok" id="bOk">Rapproché ✓</span></div>
-                <div class="bk" id="bk1" style="top: 86px"><span class="ic" style="background: var(--blue-50)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003EC7" stroke-width="2"><path d="M3 10h18M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18M12 3l9 5H3z" /></svg></span>Virement Shopify Payments<b>+189,00 €</b></div>
-                <svg id="bLink" width="20" height="44" viewBox="0 0 20 44" style="position: absolute; left: 66px; top: 158px"><path d="M10 0 V44" stroke="#003EC7" stroke-width="3" stroke-dasharray="4 5" /></svg>
-                <div class="bk" id="bk2" style="top: 204px"><span class="ic" style="background: #fff"><img src="assets/shopify-bag.svg" alt="" style="height: 24px" /></span>Commande #1042<b>189,00 €</b></div>
+              <div class="inv-foot">
+                <div class="inv-f" id="if1"><i>✓</i>Créée dès la commande payée</div>
+                <div class="inv-f" id="if2"><i>✓</i>Envoyée au client, au format électronique</div>
               </div>
+              <div class="inv-count"><span>Factures émises ce mois</span><b id="invCnt">58</b></div>
             </div>
           </div>
           <div id="chipC" style="position: absolute; left: 0; top: 0; z-index: 40; display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 14px; padding: 14px 20px; box-shadow: 0 20px 50px rgba(10,30,90,0.25); font-family: var(--ui); font-size: 20px; font-weight: 600"><img src="assets/shopify-bag.svg" alt="" style="height: 30px" />Commande #1042 · 189,00 €</div>
         </div>
-        <div id="capC" class="caption"><div class="tag" style="color: var(--blue)">Côté Fanny</div><div class="t">Commandes, marges et banque au même endroit.</div></div>
+        <div id="capC" class="caption"><div class="tag" style="color: var(--blue)">Côté Fanny</div><div class="t">Son interface de pilotage, connectée à Shopify.</div></div>
       </div>
 
       <!-- =============== 6 · RÉSULTAT =============== -->
-      <div id="sD" class="scene clip" data-start="0" data-duration="32.5" data-track-index="5" data-layout-allow-overlap>
-        <div id="flood" class="fill" style="background: #0a2a8a; overflow: hidden">
-          <div class="aurora">
-            <div class="blob" style="left: -5%; top: -10%; width: 1100px; height: 900px; background: #003ec7"></div>
-            <div class="blob" style="left: 50%; top: 30%; width: 1100px; height: 900px; background: #2456d6"></div>
-            <div class="blob" style="left: 20%; top: 70%; width: 900px; height: 600px; background: #5b85f0"></div>
-            <div class="blob" style="left: 75%; top: -20%; width: 700px; height: 600px; background: #0a1f66"></div>
-          </div>
-        </div>
+      <div id="sD" class="scene clip" data-start="0" data-duration="38.5" data-track-index="5" data-layout-allow-overlap>
+        <div id="flood" class="fill" style="background-color: #003ec7; background-image: linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 48px 48px"></div>
         <div id="big"><span class="ch1">≈</span> <span class="ch1" id="bigN">4</span> <span class="ch1">jours</span></div>
         <div id="big-l">récupérés chaque mois</div>
         <div class="srcs">
-          <div class="src"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#fff" /><path d="M6 11.5 L9.5 15 L16 8" stroke="#003EC7" stroke-width="2.6" fill="none" stroke-linecap="round" /></svg>Gestion des commandes</div>
-          <div class="src"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#fff" /><path d="M6 11.5 L9.5 15 L16 8" stroke="#003EC7" stroke-width="2.6" fill="none" stroke-linecap="round" /></svg>Calcul des marges</div>
-          <div class="src"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#fff" /><path d="M6 11.5 L9.5 15 L16 8" stroke="#003EC7" stroke-width="2.6" fill="none" stroke-linecap="round" /></svg>Rapprochement</div>
+          <div class="src"><svg width="26" height="26" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" fill="#fff" /><path d="M6 11.5 L9.5 15 L16 8" stroke="#003EC7" stroke-width="2.6" fill="none" stroke-linecap="square" /></svg>Commandes synchronisées</div>
+          <div class="src"><svg width="26" height="26" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" fill="#fff" /><path d="M6 11.5 L9.5 15 L16 8" stroke="#003EC7" stroke-width="2.6" fill="none" stroke-linecap="square" /></svg>Marges contrôlées</div>
+          <div class="src"><svg width="26" height="26" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" fill="#fff" /><path d="M6 11.5 L9.5 15 L16 8" stroke="#003EC7" stroke-width="2.6" fill="none" stroke-linecap="square" /></svg>Facturation automatisée</div>
         </div>
         <div id="sales">
           <div class="ct"><img src="assets/shopify-bag.svg" alt="" style="height: 30px" />Ventes en ligne <span style="margin-left: auto; font-family: var(--mono); font-size: 18px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.16)">↗ en hausse</span></div>
@@ -380,15 +370,15 @@
       </div>
 
       <!-- =============== 0 · INTRO : Studio Muxi × Tulco =============== -->
-      <div id="sI" class="scene clip" data-start="0" data-duration="4" data-track-index="6" data-layout-allow-overlap>
+      <div id="sI" class="scene clip" data-start="0" data-duration="5" data-track-index="6" data-layout-allow-overlap>
         <div id="intro-bg" class="fill"></div>
         <div class="intro-tag" id="iTag">Cas client</div>
         <div class="intro-row">
-          <img id="iMuxi" src="assets/studio-muxi-logo.png" alt="Studio Muxi" style="height: 170px" />
+          <img id="iMuxi" src="assets/studio-muxi-logo.png" alt="Studio Muxi" style="height: 190px" />
           <span class="intro-x" id="iX">×</span>
-          <svg id="iTulco" height="110" viewBox="0 0 480 110" aria-label="Tulco Studio"><g transform="translate(4,11) scale(0.88)"><rect x="20" y="22" width="60" height="14" rx="5" fill="#003EC7" /><path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#003EC7" /></g><text x="98" y="80" font-family="Switzer" font-size="70" letter-spacing="-2.5" fill="#14171C"><tspan font-weight="600">Tulco</tspan><tspan font-weight="400" dx="6" letter-spacing="-1">Studio</tspan></text></svg>
+          <svg id="iTulco" height="124" viewBox="0 0 480 110" aria-label="Tulco Studio"><g transform="translate(4,11) scale(0.88)"><rect x="20" y="22" width="60" height="14" rx="5" fill="#003EC7" /><path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#003EC7" /></g><text x="98" y="80" font-family="Switzer" font-size="70" letter-spacing="-2.5" fill="#14171C"><tspan font-weight="600">Tulco</tspan><tspan font-weight="400" dx="6" letter-spacing="-1">Studio</tspan></text></svg>
         </div>
-        <div class="intro-sub" id="iSub"><span class="w">Tapis</span><span class="w">tuftés</span><span class="w">main</span><span class="w">à</span><span class="w">Biarritz.</span><span class="w">Du</span><span class="w">tableur</span><span class="w">à</span><span class="w">Shopify.</span></div>
+        <div class="intro-sub" id="iSub"><span class="w">Une</span><span class="w">boutique</span> <span class="w"><img class="shop" src="assets/shopify-logo-mono.svg" alt="Shopify" /></span><br /><span class="w">et</span><span class="w">un</span><span class="w">back-office</span><span class="w">automatisé</span></div>
       </div>
     </div>
 
@@ -571,7 +561,6 @@
       const tlCD = gsap.timeline();
       T = tlCD;
       show("sC", 9.7, 0);
-      show("sD", 14.4, 0);
       T.set("#sB", { opacity: 0 }, 10.6);
 
       const wC = $("worldC");
@@ -581,53 +570,68 @@
       T.to("#store", { opacity: 0, scale: 0.92, filter: "blur(14px)", duration: 0.4, ease: "power3.in" }, 10.05);
       T.to("#sC .aurora", { opacity: 1, duration: 0.4 }, 10.0);
       T.to("#dash", { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 10.25);
-      const rowH = 80;
+      // 01 · la commande Shopify arrive dans l'interface Tulco
+      const rowH = 84;
       const ord = ["o1", "o2", "o3", "o4", "o5", "o6"];
       ord.forEach((id, i) => gsap.set("#" + id, { y: i * rowH }));
       gsap.set("#o0", { y: 0, opacity: 0 });
-      const o0 = centerIn($("o0"), wC);
-      gsap.set("#chipC", { x: 960 - 200, y: 640, opacity: 0, scale: 0.9 });
-      T.to(wC, { ...cam(1.55, o0.x + 40, o0.y + 150), duration: 0.7, ease: "power3.inOut" }, 10.5);
+      const o0 = centerIn($("o0"), wC), conn = centerIn($("plConn"), wC), cO = centerIn($("cOrders"), wC);
+      gsap.set("#chipC", { x: 960 - 200, y: 600, opacity: 0, scale: 0.9 });
       T.to("#chipC", { opacity: 1, scale: 1, duration: 0.25, ease: "expo.out" }, 10.3);
-      T.to("#chipC", { x: o0.x - 300, y: o0.y - 34, duration: 0.65, ease: "power3.inOut" }, 10.55);
-      ord.forEach((id, i) => T.to("#" + id, { y: (i + 1) * rowH, duration: 0.45, ease: "expo.out" }, 11.05 + i * 0.03));
-      T.to("#o0", { opacity: 1, backgroundColor: "#EDF1FB", duration: 0.2 }, 11.2);
-      T.to("#chipC", { opacity: 0, duration: 0.15 }, 11.2);
-      T.to("#o0", { backgroundColor: "rgba(237,241,251,0)", duration: 0.8 }, 12.2);
-      swapText($("kCmd"), "59", 11.25);
-      swapText($("kCa"), "12 580 €", 11.25);
-      const mg = centerIn($("cMarge"), wC);
-      T.to(wC, { ...cam(1.6, mg.x, mg.y + 20), duration: 0.5, ease: "power3.inOut" }, 11.6);
-      ["7", "71", "71,", "71,8", "71,80"].forEach((s, i) => swapText($("cost"), s, 12.05 + i * 0.07));
-      gsap.set("#caret", { opacity: 1 });
-      T.to("#caret", { opacity: 0, duration: 0.01 }, 12.4);
-      const mObj = { v: 0 };
-      T.to(mObj, { v: 117.2, duration: 0.55, ease: "power2.out", onUpdate: () => { $("marge").textContent = mObj.v.toFixed(2).replace(".", ","); } }, 12.4);
-      gsap.set("#mBar", { scaleX: 0 });
-      T.to("#mBar", { scaleX: 1, duration: 0.55, ease: "power2.out" }, 12.4);
-      gsap.set("#mOk", { opacity: 0, scale: 0.8 });
-      T.to("#mOk", { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 12.9);
-      const bk = centerIn($("cBank"), wC);
-      T.to(wC, { ...cam(1.6, bk.x, bk.y + 10), duration: 0.5, ease: "power3.inOut" }, 13.0);
-      gsap.set(["#bk1", "#bk2"], { opacity: 0, x: -24 });
-      T.to("#bk1", { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, 13.25);
-      T.to("#bk2", { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, 13.35);
-      gsap.set("#bLink", { opacity: 0, scaleY: 0, transformOrigin: "50% 0%" });
-      T.to("#bLink", { opacity: 1, scaleY: 1, duration: 0.3, ease: "power2.inOut" }, 13.6);
-      T.to(["#bk1", "#bk2"], { borderColor: "#0E7B63", backgroundColor: "#E3F1ED", duration: 0.25 }, 13.85);
-      gsap.set("#bOk", { opacity: 0, scale: 0.8 });
-      T.to("#bOk", { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 13.9);
-      gsap.set("#kRapOk", { opacity: 0 });
-      swapText($("kRap"), "0", 13.9);
-      T.to("#kRapOk", { opacity: 1, duration: 0.2 }, 13.9);
-      T.to(wC, { ...cam(1.0, 960, 540), duration: 0.55, ease: "power3.inOut" }, 14.15);
+      T.to("#chipC", { x: o0.x - 220, y: o0.y - 34, duration: 0.7, ease: "power3.inOut" }, 10.6);
+      T.fromTo("#plConn", { scale: 1 }, { scale: 1.12, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 10.5);
+      T.to(wC, { ...cam(1.45, cO.x, cO.y + 40), duration: 0.8, ease: "power3.inOut" }, 10.7);
+      ord.forEach((id, i) => T.to("#" + id, { y: (i + 1) * rowH, duration: 0.45, ease: "expo.out" }, 11.3 + i * 0.03));
+      T.to("#o0", { opacity: 1, backgroundColor: "#EDF1FB", duration: 0.2 }, 11.4);
+      T.to("#chipC", { opacity: 0, duration: 0.15 }, 11.4);
+      T.to("#o0", { backgroundColor: "rgba(237,241,251,0)", duration: 0.8 }, 12.3);
+      // 02 · marges en %, par produit, catégorie et collection
+      const LEVELS = [
+        [["Tapis Muxi", 62], ["Tapis Vague", 58], ["Tapis Rêveuse", 64], ["Sur-mesure", 55]],
+        [["Tapis 60 × 90", 63], ["Tapis 90 × 120", 59], ["Sur-mesure", 55], ["Ateliers tufting", 72]],
+        [["Océan", 63], ["Signature", 66], ["Biarritz", 58], ["Capsule été", 47]],
+      ];
+      LEVELS[0].forEach(([l, v], k) => { $("ml" + k).textContent = l; $("mv" + k).textContent = "0 %"; gsap.set("#mb" + k, { scaleX: 0 }); });
+      const segOn = (i, t) => [0, 1, 2].forEach((j) => T.to("#sg" + j, { backgroundColor: j === i ? "#003EC7" : "#FFFFFF", color: j === i ? "#FFFFFF" : "#69727F", duration: 0.2 }, t));
+      gsap.set("#sg0", { backgroundColor: "#FFFFFF", color: "#69727F" });
+      const showLevel = (lv, t) => {
+        segOn(lv, t);
+        LEVELS[lv].forEach(([l, v], k) => {
+          if (lv > 0) swapText($("ml" + k), l, t + 0.1 + k * 0.05);
+          const o = { v: lv > 0 ? LEVELS[lv - 1][k][1] : 0 };
+          T.to(o, { v: v, duration: 0.6, ease: "power2.out", onUpdate: () => { $("mv" + k).textContent = Math.round(o.v) + " %"; } }, t + 0.1 + k * 0.05);
+          T.to("#mb" + k, { scaleX: v / 100, backgroundColor: v < 50 ? "#B12E44" : "#003EC7", duration: 0.6, ease: "power2.out" }, t + 0.1 + k * 0.05);
+          T.to("#mv" + k, { color: v < 50 ? "#B12E44" : "#003EC7", duration: 0.3 }, t + 0.1 + k * 0.05);
+        });
+      };
+      const cM = centerIn($("cMarge"), wC);
+      T.to(wC, { ...cam(1.45, cM.x, cM.y + 40), duration: 0.65, ease: "power3.inOut" }, 12.2);
+      showLevel(0, 12.75);
+      showLevel(1, 13.55);
+      showLevel(2, 14.35);
+      // 03 · facture électronique émise automatiquement
+      const cI = centerIn($("cInv"), wC);
+      T.to(wC, { ...cam(1.45, cI.x, cI.y + 40), duration: 0.65, ease: "power3.inOut" }, 15.25);
+      gsap.set("#cInv .il", { opacity: 0, x: -16 });
+      T.to("#cInv .il", { opacity: 1, x: 0, duration: 0.35, ease: "expo.out", stagger: 0.12 }, 15.8);
+      gsap.set("#invStamp", { opacity: 0, scale: 1.6, rotation: -8 });
+      T.to("#invStamp", { opacity: 1, scale: 1, rotation: -4, duration: 0.35, ease: "expo.out" }, 16.35);
+      gsap.set(["#if1", "#if2"], { opacity: 0, y: 12 });
+      T.to(["#if1", "#if2"], { opacity: 1, y: 0, duration: 0.4, ease: "expo.out", stagger: 0.18 }, 16.55);
+      swapText($("invCnt"), "59", 16.6);
+      T.fromTo("#invCnt", { scale: 1.3 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, 16.6);
+      // recul : l'interface entière
+      T.to(wC, { ...cam(1.0, 960, 540), duration: 0.6, ease: "power3.inOut" }, 17.15);
       gsap.set("#capC", { opacity: 0, y: 20 });
       T.to("#capC", { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 10.6);
-      T.to("#capC", { opacity: 0, filter: "blur(8px)", duration: 0.2 }, 14.3);
+      T.to("#capC", { opacity: 0, filter: "blur(8px)", duration: 0.2 }, 17.6);
 
+      // ===================== 6 · Résultat (sa propre horloge, posée après le tableau de bord) =====================
+      const tlD = gsap.timeline();
+      T = tlD;
+      show("sD", 14.4, 0);
       gsap.set("#flood", { clipPath: "circle(0% at 50% 50%)" });
       T.to("#flood", { clipPath: "circle(80% at 50% 50%)", duration: 0.55, ease: "power3.inOut" }, 14.4);
-      T.to("#flood .aurora", { x: 60, y: -30, duration: 4.4, ease: "none" }, 14.4);
       gsap.set("#big .ch1", { opacity: 0, filter: "blur(14px)", y: 30 });
       T.to("#big .ch1", { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.4, ease: "expo.out", stagger: 0.08 }, 14.8);
       const nObj = { v: 0 };
@@ -647,10 +651,11 @@
       T.to("#endLogos", { opacity: 1, duration: 0.5, ease: "power2.out" }, 16.9);
       T.to({}, { duration: 1.4 }, 17.4); // tenue finale
 
+      tlCD.add(tlD, 3.5);
       story.add(tlCD, SHIFT);
 
       // ===================== Horloge du film : intro, puis l'histoire ralentie =====================
-      const INTRO = 3.7, SLOW = 1.35;
+      const INTRO = 4.6, SLOW = 1.35;
       const tl = gsap.timeline({ paused: true });
       gsap.set(["#iTag", "#iMuxi", "#iX", "#iTulco"], { opacity: 0, filter: "blur(12px)" });
       gsap.set("#iMuxi", { x: -40 });
@@ -659,9 +664,9 @@
       tl.to("#iMuxi", { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 0.4);
       tl.to("#iX", { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 0.75);
       tl.to("#iTulco", { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 0.9);
-      words("#iSub", 1.4, 0.08, tl);
-      tl.to(["#iTag", "#iMuxi", "#iX", "#iTulco", "#iSub"], { opacity: 0, filter: "blur(12px)", duration: 0.35, ease: "power2.in", stagger: 0.04 }, 3.2);
-      tl.to("#intro-bg", { opacity: 0, duration: 0.4, ease: "power2.inOut" }, 3.45);
+      words("#iSub", 1.3, 0.1, tl);
+      tl.to(["#iTag", "#iMuxi", "#iX", "#iTulco", "#iSub"], { opacity: 0, filter: "blur(12px)", duration: 0.35, ease: "power2.in", stagger: 0.04 }, 4.1);
+      tl.to("#intro-bg", { opacity: 0, duration: 0.4, ease: "power2.inOut" }, 4.35);
       tl.to(story, { time: story.duration(), duration: story.duration() * SLOW, ease: "none" }, INTRO);
 
       window.__timelines["main"] = tl;
