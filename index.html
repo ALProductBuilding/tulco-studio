@@ -466,9 +466,9 @@
             </div>
             <ol class="case-steps" id="muxiSteps">
               <li><button type="button" data-t="0"><span class="case-step-k">01 · Avant</span><span class="case-step-t">Commandes, coûts, marges et banque ressaisis à la main dans Excel.</span><i class="case-step-bar"><b></b></i></button></li>
-              <li><button type="button" data-t="13.4"><span class="case-step-k">02 · Côté client</span><span class="case-step-t">Le site vitrine Webflow devient une boutique Shopify, de l'accueil au paiement.</span><i class="case-step-bar"><b></b></i></button></li>
-              <li><button type="button" data-t="24.1"><span class="case-step-k">03 · Côté Fanny</span><span class="case-step-t">Une interface de pilotage connectée à Shopify : commandes synchronisées, marges contrôlées, factures transmises à Pennylane.</span><i class="case-step-bar"><b></b></i></button></li>
-              <li><button type="button" data-t="37.2"><span class="case-step-k">04 · Résultat</span><span class="case-step-t">Environ 4 jours récupérés chaque mois, et des ventes en hausse.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="13.4"><span class="case-step-k">02 · Côté client</span><span class="case-step-t">La boutique passe de Webflow à Shopify, de l'accueil au paiement.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="24.8"><span class="case-step-k">03 · Côté Fanny</span><span class="case-step-t">Les fichiers deviennent un outil de pilotage, relié à Shopify et Pennylane : commandes, marges, factures.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="43.2"><span class="case-step-k">04 · Résultat</span><span class="case-step-t">Environ 4 jours récupérés chaque mois, et des ventes en hausse.</span><i class="case-step-bar"><b></b></i></button></li>
             </ol>
           </div>
         </article>
@@ -759,7 +759,7 @@ class Component extends DCLogic {
     video.playsInline = true;
     const starts = steps.map((li) => Number(li.querySelector("button").dataset.t));
     const paint = () => {
-      const t = video.currentTime, d = video.duration || 44.5;
+      const t = video.currentTime, d = video.duration || 50.5;
       steps.forEach((li, i) => {
         const a = starts[i], b = i + 1 < starts.length ? starts[i + 1] : d;
         const on = t >= a && t < b;

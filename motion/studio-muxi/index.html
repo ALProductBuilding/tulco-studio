@@ -26,7 +26,8 @@
 
       /* ---------- Intro ---------- */
       #intro-bg { background: #f3f4f7; background-image: linear-gradient(to right, rgba(20,23,28,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.045) 1px, transparent 1px); background-size: 48px 48px; }
-      .intro-tag { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-family: var(--sans); font-size: 38px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); }
+      .intro-tag-wrap { position: absolute; left: 0; right: 0; top: 130px; display: flex; justify-content: center; }
+      .intro-tag { padding: 12px 30px 13px; background: var(--blue); color: #fff; font-family: var(--sans); font-size: 40px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1; }
       .intro-row { position: absolute; left: 0; right: 0; top: 250px; height: 200px; display: flex; align-items: center; justify-content: center; gap: 70px; }
       .intro-x { font-size: 64px; font-weight: 300; color: var(--g400); }
       .intro-sub { position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-size: 80px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; color: var(--ink); }
@@ -114,6 +115,21 @@
       .thumb .badge { background: #666; right: -9px; top: -9px; }
       .sum-row { display: flex; justify-content: space-between; font-size: 17px; margin-top: 16px; color: #333; }
 
+      /* ---------- Transition : l'outil de pilotage, relié à Shopify et Pennylane ---------- */
+      #hubBg { background-color: #f8f9fb; background-image: linear-gradient(to right, rgba(20,23,28,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.05) 1px, transparent 1px); background-size: 48px 48px; }
+      .hub-h { position: absolute; left: 0; right: 0; top: 120px; text-align: center; font-size: 80px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; }
+      .hub-h .w { display: inline-block; margin: 0 0.12em; }
+      .hub-node { position: absolute; background: #fff; border: 1px solid var(--g200); border-top: 4px solid var(--blue); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; box-shadow: 0 30px 70px rgba(0,62,199,0.12); }
+      .hub-node .nl { font-size: 36px; font-weight: 600; letter-spacing: -0.03em; }
+      .hub-node .ns { font-family: var(--mono); font-size: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--g500); }
+      #hubC { position: absolute; left: 730px; top: 440px; width: 460px; height: 260px; background: var(--blue); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; box-shadow: 0 40px 90px rgba(0,62,199,0.35); }
+      #hubC .cl { display: flex; align-items: center; gap: 16px; font-size: 64px; font-weight: 600; letter-spacing: -0.04em; }
+      #hubC .cs { font-family: var(--mono); font-size: 22px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; }
+      .xi { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+      .xi img { width: 130px; height: 130px; }
+      .xi span { font-family: var(--ui); font-size: 28px; font-weight: 600; color: var(--ink-soft); background: #fff; padding: 4px 10px; border: 1px solid var(--g200); }
+      .hub-dot { position: absolute; left: 0; top: 0; width: 18px; height: 18px; background: var(--blue); }
+
       /* ---------- Interface de pilotage Tulco (hors Shopify, connectée) : charte Tulco, angles droits, poutre bleue ---------- */
       .pl { position: absolute; left: 80px; top: 90px; width: 1760px; height: 900px; background: #f8f9fb; border: 1px solid var(--g200); box-shadow: 0 40px 100px rgba(0,62,199,0.16); overflow: hidden; font-family: var(--sans);
         background-image: linear-gradient(to right, rgba(20,23,28,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.04) 1px, transparent 1px); background-size: 40px 40px; }
@@ -173,11 +189,11 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="44.5" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="50.5" data-width="1920" data-height="1080">
       <div id="bg" class="fill" style="background: #f3f4f7"></div>
 
       <!-- =============== 1-2 · AVANT : Excel partout, ressaisie =============== -->
-      <div id="sA" class="scene clip" data-start="0" data-duration="44.5" data-track-index="1" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sA" class="scene clip" data-start="0" data-duration="50.5" data-track-index="1" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div id="worldA" class="world">
           <div id="xa1" class="xl" data-file="commandes.xlsx" data-sheet="Commandes" style="left: 80px; top: 70px; width: 900px; height: 520px; z-index: 1"></div>
           <div id="xa2" class="xl" data-file="couts-fabrication.xlsx" data-sheet="Coûts" style="left: 1010px; top: 40px; width: 840px; height: 460px; z-index: 2"></div>
@@ -197,7 +213,7 @@
       </div>
 
       <!-- =============== 3 · AVANT / APRÈS : Webflow devient Shopify =============== -->
-      <div id="sT" class="scene clip" data-start="0" data-duration="44.5" data-track-index="2" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sT" class="scene clip" data-start="0" data-duration="50.5" data-track-index="2" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div class="aurora" id="auroraT">
           <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #d7e0f6"></div>
           <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #d7e0f6"></div>
@@ -208,13 +224,13 @@
           <div class="face" id="faceB"><img class="scr" src="assets/screens/muxi-shopify-home.jpg" alt="Nouvelle boutique Shopify" /><div class="face-chip" id="chipAfter"><span>Après</span><img src="assets/shopify-bag.svg" alt="" />Shopify</div></div>
         </div>
         <div id="h2" class="headline" style="top: 840px; font-size: 76px">
-          <span class="w">Puis</span><span class="w">tout</span><span class="w">est</span><span class="w">passé</span><span class="w">sur</span>
+          <span class="w">La</span><span class="w">boutique</span><span class="w">passe</span><span class="w">sur</span>
           <span class="w"><img class="ilogo" src="assets/shopify-bag.svg" alt="" />Shopify.</span>
         </div>
       </div>
 
       <!-- =============== 4 · CÔTÉ CLIENT : boutique Shopify =============== -->
-      <div id="sB" class="scene clip" data-start="0" data-duration="44.5" data-track-index="3" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sB" class="scene clip" data-start="0" data-duration="50.5" data-track-index="3" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div class="aurora">
           <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #d7e0f6"></div>
           <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #d7e0f6"></div>
@@ -232,7 +248,7 @@
                 <div class="pimg"></div>
                 <div class="pinfo">
                   <div class="crumb">Accueil / Collection</div>
-                  <div class="ptitle">Tapis Muxi</div>
+                  <div class="ptitle">Tapis Muxu</div>
                   <div class="pprice">189,00 €</div>
                   <div class="small">Tufté main à Biarritz · fabriqué à la commande</div>
                   <div class="small" style="margin-top: 26px; opacity: 1; font-weight: 500">Taille</div>
@@ -257,7 +273,7 @@
                   <div id="bPay" class="sbtn solid" style="width: 100%; margin-top: 14px; border-radius: 10px; font-family: var(--ui); font-weight: 600">Payer maintenant</div>
                 </div>
                 <div class="co-right">
-                  <div class="line-item"><div class="thumb"><span class="badge">1</span></div><div style="flex: 1">Tapis Muxi<div style="color: #666; font-size: 15px">60 × 90</div></div><span>189,00 €</span></div>
+                  <div class="line-item"><div class="thumb"><span class="badge">1</span></div><div style="flex: 1">Tapis Muxu<div style="color: #666; font-size: 15px">60 × 90</div></div><span>189,00 €</span></div>
                   <div class="sum-row" style="margin-top: 36px"><span>Sous-total</span><span>189,00 €</span></div>
                   <div class="sum-row"><span>Expédition</span><span>Gratuite</span></div>
                   <div class="sum-row" style="font-size: 24px; font-weight: 700; color: #111; margin-top: 26px"><span>Total</span><span>189,00 €</span></div>
@@ -275,7 +291,7 @@
                     <div style="font-size: 16px; color: #666; margin-top: 8px">Fanny commence votre tapis. Livraison sous 4 semaines.</div>
                   </div>
                 </div>
-                <div class="co-right"><div class="line-item"><div class="thumb"><span class="badge">1</span></div><div style="flex: 1">Tapis Muxi<div style="color: #666; font-size: 15px">60 × 90</div></div><span>189,00 €</span></div><div class="sum-row" style="font-size: 24px; font-weight: 700; color: #111; margin-top: 40px"><span>Total</span><span>189,00 €</span></div></div>
+                <div class="co-right"><div class="line-item"><div class="thumb"><span class="badge">1</span></div><div style="flex: 1">Tapis Muxu<div style="color: #666; font-size: 15px">60 × 90</div></div><span>189,00 €</span></div><div class="sum-row" style="font-size: 24px; font-weight: 700; color: #111; margin-top: 40px"><span>Total</span><span>189,00 €</span></div></div>
               </div>
             </div>
           </div>
@@ -285,8 +301,27 @@
         <div id="capB" class="caption"><div class="tag" style="color: var(--blue)">Côté client</div><div class="t">Un achat fluide, de l'accueil au paiement.</div></div>
       </div>
 
+      <!-- =============== 4 bis · LE RESTE DEVIENT UN OUTIL DE PILOTAGE =============== -->
+      <div id="sH" class="scene clip" data-start="0" data-duration="50.5" data-track-index="7" data-layout-allow-overlap data-layout-allow-occlusion>
+        <div id="hubBg" class="fill"></div>
+        <div id="hH1" class="hub-h"><span class="w">Et</span><span class="w">derrière</span><span class="w">la</span><span class="w">boutique</span><span class="w">?</span></div>
+        <div id="hH2" class="hub-h"><span class="w">Les</span><span class="w">fichiers</span><span class="w">deviennent</span><br /><span class="w">un</span><span class="w">outil</span><span class="w">de</span><span class="w">pilotage</span><span class="w"><svg width="0.8em" height="0.8em" viewBox="0 0 100 100" style="vertical-align: -0.06em"><rect x="20" y="22" width="60" height="14" rx="5" fill="#003EC7" /><path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#003EC7" /></svg></span></div>
+        <svg id="hubLines" class="fill" width="1920" height="1080" viewBox="0 0 1920 1080">
+          <path id="lnS" d="M520 570 H730" stroke="#003EC7" stroke-width="5" fill="none" />
+          <path id="lnP" d="M1190 570 H1400" stroke="#003EC7" stroke-width="5" fill="none" />
+        </svg>
+        <div id="hubS" class="hub-node" style="left: 180px; top: 460px; width: 340px; height: 220px"><img src="assets/shopify-bag.svg" alt="" style="height: 74px" /><span class="nl">Boutique</span><span class="ns">Shopify</span></div>
+        <div id="hubP" class="hub-node" style="left: 1400px; top: 460px; width: 340px; height: 220px"><img src="assets/pennylane.svg" alt="Pennylane" style="height: 46px; margin: 14px 0 10px" /><span class="nl">Comptabilité</span><span class="ns">Pennylane</span></div>
+        <div id="hubC"><div class="cl"><svg width="70" height="70" viewBox="0 0 100 100"><rect x="20" y="22" width="60" height="14" rx="5" fill="#fff" /><path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#fff" /></svg>Pilotage</div><div class="cs">Studio Muxi · par Tulco</div></div>
+        <div class="xi" id="xi1" style="left: 330px; top: 300px"><img src="assets/excel.svg" alt="" /><span>commandes.xlsx</span></div>
+        <div class="xi" id="xi2" style="left: 1440px; top: 300px"><img src="assets/excel.svg" alt="" /><span>couts.xlsx</span></div>
+        <div class="xi" id="xi3" style="left: 330px; top: 790px"><img src="assets/excel.svg" alt="" /><span>marges.xlsx</span></div>
+        <div class="xi" id="xi4" style="left: 1440px; top: 790px"><img src="assets/excel.svg" alt="" /><span>banque.xlsx</span></div>
+        <div class="hub-dot" id="dS1"></div><div class="hub-dot" id="dS2"></div><div class="hub-dot" id="dP1"></div><div class="hub-dot" id="dP2"></div>
+      </div>
+
       <!-- =============== 5 · CÔTÉ FANNY : le tableau de bord =============== -->
-      <div id="sC" class="scene clip" data-start="0" data-duration="44.5" data-track-index="4" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sC" class="scene clip" data-start="0" data-duration="50.5" data-track-index="4" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div class="aurora">
           <div class="blob" style="left: 0%; top: 50%; width: 900px; height: 700px; background: #d7e0f6"></div>
           <div class="blob" style="left: 60%; top: 0%; width: 900px; height: 700px; background: #d7e0f6"></div>
@@ -327,7 +362,7 @@
               <div class="inv" id="inv">
                 <div class="inv-h"><b>FACTURE</b><span>F-2026-1042</span></div>
                 <div class="inv-l il"><span>Client</span><span>Camille Durand</span></div>
-                <div class="inv-l il"><span>Tapis Muxi 60 × 90</span><span>157,50 €</span></div>
+                <div class="inv-l il"><span>Tapis Muxu 60 × 90</span><span>157,50 €</span></div>
                 <div class="inv-l il"><span>TVA 20 %</span><span>31,50 €</span></div>
                 <div class="inv-l tot il"><span>Total TTC</span><span>189,00 €</span></div>
                 <div id="invStamp"><img src="assets/pennylane.svg" alt="Pennylane" style="height: 30px; vertical-align: -7px; margin-right: 10px" />transmise ✓</div>
@@ -341,11 +376,11 @@
           </div>
           <div id="chipC" style="position: absolute; left: 0; top: 0; z-index: 40; display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 14px; padding: 14px 20px; box-shadow: 0 20px 50px rgba(10,30,90,0.25); font-family: var(--ui); font-size: 20px; font-weight: 600"><img src="assets/shopify-bag.svg" alt="" style="height: 30px" />Commande #1042 · 189,00 €</div>
         </div>
-        <div id="capC" class="caption"><div class="tag" style="color: var(--blue)">Côté Fanny</div><div class="t">Son interface de pilotage, connectée à Shopify.</div></div>
+        <div id="capC" class="caption"><div class="tag" style="color: var(--blue)">Côté Fanny</div><div class="t">Son outil de pilotage, relié à Shopify et Pennylane.</div></div>
       </div>
 
       <!-- =============== 6 · RÉSULTAT =============== -->
-      <div id="sD" class="scene clip" data-start="0" data-duration="44.5" data-track-index="5" data-layout-allow-overlap>
+      <div id="sD" class="scene clip" data-start="0" data-duration="50.5" data-track-index="5" data-layout-allow-overlap>
         <div id="flood" class="fill" style="background-color: #003ec7; background-image: linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 48px 48px"></div>
         <div id="big"><span class="ch1">≈</span> <span class="ch1" id="bigN">4</span> <span class="ch1">jours</span></div>
         <div id="big-l">récupérés chaque mois</div>
@@ -373,7 +408,7 @@
       <!-- =============== 0 · INTRO : Studio Muxi × Tulco =============== -->
       <div id="sI" class="scene clip" data-start="0" data-duration="5" data-track-index="6" data-layout-allow-overlap>
         <div id="intro-bg" class="fill"></div>
-        <div class="intro-tag" id="iTag">Cas client</div>
+        <div class="intro-tag-wrap"><div class="intro-tag" id="iTag">Cas client</div></div>
         <div class="intro-row">
           <img id="iMuxi" src="assets/studio-muxi-logo.png" alt="Studio Muxi" style="height: 190px" />
           <span class="intro-x" id="iX">×</span>
@@ -557,8 +592,45 @@
       draw($("okB"), 12.3, 0.4, "power2.out");
       T.to("#capB", { opacity: 0, filter: "blur(8px)", duration: 0.2 }, 12.5);
 
+      // ===================== 4 bis · Le reste devient un outil de pilotage, relié à Shopify et Pennylane =====================
+      show("sH", 12.5, 16.6);
+      gsap.set("#hubBg", { opacity: 0 });
+      T.to("#store", { opacity: 0, scale: 0.92, filter: "blur(14px)", duration: 0.45, ease: "power3.in" }, 12.55);
+      T.to("#hubBg", { opacity: 1, duration: 0.45, ease: "power2.inOut" }, 12.6);
+      words("#hH1", 12.85, 0.08);
+      ["xi1", "xi2", "xi3", "xi4"].forEach((id, i) => {
+        gsap.set("#" + id, { opacity: 0, scale: 0.6, filter: "blur(10px)" });
+        T.to("#" + id, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 13.0 + i * 0.1);
+      });
+      wordsOut("#hH1", 13.75);
+      words("#hH2", 13.95, 0.07);
+      // les fichiers Excel convergent et deviennent l'outil
+      gsap.set("#hubC", { opacity: 0, scale: 0.6 });
+      ["xi1", "xi2", "xi3", "xi4"].forEach((id, i) => {
+        const el = $(id), cx = 960 - (el.offsetLeft + el.offsetWidth / 2), cy = 570 - (el.offsetTop + el.offsetHeight / 2);
+        T.to("#" + id, { x: cx, y: cy, scale: 0.25, opacity: 0, duration: 0.6, ease: "power3.in" }, 14.0 + i * 0.05);
+      });
+      T.to("#hubC", { opacity: 1, scale: 1, duration: 0.55, ease: "expo.out" }, 14.5);
+      // Shopify et Pennylane se branchent
+      gsap.set(["#hubS", "#hubP"], { opacity: 0, y: 30 });
+      T.to("#hubS", { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 14.85);
+      T.to("#hubP", { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 14.95);
+      draw($("lnS"), 15.1, 0.35, "power2.out");
+      draw($("lnP"), 15.15, 0.35, "power2.out");
+      // les données circulent : commandes de Shopify vers l'outil, factures de l'outil vers Pennylane
+      [["dS1", 520, 712, 15.45], ["dS2", 520, 712, 15.75], ["dP1", 1190, 1382, 15.6], ["dP2", 1190, 1382, 15.9]].forEach(([id, x0, x1, t]) => {
+        gsap.set("#" + id, { x: x0, y: 561, opacity: 0 });
+        T.to("#" + id, { opacity: 1, duration: 0.08 }, t);
+        T.to("#" + id, { x: x1, duration: 0.5, ease: "power1.inOut" }, t);
+        T.to("#" + id, { opacity: 0, duration: 0.08 }, t + 0.45);
+      });
+      // l'outil s'ouvre : on entre dans l'interface
+      wordsOut("#hH2", 16.0);
+      T.to(["#hubS", "#hubP", "#hubLines"], { opacity: 0, filter: "blur(10px)", duration: 0.3, ease: "power2.in" }, 16.05);
+      T.to("#hubC", { scale: 4.2, opacity: 0, duration: 0.55, ease: "power3.in" }, 16.1);
+
       // ===================== 5-6 · Tableau de bord et résultat (horloge d'origine, décalée de SHIFT) =====================
-      const SHIFT = 2.5;
+      const SHIFT = 6.2;
       const tlCD = gsap.timeline();
       T = tlCD;
       show("sC", 9.7, 0);
@@ -568,7 +640,6 @@
       gsap.set("#sC .aurora", { opacity: 0 });
       gsap.set("#dash", { opacity: 0, scale: 0.94, filter: "blur(14px)" });
       gsap.set(wC, cam(1.0, 960, 540));
-      T.to("#store", { opacity: 0, scale: 0.92, filter: "blur(14px)", duration: 0.4, ease: "power3.in" }, 10.05);
       T.to("#sC .aurora", { opacity: 1, duration: 0.4 }, 10.0);
       T.to("#dash", { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 10.25);
       // 01 · la commande Shopify arrive dans l'interface Tulco
@@ -588,7 +659,7 @@
       T.to("#o0", { backgroundColor: "rgba(237,241,251,0)", duration: 0.8 }, 12.3);
       // 02 · marges en %, par produit, catégorie et collection
       const LEVELS = [
-        [["Tapis Muxi", 62], ["Tapis Natura", 58], ["Mini tapis Grrrr", 44], ["Tapis personnalisé", 55]],
+        [["Tapis Muxu", 62], ["Tapis Natura", 58], ["Mini tapis Grrrr", 44], ["Tapis personnalisé", 55]],
         [["Tapis", 61], ["Tapis personnalisables", 56], ["Ateliers tufting", 72], ["Sur-mesure", 53]],
         [["Collection Natura", 63], ["Collection Muxu", 66], ["Collection Grrrr", 58], ["Mini tapis", 47]],
       ];
