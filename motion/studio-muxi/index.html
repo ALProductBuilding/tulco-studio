@@ -26,10 +26,10 @@
 
       /* ---------- Intro ---------- */
       #intro-bg { background: #f3f4f7; background-image: linear-gradient(to right, rgba(20,23,28,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.045) 1px, transparent 1px); background-size: 48px 48px; }
-      .intro-tag { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-family: var(--mono); font-size: 44px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+      .intro-tag { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-family: var(--sans); font-size: 38px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); }
       .intro-row { position: absolute; left: 0; right: 0; top: 250px; height: 200px; display: flex; align-items: center; justify-content: center; gap: 70px; }
       .intro-x { font-size: 64px; font-weight: 300; color: var(--g400); }
-      .intro-sub { position: absolute; left: 0; right: 0; top: 560px; text-align: center; font-size: 104px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; color: var(--ink); }
+      .intro-sub { position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-size: 80px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; color: var(--ink); }
       .intro-sub .shop { display: inline-block; height: 1.163em; width: auto; vertical-align: -0.221em; }
       .intro-sub .w { display: inline-block; margin: 0 0.12em; }
 
@@ -173,11 +173,11 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="38.5" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="44.5" data-width="1920" data-height="1080">
       <div id="bg" class="fill" style="background: #f3f4f7"></div>
 
       <!-- =============== 1-2 · AVANT : Excel partout, ressaisie =============== -->
-      <div id="sA" class="scene clip" data-start="0" data-duration="38.5" data-track-index="1" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sA" class="scene clip" data-start="0" data-duration="44.5" data-track-index="1" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div id="worldA" class="world">
           <div id="xa1" class="xl" data-file="commandes.xlsx" data-sheet="Commandes" style="left: 80px; top: 70px; width: 900px; height: 520px; z-index: 1"></div>
           <div id="xa2" class="xl" data-file="couts-fabrication.xlsx" data-sheet="Coûts" style="left: 1010px; top: 40px; width: 840px; height: 460px; z-index: 2"></div>
@@ -193,11 +193,11 @@
           <span class="w">tout</span><span class="w">passait</span><span class="w">par</span>
           <span class="w"><img class="ilogo" src="assets/excel.svg" alt="" />Excel.</span>
         </div>
-        <div class="counter-wrap"><div id="counter" class="counter"><svg width="56" height="56" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#fff" stroke-width="2.2" /><path d="M10 5 V10 L13.5 12" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" /></svg>Ressaisies à la main<span class="num" id="cnt">1</span></div></div>
+        <div class="counter-wrap"><div id="counter" class="counter"><svg width="56" height="56" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#fff" stroke-width="2.2" /><path d="M10 5 V10 L13.5 12" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" /></svg>Temps de ressaisie<span class="num" id="cnt">0 h</span><span style="font-size: 40px; opacity: 0.85">/ mois</span></div></div>
       </div>
 
       <!-- =============== 3 · AVANT / APRÈS : Webflow devient Shopify =============== -->
-      <div id="sT" class="scene clip" data-start="0" data-duration="38.5" data-track-index="2" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sT" class="scene clip" data-start="0" data-duration="44.5" data-track-index="2" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div class="aurora" id="auroraT">
           <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #d7e0f6"></div>
           <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #d7e0f6"></div>
@@ -214,7 +214,7 @@
       </div>
 
       <!-- =============== 4 · CÔTÉ CLIENT : boutique Shopify =============== -->
-      <div id="sB" class="scene clip" data-start="0" data-duration="38.5" data-track-index="3" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sB" class="scene clip" data-start="0" data-duration="44.5" data-track-index="3" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div class="aurora">
           <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #d7e0f6"></div>
           <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #d7e0f6"></div>
@@ -286,7 +286,7 @@
       </div>
 
       <!-- =============== 5 · CÔTÉ FANNY : le tableau de bord =============== -->
-      <div id="sC" class="scene clip" data-start="0" data-duration="38.5" data-track-index="4" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+      <div id="sC" class="scene clip" data-start="0" data-duration="44.5" data-track-index="4" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
         <div class="aurora">
           <div class="blob" style="left: 0%; top: 50%; width: 900px; height: 700px; background: #d7e0f6"></div>
           <div class="blob" style="left: 60%; top: 0%; width: 900px; height: 700px; background: #d7e0f6"></div>
@@ -294,7 +294,7 @@
         <div id="worldC" class="world">
           <div id="dash" class="pl">
             <div class="pl-head"><svg width="44" height="44" viewBox="0 0 100 100" aria-label="Tulco Studio"><rect x="20" y="22" width="60" height="14" rx="5" fill="#003EC7" /><path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#003EC7" /></svg><span class="pl-title">Pilotage</span><span class="pl-sep">/</span><span class="pl-client">Studio Muxi</span>
-              <span class="pl-conn" id="plConn"><i class="pl-dot"></i>Connecté à <img src="assets/shopify-bag.svg" alt="" />Shopify</span>
+              <span class="pl-conn" id="plConn"><i class="pl-dot"></i>Connecté à <img src="assets/shopify-bag.svg" alt="" />Shopify<span style="color: var(--g300)">+</span><img src="assets/pennylane-mark.svg" alt="" />Pennylane</span>
               <span class="pl-user"><span class="pl-av">F</span>Fanny</span>
             </div>
             <div class="pl-card" id="cOrders" style="left: 32px; width: 560px">
@@ -323,17 +323,18 @@
             </div>
             <div class="pl-card" id="cInv" style="left: 1200px; width: 528px">
               <div class="pl-k">03</div><div class="pl-t">Facturation électronique automatisée</div>
+              <div class="pl-sub"><img src="assets/pennylane-mark.svg" alt="" />Vers Pennylane, sans saisie</div>
               <div class="inv" id="inv">
                 <div class="inv-h"><b>FACTURE</b><span>F-2026-1042</span></div>
                 <div class="inv-l il"><span>Client</span><span>Camille Durand</span></div>
                 <div class="inv-l il"><span>Tapis Muxi 60 × 90</span><span>157,50 €</span></div>
                 <div class="inv-l il"><span>TVA 20 %</span><span>31,50 €</span></div>
                 <div class="inv-l tot il"><span>Total TTC</span><span>189,00 €</span></div>
-                <div id="invStamp">Factur-X · émise ✓</div>
+                <div id="invStamp"><img src="assets/pennylane.svg" alt="Pennylane" style="height: 30px; vertical-align: -7px; margin-right: 10px" />transmise ✓</div>
               </div>
               <div class="inv-foot">
                 <div class="inv-f" id="if1"><i>✓</i>Créée dès la commande payée</div>
-                <div class="inv-f" id="if2"><i>✓</i>Envoyée au client, au format électronique</div>
+                <div class="inv-f" id="if2"><i>✓</i>Comptabilisée dans Pennylane</div>
               </div>
               <div class="inv-count"><span>Factures émises ce mois</span><b id="invCnt">58</b></div>
             </div>
@@ -344,7 +345,7 @@
       </div>
 
       <!-- =============== 6 · RÉSULTAT =============== -->
-      <div id="sD" class="scene clip" data-start="0" data-duration="38.5" data-track-index="5" data-layout-allow-overlap>
+      <div id="sD" class="scene clip" data-start="0" data-duration="44.5" data-track-index="5" data-layout-allow-overlap>
         <div id="flood" class="fill" style="background-color: #003ec7; background-image: linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 48px 48px"></div>
         <div id="big"><span class="ch1">≈</span> <span class="ch1" id="bigN">4</span> <span class="ch1">jours</span></div>
         <div id="big-l">récupérés chaque mois</div>
@@ -466,6 +467,9 @@
         { src: $("xa1-0-1"), dst: $("xa4-0-3"), val: "1031", t: 3.95, srcWin: "xa1", dstWin: "xa4" },
       ];
       T.to("#counter", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "expo.out" }, 2.25);
+      // les heures s'accumulent pendant toute la ressaisie : 32 h par mois, soit les ≈ 4 jours de la fin
+      const hObj = { v: 0 };
+      T.to(hObj, { v: 32, duration: 3.0, ease: "power1.in", onUpdate: () => { $("cnt").textContent = Math.round(hObj.v) + " h"; } }, 2.35);
       steps.forEach((st, i) => {
         const a = p(st.src), b = p(st.dst);
         T.to(wA, { ...cam(S, a.x, a.y), duration: i === 0 ? 0.55 : 0.4, ease: "power3.inOut" }, st.t);
@@ -487,10 +491,7 @@
         swapText(st.dst, st.val, tm + 0.44);
         T.set(st.dst, { boxShadow: "inset 0 0 0 3px #107C41" }, tm + 0.44);
         T.set(st.dst, { boxShadow: "inset 0 0 0 0px #107C41" }, tm + 0.8);
-        if (i > 0) {
-          swapText($("cnt"), String(i + 1), tm + 0.44);
-          T.fromTo("#counter", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, tm + 0.44);
-        }
+        T.fromTo("#counter", { scale: 1.1 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, tm + 0.44);
       });
       const refC = $("xa3-5-4"), r = p(refC);
       T.set("#xa3", { zIndex: 30 }, 4.75);
@@ -587,9 +588,9 @@
       T.to("#o0", { backgroundColor: "rgba(237,241,251,0)", duration: 0.8 }, 12.3);
       // 02 · marges en %, par produit, catégorie et collection
       const LEVELS = [
-        [["Tapis Muxi", 62], ["Tapis Vague", 58], ["Tapis Rêveuse", 64], ["Sur-mesure", 55]],
-        [["Tapis 60 × 90", 63], ["Tapis 90 × 120", 59], ["Sur-mesure", 55], ["Ateliers tufting", 72]],
-        [["Océan", 63], ["Signature", 66], ["Biarritz", 58], ["Capsule été", 47]],
+        [["Tapis Muxi", 62], ["Tapis Natura", 58], ["Mini tapis Grrrr", 44], ["Tapis personnalisé", 55]],
+        [["Tapis", 61], ["Tapis personnalisables", 56], ["Ateliers tufting", 72], ["Sur-mesure", 53]],
+        [["Collection Natura", 63], ["Collection Muxu", 66], ["Collection Grrrr", 58], ["Mini tapis", 47]],
       ];
       LEVELS[0].forEach(([l, v], k) => { $("ml" + k).textContent = l; $("mv" + k).textContent = "0 %"; gsap.set("#mb" + k, { scaleX: 0 }); });
       const segOn = (i, t) => [0, 1, 2].forEach((j) => T.to("#sg" + j, { backgroundColor: j === i ? "#003EC7" : "#FFFFFF", color: j === i ? "#FFFFFF" : "#69727F", duration: 0.2 }, t));
@@ -655,7 +656,7 @@
       story.add(tlCD, SHIFT);
 
       // ===================== Horloge du film : intro, puis l'histoire ralentie =====================
-      const INTRO = 4.6, SLOW = 1.35;
+      const INTRO = 4.6, SLOW = 1.6;
       const tl = gsap.timeline({ paused: true });
       gsap.set(["#iTag", "#iMuxi", "#iX", "#iTulco"], { opacity: 0, filter: "blur(12px)" });
       gsap.set("#iMuxi", { x: -40 });
