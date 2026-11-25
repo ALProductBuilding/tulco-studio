@@ -39,7 +39,7 @@
 3. Les trois flux (+ bloc IA)
 4. Pourquoi moi
 5. Comment ça marche
-6. Réalisations retail
+6. Réalisations
 7. En agence : product building
 8. Pour qui
 9. FAQ
@@ -180,24 +180,21 @@ Les autres flux, et l'IA là où elle fait gagner du temps. Et un suivi, car vos
 
 ---
 
-## 6. Réalisations retail
+## 6. Réalisations
 
-**Eyebrow :** Réalisations · retail
+> **Mise à jour du 25/11 :** la section ne montre que les projets Tulco finalisés, en grandes cartes qui défilent. Volcom sort de la section (poste salarié, pas un projet Tulco) et reste une preuve dans « Pourquoi moi » et la FAQ. À venir : Maeli Paris, Evootrade (pas de carte avant livraison).
 
-**Titre :** Le retail, vu de l'intérieur.
+**Eyebrow :** Réalisations
 
-**Carte 1 · Volcom · PLM Europe**
-Déploiement du PLM entre design, merchandising et sourcing.
-- **−15 %** de délais de développement
-- **90 %** d'adoption par les équipes
+**Titre :** Ce que j'ai mis en place pour des marques.
 
-**Carte 2 · Nichebloom · marque en lancement** *(badge « En cours », aucun chiffre)*
-Je pilote la mise en place du site Shopify, de l'ERP, de l'emailing et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.
-- Pied de carte : [logo Shopify] + ERP, emailing, vente revendeurs
-
-**Carte 3 · Studio Muxi · premier projet Tulco**
+**Carte 1 · Studio Muxi · tapis faits main** *(vidéo motion design + 4 étapes cliquables)*
 Commandes, stocks et pilotage financier réunis au même endroit. Marge visible en temps réel.
 - **≈ 4 jours / mois** récupérés
+
+**Carte 2 · Nichebloom · marque en lancement** *(projet terminé, aucun chiffre ; vidéo à produire)*
+J'ai mis en place le site Shopify, l'ERP, l'emailing et les process de vente revendeurs, avec l'IA sur les tâches récurrentes.
+- Visuel : [logo Shopify] + ERP, emailing, vente revendeurs
 
 ---
 
