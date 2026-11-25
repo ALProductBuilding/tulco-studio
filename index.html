@@ -87,6 +87,43 @@
   .agency-card p { margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); }
   .agency-metric { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-default); display: flex; flex-direction: column; gap: 6px; }
   .agency-value { font-size: clamp(26px,2.6vw,32px); }
+  /* --- Realisations : grandes cartes qui defilent, video pour les cas montres --- */
+  .case-head { display: flex; align-items: center; justify-content: space-between; margin: -24px 0 20px; }
+  .case-count { font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: var(--accent-soft); }
+  .case-nav { display: flex; gap: 8px; }
+  .case-btn { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.28); background: transparent; color: var(--white); font-size: 18px; cursor: pointer; }
+  .case-btn:hover { background: rgba(255,255,255,0.08); }
+  .case-btn:disabled { opacity: 0.35; cursor: default; }
+  .case-rail { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; margin-right: calc(-1 * clamp(20px,5vw,64px)); padding-right: clamp(20px,5vw,64px); }
+  .case-rail::-webkit-scrollbar { display: none; }
+  .case-card { flex: none; width: min(1040px, 86vw); scroll-snap-align: start; background: var(--white); color: var(--text-primary); border-top: var(--rule-accent) solid var(--accent); display: flex; flex-direction: column; }
+  .case-media { position: relative; aspect-ratio: 16 / 9; background: #f3f4f7; overflow: hidden; }
+  .case-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .case-media-static { display: flex; align-items: center; justify-content: center; background: var(--bg-subtle); background-image: linear-gradient(to right, rgba(20,23,28,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.05) 1px, transparent 1px); background-size: 40px 40px; }
+  .case-static-metrics { display: flex; gap: clamp(24px,6vw,96px); align-items: center; flex-wrap: wrap; justify-content: center; padding: 24px; }
+  .case-big { font-family: var(--font-mono); font-weight: 600; font-size: clamp(48px,8vw,112px); letter-spacing: -0.03em; color: var(--accent); line-height: 1; font-variant-numeric: tabular-nums; }
+  .case-shopify { height: clamp(48px,7vw,96px); width: auto; }
+  .case-static-metrics:has(.case-shopify) { flex-direction: column; gap: 16px; }
+  .case-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 32px; padding: var(--space-6); }
+  .case-body:not(:has(.case-steps)) { grid-template-columns: 1fr; }
+  .case-intro { display: flex; flex-direction: column; gap: 14px; }
+  .case-desc { margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); max-width: 560px; }
+  .case-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .case-steps button { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: 6px; width: 100%; height: 100%; padding: 12px 14px 14px; border: 1px solid var(--border-default); position: relative; }
+  .case-steps button:hover { border-color: var(--border-strong); }
+  .case-steps button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .case-step-k { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); }
+  .case-step-t { font-size: 13px; line-height: 1.45; color: var(--text-secondary); }
+  .case-step-bar { position: absolute; left: -1px; right: -1px; top: -1px; height: 3px; background: transparent; }
+  .case-step-bar b { display: block; height: 100%; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+  .case-steps li.on button { border-color: var(--accent); background: var(--surface-tint); }
+  .case-steps li.on .case-step-k { color: var(--accent); }
+  .case-steps li.on .case-step-t { color: var(--text-primary); }
+  @media (max-width: 760px) {
+    .case-body { grid-template-columns: 1fr; gap: 20px; padding: var(--space-5, 20px); }
+    .case-steps { grid-template-columns: 1fr; }
+    .case-card { width: 88vw; }
+  }
   /* --- Logo Shopify : version monochrome officielle, jamais recoloree ni deformee --- */
   .nowrap { white-space: nowrap; }
   .h1-shopify { display: inline-block; height: 1.163em; width: auto; vertical-align: -0.221em; }
@@ -411,30 +448,63 @@
     <div style="position: relative; max-width: var(--container-max); margin: 0 auto; padding: clamp(48px,8vw,96px) clamp(20px,5vw,64px);">
       <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-soft); margin-bottom: 16px;">Réalisations · retail</div>
       <h2 style="margin: 0 0 48px; font-weight: 600; font-size: clamp(26px,4vw,42px); letter-spacing: var(--tracking-heading); max-width: 640px;">Le retail, vu de l'intérieur.</h2>
-      <div class="proof-grid">
-        <div data-reveal="" class="proof-card">
-          <span class="proof-name">Volcom · PLM Europe</span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Déploiement du PLM entre design, merchandising et sourcing.</p>
-          <div class="proof-metrics">
-            <div class="proof-metric"><span class="proof-value">−15&nbsp;%</span><span class="proof-label">de délais de développement</span></div>
-            <div class="proof-metric"><span class="proof-value">90&nbsp;%</span><span class="proof-label">d'adoption par les équipes</span></div>
-          </div>
+      <div class="case-head">
+        <span class="case-count" id="caseCount">01 / 03</span>
+        <div class="case-nav">
+          <button type="button" class="case-btn" id="casePrev" aria-label="Réalisation précédente">←</button>
+          <button type="button" class="case-btn" id="caseNext" aria-label="Réalisation suivante">→</button>
         </div>
-        <div data-reveal="" class="proof-card">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
-            <span class="proof-name">Nichebloom · marque en lancement</span>
-            <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">En cours</span>
+      </div>
+      <div class="case-rail" id="caseRail">
+        <article class="case-card" data-reveal="">
+          <div class="case-media">
+            <video id="muxiVideo" class="case-video" src="assets/video/studio-muxi-fr.mp4" poster="assets/video/studio-muxi-fr.jpg" muted="" loop="" playsinline="" preload="none" aria-label="Vidéo : les fichiers Excel de Studio Muxi remplacés par une boutique Shopify et un tableau de bord"></video>
           </div>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Je pilote la mise en place du site Shopify, de l'ERP, de l'emailing et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.</p>
-          <div class="proof-metrics proof-stack"><img src="assets/shopify-logo-mono.svg" alt="Shopify" class="tool-logo" width="446" height="128"><span class="proof-label">+ ERP, emailing, vente revendeurs</span></div>
-        </div>
-        <div data-reveal="" class="proof-card">
-          <span class="proof-name">Studio Muxi · premier projet Tulco</span>
-          <p style="margin: 0; font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary);">Commandes, stocks et pilotage financier réunis au même endroit. Marge visible en temps réel.</p>
-          <div class="proof-metrics">
-            <div class="proof-metric"><span class="proof-value">≈&nbsp;4&nbsp;j</span><span class="proof-label">par mois récupérés</span></div>
+          <div class="case-body">
+            <div class="case-intro">
+              <span class="proof-name">Studio Muxi · premier projet Tulco</span>
+              <p class="case-desc">Commandes, stocks et pilotage financier réunis au même endroit. Marge visible en temps réel.</p>
+              <div class="proof-metric"><span class="proof-value">≈&nbsp;4&nbsp;j</span><span class="proof-label">par mois récupérés</span></div>
+            </div>
+            <ol class="case-steps" id="muxiSteps">
+              <li><button type="button" data-t="0"><span class="case-step-k">01 · Avant</span><span class="case-step-t">Commandes, coûts, marges et banque ressaisis à la main dans Excel.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="13.4"><span class="case-step-k">02 · Côté client</span><span class="case-step-t">La boutique passe de Webflow à Shopify, de l'accueil au paiement.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="24.8"><span class="case-step-k">03 · Côté Fanny</span><span class="case-step-t">Les fichiers deviennent un outil de pilotage, relié à Shopify et Pennylane : commandes, marges, factures.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="43.2"><span class="case-step-k">04 · Résultat</span><span class="case-step-t">Environ 4 jours récupérés chaque mois, et un EBITDA en hausse.</span><i class="case-step-bar"><b></b></i></button></li>
+            </ol>
           </div>
-        </div>
+        </article>
+        <article class="case-card" data-reveal="">
+          <div class="case-media case-media-static">
+            <div class="case-static-metrics">
+              <div class="proof-metric"><span class="case-big">−15&nbsp;%</span><span class="proof-label">de délais de développement</span></div>
+              <div class="proof-metric"><span class="case-big">90&nbsp;%</span><span class="proof-label">d'adoption par les équipes</span></div>
+            </div>
+          </div>
+          <div class="case-body">
+            <div class="case-intro">
+              <span class="proof-name">Volcom · PLM Europe</span>
+              <p class="case-desc">Déploiement du PLM entre design, merchandising et sourcing.</p>
+            </div>
+          </div>
+        </article>
+        <article class="case-card" data-reveal="">
+          <div class="case-media case-media-static">
+            <div class="case-static-metrics">
+              <img src="assets/shopify-logo-mono.svg" alt="Shopify" class="case-shopify" width="446" height="128">
+              <span class="proof-label">+ ERP, emailing, vente revendeurs</span>
+            </div>
+          </div>
+          <div class="case-body">
+            <div class="case-intro">
+              <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <span class="proof-name">Nichebloom · marque en lancement</span>
+                <span style="font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 8px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--accent);">En cours</span>
+              </div>
+              <p class="case-desc">Je pilote la mise en place du site Shopify, de l'ERP, de l'emailing et des process de vente revendeurs, avec l'IA sur les tâches récurrentes.</p>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -611,6 +681,8 @@ class Component extends DCLogic {
     const els = Array.from(document.querySelectorAll("[data-reveal]"));
     const fillBars = (el) => el.querySelectorAll("[data-bar]").forEach((b) => { b.style.width = (b.dataset.bar || "100") + "%"; });
     const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Realisations : defilement des grandes cartes et video Studio Muxi synchronisee avec ses etapes.
+    this._setupCases(reduce);
     if (reduce) {
       els.forEach(fillBars);
       return;
@@ -661,7 +733,68 @@ class Component extends DCLogic {
       if (reveal() === 0 || ++ticks > 240) clearInterval(this._revealTimer);
     }, 250);
   }
+  _setupCases(reduce) {
+    const rail = document.getElementById("caseRail");
+    if (!rail) return;
+    const cards = Array.from(rail.querySelectorAll(".case-card"));
+    const prev = document.getElementById("casePrev"), next = document.getElementById("caseNext"), count = document.getElementById("caseCount");
+    const current = () => {
+      const x = rail.scrollLeft;
+      let best = 0;
+      cards.forEach((c, i) => { if (Math.abs(c.offsetLeft - rail.offsetLeft - x) < Math.abs(cards[best].offsetLeft - rail.offsetLeft - x)) best = i; });
+      return best;
+    };
+    const go = (i) => { const c = cards[Math.max(0, Math.min(cards.length - 1, i))]; rail.scrollTo({ left: c.offsetLeft - rail.offsetLeft, behavior: reduce ? "auto" : "smooth" }); };
+    const sync = () => {
+      const i = current();
+      if (count) count.textContent = String(i + 1).padStart(2, "0") + " / " + String(cards.length).padStart(2, "0");
+      if (prev) prev.disabled = i === 0;
+      if (next) next.disabled = i === cards.length - 1;
+    };
+    if (prev) prev.addEventListener("click", () => go(current() - 1));
+    if (next) next.addEventListener("click", () => go(current() + 1));
+    rail.addEventListener("scroll", sync, { passive: true });
+    sync();
+    const video = document.getElementById("muxiVideo");
+    const steps = Array.from(document.querySelectorAll("#muxiSteps li"));
+    if (!video || !steps.length) return;
+    video.muted = true;
+    video.playsInline = true;
+    const starts = steps.map((li) => Number(li.querySelector("button").dataset.t));
+    const paint = () => {
+      const t = video.currentTime, d = video.duration || 50.5;
+      steps.forEach((li, i) => {
+        const a = starts[i], b = i + 1 < starts.length ? starts[i + 1] : d;
+        const on = t >= a && t < b;
+        li.classList.toggle("on", on);
+        li.querySelector("b").style.transform = "scaleX(" + (on ? Math.min(1, (t - a) / (b - a)) : 0) + ")";
+      });
+    };
+    video.addEventListener("timeupdate", paint);
+    steps.forEach((li, i) => li.querySelector("button").addEventListener("click", () => {
+      if (video.preload === "none") video.preload = "auto";
+      video.currentTime = starts[i];
+      paint();
+      const p = video.play();
+      if (p && p.catch) p.catch(() => {});
+    }));
+    if (reduce) { video.controls = true; return; }
+    // Lecture seulement quand la carte est bien visible, pause sinon.
+    if ("IntersectionObserver" in window) {
+      this._caseObs = new IntersectionObserver((entries) => entries.forEach((e) => {
+        if (e.isIntersecting && e.intersectionRatio >= 0.6) {
+          video.preload = "auto";
+          const p = video.play();
+          if (p && p.catch) p.catch(() => { video.controls = true; });
+        } else {
+          video.pause();
+        }
+      }), { threshold: [0, 0.6, 1] });
+      this._caseObs.observe(video);
+    }
+  }
   componentWillUnmount() {
+    if (this._caseObs) this._caseObs.disconnect();
     if (this._revealHandler) {
       window.removeEventListener("scroll", this._revealHandler);
       window.removeEventListener("resize", this._revealHandler);
