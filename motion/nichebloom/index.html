@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      /* Charte Tulco : Switzer (titres, légendes, interfaces Tulco), JetBrains Mono. Univers Nichebloom : Cormorant Garamond + Gotham Book (police du site). */
+      @font-face { font-family: "Switzer"; src: url("assets/fonts/Switzer-Variable.ttf") format("truetype"); font-weight: 100 900; }
+      @font-face { font-family: "Cormorant Garamond"; src: url("assets/fonts/CormorantGaramond-400.ttf") format("truetype"); font-weight: 400; }
+      @font-face { font-family: "Cormorant Garamond"; src: url("assets/fonts/CormorantGaramond-500.ttf") format("truetype"); font-weight: 500; }
+      @font-face { font-family: "Cormorant Garamond"; src: url("assets/fonts/CormorantGaramond-600.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Cormorant Garamond"; src: url("assets/fonts/CormorantGaramond-400i.ttf") format("truetype"); font-weight: 400; font-style: italic; }
+      @font-face { font-family: "Gotham"; src: url("assets/fonts/gotham-book.woff2") format("woff2"); font-weight: 400; }
+      :root {
+        --blue: #003ec7; --blue-100: #d7e0f6; --blue-50: #edf1fb;
+        --ink: #14171c; --ink-soft: #353b45; --g500: #69727f; --g400: #98a1b0; --g300: #cbd1db; --g200: #e1e5ec; --g100: #f1f3f7; --g50: #f8f9fb;
+        --ok: #0e7b63; --ok-bg: #e3f1ed; --bad: #b12e44; --warn: #a8660b; --warn-bg: #fbefdc;
+        --nb-cream: #fffaf3; --nb-gold: #85744d; --nb-nap: #796856; --nb-ink: #1f1d1a;
+        --odoo: #714b67;
+        --sans: "Switzer", "Inter", sans-serif; --ui: "Inter", sans-serif; --mono: "JetBrains Mono", monospace;
+        --serif: "Cormorant Garamond", Georgia, serif; --gotham: "Gotham", "Helvetica Neue", Arial, sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #f3f4f7; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: var(--sans); color: var(--ink); }
+      .scene { position: absolute; inset: 0; overflow: hidden; }
+      .world { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+      .fill { position: absolute; inset: 0; }
+      .aurora { position: absolute; inset: -10%; filter: blur(70px); }
+      .blob { position: absolute; border-radius: 50%; }
+      .gridbg { background-color: #f8f9fb; background-image: linear-gradient(to right, rgba(20,23,28,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.045) 1px, transparent 1px); background-size: 48px 48px; }
+      .cursor { position: absolute; left: 0; top: 0; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.25)); }
+      .blurred { filter: blur(7px); }
+      .ilogo { height: 0.82em; vertical-align: -0.08em; margin-right: 0.14em; }
+
+      /* ---------- Intro ---------- */
+      #intro-bg { background: #f3f4f7; background-image: linear-gradient(to right, rgba(20,23,28,0.045) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.045) 1px, transparent 1px); background-size: 48px 48px; }
+      .intro-tag-wrap { position: absolute; left: 0; right: 0; top: 120px; display: flex; justify-content: center; }
+      .intro-tag { padding: 12px 30px 13px; background: var(--blue); color: #fff; font-family: var(--sans); font-size: 40px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1; }
+      .intro-row { position: absolute; left: 0; right: 0; top: 230px; height: 240px; display: flex; align-items: center; justify-content: center; gap: 64px; }
+      .intro-x { font-size: 64px; font-weight: 300; color: var(--g400); }
+      .intro-sub { position: absolute; left: 0; right: 0; top: 590px; text-align: center; font-size: 76px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.12; color: var(--ink); }
+      .intro-sub .shop { display: inline-block; height: 1.163em; width: auto; vertical-align: -0.221em; }
+      .intro-sub .w { display: inline-block; margin: 0 0.12em; }
+
+      /* ---------- Frise des phases ---------- */
+      #frise { position: absolute; left: 230px; top: 26px; width: 1460px; height: 78px; background: rgba(255,255,255,0.94); border: 1px solid var(--g200); box-shadow: 0 14px 40px rgba(0,62,199,0.10); z-index: 80; }
+      #frLine { position: absolute; top: 38px; height: 3px; background: var(--g200); }
+      #frFill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: var(--blue); transform-origin: left center; }
+      .fr-items { position: absolute; inset: 0; display: flex; justify-content: space-between; align-items: center; padding: 0 34px; }
+      .fr-i { position: relative; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,1); padding: 0 12px; }
+      .fr-d { width: 20px; height: 20px; border: 3px solid var(--g300); background: #fff; flex: none; }
+      .fr-d.ms { width: 22px; height: 22px; }
+      .fr-l { font-family: var(--sans); font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: var(--g400); white-space: nowrap; }
+
+      /* ---------- Légendes ---------- */
+      .caption { position: absolute; left: 70px; bottom: 56px; z-index: 50; padding: 22px 32px 24px; border-radius: 20px; background: rgba(255,255,255,0.93); box-shadow: 0 20px 50px rgba(10,30,90,0.18), 0 0 0 1px rgba(20,23,28,0.06); }
+      .caption .tag { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 22px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); }
+      .caption .t { margin-top: 8px; font-size: 46px; font-weight: 600; letter-spacing: -0.03em; white-space: nowrap; }
+
+      /* ---------- 1 · Boutique Shopify ---------- */
+      .store { position: absolute; left: 210px; top: 150px; width: 1500px; height: 844px; background: var(--nb-cream); border-radius: 18px; overflow: hidden; box-shadow: 0 40px 100px rgba(10,30,90,0.25), 0 0 0 1px rgba(20,23,28,0.06); }
+      .store-track { position: absolute; left: 0; top: 0; width: 3000px; height: 844px; display: flex; }
+      .sp { position: relative; width: 1500px; height: 844px; flex: none; overflow: hidden; background: var(--nb-cream); }
+      .sp img.scr { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+      .wire { position: absolute; inset: 0; background: var(--nb-cream); }
+      .wire i { position: absolute; display: block; background: #ece5d8; }
+      .wire i.o { background: transparent; border: 3px dashed #cfc3ad; }
+      .wire-tag { position: absolute; right: 30px; bottom: 26px; font-family: var(--mono); font-size: 22px; font-weight: 600; letter-spacing: 0.1em; color: #a89a7c; }
+      .store-chip { position: absolute; right: 26px; top: 70px; display: flex; align-items: center; gap: 12px; padding: 12px 22px 12px 16px; background: #fff; border-radius: 999px; box-shadow: 0 14px 34px rgba(0,0,0,0.22); font-family: var(--sans); font-size: 30px; font-weight: 600; letter-spacing: -0.02em; z-index: 5; }
+      .store-chip img { height: 38px; }
+      #cartOver { position: absolute; left: 1380px; top: 72px; width: 92px; height: 24px; background: #fdf9f2; font-family: var(--gotham); font-size: 12px; letter-spacing: 0.08em; color: var(--nb-ink); display: flex; align-items: center; justify-content: center; }
+      .fly { position: absolute; left: 0; top: 0; width: 150px; height: 110px; border-radius: 10px; background: url("assets/screens/coffret-napoleon.jpg") center/cover; box-shadow: 0 16px 34px rgba(0,0,0,0.25); z-index: 40; }
+      .order-chip { position: absolute; left: 0; top: 0; z-index: 45; display: flex; align-items: center; gap: 16px; background: #fff; border-radius: 16px; padding: 14px 24px 14px 14px; box-shadow: 0 24px 60px rgba(10,30,90,0.28); font-family: var(--sans); font-size: 28px; font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; }
+      .order-chip .th { width: 74px; height: 56px; border-radius: 8px; background: url("assets/screens/coffret-napoleon.jpg") center/cover; }
+      .order-chip small { display: block; font-family: var(--mono); font-size: 16px; font-weight: 600; color: var(--g500); text-transform: uppercase; letter-spacing: 0.06em; }
+
+      /* ---------- 2 · Opérations : Odoo ---------- */
+      .odoo { position: absolute; left: 140px; top: 140px; width: 1640px; height: 850px; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 40px 100px rgba(10,30,90,0.22), 0 0 0 1px rgba(20,23,28,0.07); font-family: var(--ui); color: #1f2937; }
+      .od-head { height: 64px; background: var(--odoo); color: #fff; display: flex; align-items: center; gap: 34px; padding: 0 26px; font-size: 20px; font-weight: 500; }
+      .od-head .app { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 700; }
+      .od-head .app img { height: 30px; filter: brightness(0) invert(1); }
+      .od-head span { opacity: 0.9; }
+      .od-head .nb { margin-left: auto; font-size: 18px; letter-spacing: 0.04em; opacity: 0.85; }
+      .od-sub { height: 72px; display: flex; align-items: center; gap: 18px; padding: 0 26px; border-bottom: 1px solid #e5e7eb; }
+      .od-btn { background: var(--odoo); color: #fff; font-size: 18px; font-weight: 600; padding: 9px 18px; border-radius: 6px; }
+      .od-crumb { font-size: 24px; font-weight: 600; color: #374151; }
+      .od-search { margin-left: auto; width: 420px; height: 42px; border: 1px solid #d1d5db; border-radius: 6px; display: flex; align-items: center; padding: 0 14px; color: #9ca3af; font-size: 18px; }
+      .od-table { position: absolute; left: 26px; top: 160px; width: 1040px; }
+      .od-th { height: 48px; display: grid; grid-template-columns: 120px 220px 140px 320px 70px 170px; align-items: center; font-size: 17px; font-weight: 700; color: #4b5563; border-bottom: 2px solid #e5e7eb; }
+      .od-th span, .od-r span { padding: 0 8px; white-space: nowrap; overflow: hidden; }
+      .od-body { position: relative; height: 600px; overflow: hidden; }
+      .od-r { position: absolute; left: 0; right: 0; top: 0; height: 72px; display: grid; grid-template-columns: 120px 220px 140px 320px 70px 170px; align-items: center; font-size: 20px; border-bottom: 1px solid #eef0f3; background: rgba(255,255,255,0); }
+      .od-r .ref { font-family: var(--mono); font-weight: 600; font-size: 18px; }
+      .od-r .ch { display: flex; align-items: center; gap: 9px; }
+      .od-r .ch img { height: 24px; }
+      .od-r .q { text-align: center; font-variant-numeric: tabular-nums; }
+      .pill { display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 16px; font-weight: 700; }
+      .p-ok { background: var(--ok-bg); color: var(--ok); }
+      .p-new { background: var(--blue-50); color: var(--blue); }
+      .od-side { position: absolute; left: 1094px; width: 520px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; }
+      .od-st { font-size: 24px; font-weight: 700; color: #111827; }
+      .od-ss { font-family: var(--mono); font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #6b7280; margin-top: 4px; }
+      .printer { position: absolute; left: 110px; top: 128px; width: 300px; height: 62px; background: #2b2f36; border-radius: 10px; box-shadow: inset 0 -6px 0 #1a1d22; }
+      .printer::after { content: ""; position: absolute; left: 30px; right: 30px; bottom: 10px; height: 6px; background: #0d0f12; border-radius: 3px; }
+      .lbl-wrap { position: absolute; left: 130px; top: 182px; width: 260px; height: 330px; overflow: hidden; }
+      .lbl { position: absolute; left: 0; top: 0; width: 260px; height: 330px; background: #fff; border: 2px solid #1f2937; padding: 14px 16px; font-family: var(--ui); color: #111; }
+      .lbl .top { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #111; padding-bottom: 8px; }
+      .lbl .top img { height: 40px; }
+      .lbl .top b { font-size: 20px; font-weight: 800; }
+      .lbl .l { font-size: 13px; margin-top: 8px; line-height: 1.3; }
+      .lbl .trk { font-family: var(--mono); font-size: 15px; font-weight: 700; margin-top: 8px; }
+      .barcode { height: 70px; margin-top: 10px; background: repeating-linear-gradient(90deg, #111 0 3px, #fff 3px 5px, #111 5px 6px, #fff 6px 9px, #111 9px 13px, #fff 13px 15px); }
+      .stock-v { font-family: var(--mono); font-size: 64px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+      .b2b { position: absolute; left: 0; top: 0; width: 560px; background: var(--nb-cream); border-radius: 14px; box-shadow: 0 30px 80px rgba(10,30,90,0.3), 0 0 0 1px rgba(0,0,0,0.06); overflow: hidden; z-index: 30; font-family: var(--gotham); color: var(--nb-ink); }
+      .b2b-h { display: flex; align-items: center; gap: 16px; padding: 18px 24px; border-bottom: 1px solid #e8dfcf; }
+      .b2b-h img { height: 46px; }
+      .b2b-h span { font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--nb-gold); }
+      .b2b-b { display: flex; gap: 20px; padding: 22px 24px; align-items: center; }
+      .b2b-b .im { width: 130px; height: 96px; background: url("assets/screens/coffret-napoleon.jpg") center/cover; flex: none; }
+      .b2b-b .nm { font-family: var(--serif); font-size: 32px; font-weight: 500; line-height: 1.05; }
+      .b2b-q { display: flex; align-items: center; gap: 12px; margin-top: 10px; font-size: 18px; }
+      .b2b-q b { display: inline-flex; width: 52px; height: 40px; border: 1px solid #cdbfa5; align-items: center; justify-content: center; font-weight: 400; font-size: 22px; }
+      .b2b-btn { margin: 0 24px 22px; height: 56px; background: #111; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 17px; letter-spacing: 0.14em; text-transform: uppercase; }
+
+      /* ---------- 3 · Clients : Klaviyo + Gorgias ---------- */
+      .kl { position: absolute; left: 100px; top: 160px; width: 900px; height: 620px; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 40px 100px rgba(10,30,90,0.2), 0 0 0 1px rgba(20,23,28,0.07); font-family: var(--ui); color: #111; }
+      .kl-h { height: 86px; display: flex; align-items: center; gap: 22px; padding: 0 30px; border-bottom: 1px solid #e7e7e7; }
+      .kl-h img { height: 32px; }
+      .kl-h b { font-size: 28px; font-weight: 700; }
+      .kl-th { display: grid; grid-template-columns: 1fr 70px 150px; padding: 18px 30px; font-size: 17px; font-weight: 600; color: #555; border-bottom: 1px solid #ececec; }
+      .kl-r { display: grid; grid-template-columns: 1fr 70px 150px; align-items: center; padding: 0 30px; height: 132px; border-bottom: 1px solid #ececec; }
+      .kl-r .n { font-size: 25px; font-weight: 500; color: #1f5fbf; }
+      .kl-r .s { font-size: 18px; color: #666; margin-top: 6px; }
+      .kl-live { justify-self: start; padding: 8px 16px; border-radius: 999px; background: #e3f4e8; color: #17703a; font-size: 19px; font-weight: 600; }
+      .mail { position: absolute; left: 0; top: 0; width: 460px; background: var(--nb-cream); border-radius: 12px; overflow: hidden; box-shadow: 0 30px 80px rgba(10,30,90,0.3), 0 0 0 1px rgba(0,0,0,0.06); z-index: 20; font-family: var(--gotham); color: var(--nb-ink); text-align: center; }
+      .mail .mh { padding: 16px 0 10px; } .mail .mh img { height: 46px; }
+      .mail .mi { height: 190px; background-size: cover; background-position: center; }
+      .mail .mt { font-family: var(--serif); font-size: 38px; font-weight: 500; margin: 18px 20px 6px; line-height: 1.05; }
+      .mail .mx { font-size: 17px; color: #4a4640; margin: 0 26px; line-height: 1.4; }
+      .mail .mb { display: inline-block; margin: 16px 0 20px; padding: 12px 26px; background: #111; color: #fff; font-size: 14px; letter-spacing: 0.14em; }
+      .mail-tag { position: absolute; left: 0; top: 0; z-index: 21; padding: 10px 16px; background: var(--ink); color: #fff; font-family: var(--mono); font-size: 18px; font-weight: 600; letter-spacing: 0.04em; border-radius: 8px; white-space: nowrap; }
+      .gg { position: absolute; left: 1140px; top: 150px; width: 680px; height: 800px; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 40px 100px rgba(10,30,90,0.2), 0 0 0 1px rgba(20,23,28,0.07); font-family: var(--ui); }
+      .gg-h { height: 86px; display: flex; align-items: center; gap: 18px; padding: 0 28px; border-bottom: 1px solid #e7e7e7; }
+      .gg-h img { height: 32px; }
+      .gg-h span { margin-left: auto; font-size: 18px; color: #666; }
+      .gg-body { position: relative; padding: 28px; }
+      .bub { position: absolute; max-width: 470px; padding: 18px 24px; border-radius: 22px; font-size: 26px; line-height: 1.3; }
+      .bub.q { left: 28px; background: #f0f1f3; color: #111; border-bottom-left-radius: 6px; }
+      .bub.a { right: 28px; background: #1f1d1a; color: #fff; border-bottom-right-radius: 6px; }
+      .auto { position: absolute; right: 30px; font-family: var(--mono); font-size: 17px; font-weight: 600; color: var(--ok); letter-spacing: 0.03em; white-space: nowrap; }
+      .dots { position: absolute; right: 28px; padding: 18px 22px; background: #1f1d1a; border-radius: 22px; border-bottom-right-radius: 6px; display: flex; gap: 8px; }
+      .dots i { width: 12px; height: 12px; border-radius: 50%; background: #fff; opacity: 0.6; }
+
+      /* ---------- 4 · Visibilité : SEO / GEO ---------- */
+      .serp { position: absolute; left: 110px; top: 160px; width: 1120px; height: 470px; background: #fff; border-radius: 14px; box-shadow: 0 40px 100px rgba(10,30,90,0.2), 0 0 0 1px rgba(20,23,28,0.07); font-family: Arial, var(--ui); overflow: hidden; }
+      .g-top { display: flex; align-items: center; gap: 30px; padding: 30px 36px 20px; border-bottom: 1px solid #ebebeb; }
+      .g-logo { font-family: Arial, sans-serif; font-size: 44px; font-weight: 500; letter-spacing: -1px; }
+      .g-box { flex: 1; height: 58px; border-radius: 30px; box-shadow: 0 1px 6px rgba(32,33,36,0.28); display: flex; align-items: center; padding: 0 26px; font-size: 24px; color: #202124; }
+      .g-res { padding: 34px 44px 30px 44px; }
+      .g-site { display: flex; align-items: center; gap: 14px; }
+      .g-fav { width: 44px; height: 44px; border-radius: 50%; background: #f1f3f4; display: flex; align-items: center; justify-content: center; }
+      .g-fav img { width: 34px; }
+      .g-name { font-size: 20px; color: #202124; } .g-url { font-size: 17px; color: #4d5156; }
+      .g-title { font-size: 40px; color: #1a0dab; margin-top: 14px; line-height: 1.2; }
+      .g-desc { font-size: 25px; color: #4d5156; margin-top: 12px; line-height: 1.45; max-width: 1000px; }
+      .chk { position: absolute; left: 1270px; top: 160px; width: 540px; height: 640px; background: #fff; border: 1px solid var(--g200); border-top: 4px solid var(--blue); padding: 30px 32px; box-shadow: 0 30px 70px rgba(0,62,199,0.12); }
+      .chk-k { font-family: var(--mono); font-size: 20px; font-weight: 600; color: var(--blue); letter-spacing: 0.08em; text-transform: uppercase; }
+      .chk-t { font-size: 40px; font-weight: 600; letter-spacing: -0.03em; margin-top: 6px; }
+      .chk-l { margin-top: 28px; display: flex; flex-direction: column; gap: 24px; }
+      .chk-i { display: flex; align-items: center; gap: 18px; font-size: 27px; white-space: nowrap; font-weight: 500; letter-spacing: -0.02em; color: var(--ink-soft); }
+      .box { width: 34px; height: 34px; border: 3px solid var(--g300); flex: none; display: flex; align-items: center; justify-content: center; background: #fff; }
+      .box svg { opacity: 0; }
+      .tools { position: absolute; left: 110px; top: 670px; display: flex; gap: 20px; }
+      .tool { display: flex; align-items: center; gap: 14px; padding: 16px 24px; background: #fff; border: 1px solid var(--g200); font-size: 28px; font-weight: 600; letter-spacing: -0.02em; box-shadow: 0 16px 40px rgba(0,62,199,0.08); }
+      .tool img { height: 40px; }
+
+      /* ---------- Lancement ---------- */
+      #launchBg { background: var(--nb-cream); }
+      .launch { position: absolute; left: 0; right: 0; top: 300px; text-align: center; color: var(--nb-ink); }
+      .launch img { height: 170px; }
+      .launch .k { margin-top: 40px; font-family: var(--gotham); font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--nb-gold); }
+      .launch .d { font-family: var(--serif); font-size: 130px; font-weight: 500; letter-spacing: 0.01em; line-height: 1.05; margin-top: 8px; }
+
+      /* ---------- 5 · Pilotage : le rapport du lundi ---------- */
+      .mailw { position: absolute; left: 110px; top: 140px; width: 1700px; height: 850px; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 40px 100px rgba(10,30,90,0.22), 0 0 0 1px rgba(20,23,28,0.07); font-family: var(--ui); }
+      .inbox { position: absolute; left: 0; top: 0; bottom: 0; width: 440px; background: #f7f8fa; border-right: 1px solid #e5e7eb; }
+      .inbox-h { height: 76px; display: flex; align-items: center; padding: 0 26px; font-size: 24px; font-weight: 700; border-bottom: 1px solid #e5e7eb; }
+      .ib-list { position: relative; height: 774px; overflow: hidden; }
+      .ib { position: absolute; left: 0; right: 0; top: 0; height: 112px; padding: 18px 26px; border-bottom: 1px solid #e5e7eb; background: #f7f8fa; }
+      .ib .f { font-size: 20px; font-weight: 700; color: #111; display: flex; justify-content: space-between; }
+      .ib .f em { font-style: normal; font-weight: 500; font-size: 17px; color: #6b7280; }
+      .ib .s { font-size: 18px; color: #374151; margin-top: 6px; }
+      .ib .p { height: 10px; border-radius: 5px; background: #e2e5ea; margin-top: 12px; width: 80%; }
+      .ib .unread { position: absolute; left: 8px; top: 26px; width: 10px; height: 10px; border-radius: 50%; background: var(--blue); }
+      .rep { position: absolute; left: 440px; top: 0; right: 0; bottom: 0; padding: 34px 44px; background: #f8f9fb; background-image: linear-gradient(to right, rgba(20,23,28,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,23,28,0.035) 1px, transparent 1px); background-size: 40px 40px; font-family: var(--sans); }
+      .rep-k { font-family: var(--mono); font-size: 20px; font-weight: 600; color: var(--blue); letter-spacing: 0.1em; text-transform: uppercase; }
+      .rep-t { font-size: 46px; font-weight: 600; letter-spacing: -0.035em; margin-top: 6px; }
+      .rep-badge { position: absolute; right: 44px; top: 36px; display: flex; align-items: center; gap: 12px; padding: 12px 18px; background: #fff; border: 1px solid var(--g200); font-family: var(--mono); font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); }
+      .rep-badge img { height: 28px; }
+      .kpis { display: flex; gap: 22px; margin-top: 28px; }
+      .kpi { flex: 1; background: #fff; border: 1px solid var(--g200); border-top: 4px solid var(--blue); padding: 18px 24px; }
+      .kpi .kl { font-family: var(--mono); font-size: 18px; font-weight: 600; color: var(--g500); letter-spacing: 0.08em; }
+      .kpi .kv { display: flex; align-items: baseline; gap: 14px; margin-top: 8px; }
+      .kpi .kv b { font-family: var(--mono); font-size: 56px; font-weight: 700; filter: blur(9px); }
+      .kpi .kv i { font-style: normal; font-size: 26px; font-weight: 700; color: var(--ok); }
+      .rep-row { display: flex; gap: 22px; margin-top: 24px; }
+      .rc { flex: 1; background: #fff; border: 1px solid var(--g200); padding: 24px 26px; height: 420px; }
+      .rc-k { font-family: var(--mono); font-size: 19px; font-weight: 600; color: var(--blue); letter-spacing: 0.08em; text-transform: uppercase; }
+      .rc-txt { font-size: 28px; line-height: 1.38; letter-spacing: -0.01em; margin-top: 14px; color: var(--ink-soft); }
+      .bars { margin-top: 22px; display: flex; flex-direction: column; gap: 14px; }
+      .bar { display: grid; grid-template-columns: 200px 1fr 70px; align-items: center; gap: 14px; font-size: 20px; color: var(--g500); }
+      .bar .tr { height: 14px; background: var(--g100); position: relative; }
+      .bar .tr i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--blue); transform-origin: left; }
+      .bar b { font-family: var(--mono); filter: blur(6px); color: var(--ink); }
+      .todo { margin-top: 16px; display: flex; flex-direction: column; gap: 18px; }
+      .td { display: flex; gap: 18px; align-items: flex-start; font-size: 28px; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink-soft); }
+      .td span { flex: none; width: 46px; height: 46px; background: var(--blue); color: #fff; font-family: var(--mono); font-weight: 700; font-size: 24px; display: flex; align-items: center; justify-content: center; }
+
+      /* ---------- 6 · Résultat ---------- */
+      #big { position: absolute; left: 130px; top: 200px; color: #fff; }
+      #big .a { font-size: 74px; font-weight: 600; letter-spacing: -0.03em; opacity: 0.85; }
+      #big .b { font-size: 170px; font-weight: 700; letter-spacing: -0.055em; line-height: 0.95; margin-top: 6px; white-space: nowrap; }
+      .srcs { position: absolute; left: 136px; top: 560px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+      .src { display: flex; align-items: center; gap: 14px; padding: 14px 22px; border: 1px solid rgba(255,255,255,0.45); color: #fff; font-size: 34px; font-weight: 500; letter-spacing: -0.02em; }
+      #toolsBox { position: absolute; left: 1090px; top: 200px; width: 700px; height: 600px; border: 1px solid rgba(255,255,255,0.45); border-top: 4px solid #fff; padding: 30px 34px; color: #fff; }
+      #toolsBox .ct { display: flex; align-items: baseline; gap: 16px; }
+      #toolsBox .ct b { font-size: 96px; font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
+      #toolsBox .ct span { font-size: 40px; font-weight: 600; letter-spacing: -0.03em; }
+      .tgrid { display: grid; grid-template-columns: repeat(5, 110px); gap: 18px; margin-top: 34px; }
+      .tt { width: 110px; height: 110px; background: #fff; display: flex; align-items: center; justify-content: center; }
+      .tt img { max-width: 70px; max-height: 58px; }
+      .tgrid-l { margin-top: 26px; font-family: var(--mono); font-size: 19px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.8; line-height: 1.6; }
+      #endLogos { position: absolute; left: 1090px; top: 840px; display: flex; align-items: center; gap: 28px; color: rgba(255,255,255,0.75); font-size: 30px; font-weight: 500; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="51" data-width="1920" data-height="1080">
+      <div id="bg" class="fill" style="background: #f3f4f7"></div>
+
+      <!-- =============== 1 · BOUTIQUE : du wireframe à la boutique Shopify =============== -->
+      <div id="sB" class="scene clip" data-start="0" data-duration="51" data-track-index="1" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+        <div class="aurora">
+          <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #d7e0f6"></div>
+          <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #d7e0f6"></div>
+          <div class="blob" style="left: 30%; top: 60%; width: 700px; height: 500px; background: #edf1fb"></div>
+        </div>
+        <div id="worldB" class="world">
+          <div id="store" class="store">
+            <div id="track" class="store-track">
+              <div class="sp">
+                <div class="wire" id="wire">
+                  <i style="left: 0; top: 0; width: 1500px; height: 34px"></i>
+                  <i style="left: 46px; top: 74px; width: 380px; height: 16px"></i>
+                  <i style="left: 696px; top: 54px; width: 108px; height: 70px"></i>
+                  <i style="left: 1080px; top: 74px; width: 374px; height: 16px"></i>
+                  <i class="o" style="left: 46px; top: 150px; width: 1408px; height: 500px"></i>
+                  <i style="left: 46px; top: 670px; width: 700px; height: 34px"></i>
+                  <i style="left: 46px; top: 718px; width: 520px; height: 34px"></i>
+                  <i class="o" style="left: 46px; top: 770px; width: 254px; height: 46px"></i>
+                  <span class="wire-tag">WIREFRAME · ACCUEIL</span>
+                </div>
+                <img id="homeImg" class="scr" src="assets/screens/home.jpg" alt="Accueil de la boutique Nichebloom" />
+                <div id="hotDiscover" style="position: absolute; left: 45px; top: 743px; width: 253px; height: 39px"></div>
+              </div>
+              <div class="sp">
+                <img class="scr" src="assets/screens/napoleon.jpg" alt="Fiche Coffret Signature Napoléon" />
+                <div id="hotAdd" style="position: absolute; left: 987px; top: 559px; width: 468px; height: 42px"></div>
+                <div id="cartOver">PANIER (1)</div>
+              </div>
+            </div>
+            <div id="storeChip" class="store-chip"><img src="assets/shopify-bag.svg" alt="" />Shopify</div>
+          </div>
+          <div id="flyB" class="fly"></div>
+          <svg id="curB" class="cursor" width="40" height="48" viewBox="0 0 34 40" style="z-index: 50"><path d="M2 2 L2 32 L10 25 L16 38 L22 35 L16 22 L27 22 Z" fill="#14171C" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" /></svg>
+        </div>
+        <div id="capB" class="caption"><div class="tag">01 · Boutique</div><div class="t">La boutique se construit sur <img class="ilogo" src="assets/shopify-bag.svg" alt="" />Shopify.</div></div>
+      </div>
+
+      <!-- =============== 2 · OPÉRATIONS : Odoo, étiquettes, stock, revendeurs =============== -->
+      <div id="sO" class="scene clip" data-start="0" data-duration="51" data-track-index="2" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+        <div class="fill gridbg"></div>
+        <div id="worldO" class="world">
+          <div id="odoo" class="odoo">
+            <div class="od-head"><span class="app"><img src="assets/logos/odoo.svg" alt="" />Odoo</span><span>Ventes</span><span>Inventaire</span><span>Expédition</span><span>Portail revendeurs</span><span class="nb">NICHEBLOOM</span></div>
+            <div class="od-sub"><span class="od-btn">Nouveau</span><span class="od-crumb">Commandes</span><span class="od-search">Rechercher…</span></div>
+            <div class="od-table">
+              <div class="od-th"><span>Réf.</span><span>Canal</span><span>Client</span><span>Produit</span><span style="text-align: center">Qté</span><span>Statut</span></div>
+              <div class="od-body" id="odBody">
+                <div class="od-r" id="rN"><span class="ref">S00058</span><span class="ch"><img src="assets/shopify-bag.svg" alt="" />Shopify</span><span class="blurred">Camille D.</span><span>Coffret Signature Napoléon</span><span class="q">1</span><span><span class="pill p-new" id="stN">Confirmée</span></span></div>
+                <div class="od-r" id="rR"><span class="ref">S00059</span><span class="ch"><img src="assets/logos/odoo.svg" alt="" />Revendeur</span><span class="blurred">Concept st.</span><span>Coffret Signature Napoléon</span><span class="q">6</span><span><span class="pill p-new">Confirmée</span></span></div>
+                <div class="od-r od-old"><span class="ref">S00057</span><span class="ch"><img src="assets/shopify-bag.svg" alt="" />Shopify</span><span class="blurred">Julie M.</span><span>Coffret Signature Joséphine</span><span class="q">1</span><span><span class="pill p-ok">Expédiée</span></span></div>
+                <div class="od-r od-old"><span class="ref">S00056</span><span class="ch"><img src="assets/logos/odoo.svg" alt="" />Revendeur</span><span class="blurred">Boutique L.</span><span>Coffret Signature Clyde</span><span class="q">6</span><span><span class="pill p-ok">Expédiée</span></span></div>
+                <div class="od-r od-old"><span class="ref">S00055</span><span class="ch"><img src="assets/shopify-bag.svg" alt="" />Shopify</span><span class="blurred">Marc R.</span><span>Plaid</span><span class="q">1</span><span><span class="pill p-ok">Expédiée</span></span></div>
+                <div class="od-r od-old"><span class="ref">S00054</span><span class="ch"><img src="assets/shopify-bag.svg" alt="" />Shopify</span><span class="blurred">Sarah P.</span><span>Coffret Signature Rosalie</span><span class="q">1</span><span><span class="pill p-ok">Expédiée</span></span></div>
+                <div class="od-r od-old"><span class="ref">S00053</span><span class="ch"><img src="assets/logos/odoo.svg" alt="" />Revendeur</span><span class="blurred">Maison B.</span><span>Recharge Nomade Bonnie</span><span class="q">12</span><span><span class="pill p-ok">Expédiée</span></span></div>
+                <div class="od-r od-old"><span class="ref">S00052</span><span class="ch"><img src="assets/shopify-bag.svg" alt="" />Shopify</span><span class="blurred">Emma F.</span><span>Ruban en twill de soie</span><span class="q">2</span><span><span class="pill p-ok">Expédiée</span></span></div>
+                <div class="od-r od-old"><span class="ref">S00051</span><span class="ch"><img src="assets/shopify-bag.svg" alt="" />Shopify</span><span class="blurred">Léa B.</span><span>Coffret Signature César</span><span class="q">1</span><span><span class="pill p-ok">Expédiée</span></span></div>
+              </div>
+            </div>
+            <div class="od-side" id="shipCard" style="top: 160px; height: 470px; padding: 24px 26px">
+              <div class="od-st">Expédition automatique</div>
+              <div class="od-ss">API transporteurs intégrées</div>
+              <div style="position: absolute; right: 26px; top: 26px; display: flex; gap: 16px; align-items: center"><img src="assets/logos/ups.svg" alt="UPS" style="height: 44px" /><img src="assets/logos/dpd.svg" alt="DPD" style="height: 44px" /></div>
+              <div class="printer"></div>
+              <div class="lbl-wrap"><div class="lbl" id="lbl">
+                <div class="top"><img src="assets/logos/ups.svg" alt="" /><b>UPS STANDARD</b></div>
+                <div class="l"><b>De :</b> Nichebloom Paris</div>
+                <div class="l"><b>À :</b> <span class="blurred">Camille Durand, 12 rue des Arts</span></div>
+                <div class="trk">1Z 9F2 4A0 68 1234 5678</div>
+                <div class="barcode"></div>
+                <div class="l" style="text-align: center">S00058 · 1 colis</div>
+              </div></div>
+            </div>
+            <div class="od-side" id="stockCard" style="top: 650px; height: 176px; padding: 22px 26px">
+              <div class="od-st" style="font-size: 22px">Stock · Coffret Signature Napoléon</div>
+              <div style="display: flex; align-items: baseline; gap: 16px; margin-top: 8px"><span class="stock-v" id="stockV">48</span><span class="od-ss" style="margin: 0">mis à jour à l'expédition</span></div>
+            </div>
+          </div>
+          <div id="b2b" class="b2b">
+            <div class="b2b-h"><img src="assets/logos/nichebloom.svg" alt="Nichebloom" /><span>Espace revendeurs</span></div>
+            <div class="b2b-b"><div class="im"></div><div><div class="nm">Coffret Signature Napoléon</div><div class="b2b-q">Quantité <b>6</b></div></div></div>
+            <div class="b2b-btn" id="b2bBtn">Commander</div>
+          </div>
+          <div id="chipO" class="order-chip"><span class="th"></span><span><small>Nouvelle commande · Shopify</small>Coffret Signature Napoléon</span></div>
+          <svg id="curO" class="cursor" width="40" height="48" viewBox="0 0 34 40" style="z-index: 50"><path d="M2 2 L2 32 L10 25 L16 38 L22 35 L16 22 L27 22 Z" fill="#14171C" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" /></svg>
+        </div>
+        <div id="capO" class="caption"><div class="tag">02 · Opérations · <img src="assets/logos/odoo.svg" alt="" style="height: 26px" /> Odoo</div><div class="t" id="capOt">Commandes, étiquettes, stock : rien à ressaisir.</div></div>
+      </div>
+
+      <!-- =============== 3 · CLIENTS : Klaviyo + Gorgias =============== -->
+      <div id="sK" class="scene clip" data-start="0" data-duration="51" data-track-index="3" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+        <div class="aurora">
+          <div class="blob" style="left: 0%; top: 50%; width: 900px; height: 700px; background: #d7e0f6"></div>
+          <div class="blob" style="left: 60%; top: 0%; width: 900px; height: 700px; background: #d7e0f6"></div>
+        </div>
+        <div id="worldK" class="world">
+          <div id="kl" class="kl">
+            <div class="kl-h"><img src="assets/logos/klaviyo.svg" alt="Klaviyo" /><b>Flux</b></div>
+            <div class="kl-th"><span>Flux</span><span>Type</span><span>Statut</span></div>
+            <div class="kl-r" id="kr0"><div><div class="n">Nichebloom · V1 Bienvenue</div><div class="s">Ajouté à la liste Newsletter</div></div><span><svg width="34" height="26" viewBox="0 0 34 26"><rect x="2" y="2" width="30" height="22" rx="3" fill="none" stroke="#111" stroke-width="2.6" /><path d="M3 4 L17 15 L31 4" fill="none" stroke="#111" stroke-width="2.6" /></svg></span><span class="kl-live">En direct</span></div>
+            <div class="kl-r" id="kr1"><div><div class="n">Nichebloom · V1 Panier abandonné</div><div class="s">Ajout au panier</div></div><span><svg width="34" height="26" viewBox="0 0 34 26"><rect x="2" y="2" width="30" height="22" rx="3" fill="none" stroke="#111" stroke-width="2.6" /><path d="M3 4 L17 15 L31 4" fill="none" stroke="#111" stroke-width="2.6" /></svg></span><span class="kl-live">En direct</span></div>
+            <div class="kl-r" id="kr2"><div><div class="n">Nichebloom · Retour en stock</div><div class="s">Abonnement au retour en stock</div></div><span><svg width="34" height="26" viewBox="0 0 34 26"><rect x="2" y="2" width="30" height="22" rx="3" fill="none" stroke="#111" stroke-width="2.6" /><path d="M3 4 L17 15 L31 4" fill="none" stroke="#111" stroke-width="2.6" /></svg></span><span class="kl-live">En direct</span></div>
+          </div>
+          <div id="mail1" class="mail" style="left: 1080px; top: 250px">
+            <div class="mh"><img src="assets/logos/nichebloom.svg" alt="" /></div>
+            <div class="mi" style="background-image: url('assets/screens/email-dog.jpg')"></div>
+            <div class="mt">Bienvenue chez Nichebloom</div>
+            <div class="mx">Votre code de bienvenue vous attend.</div>
+            <div class="mb">DÉCOUVRIR</div>
+          </div>
+          <div id="mail2" class="mail" style="left: 1080px; top: 250px">
+            <div class="mh"><img src="assets/logos/nichebloom.svg" alt="" /></div>
+            <div class="mi" style="background-image: url('assets/screens/coffret-napoleon.jpg')"></div>
+            <div class="mt">Votre coffret vous attend</div>
+            <div class="mx">Coffret Signature Napoléon</div>
+            <div class="mb">FINALISER MA COMMANDE</div>
+          </div>
+          <div id="mtag1" class="mail-tag">Envoyé à l'inscription</div>
+          <div id="mtag2" class="mail-tag">Relance 3 h après le panier</div>
+          <div id="gg" class="gg">
+            <div class="gg-h"><img src="assets/logos/gorgias.svg" alt="Gorgias" /><span>Chat · nichebloom.com</span></div>
+            <div class="gg-body">
+              <div class="bub q" id="q1" style="top: 30px">Bonjour, où en est ma commande&nbsp;?</div>
+              <div class="dots" id="d1" style="top: 150px"><i></i><i></i><i></i></div>
+              <div class="bub a" id="a1" style="top: 150px">Votre colis UPS est en route&nbsp;: livraison prévue demain. Suivre le colis&nbsp;→</div>
+              <div class="auto" id="t1" style="top: 312px">⚡ Réponse automatique · Gorgias</div>
+              <div class="bub q" id="q2" style="top: 372px">La livraison est-elle offerte&nbsp;?</div>
+              <div class="dots" id="d2" style="top: 492px"><i></i><i></i><i></i></div>
+              <div class="bub a" id="a2" style="top: 492px">Oui, la livraison standard est offerte dès 130&nbsp;€ d'achat.</div>
+              <div class="auto" id="t2" style="top: 654px">⚡ Réponse automatique · Gorgias</div>
+            </div>
+          </div>
+        </div>
+        <div id="capK" class="caption"><div class="tag">03 · Clients</div><div class="t">Relancés et servis automatiquement.</div></div>
+      </div>
+
+      <!-- =============== 4 · VISIBILITÉ : SEO / GEO =============== -->
+      <div id="sV" class="scene clip" data-start="0" data-duration="51" data-track-index="4" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+        <div class="fill gridbg"></div>
+        <div id="worldV" class="world">
+          <div id="serp" class="serp">
+            <div class="g-top"><span class="g-logo"><span style="color: #4285f4">G</span><span style="color: #ea4335">o</span><span style="color: #fbbc05">o</span><span style="color: #4285f4">g</span><span style="color: #34a853">l</span><span style="color: #ea4335">e</span></span><div class="g-box" id="gq"></div></div>
+            <div class="g-res" id="gres">
+              <div class="g-site"><span class="g-fav"><img src="assets/logos/nichebloom.svg" alt="" /></span><span><div class="g-name">Nichebloom</div><div class="g-url">https://nichebloom.com › products › coffret-napoleon</div></span></div>
+              <div class="g-title" id="gTitle">Coffret Napoléon | Nichebloom</div>
+              <div class="g-desc" id="gDesc">Découvrez le coffret Napoléon.</div>
+            </div>
+          </div>
+          <div id="chk" class="chk">
+            <div class="chk-k">Optimisation SEO · GEO</div>
+            <div class="chk-t">Chaque page, revue</div>
+            <div class="chk-l">
+              <div class="chk-i" id="c0"><span class="box"><svg width="24" height="24" viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="square" /></svg></span>Titres et méta-descriptions</div>
+              <div class="chk-i" id="c1"><span class="box"><svg width="24" height="24" viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="square" /></svg></span>Balises H1, fil d'Ariane</div>
+              <div class="chk-i" id="c2"><span class="box"><svg width="24" height="24" viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="square" /></svg></span>Plan du site, indexation</div>
+              <div class="chk-i" id="c3"><span class="box"><svg width="24" height="24" viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="square" /></svg></span>Données structurées</div>
+              <div class="chk-i" id="c4"><span class="box"><svg width="24" height="24" viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="square" /></svg></span>FAQ lisibles par les IA</div>
+              <div class="chk-i" id="c5"><span class="box"><svg width="24" height="24" viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="square" /></svg></span>Mots-clés « parfum pour chien »</div>
+            </div>
+          </div>
+          <div class="tools">
+            <div class="tool" id="tl0"><img src="assets/logos/semrush.svg" alt="" />Semrush</div>
+            <div class="tool" id="tl1"><img src="assets/logos/google-search-console.svg" alt="" />Search Console</div>
+            <div class="tool" id="tl2"><img src="assets/logos/google-analytics.svg" alt="" />Google Analytics</div>
+          </div>
+        </div>
+        <div id="capV" class="caption"><div class="tag">04 · Visibilité</div><div class="t">Un site lisible par Google et par les IA.</div></div>
+      </div>
+
+      <!-- =============== Lancement : 23 octobre =============== -->
+      <div id="sL" class="scene clip" data-start="0" data-duration="51" data-track-index="5" data-layout-allow-overlap>
+        <div id="launchBg" class="fill"></div>
+        <div class="launch" id="launch">
+          <img src="assets/logos/nichebloom.svg" alt="Nichebloom" id="lLogo" />
+          <div class="k" id="lK">La boutique ouvre le</div>
+          <div class="d" id="lD">23 octobre</div>
+        </div>
+      </div>
+
+      <!-- =============== 5 · PILOTAGE : le rapport du lundi =============== -->
+      <div id="sP" class="scene clip" data-start="0" data-duration="51" data-track-index="6" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow>
+        <div class="aurora">
+          <div class="blob" style="left: 5%; top: 10%; width: 900px; height: 700px; background: #d7e0f6"></div>
+          <div class="blob" style="left: 55%; top: 40%; width: 900px; height: 800px; background: #d7e0f6"></div>
+        </div>
+        <div id="worldP" class="world">
+          <div id="mailw" class="mailw">
+            <div class="inbox">
+              <div class="inbox-h">Boîte de réception</div>
+              <div class="ib-list">
+                <div class="ib" id="ibN" style="background: #fff"><span class="unread" id="ibDot"></span><div class="f">Nichebloom · Rapport<em>lun. 08:06</em></div><div class="s">Trafic · semaine du 16 au 22/11</div><div class="p" style="width: 70%"></div></div>
+                <div class="ib ib-old"><div class="f"><span class="blurred">Corinne B.</span><em>ven.</em></div><div class="s blurred">Shooting de Noël, sélection</div><div class="p"></div></div>
+                <div class="ib ib-old"><div class="f">Nichebloom · Rapport<em>lun.</em></div><div class="s">Trafic · semaine du 9 au 15/11</div><div class="p" style="width: 60%"></div></div>
+                <div class="ib ib-old"><div class="f"><span class="blurred">Benoît L.</span><em>jeu.</em></div><div class="s blurred">Bandeau revendeurs</div><div class="p" style="width: 74%"></div></div>
+                <div class="ib ib-old"><div class="f">Nichebloom · Rapport<em>lun.</em></div><div class="s">Trafic · semaine du 2 au 8/11</div><div class="p" style="width: 66%"></div></div>
+                <div class="ib ib-old"><div class="f"><span class="blurred">Solenn M.</span><em>mar.</em></div><div class="s blurred">Newsletter, 3 langues</div><div class="p"></div></div>
+                <div class="ib ib-old"><div class="f">Nichebloom · Rapport<em>lun.</em></div><div class="s">Trafic · semaine du 26/10 au 1/11</div><div class="p" style="width: 58%"></div></div>
+              </div>
+            </div>
+            <div class="rep" id="rep">
+              <div class="rp rep-k">Nichebloom · Rapport hebdomadaire</div>
+              <div class="rp rep-t">Trafic · semaine du 16 au 22 novembre</div>
+              <div class="rp rep-badge">Généré avec <img src="assets/logos/claude-icon.svg" alt="" />Claude · chaque lundi</div>
+              <div class="rp kpis">
+                <div class="kpi" id="kp0"><div class="kl">COMMANDES</div><div class="kv"><b>12</b><i>▲</i></div></div>
+                <div class="kpi" id="kp1"><div class="kl">CA TTC</div><div class="kv"><b>1 284 €</b><i>▲</i></div></div>
+                <div class="kpi" id="kp2"><div class="kl">SESSIONS</div><div class="kv"><b>2 460</b><i>▲</i></div></div>
+              </div>
+              <div class="rp rep-row">
+                <div class="rc" id="rcA">
+                  <div class="rc-k">En bref</div>
+                  <div class="rc-txt">Plus de visites, surtout via la publicité Meta. Le passage du panier au paiement remonte.</div>
+                  <div class="bars">
+                    <div class="bar"><span>Sessions</span><span class="tr"><i id="br0" style="width: 100%"></i></span><b>2 460</b></div>
+                    <div class="bar"><span>Ajout au panier</span><span class="tr"><i id="br1" style="width: 46%"></i></span><b>146</b></div>
+                    <div class="bar"><span>Paiement</span><span class="tr"><i id="br2" style="width: 22%"></i></span><b>48</b></div>
+                  </div>
+                </div>
+                <div class="rc" id="rcB">
+                  <div class="rc-k">À regarder cette semaine</div>
+                  <div class="todo">
+                    <div class="td" id="td0"><span>1</span>Ré-exclure la colonne de droite Facebook</div>
+                    <div class="td" id="td1"><span>2</span>Vérifier la page d'arrivée Clyde</div>
+                    <div class="td" id="td2"><span>3</span>Faire un achat test sur ordinateur</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <svg id="curP" class="cursor" width="40" height="48" viewBox="0 0 34 40" style="z-index: 50"><path d="M2 2 L2 32 L10 25 L16 38 L22 35 L16 22 L27 22 Z" fill="#14171C" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" /></svg>
+        </div>
+        <div id="capP" class="caption"><div class="tag">05 · Pilotage</div><div class="t">Chaque lundi, l'équipe sait quoi corriger.</div></div>
+      </div>
+
+      <!-- =============== 6 · RÉSULTAT =============== -->
+      <div id="sR" class="scene clip" data-start="0" data-duration="51" data-track-index="7" data-layout-allow-overlap>
+        <div id="flood" class="fill" style="background-color: #003ec7; background-image: linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 48px 48px"></div>
+        <div id="big"><div class="a r1">En ligne depuis le</div><div class="b r1">23 octobre</div></div>
+        <div class="srcs">
+          <div class="src"><svg width="30" height="30" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" fill="#fff" /><path d="M6 11.5 L9.5 15 L16 8" stroke="#003EC7" stroke-width="2.6" fill="none" stroke-linecap="square" /></svg>0 ressaisie de commande</div>
+          <div class="src"><svg width="30" height="30" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" fill="#fff" /><path d="M6 11.5 L9.5 15 L16 8" stroke="#003EC7" stroke-width="2.6" fill="none" stroke-linecap="square" /></svg>Service client en partie automatisé</div>
+          <div class="src"><svg width="30" height="30" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" fill="#fff" /><path d="M6 11.5 L9.5 15 L16 8" stroke="#003EC7" stroke-width="2.6" fill="none" stroke-linecap="square" /></svg>29 points de vente revendeurs</div>
+        </div>
+        <div id="toolsBox">
+          <div class="ct"><b id="toolsN">10</b><span>outils connectés</span></div>
+          <div class="tgrid">
+            <div class="tt"><img src="assets/shopify-bag.svg" alt="Shopify" /></div>
+            <div class="tt"><img src="assets/logos/odoo.svg" alt="Odoo" /></div>
+            <div class="tt"><img src="assets/logos/klaviyo.svg" alt="Klaviyo" style="max-width: 86px" /></div>
+            <div class="tt"><img src="assets/logos/gorgias.svg" alt="Gorgias" style="max-width: 86px" /></div>
+            <div class="tt"><img src="assets/logos/ups.svg" alt="UPS" /></div>
+            <div class="tt"><img src="assets/logos/dpd.svg" alt="DPD" /></div>
+            <div class="tt"><img src="assets/logos/google-analytics.svg" alt="Google Analytics" /></div>
+            <div class="tt"><img src="assets/logos/google-search-console.svg" alt="Search Console" /></div>
+            <div class="tt"><img src="assets/logos/semrush.svg" alt="Semrush" /></div>
+            <div class="tt"><img src="assets/logos/claude-icon.svg" alt="Claude" /></div>
+          </div>
+          <div class="tgrid-l">Boutique · ERP · emailing · service client<br />transporteurs · analyse · SEO · IA</div>
+        </div>
+        <div id="endLogos"><img src="assets/logos/nichebloom.svg" alt="Nichebloom" style="height: 96px; filter: brightness(0) invert(1)" /><span>×</span>
+          <svg height="56" viewBox="0 0 480 110" aria-label="Tulco Studio"><g transform="translate(4,11) scale(0.88)"><rect x="20" y="22" width="60" height="14" rx="5" fill="#fff" /><path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#fff" /></g><text x="98" y="80" font-family="Switzer" font-size="70" letter-spacing="-2.5" fill="#fff"><tspan font-weight="600">Tulco</tspan><tspan font-weight="400" dx="6" letter-spacing="-1" fill-opacity="0.7">Studio</tspan></text></svg>
+        </div>
+      </div>
+
+      <!-- =============== Frise des phases (au-dessus des scènes) =============== -->
+      <div id="sF" class="scene clip" data-start="0" data-duration="51" data-track-index="8" data-layout-allow-overlap data-layout-allow-occlusion style="pointer-events: none">
+        <div id="frise">
+          <div id="frLine"><div id="frFill"></div></div>
+          <div class="fr-items">
+            <div class="fr-i" id="fi0"><span class="fr-d" id="fd0"></span><span class="fr-l" id="fl0">Boutique</span></div>
+            <div class="fr-i" id="fi1"><span class="fr-d" id="fd1"></span><span class="fr-l" id="fl1">Opérations</span></div>
+            <div class="fr-i" id="fi2"><span class="fr-d" id="fd2"></span><span class="fr-l" id="fl2">Clients</span></div>
+            <div class="fr-i" id="fi3"><span class="fr-d" id="fd3"></span><span class="fr-l" id="fl3">Visibilité</span></div>
+            <div class="fr-i" id="fi4"><span class="fr-d ms" id="fd4"></span><span class="fr-l" id="fl4">En ligne · 23.10</span></div>
+            <div class="fr-i" id="fi5"><span class="fr-d" id="fd5"></span><span class="fr-l" id="fl5">Pilotage</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =============== 0 · INTRO : Nichebloom × Tulco =============== -->
+      <div id="sI" class="scene clip" data-start="0" data-duration="5" data-track-index="9" data-layout-allow-overlap>
+        <div id="intro-bg" class="fill"></div>
+        <div class="intro-tag-wrap"><div class="intro-tag" id="iTag">Cas client</div></div>
+        <div class="intro-row">
+          <img id="iNb" src="assets/logos/nichebloom.svg" alt="Nichebloom" style="height: 200px" />
+          <span class="intro-x" id="iX">×</span>
+          <svg id="iTulco" height="52" viewBox="20 28 440 56" aria-label="Tulco Studio"><g transform="translate(4,11) scale(0.88)"><rect x="20" y="22" width="60" height="14" rx="5" fill="#003EC7" /><path d="M28 80 L44 80 L66 38 L50 38 Z" fill="#003EC7" /></g><text x="98" y="80" font-family="Switzer" font-size="70" letter-spacing="-2.5" fill="#14171C"><tspan font-weight="600">Tulco</tspan><tspan font-weight="400" dx="6" letter-spacing="-1">Studio</tspan></text></svg>
+        </div>
+        <div class="intro-sub" id="iSub"><span class="w">Une</span><span class="w">marque</span><span class="w">lancée</span><span class="w">sur</span> <span class="w"><img class="shop" src="assets/shopify-logo-mono.svg" alt="Shopify" /></span><br /><span class="w">avec</span><span class="w">ses</span><span class="w">outils</span><span class="w">branchés</span><span class="w">dès</span><span class="w">le</span><span class="w">premier</span><span class="w">jour</span></div>
+      </div>
+    </div>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const posIn = (el, stop) => { let x = 0, y = 0; while (el && el !== stop) { x += el.offsetLeft + (el.clientLeft || 0); y += el.offsetTop + (el.clientTop || 0); el = el.offsetParent; } return { x, y }; };
+      const centerIn = (el, world) => { const p = posIn(el, world); return { x: p.x + el.offsetWidth / 2, y: p.y + el.offsetHeight / 2 }; };
+      const cam = (s, px, py, ox = 960, oy = 560) => ({ scale: s, x: ox - px * s, y: oy - py * s });
+
+      // L'histoire est écrite sur sa propre horloge, puis jouée plus lentement après l'intro (voir la fin du script).
+      const story = gsap.timeline({ paused: true });
+      const T = story;
+      const swapText = (el, after, t) => { const before = el.innerHTML; const o = { v: 0 }; T.to(o, { v: 1, duration: 0.001, onUpdate: () => { el.innerHTML = o.v >= 0.5 ? after : before; } }, t); };
+      const words = (sel, t, gap, tl) => { const tt = tl || T; document.querySelectorAll(sel + " .w").forEach((w, i) => {
+        gsap.set(w, { opacity: 0, filter: "blur(10px)" });
+        tt.to(w, { opacity: 1, filter: "blur(0px)", duration: 0.22, ease: "power2.out" }, t + i * (gap || 0.07));
+      }); };
+      const click = (el, t) => { T.to(el, { scale: 0.94, duration: 0.08, ease: "power2.out" }, t); T.to(el, { scale: 1, duration: 0.2, ease: "power3.out" }, t + 0.08); };
+      const show = (id, from, to) => { gsap.set("#" + id, { opacity: from <= 0 ? 1 : 0 }); if (from > 0) T.set("#" + id, { opacity: 1 }, from); if (to) T.set("#" + id, { opacity: 0 }, to); };
+      const capIn = (id, t) => { gsap.set("#" + id, { opacity: 0, y: 20 }); T.to("#" + id, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, t); };
+      const capOut = (id, t) => T.to("#" + id, { opacity: 0, filter: "blur(8px)", duration: 0.2 }, t);
+      const popIn = (sel, t, d) => { gsap.set(sel, { opacity: 0, y: 30, scale: 0.96, filter: "blur(10px)" }); T.to(sel, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: d || 0.5, ease: "expo.out" }, t); };
+
+      // ===================== Frise des phases =====================
+      const line = $("frLine"), fr = $("frise");
+      const fx = [0, 1, 2, 3, 4, 5].map((i) => { const d = $("fd" + i); return posIn(d, fr).x + d.offsetWidth / 2; });
+      line.style.left = fx[0] + "px"; line.style.width = (fx[5] - fx[0]) + "px";
+      gsap.set("#frFill", { scaleX: 0 });
+      gsap.set("#fd4", { rotation: 45 });
+      const frStep = (i, t) => {
+        T.to("#frFill", { scaleX: (fx[i] - fx[0]) / (fx[5] - fx[0]), duration: 0.5, ease: "power2.inOut" }, t);
+        for (let j = 0; j <= 5; j++) {
+          const on = j === i, done = j < i;
+          T.to("#fd" + j, { backgroundColor: on || done ? "#003EC7" : "#FFFFFF", borderColor: on || done ? "#003EC7" : "#CBD1DB", scale: on ? 1.3 : 1, duration: 0.3 }, t + 0.2);
+          T.to("#fl" + j, { color: on ? "#14171C" : done ? "#69727F" : "#98A1B0", duration: 0.3 }, t + 0.2);
+        }
+      };
+      show("sF", 0, 26.8);
+      gsap.set("#frise", { opacity: 0, y: -30 });
+      T.to("#frise", { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 0.05);
+      T.to("#frise", { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, 26.4);
+
+      // fenêtres de visibilité des scènes (horloge de l'histoire)
+      show("sB", 0, 5.6);
+      show("sO", 5.1, 11.6);
+      show("sK", 11.3, 16.9);
+      show("sV", 16.6, 21.2);
+      show("sL", 20.6, 22.1);
+      show("sP", 21.8, 27.0);
+      show("sR", 26.5, 0);
+
+      // ===================== 1 · Boutique : du wireframe à Shopify =====================
+      frStep(0, 0.15);
+      const wB = $("worldB");
+      gsap.set(wB, cam(0.94, 960, 572));
+      gsap.set("#store", { opacity: 0, y: 40, filter: "blur(12px)" });
+      T.to("#store", { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 0.1);
+      document.querySelectorAll("#wire i").forEach((el, i) => { gsap.set(el, { opacity: 0, scaleX: 0.6, transformOrigin: "left center" }); T.to(el, { opacity: 1, scaleX: 1, duration: 0.35, ease: "expo.out" }, 0.3 + i * 0.06); });
+      gsap.set("#homeImg", { clipPath: "inset(0 0 100% 0)" });
+      T.to("#homeImg", { clipPath: "inset(0 0 0% 0)", duration: 0.9, ease: "power2.inOut" }, 1.05);
+      gsap.set("#storeChip", { opacity: 0, scale: 0.6 });
+      T.to("#storeChip", { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 1.75);
+      capIn("capB", 0.5);
+      T.to(wB, { ...cam(1.0, 960, 572), duration: 1.6, ease: "power2.inOut" }, 0.2);
+      // clic sur « Découvrir les parfums », puis la fiche du Coffret Signature Napoléon
+      const disc = centerIn($("hotDiscover"), wB);
+      const add = centerIn($("hotAdd"), wB); add.x -= 1500;
+      const cart = centerIn($("cartOver"), wB); cart.x -= 1500;
+      gsap.set("#curB", { x: 1300, y: 980, opacity: 0 });
+      gsap.set("#cartOver", { opacity: 0 });
+      T.to("#curB", { opacity: 1, duration: 0.15 }, 2.0);
+      T.to("#curB", { x: disc.x + 30, y: disc.y + 4, duration: 0.55, ease: "power3.inOut" }, 2.0);
+      click("#hotDiscover", 2.6);
+      T.to("#track", { x: -1500, duration: 0.55, ease: "power3.inOut" }, 2.75);
+      T.to(wB, { ...cam(1.2, add.x - 300, add.y - 100), duration: 0.6, ease: "power3.inOut" }, 2.75);
+      T.to("#storeChip", { opacity: 0, duration: 0.2 }, 2.75);
+      T.to("#curB", { x: add.x + 40, y: add.y + 4, duration: 0.6, ease: "power3.inOut" }, 3.0);
+      click("#hotAdd", 3.7);
+      gsap.set("#flyB", { x: add.x - 560, y: add.y - 40, opacity: 0, scale: 1 });
+      T.to("#flyB", { opacity: 1, duration: 0.08 }, 3.75);
+      T.to("#flyB", { x: cart.x - 75, duration: 0.55, ease: "power2.inOut" }, 3.77);
+      T.to("#flyB", { y: cart.y - 55, scale: 0.2, duration: 0.55, ease: "power3.in" }, 3.77);
+      T.to("#flyB", { opacity: 0, duration: 0.1 }, 4.28);
+      T.to("#cartOver", { opacity: 1, duration: 0.15 }, 4.3);
+      T.fromTo("#cartOver", { scale: 1.6 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, 4.3);
+      T.to("#curB", { opacity: 0, duration: 0.15 }, 4.4);
+      capOut("capB", 4.8);
+      T.to("#store", { opacity: 0, scale: 0.92, filter: "blur(14px)", duration: 0.5, ease: "power3.in" }, 5.0);
+
+      // ===================== 2 · Opérations : Odoo =====================
+      frStep(1, 5.0);
+      const wO = $("worldO");
+      gsap.set(wO, cam(1.0, 960, 560));
+      popIn("#odoo", 5.15, 0.6);
+      const rowH = 72;
+      const olds = document.querySelectorAll(".od-old");
+      olds.forEach((r, i) => gsap.set(r, { y: i * rowH }));
+      gsap.set(["#rN", "#rR"], { y: 0, opacity: 0 });
+      gsap.set("#lbl", { y: -340 });
+      // la commande Shopify arrive dans Odoo
+      const rN = centerIn($("rN"), wO);
+      gsap.set("#chipO", { x: 700, y: 980, opacity: 0, scale: 0.9 });
+      T.to("#chipO", { opacity: 1, scale: 1, duration: 0.3, ease: "expo.out" }, 5.4);
+      T.to("#chipO", { x: rN.x - 470, y: rN.y - 40, duration: 0.7, ease: "power3.inOut" }, 5.65);
+      T.to(wO, { ...cam(1.35, 620, 430), duration: 0.8, ease: "power3.inOut" }, 5.7);
+      olds.forEach((r, i) => T.to(r, { y: (i + 1) * rowH, duration: 0.45, ease: "expo.out" }, 6.3 + i * 0.03));
+      T.to("#rN", { opacity: 1, backgroundColor: "#EDF1FB", duration: 0.2 }, 6.4);
+      T.to("#chipO", { opacity: 0, duration: 0.15 }, 6.4);
+      capIn("capO", 5.9);
+      // l'étiquette transporteur s'imprime toute seule
+      const ship = centerIn($("shipCard"), wO);
+      T.to(wO, { ...cam(1.4, ship.x - 80, ship.y + 10), duration: 0.65, ease: "power3.inOut" }, 7.1);
+      swapText($("stN"), "Étiquette imprimée", 7.6);
+      T.to("#stN", { backgroundColor: "#FBEFDC", color: "#A8660B", duration: 0.2 }, 7.6);
+      T.to("#lbl", { y: 0, duration: 0.9, ease: "power1.inOut" }, 7.7);
+      // le stock se met à jour
+      const stock = centerIn($("stockCard"), wO);
+      T.to(wO, { ...cam(1.4, stock.x - 80, stock.y - 160), duration: 0.6, ease: "power3.inOut" }, 8.75);
+      swapText($("stockV"), "47", 9.25);
+      T.fromTo("#stockV", { scale: 1.35, color: "#003EC7" }, { scale: 1, color: "#14171C", duration: 0.5, ease: "expo.out", immediateRender: false }, 9.25);
+      swapText($("stN"), "Expédiée", 9.3);
+      T.to("#stN", { backgroundColor: "#E3F1ED", color: "#0E7B63", duration: 0.2 }, 9.3);
+      T.to("#rN", { backgroundColor: "rgba(237,241,251,0)", duration: 0.6 }, 9.3);
+      // un revendeur commande depuis son espace dédié
+      T.to(wO, { ...cam(1.0, 960, 560), duration: 0.6, ease: "power3.inOut" }, 9.55);
+      gsap.set("#b2b", { x: 660, y: 470, opacity: 0, scale: 0.9 });
+      T.to("#b2b", { opacity: 1, scale: 1, duration: 0.45, ease: "expo.out" }, 9.8);
+      const b2bBtn = { x: 660 + 280, y: 470 + 252 };
+      gsap.set("#curO", { x: 1600, y: 1000, opacity: 0 });
+      T.to("#curO", { opacity: 1, duration: 0.12 }, 9.95);
+      T.to("#curO", { x: b2bBtn.x + 20, y: b2bBtn.y, duration: 0.45, ease: "power3.inOut" }, 9.95);
+      click("#b2bBtn", 10.45);
+      T.to("#curO", { opacity: 0, duration: 0.15 }, 10.6);
+      const rR = centerIn($("rR"), wO);
+      T.to("#b2b", { x: rR.x - 280, y: rR.y - 60, scale: 0.4, opacity: 0, duration: 0.55, ease: "power3.in" }, 10.6);
+      T.to("#rN", { y: rowH, duration: 0.45, ease: "expo.out" }, 11.0);
+      olds.forEach((r, i) => T.to(r, { y: (i + 2) * rowH, duration: 0.45, ease: "expo.out" }, 11.0 + i * 0.03));
+      T.to("#rR", { opacity: 1, backgroundColor: "#EDF1FB", duration: 0.2 }, 11.05);
+      swapText($("capOt"), "Revendeurs et clients : un seul flux.", 10.6);
+      capOut("capO", 11.35);
+      T.to("#odoo", { opacity: 0, scale: 0.94, filter: "blur(12px)", duration: 0.4, ease: "power3.in" }, 11.35);
+
+      // ===================== 3 · Clients : Klaviyo + Gorgias =====================
+      frStep(2, 11.3);
+      const wK = $("worldK");
+      gsap.set(wK, cam(1.0, 960, 560));
+      popIn("#kl", 11.4, 0.55);
+            gsap.set(["#kr0", "#kr1", "#kr2"], { opacity: 0, x: -20 });
+      T.to(["#kr0", "#kr1", "#kr2"], { opacity: 1, x: 0, duration: 0.35, ease: "expo.out", stagger: 0.1 }, 11.7);
+      capIn("capK", 11.6);
+      T.to(wK, { ...cam(1.08, 830, 560), duration: 0.8, ease: "power3.inOut" }, 11.8);
+      // e-mail de bienvenue, puis relance de panier
+      gsap.set(["#mail1", "#mail2"], { opacity: 0, y: 40, scale: 0.9 });
+      gsap.set("#mtag1", { x: 1080, y: 186, opacity: 0 });
+      gsap.set("#mtag2", { x: 1080, y: 186, opacity: 0 });
+      T.to("#kr0", { backgroundColor: "#EDF1FB", duration: 0.2 }, 12.3);
+      T.to("#mail1", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "expo.out" }, 12.4);
+      T.to("#mtag1", { opacity: 1, duration: 0.2 }, 12.55);
+      T.to("#kr0", { backgroundColor: "rgba(237,241,251,0)", duration: 0.2 }, 13.05);
+      T.to(["#mail1", "#mtag1"], { opacity: 0, y: -20, duration: 0.25, ease: "power2.in" }, 13.05);
+      T.to("#kr1", { backgroundColor: "#EDF1FB", duration: 0.2 }, 13.1);
+      T.to("#mail2", { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "expo.out" }, 13.2);
+      T.to("#mtag2", { opacity: 1, duration: 0.2 }, 13.35);
+      // Gorgias répond seul au suivi et aux questions générales
+      T.to(["#mail2", "#mtag2"], { opacity: 0, y: -20, duration: 0.25, ease: "power2.in" }, 13.75);
+      T.to("#kr1", { backgroundColor: "rgba(237,241,251,0)", duration: 0.2 }, 13.75);
+      popIn("#gg", 13.85, 0.5);
+      const gg = centerIn($("gg"), wK);
+      T.to(wK, { ...cam(1.12, gg.x - 120, gg.y - 10), duration: 0.7, ease: "power3.inOut" }, 13.9);
+      ["#q1", "#q2"].forEach((s) => gsap.set(s, { opacity: 0, y: 16 }));
+      ["#a1", "#a2", "#t1", "#t2", "#d1", "#d2"].forEach((s) => gsap.set(s, { opacity: 0 }));
+      const chat = (q, d, a, tag, t) => {
+        T.to(q, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, t);
+        T.to(d, { opacity: 1, duration: 0.12 }, t + 0.35);
+        T.fromTo(d + " i", { y: 0 }, { y: -6, duration: 0.15, yoyo: true, repeat: 3, stagger: 0.08, immediateRender: false }, t + 0.38);
+        T.to(d, { opacity: 0, duration: 0.1 }, t + 0.8);
+        T.fromTo(a, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out", immediateRender: false }, t + 0.82);
+        T.to(tag, { opacity: 1, duration: 0.25 }, t + 1.0);
+      };
+      chat("#q1", "#d1", "#a1", "#t1", 14.05);
+      chat("#q2", "#d2", "#a2", "#t2", 14.95);
+      capOut("capK", 16.65);
+      T.to(["#kl", "#gg"], { opacity: 0, filter: "blur(12px)", duration: 0.4, ease: "power3.in" }, 16.65);
+
+      // ===================== 4 · Visibilité : SEO / GEO =====================
+      frStep(3, 16.6);
+      const wV = $("worldV");
+      gsap.set(wV, cam(1.0, 960, 560));
+      popIn("#serp", 16.75, 0.55);
+      popIn("#chk", 16.9, 0.55);
+      ["#tl0", "#tl1", "#tl2"].forEach((s, i) => popIn(s, 17.1 + i * 0.1, 0.45));
+      capIn("capV", 17.0);
+      // la recherche se tape
+      const q = "nichebloom napoléon", qo = { v: 0 };
+      T.to(qo, { v: q.length, duration: 0.6, ease: "none", onUpdate: () => { $("gq").textContent = q.slice(0, Math.round(qo.v)); } }, 17.2);
+      gsap.set("#gres", { opacity: 0 });
+      T.to("#gres", { opacity: 1, duration: 0.3 }, 17.85);
+      // chaque case se coche, le résultat Google se corrige
+      for (let i = 0; i < 6; i++) {
+        const t = 18.1 + i * 0.32;
+        T.to("#c" + i + " .box", { backgroundColor: "#003EC7", borderColor: "#003EC7", duration: 0.15 }, t);
+        T.to("#c" + i + " .box svg", { opacity: 1, duration: 0.15 }, t);
+        T.fromTo("#c" + i + " .box", { scale: 1.3 }, { scale: 1, duration: 0.3, ease: "expo.out", immediateRender: false }, t);
+        T.to("#c" + i, { color: "#14171C", duration: 0.2 }, t);
+      }
+      const swapG = (sel, txt, t) => { T.to(sel, { opacity: 0, duration: 0.12 }, t); swapText($(sel.slice(1)), txt, t + 0.12); T.to(sel, { opacity: 1, duration: 0.2 }, t + 0.13); };
+      swapG("#gTitle", "Coffret Signature Napoléon, eau de parfum pour chien 120 ml | Nichebloom", 18.2);
+      swapG("#gDesc", "Coffret Signature Napoléon : eau de parfum boisée cuirée pour chien, 120 ml, sans alcool, avec sa brosse aux poils naturels. Composée à Grasse.", 18.55);
+      T.fromTo("#gres", { backgroundColor: "rgba(237,241,251,1)" }, { backgroundColor: "rgba(237,241,251,0)", duration: 0.9, immediateRender: false }, 18.3);
+      T.to(wV, { ...cam(1.05, 960, 540), duration: 2.6, ease: "power1.inOut" }, 17.4);
+      capOut("capV", 20.45);
+      T.to(["#serp", "#chk", ".tools"], { opacity: 0, filter: "blur(12px)", duration: 0.35, ease: "power3.in" }, 20.45);
+
+      // ===================== Lancement : 23 octobre =====================
+      frStep(4, 20.6);
+      gsap.set("#launchBg", { clipPath: "circle(0% at 50% 50%)" });
+      T.to("#launchBg", { clipPath: "circle(80% at 50% 50%)", duration: 0.5, ease: "power3.inOut" }, 20.6);
+      gsap.set(["#lLogo", "#lK", "#lD"], { opacity: 0, y: 24, filter: "blur(10px)" });
+      T.to(["#lLogo", "#lK", "#lD"], { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out", stagger: 0.12 }, 20.85);
+      T.to("#launch", { opacity: 0, filter: "blur(10px)", duration: 0.3, ease: "power2.in" }, 21.75);
+
+      // ===================== 5 · Pilotage : le rapport du lundi =====================
+      frStep(5, 21.8);
+      const wP = $("worldP");
+      gsap.set(wP, cam(1.0, 960, 560));
+      popIn("#mailw", 21.85, 0.55);
+      gsap.set("#ibN", { opacity: 0 });
+      document.querySelectorAll(".ib-old").forEach((r, i) => gsap.set(r, { y: i * 112 }));
+      document.querySelectorAll(".ib-old").forEach((r, i) => T.to(r, { y: (i + 1) * 112, duration: 0.45, ease: "expo.out" }, 22.3 + i * 0.03));
+      T.fromTo("#ibN", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out", immediateRender: false }, 22.35);
+      gsap.set("#rep .rp", { opacity: 0, y: 14 });
+      const ibN = centerIn($("ibN"), wP);
+      gsap.set("#curP", { x: 900, y: 900, opacity: 0 });
+      T.to("#curP", { opacity: 1, duration: 0.12 }, 22.5);
+      T.to("#curP", { x: ibN.x + 40, y: ibN.y, duration: 0.45, ease: "power3.inOut" }, 22.5);
+      click("#ibN", 23.0);
+      T.to("#ibDot", { opacity: 0, duration: 0.15 }, 23.05);
+      T.to("#ibN", { backgroundColor: "#EDF1FB", duration: 0.2 }, 23.05);
+      T.to("#curP", { opacity: 0, duration: 0.15 }, 23.2);
+      T.to("#rep .rp", { opacity: 1, y: 0, duration: 0.35, ease: "expo.out", stagger: 0.07 }, 23.1);
+      capIn("capP", 22.7);
+      // la caméra lit le rapport : chiffres (floutés), synthèse, actions
+      const kp = centerIn($("kp1"), wP), rcA = centerIn($("rcA"), wP), rcB = centerIn($("rcB"), wP);
+      T.to(wP, { ...cam(1.25, kp.x, kp.y + 80), duration: 0.65, ease: "power3.inOut" }, 23.45);
+      gsap.set(["#br0", "#br1", "#br2"], { scaleX: 0 });
+      T.to(wP, { ...cam(1.3, rcA.x, rcA.y - 30), duration: 0.6, ease: "power3.inOut" }, 24.3);
+      T.to(["#br0", "#br1", "#br2"], { scaleX: 1, duration: 0.6, ease: "power2.out", stagger: 0.1 }, 24.6);
+      T.to(wP, { ...cam(1.3, rcB.x, rcB.y - 30), duration: 0.6, ease: "power3.inOut" }, 25.15);
+      gsap.set(["#td0", "#td1", "#td2"], { opacity: 0.25 });
+      T.to(["#td0", "#td1", "#td2"], { opacity: 1, duration: 0.25, stagger: 0.15 }, 25.4);
+      capOut("capP", 26.6);
+
+      // ===================== 6 · Résultat =====================
+      gsap.set("#flood", { clipPath: "circle(0% at 50% 50%)" });
+      T.to("#flood", { clipPath: "circle(80% at 50% 50%)", duration: 0.55, ease: "power3.inOut" }, 26.5);
+      gsap.set("#big .r1", { opacity: 0, filter: "blur(14px)", y: 30 });
+      T.to("#big .r1", { opacity: 1, filter: "blur(0px)", y: 0, duration: 0.45, ease: "expo.out", stagger: 0.12 }, 26.9);
+      gsap.set(".src", { opacity: 0, y: 16 });
+      T.to(".src", { opacity: 1, y: 0, duration: 0.4, ease: "expo.out", stagger: 0.14 }, 27.4);
+      gsap.set("#toolsBox", { opacity: 0, y: 40 });
+      T.to("#toolsBox", { opacity: 1, y: 0, duration: 0.55, ease: "expo.out" }, 27.15);
+      const nObj = { v: 0 };
+      T.to(nObj, { v: 10, duration: 0.8, ease: "power2.out", onUpdate: () => { $("toolsN").textContent = Math.round(nObj.v); } }, 27.25);
+      gsap.set(".tt", { opacity: 0, scale: 0.6 });
+      T.to(".tt", { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)", stagger: 0.07 }, 27.4);
+      gsap.set("#endLogos", { opacity: 0 });
+      T.to("#endLogos", { opacity: 1, duration: 0.5, ease: "power2.out" }, 28.2);
+      T.to({}, { duration: 1.2 }, 28.7); // tenue finale
+
+      // ===================== Horloge du film : intro, puis l'histoire ralentie =====================
+      const INTRO = 4.6, SLOW = 1.55;
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(["#iTag", "#iNb", "#iX", "#iTulco"], { opacity: 0, filter: "blur(12px)" });
+      gsap.set("#iNb", { x: -40 });
+      gsap.set("#iTulco", { x: 40 });
+      tl.to("#iTag", { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 0.2);
+      tl.to("#iNb", { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 0.4);
+      tl.to("#iX", { opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power2.out" }, 0.75);
+      tl.to("#iTulco", { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 0.9);
+      words("#iSub", 1.3, 0.09, tl);
+      tl.to(["#iTag", "#iNb", "#iX", "#iTulco", "#iSub"], { opacity: 0, filter: "blur(12px)", duration: 0.35, ease: "power2.in", stagger: 0.04 }, 4.1);
+      tl.to("#intro-bg", { opacity: 0, duration: 0.4, ease: "power2.inOut" }, 4.35);
+      tl.to(story, { time: story.duration(), duration: story.duration() * SLOW, ease: "none" }, INTRO);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
