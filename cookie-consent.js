@@ -19,6 +19,8 @@
       label: 'Gestion des cookies',
       title: 'Cookies de mesure d’audience',
       text: 'Avec votre accord, ce site utilise Google Tag Manager et des cookies de mesure d’audience pour comprendre comment il est consulté. Rien n’est déposé si vous refusez. Vous pouvez changer d’avis à tout moment via « Gestion des cookies » en bas de page.',
+      policy: 'En savoir plus',
+      policyUrl: '/confidentialite.html',
       refuse: 'Tout refuser',
       accept: 'Tout accepter'
     },
@@ -26,6 +28,8 @@
       label: 'Cookie settings',
       title: 'Audience measurement cookies',
       text: 'With your consent, this site uses Google Tag Manager and audience measurement cookies to understand how it is used. Nothing is stored if you decline. You can change your mind at any time via “Cookie settings” at the bottom of the page.',
+      policy: 'Learn more',
+      policyUrl: '/en/privacy.html',
       refuse: 'Decline all',
       accept: 'Accept all'
     }
@@ -116,6 +120,7 @@
       '.tulco-cc__title{margin:0 0 6px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:11px;' +
       'font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:#003EC7}' +
       '.tulco-cc__p{margin:0;font-size:14px;line-height:1.55;color:#353B45}' +
+      '.tulco-cc__link{color:#003EC7;text-decoration:underline;text-underline-offset:3px}' +
       '.tulco-cc__btns{display:flex;gap:12px;flex:0 0 auto;flex-wrap:wrap}' +
       '.tulco-cc__btn{appearance:none;cursor:pointer;font:inherit;font-size:14px;font-weight:600;' +
       'min-width:150px;padding:12px 20px;border-radius:2px;border:1px solid transparent;color:#fff;' +
@@ -151,7 +156,13 @@
         '</div>' +
       '</div>';
     banner.querySelector('.tulco-cc__title').textContent = T.title;
-    banner.querySelector('.tulco-cc__p').textContent = T.text;
+    var para = banner.querySelector('.tulco-cc__p');
+    para.textContent = T.text + ' ';
+    var more = document.createElement('a');
+    more.href = T.policyUrl;
+    more.textContent = T.policy;
+    more.className = 'tulco-cc__link';
+    para.appendChild(more);
     banner.querySelector('[data-cc="denied"]').textContent = T.refuse;
     banner.querySelector('[data-cc="granted"]').textContent = T.accept;
     banner.addEventListener('click', function (e) {
