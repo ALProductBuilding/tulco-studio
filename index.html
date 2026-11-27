@@ -461,7 +461,7 @@
       <div class="case-rail" id="caseRail">
         <article class="case-card" data-reveal="">
           <div class="case-media">
-            <video id="muxiVideo" class="case-video" src="assets/video/studio-muxi-fr.mp4" poster="assets/video/studio-muxi-fr.jpg" muted="" loop="" playsinline="" preload="none" aria-label="Vidéo : les fichiers Excel de Studio Muxi remplacés par une boutique Shopify et un tableau de bord"></video>
+            <video id="muxiVideo" class="case-video" src="assets/video/studio-muxi-fr.mp4" poster="assets/video/studio-muxi-fr.jpg" data-dur="50.5" muted="" loop="" playsinline="" preload="none" aria-label="Vidéo : les fichiers Excel de Studio Muxi remplacés par une boutique Shopify et un tableau de bord"></video>
           </div>
           <div class="case-body">
             <div class="case-intro">
@@ -478,19 +478,23 @@
           </div>
         </article>
         <article class="case-card" data-reveal="">
-          <div class="case-media case-media-static">
-            <div class="case-static-metrics">
-              <img src="assets/shopify-logo-mono.svg" alt="Shopify" class="case-shopify" width="446" height="128">
-              <span class="proof-label">+ ERP, emailing, vente revendeurs</span>
-            </div>
+          <div class="case-media">
+            <video id="nicheVideo" class="case-video" src="assets/video/nichebloom-fr.mp4" poster="assets/video/nichebloom-fr.jpg" data-dur="56.5" muted="" loop="" playsinline="" preload="none" aria-label="Vidéo : la boutique Shopify de Nichebloom reliée à l'ERP Odoo, à l'emailing, au service client et à un rapport hebdomadaire"></video>
           </div>
           <div class="case-body">
             <div class="case-intro">
-              <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                <span class="proof-name">Nichebloom · marque en lancement</span>
-              </div>
+              <span class="proof-name">Nichebloom · marque en lancement</span>
               <p class="case-desc">J'ai mis en place le site Shopify, l'ERP, l'emailing et les process de vente revendeurs, avec l'IA sur les tâches récurrentes.</p>
+              <div class="proof-metric"><span class="proof-value">0</span><span class="proof-label">ressaisie de commande</span></div>
             </div>
+            <ol class="case-steps" id="nicheSteps">
+              <li><button type="button" data-t="0"><span class="case-step-k">01 · Boutique</span><span class="case-step-t">Du wireframe à la boutique Shopify, jusqu'au panier.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="12.1"><span class="case-step-k">02 · Opérations</span><span class="case-step-t">Commandes, étiquettes transporteurs et stock dans l'ERP Odoo, revendeurs compris.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="25"><span class="case-step-k">03 · Clients</span><span class="case-step-t">Emailing Klaviyo et service client Gorgias qui répondent seuls.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="33.1"><span class="case-step-k">04 · Visibilité</span><span class="case-step-t">SEO et GEO : pages revues, robots.txt, données structurées, Journal.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="41.05"><span class="case-step-k">05 · Pilotage</span><span class="case-step-t">Un rapport chaque lundi pour savoir quoi corriger.</span><i class="case-step-bar"><b></b></i></button></li>
+              <li><button type="button" data-t="50.05"><span class="case-step-k">06 · Résultat</span><span class="case-step-t">Une petite équipe, l'efficacité d'une grande.</span><i class="case-step-bar"><b></b></i></button></li>
+            </ol>
           </div>
         </article>
       </div>
@@ -743,43 +747,45 @@ class Component extends DCLogic {
     if (next) next.addEventListener("click", () => go(current() + 1));
     rail.addEventListener("scroll", sync, { passive: true });
     sync();
-    const video = document.getElementById("muxiVideo");
-    const steps = Array.from(document.querySelectorAll("#muxiSteps li"));
-    if (!video || !steps.length) return;
-    video.muted = true;
-    video.playsInline = true;
-    const starts = steps.map((li) => Number(li.querySelector("button").dataset.t));
-    const paint = () => {
-      const t = video.currentTime, d = video.duration || 50.5;
-      steps.forEach((li, i) => {
-        const a = starts[i], b = i + 1 < starts.length ? starts[i + 1] : d;
-        const on = t >= a && t < b;
-        li.classList.toggle("on", on);
-        li.querySelector("b").style.transform = "scaleX(" + (on ? Math.min(1, (t - a) / (b - a)) : 0) + ")";
-      });
-    };
-    video.addEventListener("timeupdate", paint);
-    steps.forEach((li, i) => li.querySelector("button").addEventListener("click", () => {
-      if (video.preload === "none") video.preload = "auto";
-      video.currentTime = starts[i];
-      paint();
-      const p = video.play();
-      if (p && p.catch) p.catch(() => {});
-    }));
-    if (reduce) { video.controls = true; return; }
-    // Lecture seulement quand la carte est bien visible, pause sinon.
-    if ("IntersectionObserver" in window) {
-      this._caseObs = new IntersectionObserver((entries) => entries.forEach((e) => {
-        if (e.isIntersecting && e.intersectionRatio >= 0.6) {
-          video.preload = "auto";
-          const p = video.play();
-          if (p && p.catch) p.catch(() => { video.controls = true; });
-        } else {
-          video.pause();
-        }
-      }), { threshold: [0, 0.6, 1] });
-      this._caseObs.observe(video);
-    }
+    // Une vidéo par carte : étapes synchronisées, lecture quand la carte est visible.
+    const obs = !reduce && "IntersectionObserver" in window ? new IntersectionObserver((entries) => entries.forEach((e) => {
+      const video = e.target;
+      if (e.isIntersecting && e.intersectionRatio >= 0.6) {
+        video.preload = "auto";
+        const p = video.play();
+        if (p && p.catch) p.catch(() => { video.controls = true; });
+      } else {
+        video.pause();
+      }
+    }), { threshold: [0, 0.6, 1] }) : null;
+    this._caseObs = obs;
+    cards.forEach((card) => {
+      const video = card.querySelector("video.case-video");
+      const steps = Array.from(card.querySelectorAll(".case-steps li"));
+      if (!video || !steps.length) return;
+      video.muted = true;
+      video.playsInline = true;
+      const starts = steps.map((li) => Number(li.querySelector("button").dataset.t));
+      const paint = () => {
+        const t = video.currentTime, d = video.duration || Number(video.dataset.dur) || 50.5;
+        steps.forEach((li, i) => {
+          const a = starts[i], b = i + 1 < starts.length ? starts[i + 1] : d;
+          const on = t >= a && t < b;
+          li.classList.toggle("on", on);
+          li.querySelector("b").style.transform = "scaleX(" + (on ? Math.min(1, (t - a) / (b - a)) : 0) + ")";
+        });
+      };
+      video.addEventListener("timeupdate", paint);
+      steps.forEach((li, i) => li.querySelector("button").addEventListener("click", () => {
+        if (video.preload === "none") video.preload = "auto";
+        video.currentTime = starts[i];
+        paint();
+        const p = video.play();
+        if (p && p.catch) p.catch(() => {});
+      }));
+      if (reduce) { video.controls = true; return; }
+      if (obs) obs.observe(video);
+    });
   }
   componentWillUnmount() {
     if (this._caseObs) this._caseObs.disconnect();
